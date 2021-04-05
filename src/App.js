@@ -13,6 +13,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { TabBar } from './components/Navigation';
 
 import Search from './screens/Search';
+import Results from './screens/Results';
 
 import { InputField } from './components/InputField';
 import { Radio } from './components/Radio';
@@ -45,15 +46,6 @@ function App() {
         </BrowserRouter>
       </PersistGate>
     </Provider>
-  );
-}
-
-
-function Results() {
-  return (
-    <React.Fragment>
-      <h1>Results</h1>
-    </React.Fragment>
   );
 }
 

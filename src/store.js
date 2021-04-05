@@ -39,6 +39,18 @@ function search(state = {
   }
 };
 
+function results(state = [], action) {
+  switch (action.type)
+  {
+    case 'clear':
+      return [];
+    case 'set':
+      return [...state, action.payload];
+    default:
+      return state;
+  }
+}
+
 function history(state = [], action) {
   return state;
 }
@@ -53,6 +65,7 @@ function basic(state = {}, action) {
 
 const reducer = combineReducers({
   search,
+  results,
   history,
   settings,
   basic
