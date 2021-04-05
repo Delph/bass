@@ -57,7 +57,7 @@ function EffectItem({effect}) {
 }
 
 function Search(props) {
-  const { search, update, update_check} = props;
+  const { search, update, update_check, set } = props;
   const vr = [
     {value: 9, label: '9★ (Nekoht)'},
     {value: 8, label: '8★ (Nekoht)'},
@@ -105,7 +105,7 @@ function Search(props) {
   const [worker, setWorker] = useState(null);
   useEffect(() => {
     const worker = new Worker('./worker.js');
-    worker.onmessage = console.log;
+    worker.onmessage = set;
     worker.postMessage({action: 'skills', payload: skills});
     worker.postMessage({action: 'decorations', payload: decorations});
     worker.postMessage({action: 'armour', payload: {heads, chests, arms, waists, legs}});
@@ -157,6 +157,7 @@ const mapDispatchToProps = dispatch => {
     return {
         update: e => dispatch({type: e.target.name, payload: e.target.value}),
         update_check: e => dispatch({type: e.target.name, payload: e.target.checked}),
+        set: message => dispatch({type: 'set', payload: message.data.build})
     };
 };
 
