@@ -61,15 +61,15 @@ class Context
    */
   * generate()
   {
-    for (const head of heads)
+    for (const head of this.heads)
     {
-      for (const chest of chests)
+      for (const chest of this.chests)
       {
-        for (const arm of arms)
+        for (const arm of this.arms)
         {
-          for (const waist of waists)
+          for (const waist of this.waists)
           {
-            for (const leg of legs)
+            for (const leg of this.legs)
             {
               yield [head, chest, arm, waist, leg];
             }
