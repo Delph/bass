@@ -1,0 +1,44 @@
+.radio
+{
+/*
+  appearance: none;
+  width: 30px;
+  height: 30px;
+*/
+}
+
+.radio:before
+{
+/*
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+
+  cursor: pointer;
+  user-select: none;
+
+  background-color: #ffffff;
+  border: 1px solid #BCE0FD;
+  border-radius: 15px;
+  box-sizing: border-box;
+
+  transition: 200ms border-color, background-color;
+*/
+}
+
+.radio:checked:before
+{
+/*
+  background-color: #389fed;
+  background-size: contain;
+*/
+}
+
+.radio:focus
+{
+/*
+  border-color: #389FED;
+  outline: none;
+*/
+}

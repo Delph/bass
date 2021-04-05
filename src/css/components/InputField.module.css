@@ -1,0 +1,52 @@
+.input
+{
+/*
+  width: 300px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #BCE0FD;
+  opacity: 1;
+  box-sizing: border-box;
+
+  padding-left: 12px;
+
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  color: #389FED;
+*/
+}
+
+.input::placeholder
+{
+/*
+  color: #BCE0FD;
+*/
+}
+
+.input:focus
+{
+/*
+  border-color: #389FED;
+  outline: none;
+*/
+}
+
+
+/* remove spinner buttons on input numbers */
+/* Chrome, Safari, Edge, Opera */
+/*
+.input[type=number]::-webkit-outer-spin-button,
+.input[type=number]::-webkit-inner-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+*/
+
+/* Firefox */
+/*
+.input[type=number]
+{
+  -moz-appearance: textfield;
+}
+ */

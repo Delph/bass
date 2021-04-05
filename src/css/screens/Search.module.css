@@ -1,0 +1,11 @@
+.container
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.row:nth-child(even)
+{
+  background-color: #eee;
+}
