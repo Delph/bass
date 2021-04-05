@@ -75,6 +75,7 @@ const config = {
   key: 'bass',
   storage: storage,
   stateReconciler: autoMergeLevel1,
+  backlist: ['results']
 };
 
 const pReducer = persistReducer(config, reducer);
