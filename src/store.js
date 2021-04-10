@@ -39,13 +39,32 @@ function search(state = {
   }
 };
 
-function results(state = [], action) {
+function results(state = {pagination: {offset: 0, count: 100}, sets: []}, action) {
   switch (action.type)
   {
+    case 'next':
+    {
+      const offset = state.pagination.offset + state.pagination.count;
+      console.log(offset);
+      if (offset > state.sets.length)
+        return state;
+      return {...state, pagination: {...state.pagination, offset}}
+    }
+    case 'prev':
+    {
+      const offset = state.pagination.offset - state.pagination.count;
+      console.log(offset);
+      if (offset < 0)
+        return state;
+      return {...state, pagination: {...state.pagination, offset}}
+    }
     case 'clear':
-      return [];
+      return {pagination: {...state.pagination, offset: 0}, sets: []};
     case 'set':
-      return [...state, action.payload];
+      return {...state, sets: [...state.sets, action.payload]};
+    case 'sets':
+      console.log(`Received ${action.payload.length} - ${state.sets.length}`);
+      return {...state, sets: [...state.sets, ...action.payload]};
     default:
       return state;
   }
@@ -75,7 +94,7 @@ const config = {
   key: 'bass',
   storage: storage,
   stateReconciler: autoMergeLevel1,
-  backlist: ['results']
+  blacklist: ['results']
 };
 
 const pReducer = persistReducer(config, reducer);
