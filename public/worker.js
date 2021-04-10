@@ -21,6 +21,7 @@ class Context
     this.setup_end = 0;
     this.loop_start = 0;
     this.loop_end = 0;
+    this.num_combinations = 0;
   }
 
   /**
@@ -56,6 +57,36 @@ class Context
     return items;
   }
 
+  gear_is_better(a, b)
+  {
+    let a_points = 0;
+    let b_points = 0;
+    for (const effect of this.query.effects)
+    {
+      a_points += a.skills.filter(skill => skill.skill === effect.skill).reduce((a, c) => a + c.points, 0);
+      b_points += b.skills.filter(skill => skill.skill === effect.skill).reduce((a, c) => a + c.points, 0);
+    }
+    if (a.torso_inc)
+      a_points += 5;
+    if (b.torso_inc)
+      b_points += 5;
+
+    // whichever contributes more
+    if (a_points > b_points)
+      return -1;
+    if (b_points > a_points)
+      return 1;
+
+    // they comtribute the same, whichever has higher defence
+    if (a.defence > b.defence)
+      return -1;
+    if (b.defence > a.defence)
+      return 1;
+
+    // whichever is least rare
+    return a.rarity - b.rarity;
+  }
+
   /**
    *  set generator
    */
@@ -83,11 +114,12 @@ class Context
   {
     this.setup_start = new Date();
 
-    this.heads = this.filter_gear(heads);
-    this.chests = this.filter_gear(chests);
-    this.arms = this.filter_gear(arms);
-    this.waists = this.filter_gear(waists);
-    this.legs = this.filter_gear(legs);
+    this.heads = this.filter_gear(heads).sort((a, b) => this.gear_is_better(a, b)).slice(0, 10);
+    this.chests = this.filter_gear(chests).sort((a, b) => this.gear_is_better(a, b)).slice(0, 10);
+    this.arms = this.filter_gear(arms).sort((a, b) => this.gear_is_better(a, b)).slice(0, 10);
+    this.waists = this.filter_gear(waists).sort((a, b) => this.gear_is_better(a, b)).slice(0, 10);
+    this.legs = this.filter_gear(legs).sort((a, b) => this.gear_is_better(a, b)).slice(0, 10);
+    this.num_combinations = this.heads.length * this.chests.length * this.arms.length * this.waists.length * this.legs.length;
 
     this.decorations = decorations.filter(d => d.hr <= this.query.hr && d.elder <= this.query.vr, this);
 
@@ -126,7 +158,7 @@ class Context
     let best = null;
     for (const decoration of decorations)
     {
-      if (decoration.slots > slots)
+      if ((slots[decoration.slots] ?? 0) === 0)
         continue;
       best = decoration;
       if (decoration.points * (torso_inc + 1) >= points)
@@ -135,42 +167,106 @@ class Context
     return best;
   }
 
+  decorate(combination, skills, need)
+  {
+    // calculate how much torso inc we've got
+    // no need to check if we're allowed, that's already been done
+    const torso_inc = combination.filter(g => g.torso_inc).length;
+    let chest_slots = {[combination[1].slots]: 1};
+
+    // calculate slots, don't include chest though (torso inc)
+    const slots = {1: 0, 2: 0, 3: 0};
+    ++slots[combination[0].slots];
+    ++slots[combination[2].slots];
+    ++slots[combination[3].slots];
+    ++slots[combination[4].slots];
+    ++slots[this.query.slots];
+
+
+    const build = {combination, chest_decorations: [], decorations: []};
+    for (let {name, points} of need)
+    {
+      const decorations = this.decorations.filter(d => d.skill.skill === name).sort((a, b) => a.skill.points - b.skill.points);
+
+      while (points > 0)
+      {
+        // find the best chest decoration
+        const chest_decoration = this.best_decoration(decorations, chest_slots, torso_inc, points);
+        // find the best other decoration
+        const other_decoration = this.best_decoration(decorations, slots, 0, points);
+        if (other_decoration === null)
+          break;
+
+        const chest_density = chest_decoration ? (chest_decoration.skill.points * (torso_inc + 1) / chest_decoration.slots) : -1;
+        const other_density = other_decoration.skill.points / other_decoration.slots;
+        const is_chest = chest_density >= other_density;
+
+        const decoration = is_chest ? chest_decoration : other_decoration;
+
+        // we have our decoration, gem it
+        if (is_chest)
+        {
+          build.chest_decorations.push(decoration);
+          --chest_slots[decoration.slots];
+        }
+        else
+        {
+          build.decorations.push(decoration);
+          --slots[decoration.slots];
+        }
+        points -= decoration.skill.points * (is_chest ? (torso_inc + 1) : 1);
+
+        if (decoration.penalty !== undefined)
+        {
+          if (skills[decoration.penalty.skill] === undefined)
+            skills[decoration.penalty.skill] = 0;
+          skills[decoration.penalty.skill] += decoration.penalty.points;
+        }
+      }
+      need.find(e => e.name === name).points = points;
+    }
+    // attempt to fix bad skills if we have them
+
+    return build;
+  }
+
+  decorate2(combination, skills, need)
+  {
+    // calculate how much torso inc we've got
+    // no need to check if we're allowed, that's already been done
+    const torso_inc = combination.filter(g => g.torso_inc).length;
+    let chest_slots = {[combination[1].slots]: 1};
+
+    // calculate slots, don't include chest though (torso inc)
+    const slots = {1: 0, 2: 0, 3: 0};
+    ++slots[combination[0].slots];
+    ++slots[combination[2].slots];
+    ++slots[combination[3].slots];
+    ++slots[combination[4].slots];
+    ++slots[this.query.slots];
+
+    // determine what decorations we can use
+    // determine what slots we have available
+    // add decorations
+
+    // check for bad skills and fix
+  }
+
   loop()
   {
     this.loop_start = new Date();
 
+    let batch = [];
     while (this.run)
     {
       const {done, value} = this.combinations.next();
       const combination = value;
-
       // we're done, stop
       if (done)
       {
         this.run = false;
         break;
       }
-
-      // calculate how much torso inc we've got
-      // no need to check if we're allowed, that's already been done
-      const torso_inc = combination.filter(g => g.torso_inc).length;
-      let chest_slots = combination[1].slots;
-
-      // calculate slots, don't include chest though (torso inc)
-      const slots = {1: 0, 2: 0, 3: 0};
-      ++slots[combination[0].slots];
-      ++slots[combination[2].slots];
-      ++slots[combination[3].slots];
-      ++slots[combination[4].slots];
-      ++slots[this.query.slots];
-      const slots_available = () => {
-        for (let i = 3; i > 0; --i)
-        {
-          if (slots[i] > 0)
-            return i;
-        }
-        return 0;
-      };
 
       // calculate what we got
       const skills = {};
@@ -194,55 +290,22 @@ class Context
       // sort so we gem the most needed first
       need.sort((a, b) => b.points - a.points);
 
-      const build = {combination, chest_decorations: [], decorations: []};
-      for (let {name, points} of need)
-      {
-        const decorations = this.decorations.filter(d => d.skill.skill === name).sort((a, b) => a.skill.points - b.skill.points);
+      const build = this.decorate(combination, skills, need);
 
-        while (points > 0)
-        {
-          // find the best chest decoration
-          const chest_decoration = this.best_decoration(decorations, {[chest_slots]: 1}, torso_inc, points);
-          // find the best other decoration
-          const other_decoration = this.best_decoration(decorations, slots, 0, points);
-          if (other_decoration === null)
-            break;
-
-          const chest_density = chest_decoration ? (chest_decoration.skill.points * (torso_inc + 1) / chest_decoration.slots) : -1;
-          const other_density = other_decoration.skill.points / other_decoration.slots;
-          const is_chest = chest_density >= other_density;
-
-          const decoration = is_chest ? chest_decoration : other_decoration;
-
-          // we have our decoration, gem it
-          if (is_chest)
-          {
-            build.chest_decorations.push(decoration);
-            chest_slots -= decoration.slots;
-          }
-          else
-          {
-            build.decorations.push(decoration);
-            --slots[decoration.slots];
-          }
-          points -= decoration.skill.points * (is_chest ? (torso_inc + 1) : 1);
-
-          if (decoration.penalty !== undefined)
-          {
-            if (skills[decoration.penalty.skill] === undefined)
-              skills[decoration.penalty.skill] = 0;
-            skills[decoration.penalty.skill] += decoration.penalty.points;
-          }
-        }
-      }
-
-      console.log(build);
-
-      // attempt to fix bad skills if we have them
+      // not a valid set
+      if (need.map(e => e.points).some(p => p > 0))
+        continue;
 
       // send to main thread
-      this.run = false;
+      batch.push(build);
+      if (batch.length === 10)
+      {
+        postMessage({type: 'sets', batch});
+        batch = [];
+      }
     }
+    postMessage({type: 'sets', batch});
+    this.run = false;
     this.loop_end = new Date();
     // send to main thread
 
