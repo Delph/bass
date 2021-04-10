@@ -1,11 +1,94 @@
 .container
 {
   display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.top
+{
+  flex-shrink: 0;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.settings
+{
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.section
+{
+  display: flex;
+  flex-direction: row;
+}
+
+
+/* effects */
+.effectitems
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-right: 10px;
+}
+
+.effectitem
+{
+  width: calc(100% / 3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.effectitemremove
+{
+  cursor: pointer;
+}
+
+
+/* table */
+.tableContainer
+{
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+.table
+{
+  width: 100%;
+}
+
+.head
+{
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.body
+{
+  overflow-y: auto;
+  user-select: none;
+}
+
+.cell
+{
+  cursor: pointer;
 }
 
 .row:nth-child(even)
 {
   background-color: #eee;
 }
+
