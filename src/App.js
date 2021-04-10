@@ -18,6 +18,7 @@ import Results from './screens/Results';
 import { InputField } from './components/InputField';
 import { Radio } from './components/Radio';
 import { Select } from './components/Select';
+import { Label } from './components/Label';
 
 import style from './css/App.module.css';
 
@@ -85,11 +86,15 @@ function Settings() {
   return (
     <React.Fragment>
       <h1>Settings</h1>
-      <Select options={games}/>
+      <Select options={games} disabled={true}/>
 
-      <Radio name={'defence_display'} value={'raw'}/>
-      <Radio name={'defence_display'} value={'effective'}/>
-      <InputField type={'number'} min={1} step={1} max={8}/>
+      <Label text={'Defence display'}>
+        <Radio name={'defence_display'} value={'raw'}/>
+        <Radio name={'defence_display'} value={'effective'}/>
+      </Label>
+      <Label text={'Workers'}>
+        <InputField type={'number'} min={1} step={1} max={8}/>
+      </Label>
       <Link to={'/about'}>About</Link>
 
     </React.Fragment>
