@@ -29,6 +29,7 @@ function Body(props) {
       <Route path={'/'} exact component={Search}/>
       <Route path={'/results'} component={Results}/>
       <Route path={'/sets'} component={Sets}/>
+      <Route path={'/builder'} component={Builder}/>
       <Route path={'/History'} component={History}/>
       <Route path={'/settings'} component={Settings}/>
       <Route path={'/about'} component={About}/>
@@ -53,6 +54,14 @@ function Sets() {
   return (
     <React.Fragment>
       <h1>Sets</h1>
+    </React.Fragment>
+  );
+}
+
+function Builder() {
+  return (
+    <React.Fragment>
+      <h1>Builder</h1>
     </React.Fragment>
   );
 }
