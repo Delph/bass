@@ -296,6 +296,24 @@ class Context
       if (need.map(e => e.points).some(p => p > 0))
         continue;
 
+      // calculate other set info
+      build.raw = {};
+      build.raw.raw = combination.map(p => p.defence).reduce((a, c) => a + c, 0);
+      build.raw.fire = combination.map(p => p.res.fire).reduce((a, c) => a + c, 0);
+      build.raw.water = combination.map(p => p.res.water).reduce((a, c) => a + c, 0);
+      build.raw.thunder = combination.map(p => p.res.thunder).reduce((a, c) => a + c, 0);
+      build.raw.ice = combination.map(p => p.res.ice).reduce((a, c) => a + c, 0);
+      build.raw.dragon = combination.map(p => p.res.dragon).reduce((a, c) => a + c, 0);
+
+      build.eff = {};
+      build.eff.raw = Math.floor((1 / (160 / (build.raw.raw + 160))) * build.raw.raw);
+      build.eff.fire = Math.floor((1 / ((160 * (1 - build.raw.fire / 100)) / (build.raw.raw + 160))) * build.raw.raw);
+      build.eff.water = Math.floor((1 / ((160 * (1 - build.raw.water / 100)) / (build.raw.raw + 160))) * build.raw.raw);
+      build.eff.thunder = Math.floor((1 / ((160 * (1 - build.raw.thunder / 100)) / (build.raw.raw + 160))) * build.raw.raw);
+      build.eff.ice = Math.floor((1 / ((160 * (1 - build.raw.ice / 100)) / (build.raw.raw + 160))) * build.raw.raw);
+      build.eff.dragon = Math.floor((1 / ((160 * (1 - build.raw.dragon / 100)) / (build.raw.raw + 160))) * build.raw.raw);
+
+
       // send to main thread
       batch.push(build);
       if (batch.length === 10)

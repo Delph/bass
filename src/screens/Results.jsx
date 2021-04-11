@@ -4,23 +4,23 @@ import { connect } from 'react-redux';
 
 import { number_format } from '../util';
 
+import fire from '../img/elem/fire.png';
+import water from '../img/elem/water.png';
+import thunder from '../img/elem/thunder.png';
+import ice from '../img/elem/ice.png';
+import dragon from '../img/elem/dragon.png';
 
 function Row({set}) {
   const torso_inc = set.combination.filter(g => g.torso_inc).length;
-  const defence = set.combination.map(p => p.defence).reduce((a, c) => a + c, 0);
-  const fire = set.combination.map(p => p.res.fire).reduce((a, c) => a + c, 0);
-  const water = set.combination.map(p => p.res.water).reduce((a, c) => a + c, 0);
-  const thunder = set.combination.map(p => p.res.thunder).reduce((a, c) => a + c, 0);
-  const ice = set.combination.map(p => p.res.ice).reduce((a, c) => a + c, 0);
-  const dragon = set.combination.map(p => p.res.dragon).reduce((a, c) => a + c, 0);
+
   return (
     <tr>
-      <td>{defence}</td>
-      <td>{fire}</td>
-      <td>{water}</td>
-      <td>{thunder}</td>
-      <td>{ice}</td>
-      <td>{dragon}</td>
+      <td title={`Effective ${set.eff.raw}`}>{number_format(set.raw.raw)}</td>
+      <td title={`Effective ${set.eff.fire}`}>{number_format(set.raw.fire)}</td>
+      <td title={`Effective ${set.eff.water}`}>{number_format(set.raw.water)}</td>
+      <td title={`Effective ${set.eff.thunder}`}>{number_format(set.raw.thunder)}</td>
+      <td title={`Effective ${set.eff.ice}`}>{number_format(set.raw.ice)}</td>
+      <td title={`Effective ${set.eff.dragon}`}>{number_format(set.raw.dragon)}</td>
       <td>{set.combination[0].name}</td>
       <td>{set.combination[1].name}</td>
       <td>{set.combination[2].name}</td>
@@ -47,11 +47,11 @@ function Results(props) {
         <thead>
           <tr>
             <th>Defence</th>
-            <th>Fire</th>
-            <th>Water</th>
-            <th>Thunder</th>
-            <th>Ice</th>
-            <th>Dragon</th>
+            <th><img style={{width: 16}} src={fire}/></th>
+            <th><img style={{width: 16}} src={water}/></th>
+            <th><img style={{width: 16}} src={thunder}/></th>
+            <th><img style={{width: 16}} src={ice}/></th>
+            <th><img style={{width: 16}} src={dragon}/></th>
             <th>Head</th>
             <th>Chest</th>
             <th>Arms</th>
