@@ -170,7 +170,7 @@ function Search(props) {
         </div>
         <fieldset className={style.effectitems}>
           <legend>Effects</legend>
-          {search.effects.map(e => <EffectItem effect={e} remove={() => remove_effect(e.skill)}/>)}
+          {search.effects.map((e, i) => <EffectItem key={i} effect={e} remove={() => remove_effect(e.skill)}/>)}
         </fieldset>
         <input type="button" value="Search" onClick={() => start(props)}/>
       </div>
