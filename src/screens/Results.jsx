@@ -47,11 +47,11 @@ function Results(props) {
         <thead>
           <tr>
             <th>Defence</th>
-            <th><img style={{width: 16}} src={fire}/></th>
-            <th><img style={{width: 16}} src={water}/></th>
-            <th><img style={{width: 16}} src={thunder}/></th>
-            <th><img style={{width: 16}} src={ice}/></th>
-            <th><img style={{width: 16}} src={dragon}/></th>
+            <th><img style={{width: 16}} src={fire} alt={'Fire'}/></th>
+            <th><img style={{width: 16}} src={water} alt={'Water'}/></th>
+            <th><img style={{width: 16}} src={thunder} alt={'Thunder'}/></th>
+            <th><img style={{width: 16}} src={ice} alt={'Ice'}/></th>
+            <th><img style={{width: 16}} src={dragon} alt={'Dragon'}/></th>
             <th>Head</th>
             <th>Chest</th>
             <th>Arms</th>
