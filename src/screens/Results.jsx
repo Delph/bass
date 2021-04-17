@@ -30,7 +30,7 @@ function Row({set}) {
         {torso_inc ? `Chest: ${set.chest_decorations.map(d => d.name).join(', ')}` : ''}
         {set.decorations.map(d => d.name).join(', ')}
       </td>
-      <td></td>
+      <td>{JSON.stringify(set.skills)}</td>
     </tr>
   );
 }
