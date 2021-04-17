@@ -18,6 +18,7 @@ function SkillRow(props) {
     <tr className={style.row}>
       <td>{skill.name}</td>
       <td className={skill.skills['-20'] ? style.cell : ''} onClick={() => add_effect(skill.name, -20)}>{skill.skills['-20'] ?? ''}</td>
+      <td className={skill.skills['-15'] ? style.cell : ''} onClick={() => add_effect(skill.name, -15)}>{skill.skills['-15'] ?? ''}</td>
       <td className={skill.skills['-10'] ? style.cell : ''} onClick={() => add_effect(skill.name, -10)}>{skill.skills['-10'] ?? ''}</td>
       <td className={skill.skills['10'] ? style.cell : ''} onClick={() => add_effect(skill.name, 10)}>{skill.skills['10'] ?? ''}</td>
       <td className={skill.skills['15'] ? style.cell : ''} onClick={() => add_effect(skill.name, 15)}>{skill.skills['15'] ?? ''}</td>
@@ -40,10 +41,11 @@ function SkillTable() {
         <tr>
           <th className={style.head}>Bonus</th>
           <th className={style.head}>-20</th>
+          <th className={style.head}>-15</th>
           <th className={style.head}>-10</th>
           <th className={style.head}>10</th>
+          <th className={style.head}>15</th>
           <th className={style.head}>20</th>
-          <th className={style.head}>30</th>
         </tr>
       </thead>
       <tbody className={style.body}>
