@@ -21,6 +21,7 @@ class Context
     this.setup_end = 0;
     this.loop_start = 0;
     this.loop_end = 0;
+    this.count = 0;
     this.num_combinations = 0;
   }
 
@@ -39,15 +40,15 @@ class Context
         continue;
 
       // gender/weapon class
-      if (item.gender & this.query.gender === 0)
+      if ((item.gender & this.query.gender) === 0)
         continue;
-      if (item.class & this.query.class === 0)
+      if ((item.class & this.query.class) === 0)
         continue;
 
       // other limits -- we can filter piercings like this because it's not used in any other gear
       if (!this.query.allow_piercings && item.name.includes('Piercing'))
         continue;
-      if (!this.query.allow_torso && item.torso_inc)
+      if (!this.query.allow_torsoinc && item.torso_inc)
         continue;
       if (!this.query.allow_dummy && item.name.includes('dummy'))
         continue;
@@ -63,6 +64,13 @@ class Context
     let b_points = 0;
     for (const effect of this.query.effects)
     {
+      if (['SwdMastery'].includes(effect.skill))
+      {
+        if (a.skills.map(s => s.skill).includes('SwdMastery'))
+          a_points += 10;
+        if (b.skills.map(s => s.skill).includes('SwdMastery'))
+          b_points += 10;
+      }
       a_points += a.skills.filter(skill => skill.skill === effect.skill).reduce((a, c) => a + c.points, 0);
       b_points += b.skills.filter(skill => skill.skill === effect.skill).reduce((a, c) => a + c.points, 0);
     }
@@ -77,13 +85,13 @@ class Context
     if (b_points > a_points)
       return 1;
 
-    // they comtribute the same, whichever has higher defence
+    // they contribute the same, whichever has higher defence
     if (a.defence > b.defence)
       return -1;
     if (b.defence > a.defence)
       return 1;
 
-    // whichever is least rare
+    // these two items are pretty much the same, so go with whichever is least rare
     return a.rarity - b.rarity;
   }
 
@@ -227,18 +235,19 @@ class Context
     }
     // attempt to fix bad skills if we have them
 
-    return build;
+    return {...build, skills};
   }
 
-  decorate2(combination, skills, need)
+  decorate_bf(combination, skills, need)
   {
     // calculate how much torso inc we've got
     // no need to check if we're allowed, that's already been done
     const torso_inc = combination.filter(g => g.torso_inc).length;
-    let chest_slots = {[combination[1].slots]: 1};
+    const chest_slots = {0: 0, 1: 0, 2: 0, 3: 0};
+    chest_slots[combination[1].slots] = 1;
 
     // calculate slots, don't include chest though (torso inc)
-    const slots = {1: 0, 2: 0, 3: 0};
+    const slots = {0: 0, 1: 0, 2: 0, 3: 0};
     ++slots[combination[0].slots];
     ++slots[combination[2].slots];
     ++slots[combination[3].slots];
@@ -246,19 +255,111 @@ class Context
     ++slots[this.query.slots];
 
     // determine what decorations we can use
-    // determine what slots we have available
+    //const decorations = this.decorations.filter(d => need.map(n => n.name).includes(d.skill.skill));
     // add decorations
+    const build = {combination, chest_decorations: [], decorations: []};
+
+    while (need.reduce((a, c) => a + c.points, 0) > 0)
+    {
+      // find what we need the most
+      let skill = null;
+      for (const p of need)
+      {
+        if (p.points > 0 && (skill === null || p.points > skill.points))
+          skill = p;
+      }
+      // no skill to gem, we're done
+      if (skill === null)
+        break;
+
+      // now pick the best deco to use
+      const decorations = this.decorations.filter(d => d.skill.skill == skill.name);
+      let size = 3;
+      let decoration = null;
+      while (size > 0 && !(decoration = decorations.find(d => d.slots == size)))
+        --size;
+
+      // if there isn't one, this set isn't possible, so bail
+      if (decoration == null)
+        break;
+
+      // find a slot
+      let use_chest = true;
+      let slot = size; // start at size, look upwards until we can't fit it
+      // check against the chest first for torso inc
+      {
+        while (slot < 4 && chest_slots[slot] == 0)
+          ++slot;
+        // 404, slot not found
+        if (slot == 4)
+          use_chest = false;
+      }
+      // if we're not using the chest, look for any slot
+      if (use_chest === false)
+      {
+        slot = 1;
+        while (slot < 4 && slots[slot] == 0)
+          ++slot;
+        // 404, slot not found
+        if (slot == 4)
+          break;
+      }
+      // gem it
+      // we've used this slot
+      if (use_chest)
+      {
+        --chest_slots[slot];
+        build.chest_decorations.push(decoration);
+      }
+      else
+      {
+        --slots[slot];
+        build.decorations.push(decoration);
+      }
+
+      // but if it's different sized (e.g., 1 slot deco on 3 slot armour), add what's left (e.g., 2 slot)
+      if (slot !== decoration.slots)
+      {
+        if (use_chest)
+          ++chest_slots[slot - decoration.slots];
+        else
+          ++slots[slot - decoration.slots];
+      }
+
+      // takeaway what we've just added from what we need
+      skill.points -= decoration.skill.points * (use_chest ? (torso_inc + 1) : 1);
+      // add to our total skills
+      if (skills[skill.name] === undefined)
+        skills[skill.name] = 0;
+      skills[skill.name] += decoration.skill.points * (use_chest ? (torso_inc + 1) : 1);
+
+      // if we have a penalty, add that in too
+      if (decoration.penalty)
+      {
+        if (skills[decoration.penalty.skill] === undefined)
+          skills[decoration.penalty.skill] = 0;
+        skills[decoration.penalty.skill] += decoration.penalty.points * (use_chest ? (torso_inc + 1) : 1);
+      }
+    }
+
+    const build = {combination, chest_decorations: [...build.chest_decorations], decorations: [...build.decorations]};
+    const cached = {...build};
+    if (this.query.allow_bad)
+      return {...build, skills};
 
     // check for bad skills and fix
+    return {...build, skills};
   }
 
   loop()
   {
     this.loop_start = new Date();
-
     let batch = [];
     while (this.run)
     {
+      ++this.count
+      if (this.count % 100 == 0)
+        console.log(this.count + ' ' + this.num_combinations);
       const {done, value} = this.combinations.next();
       const combination = value;
       // we're done, stop
@@ -268,15 +369,18 @@ class Context
         break;
       }
 
+      const torso_inc = combination.filter(g => g.torso_inc).length;
+
       // calculate what we got
       const skills = {};
-      for (const piece of combination)
+      for (let i = 0; i < 5; ++i)
       {
+        const piece = combination[i];
         for (const skill of piece.skills)
         {
           if (skills[skill.skill] === undefined)
             skills[skill.skill] = 0;
-          skills[skill.skill] += skill.points;
+          skills[skill.skill] += skill.points * (i === 1 ? (torso_inc + 1) : 1);
         }
       }
 
@@ -284,13 +388,13 @@ class Context
       for (const effect of this.query.effects)
       {
         // skip those already met
-        if (skills[effect.skill] < effect.points)
-          need.push({name: effect.skill, points: effect.points - skills[effect.skill] ?? 0})
+        if ((skills[effect.skill] ?? 0) < effect.points)
+          need.push({name: effect.skill, points: effect.points - (skills[effect.skill] ?? 0)})
       }
       // sort so we gem the most needed first
       need.sort((a, b) => b.points - a.points);
 
-      const build = this.decorate(combination, skills, need);
+      const build = this.decorate_bf(combination, skills, need);
 
       // not a valid set
       if (need.map(e => e.points).some(p => p > 0))
