@@ -22,14 +22,21 @@ function Tab(props) {
 
 function TabBar(props) {
   return (
-    <nav className={style.bar}>
-      <Tab href={'/'} label={'Search'} icon={'search'}/>
-      <Tab href={'/results'} label={'Results'} icon={'file'}/>
-      {/*<Tab href={'/sets'} label={'Sets'} icon={'folder'}/>*/}
-      {/*<Tab href={'/builder'} label={'Builder'} icon={'hammer'}/>*/}
-      {/*<Tab href={'/history'} label={'History'} icon={'history'}/>*/}
-      <Tab href={'/settings'} label={'Settings'} icon={'cog'}/>
-    </nav>
+    <div className={style.bar}>
+      <nav>
+        <Tab href={'/'} label={'Search'} icon={'search'}/>
+        <Tab href={'/results'} label={'Results'} icon={'file'}/>
+        {/*<Tab href={'/sets'} label={'Sets'} icon={'folder'}/>*/}
+        {/*<Tab href={'/builder'} label={'Builder'} icon={'hammer'}/>*/}
+        {/*<Tab href={'/history'} label={'History'} icon={'history'}/>*/}
+        <Tab href={'/settings'} label={'Settings'} icon={'cog'}/>
+      </nav>
+      {/*
+      <div>
+        <h1>Donate</h1>
+      </div>
+      */}
+    </div>
   );
 }
 
