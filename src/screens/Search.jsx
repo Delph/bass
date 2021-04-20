@@ -13,25 +13,31 @@ import { heads, chests, arms, waists, legs, decorations, skills } from '../gamed
 import style from '../css/screens/Search.module.css';
 
 function SkillRow(props) {
-  const { skill, add_effect } = props;
+  const { skill, add_effect, effects } = props;
+
   return (
     <tr className={style.row}>
       <td>{skill.name}</td>
-      <td className={skill.skills['-20'] ? style.cell : ''} onClick={() => add_effect(skill.name, -20)}>{skill.skills['-20'] ?? ''}</td>
-      <td className={skill.skills['-15'] ? style.cell : ''} onClick={() => add_effect(skill.name, -15)}>{skill.skills['-15'] ?? ''}</td>
-      <td className={skill.skills['-10'] ? style.cell : ''} onClick={() => add_effect(skill.name, -10)}>{skill.skills['-10'] ?? ''}</td>
-      <td className={skill.skills['10'] ? style.cell : ''} onClick={() => add_effect(skill.name, 10)}>{skill.skills['10'] ?? ''}</td>
-      <td className={skill.skills['15'] ? style.cell : ''} onClick={() => add_effect(skill.name, 15)}>{skill.skills['15'] ?? ''}</td>
-      <td className={skill.skills['20'] ? style.cell : ''} onClick={() => add_effect(skill.name, 20)}>{skill.skills['20'] ?? ''}</td>
+      <td className={`${skill.skills['-20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -20) ? style.selected : ''}`} onClick={() => add_effect(skill.name, -20)}>{skill.skills['-20'] ?? ''}</td>
+      <td className={`${skill.skills['-15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -15) ? style.selected : ''}`} onClick={() => add_effect(skill.name, -15)}>{skill.skills['-15'] ?? ''}</td>
+      <td className={`${skill.skills['-10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -10) ? style.selected : ''}`} onClick={() => add_effect(skill.name, -10)}>{skill.skills['-10'] ?? ''}</td>
+      <td className={`${skill.skills['10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 10) ? style.selected : ''}`} onClick={() => add_effect(skill.name, 10)}>{skill.skills['10'] ?? ''}</td>
+      <td className={`${skill.skills['15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 15) ? style.selected : ''}`} onClick={() => add_effect(skill.name, 15)}>{skill.skills['15'] ?? ''}</td>
+      <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => add_effect(skill.name, 20)}>{skill.skills['20'] ?? ''}</td>
     </tr>
   );
+}
+const srstate = state => {
+  return {
+    effects: state.search.effects
+  };
 }
 const srdispatch = dispatch => {
   return {
     add_effect: (skill, points) => dispatch({type: 'add_effect', payload: {skill, points}})
   };
 };
-const SkillRow_ = connect(null, srdispatch)(SkillRow);
+const SkillRow_ = connect(srstate, srdispatch)(SkillRow);
 
 
 function SkillTable() {

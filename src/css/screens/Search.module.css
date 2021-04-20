@@ -87,6 +87,11 @@
   cursor: pointer;
 }
 
+.selected
+{
+  background-color: #8babe5;
+}
+
 .row:nth-child(even)
 {
   background-color: #eee;
