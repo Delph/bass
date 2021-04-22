@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 
 import { connect } from 'react-redux';
 
-import { number_format, activated_effect } from '../util';
+import { number_format, activated_effect, translate } from '../util';
 
 import style from '../css/screens/Results.module.css';
 
@@ -36,18 +36,18 @@ function Row({search, set}) {
         <div>{number_format(set.raw.ice)}</div>
         <div>{number_format(set.raw.dragon)}</div>
       </td>
-      <td className={style.desktop}>{set.combination[0].name}</td>
-      <td className={style.desktop}>{set.combination[1].name}</td>
-      <td className={style.desktop}>{set.combination[2].name}</td>
-      <td className={style.desktop}>{set.combination[3].name}</td>
-      <td className={style.desktop}>{set.combination[4].name}</td>
+      <td className={style.desktop}>{translate('head', set.combination[0].name)}</td>
+      <td className={style.desktop}>{translate('body', set.combination[1].name)}</td>
+      <td className={style.desktop}>{translate('arms', set.combination[2].name)}</td>
+      <td className={style.desktop}>{translate('waist', set.combination[3].name)}</td>
+      <td className={style.desktop}>{translate('legs', set.combination[4].name)}</td>
       <td className={style.mobile}>{set.combination.map(g => <div>{g.name}</div>)}</td>
       <td>
-        {extra_skills.map(s => <div key={s} className={set.skills[s] < 0 ? style.bad : style.good}>{activated_effect(s, set.skills[s])}</div>)}
+        {extra_skills.map(s => <div key={s} className={set.skills[s] < 0 ? style.bad : style.good}>{translate('effect', activated_effect(s, set.skills[s]))}</div>)}
       </td>
       <td>
-        {set.torso_inc ? `Chest: ${Object.keys(torso_decorations).map(d => `${torso_decorations[d]} ${d}${(torso_decorations[d] > 1 ? 's' : '')}`).join(', ')}` : ''}<br/>
-        {Object.keys(decorations).map(d => `${decorations[d]} ${d}${(decorations[d] > 1 ? 's' : '')}`).join(', ')}
+        {set.torso_inc ? `Chest: ${Object.keys(torso_decorations).map(d => `${torso_decorations[d]} ${translate('decoration', d)}${(torso_decorations[d] > 1 ? 's' : '')}`).join(', ')}` : ''}<br/>
+        {Object.keys(decorations).map(d => `${decorations[d]} ${translate('decoration', d)}${(decorations[d] > 1 ? 's' : '')}`).join(', ')}
       </td>
       <td>{JSON.stringify(set.slots)}</td>
     </tr>
@@ -64,7 +64,7 @@ function Results(props) {
         <fieldset className={style.search}>
           <legend>Search</legend>
           <div>
-            {search.effects.map(e => <div>{activated_effect(e.skill, e.points)}</div>)}
+            {search.effects.map(e => <div>{translate('effect', activated_effect(e.skill, e.points))}</div>)}
           </div>
           <div>
             <div>VR: {search.vr}</div>

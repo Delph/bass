@@ -3,6 +3,7 @@ import chests from './gamedata/mhfu/body.json';
 import arms from './gamedata/mhfu/arms.json';
 import waists from './gamedata/mhfu/waist.json';
 import legs from './gamedata/mhfu/legs.json';
+import translation from './gamedata/mhfu/translation.json';
 
 import skills from './gamedata/mhfu/skills.json';
 
@@ -19,4 +20,4 @@ import decorations from './gamedata/mhfu/decorations.json';
 //   }
 // }
 
-export {heads, chests, arms, waists, legs, skills, decorations};
+export { heads, chests, arms, waists, legs, skills, decorations, translation };

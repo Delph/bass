@@ -74,8 +74,14 @@ function history(state = [], action) {
   return state;
 }
 
-function settings(state = {}, action) {
-  return state;
+function settings(state = {defence: 'effective', language: 'english'}, action) {
+  switch (action.type)
+  {
+    case 'language':
+      return {...state, language: action.payload};
+    default:
+      return state;
+  }
 }
 
 function basic(state = {}, action) {

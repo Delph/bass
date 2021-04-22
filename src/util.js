@@ -1,4 +1,7 @@
 import { skills } from './gamedata';
+import { translation } from './gamedata';
+
+import { store } from './store';
 
 function number_format(x)
 {
@@ -26,4 +29,11 @@ function activated_effect(name, points)
   return null;
 }
 
-export { number_format, money_format, activated_effect };
+function translate(type, key)
+{
+  const section = translation[type] ?? null;
+  const dict = section[key] ?? null;
+  return dict && dict[store.getState().settings.language] ? dict[store.getState().settings.language] : key;
+}
+
+export { number_format, money_format, activated_effect, translate };
