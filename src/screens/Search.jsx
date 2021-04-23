@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -10,21 +10,51 @@ import { Select } from '../components/Select';
 
 import { heads, chests, arms, waists, legs, decorations, skills } from '../gamedata';
 
+import { translate } from '../util';
+
 import style from '../css/screens/Search.module.css';
 
 function SkillRow(props) {
   const { skill, add_effect, effects } = props;
 
   return (
-    <tr className={style.row}>
-      <td>{skill.name}</td>
-      <td className={`${skill.skills['-20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -20) ? style.selected : ''}`} onClick={() => add_effect(skill.name, -20)}>{skill.skills['-20'] ?? ''}</td>
-      <td className={`${skill.skills['-15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -15) ? style.selected : ''}`} onClick={() => add_effect(skill.name, -15)}>{skill.skills['-15'] ?? ''}</td>
-      <td className={`${skill.skills['-10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -10) ? style.selected : ''}`} onClick={() => add_effect(skill.name, -10)}>{skill.skills['-10'] ?? ''}</td>
-      <td className={`${skill.skills['10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 10) ? style.selected : ''}`} onClick={() => add_effect(skill.name, 10)}>{skill.skills['10'] ?? ''}</td>
-      <td className={`${skill.skills['15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 15) ? style.selected : ''}`} onClick={() => add_effect(skill.name, 15)}>{skill.skills['15'] ?? ''}</td>
-      <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => add_effect(skill.name, 20)}>{skill.skills['20'] ?? ''}</td>
-    </tr>
+    <React.Fragment>
+      <tr className={style.mobile}>
+        <td rowspan={6}>{translate('skill', skill.name)}</td>
+        <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => {if (skill.skills['20']) add_effect(skill.name, -20)}}>20</td>
+        <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => {if (skill.skills['20']) add_effect(skill.name, -20)}}>{translate('effect', skill.skills['20'] ?? '')}</td>
+      </tr>
+      <tr className={style.mobile}>
+        <td className={`${skill.skills['15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 15) ? style.selected : ''}`} onClick={() => {if (skill.skills['15']) add_effect(skill.name, -15)}}>15</td>
+        <td className={`${skill.skills['15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 15) ? style.selected : ''}`} onClick={() => {if (skill.skills['15']) add_effect(skill.name, -15)}}>{translate('effect', skill.skills['15'] ?? '')}</td>
+      </tr>
+      <tr className={style.mobile}>
+        <td className={`${skill.skills['10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 10) ? style.selected : ''}`} onClick={() => {if (skill.skills['10']) add_effect(skill.name, -10)}}>10</td>
+        <td className={`${skill.skills['10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 10) ? style.selected : ''}`} onClick={() => {if (skill.skills['10']) add_effect(skill.name, -10)}}>{translate('effect', skill.skills['10'] ?? '')}</td>
+      </tr>
+      <tr className={style.mobile}>
+        <td className={`${skill.skills['-10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -10) ? style.selected : ''}`} onClick={() => {if (skill.skills['-10']) add_effect(skill.name, 10)}}>-10</td>
+        <td className={`${skill.skills['-10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -10) ? style.selected : ''}`} onClick={() => {if (skill.skills['-10']) add_effect(skill.name, 10)}}>{translate('effect', skill.skills['-10'] ?? '')}</td>
+      </tr>
+      <tr className={style.mobile}>
+        <td className={`${skill.skills['-15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -15) ? style.selected : ''}`} onClick={() => {if (skill.skills['-15']) add_effect(skill.name, 15)}}>-15</td>
+        <td className={`${skill.skills['-15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -15) ? style.selected : ''}`} onClick={() => {if (skill.skills['-15']) add_effect(skill.name, 15)}}>{translate('effect', skill.skills['-15'] ?? '')}</td>
+      </tr>
+      <tr className={style.mobile}>
+        <td className={`${skill.skills['-20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -20) ? style.selected : ''}`} onClick={() => {if (skill.skills['-20']) add_effect(skill.name, 20)}}>-20</td>
+        <td className={`${skill.skills['-20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -20) ? style.selected : ''}`} onClick={() => {if (skill.skills['-20']) add_effect(skill.name, 20)}}>{translate('effect', skill.skills['-20'] ?? '')}</td>
+      </tr>
+
+      <tr className={`${style.row} ${style.desktop}`}>
+        <td >{translate('skill', skill.name)}</td>
+        <td className={`${skill.skills['-20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -20) ? style.selected : ''}`} onClick={() => { if (skill.skills['-20']) add_effect(skill.name, -20)} }>{translate('effect', skill.skills['-20'] ?? '')}</td>
+        <td className={`${skill.skills['-15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -15) ? style.selected : ''}`} onClick={() => { if (skill.skills['-15']) add_effect(skill.name, -15)} }>{translate('effect', skill.skills['-15'] ?? '')}</td>
+        <td className={`${skill.skills['-10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -10) ? style.selected : ''}`} onClick={() => { if (skill.skills['-10']) add_effect(skill.name, -10)} }>{translate('effect', skill.skills['-10'] ?? '')}</td>
+        <td className={`${skill.skills['10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 10) ? style.selected : ''}`} onClick={() => { if (skill.skills['10']) add_effect(skill.name, 10)} }>{translate('effect', skill.skills['10'] ?? '')}</td>
+        <td className={`${skill.skills['15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 15) ? style.selected : ''}`} onClick={() => { if (skill.skills['15']) add_effect(skill.name, 15)} }>{translate('effect', skill.skills['15'] ?? '')}</td>
+        <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => { if (skill.skills['20']) add_effect(skill.name, 20)} }>{translate('effect', skill.skills['20'] ?? '')}</td>
+      </tr>
+    </React.Fragment>
   );
 }
 const srstate = state => {
@@ -40,18 +70,20 @@ const srdispatch = dispatch => {
 const SkillRow_ = connect(srstate, srdispatch)(SkillRow);
 
 
-function SkillTable() {
+function SkillTable({skills}) {
   return (
     <table className={style.table}>
       <thead>
         <tr>
-          <th className={style.head}>Bonus</th>
-          <th className={style.head}>-20</th>
-          <th className={style.head}>-15</th>
-          <th className={style.head}>-10</th>
-          <th className={style.head}>10</th>
-          <th className={style.head}>15</th>
-          <th className={style.head}>20</th>
+          <th className={style.head}>Skill</th>
+          <th className={`${style.head} ${style.mobile}`}>Points</th>
+          <th className={`${style.head} ${style.mobile}`}>Effect</th>
+          <th className={`${style.head} ${style.desktop}`}>-20</th>
+          <th className={`${style.head} ${style.desktop}`}>-15</th>
+          <th className={`${style.head} ${style.desktop}`}>-10</th>
+          <th className={`${style.head} ${style.desktop}`}>10</th>
+          <th className={`${style.head} ${style.desktop}`}>15</th>
+          <th className={`${style.head} ${style.desktop}`}>20</th>
         </tr>
       </thead>
       <tbody className={style.body}>
@@ -66,14 +98,23 @@ function EffectItem({effect, remove}) {
 
   return (
     <div className={style.effectitem}>
-      <span title={`${effect.points} ${effect.skill} points`}>{skill.skills[effect.points]}</span>
+      <span title={`${effect.points} ${effect.skill} points`}>{translate('effect', skill.skills[effect.points])}</span>
       <FontAwesomeIcon icon={['fas', 'times']} onClick={remove} className={style.effectitemremove}/>
     </div>
   );
 }
 
+function CategoryFilter({category, onChange, value}) {
+  return (
+    <Label text={category}>
+      <Checkbox name={category.toLowerCase()} onChange={onChange} checked={value}/>
+    </Label>
+  );
+}
+
+
 function Search(props) {
-  const { search, update, update_check, sets, remove_effect } = props;
+  const { search, update, update_check, sets, remove_effect, filter, set_filter } = props;
   const vr = [
     {value: 9, label: '9★ (Nekoht)'},
     {value: 8, label: '8★ (Nekoht)'},
@@ -118,6 +159,8 @@ function Search(props) {
     }
   ];
 
+  const categories = useMemo(() => [...skills.map(s => s.categories)].flat().filter((e, i, a) => i === a.indexOf(e)), []);
+
   const [worker, setWorker] = useState(null);
   useEffect(() => {
     const worker = new Worker('./worker.js');
@@ -134,6 +177,9 @@ function Search(props) {
     worker.postMessage({action: 'start', payload: search});
     props.history.push('/results');
   };
+
+
+  const display_skills = useMemo(() => skills.filter(s => ((filter['none'] ?? true) && s.categories.length === 0) || s.categories.map(s => s.toLowerCase()).some(r => Object.keys(filter).filter(c => filter[c]).includes(r))), [filter]);
 
   return (
     <div className={style.container}>
@@ -180,10 +226,15 @@ function Search(props) {
           <legend>Effects</legend>
           {search.effects.map((e, i) => <EffectItem key={i} effect={e} remove={() => remove_effect(e.skill)}/>)}
         </fieldset>
-        <input type="button" value="Search" onClick={() => start(props)}/>
+        <input className={style.button} type="button" value="Search" onClick={() => start(props)}/>
       </div>
+      <fieldset>
+        <legend>Filter</legend>
+        {categories.map(c => <CategoryFilter category={c} onChange={set_filter} value={filter[c] ?? true}/>)}
+        <CategoryFilter category={'None'} onChange={set_filter} value={filter['none'] ?? true}/>
+      </fieldset>
       <div className={style.tableContainer}>
-        <SkillTable/>
+        <SkillTable skills={display_skills}/>
       </div>
     </div>
   );
@@ -191,7 +242,8 @@ function Search(props) {
 
 function mapStateToProps(state) {
   return {
-    search: state.search
+    search: state.search,
+    filter: state.filter
   };
 }
 
@@ -201,7 +253,9 @@ const mapDispatchToProps = dispatch => {
         update_check: e => dispatch({type: e.target.name, payload: e.target.checked}),
         sets: message => dispatch({type: 'sets', payload: message.data.batch}),
         clear: () => dispatch({type: 'clear'}),
-        remove_effect: e => dispatch({type: 'remove_effect', payload: e})
+        remove_effect: e => dispatch({type: 'remove_effect', payload: e}),
+
+        set_filter: e => dispatch({type: 'filter', payload: {category: e.target.name, value: e.target.checked}})
     };
 };
 

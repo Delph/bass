@@ -27,6 +27,15 @@
   flex-direction: row;
 }
 
+@media (max-width: 968px)
+{
+  .section
+  {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
 
 /* effects */
 .effectitems
@@ -49,10 +58,22 @@
   box-sizing: border-box;
   user-select: none;
 }
+@media (max-width: 968px)
+{
+  .effectitem
+  {
+    width: 100%;
+  }
+}
 
 .effectitemremove
 {
   cursor: pointer;
+}
+
+.button
+{
+  margin-top: 8px;
 }
 
 
@@ -89,7 +110,7 @@
 
 .selected
 {
-  background-color: #8babe5;
+  border: 1px solid grey;
 }
 
 .row:nth-child(even)
@@ -97,3 +118,22 @@
   background-color: #eee;
 }
 
+
+
+.mobile
+{
+  display: none;
+}
+
+@media (max-width: 968px)
+{
+  .desktop
+  {
+    display: none;
+  }
+
+  .mobile
+  {
+    display: table-row;
+  }
+}
