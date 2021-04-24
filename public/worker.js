@@ -16,11 +16,15 @@ class Context
 
     this.run = true;
 
+    this.batch = [];
+
     // timing information
-    this.setup_start = 0;
-    this.setup_end = 0;
-    this.loop_start = 0;
-    this.loop_end = 0;
+    this.setup_start = null;
+    this.setup_end = null;
+    this.loop_start = null;
+    this.loop_end = null;
+    this.pause_start = null;
+    this.paused_time = 0;
     this.count = 0;
     this.num_combinations = 0;
   }
@@ -134,7 +138,10 @@ class Context
 
     this.combinations = this.generate();
 
+    this.batch = [];
+
     this.setup_end = new Date();
+    this.loop_start = new Date();
   }
 
   // determine which one is better
@@ -376,11 +383,11 @@ class Context
 
   loop()
   {
-    this.loop_start = new Date();
-    let batch = [];
-    while (this.run)
+    if (this.run)
     {
-      ++this.count
+      setTimeout(this.loop.bind(this), 0);
+
+      ++this.count;
       if (this.count % 100 == 0)
         console.log(this.count + ' ' + this.num_combinations);
       const {done, value} = this.combinations.next();
@@ -389,7 +396,7 @@ class Context
       if (done)
       {
         this.run = false;
-        break;
+        return;
       }
 
       const torso_inc = combination.filter(g => g.torso_inc).length;
@@ -421,11 +428,11 @@ class Context
 
       // check missing skills
       if (need.map(e => e.points).some(p => p > 0))
-        continue;
+        return;
 
       // check bad skills
       if (!this.query.allow_bad && Object.values(skills).some(s => s <= -10))
-        continue;
+        return;
 
 
       // calculate other set info
@@ -447,30 +454,44 @@ class Context
 
 
       // send to main thread
-      batch.push(build);
-      if (batch.length === 10)
+      this.batch.push(build);
+      if (this.batch.length === 10)
       {
-        postMessage({type: 'sets', batch});
-        batch = [];
+        postMessage({type: 'sets', payload: this.batch});
+        this.batch = [];
       }
     }
-    postMessage({type: 'sets', batch});
-    this.run = false;
-    this.loop_end = new Date();
-    // send to main thread
-
+    else
+    {
+      // send the last batch
+      postMessage({type: 'sets', payload: this.batch});
+      this.batch = [];
+      this.loop_end = new Date();
+    }
   }
 
   stop()
   {
     this.run = false;
   }
+
+  pause()
+  {
+    this.run = false;
+    this.pause_start = new Date();
+  }
+
+  resume()
+  {
+    this.run = true;
+    this.paused_time += (new Date()).getTime() - this.pause_start.getTime();
+  }
 }
 let context = null;
 
 onmessage = message => {
   const data = message.data;
-  switch (data.action)
+  switch (data.type)
   {
     // data setup
     case 'skills':
@@ -493,10 +514,16 @@ onmessage = message => {
       context.setup();
       context.loop();
     break;
+    case 'pause':
+      context?.pause();
+    break;
+    case 'resume':
+      context?.resume();
+    break;
     case 'stop':
       context?.stop();
     break;
     default:
-      throw 'Received unknown message: ' + data.action;
+      throw 'Received unknown message: ' + data.type;
   }
 };

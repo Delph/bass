@@ -20,7 +20,7 @@ function SkillRow(props) {
   return (
     <React.Fragment>
       <tr className={style.mobile}>
-        <td rowspan={6}>{translate('skill', skill.name)}</td>
+        <td rowSpan={6}>{translate('skill', skill.name)}</td>
         <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => {if (skill.skills['20']) add_effect(skill.name, -20)}}>20</td>
         <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => {if (skill.skills['20']) add_effect(skill.name, -20)}}>{translate('effect', skill.skills['20'] ?? '')}</td>
       </tr>
@@ -114,7 +114,7 @@ function CategoryFilter({category, onChange, value}) {
 
 
 function Search(props) {
-  const { search, update, update_check, sets, remove_effect, filter, set_filter } = props;
+  const { search, update, update_check, sets, remove_effect, filter, set_filter, worker } = props;
   const vr = [
     {value: 9, label: '9★ (Nekoht)'},
     {value: 8, label: '8★ (Nekoht)'},
@@ -161,20 +161,15 @@ function Search(props) {
 
   const categories = useMemo(() => [...skills.map(s => s.categories)].flat().filter((e, i, a) => i === a.indexOf(e)), []);
 
-  const [worker, setWorker] = useState(null);
   useEffect(() => {
-    const worker = new Worker('./worker.js');
-    worker.onmessage = sets;
-    worker.postMessage({action: 'skills', payload: skills});
-    worker.postMessage({action: 'decorations', payload: decorations});
-    worker.postMessage({action: 'armour', payload: {heads, chests, arms, waists, legs}});
-    setWorker(worker);
+    worker({type: 'skills', payload: skills});
+    worker({type: 'decorations', payload: decorations});
+    worker({type: 'armour', payload: {heads, chests, arms, waists, legs}});
   },
-  [sets]);
+  []);
 
   const start = (props) => {
-    props.clear();
-    worker.postMessage({action: 'start', payload: search});
+    worker({type: 'start', payload: search});
     props.history.push('/results');
   };
 
@@ -251,7 +246,7 @@ const mapDispatchToProps = dispatch => {
     return {
         update: e => dispatch({type: e.target.name, payload: e.target.value}),
         update_check: e => dispatch({type: e.target.name, payload: e.target.checked}),
-        sets: message => dispatch({type: 'sets', payload: message.data.batch}),
+        worker: payload => dispatch({type: 'worker', payload}),
         clear: () => dispatch({type: 'clear'}),
         remove_effect: e => dispatch({type: 'remove_effect', payload: e}),
 

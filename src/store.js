@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -39,6 +39,16 @@ function search(state = {
   }
 };
 
+function filter(state = {}, action) {
+  switch (action.type)
+  {
+    case 'filter':
+      return {...state, [action.payload.category]: action.payload.value};
+    default:
+      return state;
+  }
+}
+
 function results(state = {pagination: {offset: 0, count: 100}, sets: []}, action) {
   switch (action.type)
   {
@@ -63,7 +73,6 @@ function results(state = {pagination: {offset: 0, count: 100}, sets: []}, action
     case 'set':
       return {...state, sets: [...state.sets, action.payload]};
     case 'sets':
-      console.log(`Received ${action.payload.length} - ${state.sets.length}`);
       return {...state, sets: [...state.sets, ...action.payload]};
     default:
       return state;
@@ -88,8 +97,23 @@ function basic(state = {}, action) {
   return state;
 }
 
+let worker = null;
+const workerMiddleware = store => next => action => {
+  if (action.type !== 'worker')
+    return next(action);
+
+  if (worker === null)
+  {
+    worker = new Worker('./worker.js');
+    worker.onmessage = m => store.dispatch(m.data);
+  }
+
+  worker.postMessage(action.payload);
+}
+
 const reducer = combineReducers({
   search,
+  filter,
   results,
   history,
   settings,
@@ -104,7 +128,7 @@ const config = {
 };
 
 const pReducer = persistReducer(config, reducer);
-const store = createStore(pReducer);
+const store = createStore(pReducer, applyMiddleware(workerMiddleware));
 const persistor = persistStore(store);
 // persistor.purge();
 export { store, persistor };
