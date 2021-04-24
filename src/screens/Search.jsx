@@ -161,20 +161,13 @@ function Search(props) {
 
   const categories = useMemo(() => [...skills.map(s => s.categories)].flat().filter((e, i, a) => i === a.indexOf(e)), []);
 
-  useEffect(() => {
-    worker({type: 'skills', payload: skills});
-    worker({type: 'decorations', payload: decorations});
-    worker({type: 'armour', payload: {heads, chests, arms, waists, legs}});
-  },
-  []);
-
   const start = (props) => {
     worker({type: 'start', payload: search});
     props.history.push('/results');
   };
 
 
-  const display_skills = useMemo(() => skills.filter(s => ((filter['none'] ?? true) && s.categories.length === 0) || s.categories.map(s => s.toLowerCase()).some(r => Object.keys(filter).filter(c => filter[c]).includes(r))), [filter]);
+  const display_skills = useMemo(() => skills.filter(s => ((filter['none'] ?? true) && s.categories.length === 0) || s.categories.map(s => s.toLowerCase()).some(r => categories.map(c => c.toLowerCase()).filter(c => filter[c] === undefined || filter[c] === true).includes(r))), [filter, categories]);
 
   return (
     <div className={style.container}>
