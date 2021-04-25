@@ -162,6 +162,7 @@ function Search(props) {
   const categories = useMemo(() => [...skills.map(s => s.categories)].flat().filter((e, i, a) => i === a.indexOf(e)), []);
 
   const start = (props) => {
+    props.clear(); // clear result state
     worker({type: 'start', payload: search});
     props.history.push('/results');
   };
