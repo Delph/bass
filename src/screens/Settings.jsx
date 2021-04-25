@@ -12,12 +12,12 @@ import { Select } from '../components/Select';
 function Settings(props) {
   const { settings, set_language } = props;
 
-  const games = [
-    {
-      value: 'mhfu',
-      label: 'MHFU'
-    }
-  ];
+  // const games = [
+  //   {
+  //     value: 'mhfu',
+  //     label: 'MHFU'
+  //   }
+  // ];
 
   const languages = ['Deutsch', 'English', 'Español', 'Français', 'Italiano'];
 
