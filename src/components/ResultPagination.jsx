@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { number_format } from '../util';
 
 function ResultPagination(props) {
-  const { found, count, total, pagination, next, prev } = props;
+  const { found, pagination, next, prev } = props;
   const max = Math.min(pagination.offset + pagination.count, found);
 
   return (
@@ -14,7 +14,6 @@ function ResultPagination(props) {
         <input type={'button'} value={'Next'} onClick={next} disabled={pagination.offset + pagination.count >= found}/>
       </div>
       <div>Showing {number_format(pagination.offset)} to {number_format(max)} of {number_format(found)} results.</div>
-      <progress max={total} value={count}/>
     </fieldset>
   );
 }
@@ -22,8 +21,6 @@ function ResultPagination(props) {
 function mapStateToProps(state) {
   return {
     found: state.results.sets.length,
-    count: state.results.count,
-    total: state.results.total,
     pagination: state.results.pagination
   };
 }
