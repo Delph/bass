@@ -2,6 +2,8 @@ import React, { useMemo } from 'react';
 
 import { connect } from 'react-redux';
 
+import ResultPagination from '../components/ResultPagination';
+
 import { number_format, activated_effect, translate } from '../util';
 
 import style from '../css/screens/Results.module.css';
@@ -55,9 +57,8 @@ function Row({search, set}) {
 }
 
 function Results(props) {
-  const { search, results, pagination, next, prev, count, total } = props;
+  const { search, results, pagination } = props;
 
-  const max = Math.min(pagination.offset + pagination.count, results.length);
   return (
     <div className={style.container}>
       <div className={style.top}>
@@ -71,14 +72,7 @@ function Results(props) {
             <div>HR: {search.hr}</div>
           </div>
         </fieldset>
-        <fieldset>
-          <div>
-            <input type={'button'} value={'Prev'} onClick={prev} disabled={pagination.offset === 0}/>
-            <input type={'button'} value={'Next'} onClick={next} disabled={pagination.offset + 10 >= results.length}/>
-          </div>
-          <div>Showing {number_format(pagination.offset)} to {number_format(max)} of {number_format(results.length)} results.</div>
-          <progress max={total} value={count}/>
-        </fieldset>
+        <ResultPagination/>
       </div>
       <div className={style.tableContainer}>
         <table className={style.table}>
@@ -103,7 +97,7 @@ function Results(props) {
             </tr>
           </thead>
           <tbody>
-          {results.slice(pagination.offset, pagination.offset + pagination.count).map((r, i) => <Row key={i} search={search} set={r}/>)}
+          {results.map((r, i) => <Row key={pagination.offset + i} search={search} set={r}/>)}
           </tbody>
         </table>
       </div>
@@ -115,17 +109,14 @@ function Results(props) {
 function mapStateToProps(state) {
   return {
     search: state.search,
-    results: state.results.sets,
-    count: state.results.count,
-    total: state.results.total,
-    pagination: state.results.pagination
+    results: state.results.sets.slice(state.results.pagination.offset, Math.min(state.results.pagination.offset + state.results.pagination.count, state.results.sets.length)),
+    pagination: state.results.pagination,
+
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    next: () => dispatch({type: 'next'}),
-    prev: () => dispatch({type: 'prev'}),
     stop: () => dispatch({type: 'stop'})
   }
 }
