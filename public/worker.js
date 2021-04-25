@@ -184,69 +184,6 @@ class Context
     return best;
   }
 
-  decorate(combination, skills, need)
-  {
-    // calculate how much torso inc we've got
-    // no need to check if we're allowed, that's already been done
-    const torso_inc = combination.filter(g => g.torso_inc).length;
-    let chest_slots = {[combination[1].slots]: 1};
-
-    // calculate slots, don't include chest though (torso inc)
-    const slots = {1: 0, 2: 0, 3: 0};
-    ++slots[combination[0].slots];
-    ++slots[combination[2].slots];
-    ++slots[combination[3].slots];
-    ++slots[combination[4].slots];
-    ++slots[this.query.slots];
-
-
-    const build = {combination, chest_decorations: [], decorations: []};
-    for (let {name, points} of need)
-    {
-      const decorations = this.decorations.filter(d => d.skill.skill === name).sort((a, b) => a.skill.points - b.skill.points);
-
-      while (points > 0)
-      {
-        // find the best chest decoration
-        const chest_decoration = this.best_decoration(decorations, chest_slots, torso_inc, points);
-        // find the best other decoration
-        const other_decoration = this.best_decoration(decorations, slots, 0, points);
-        if (other_decoration === null)
-          break;
-
-        const chest_density = chest_decoration ? (chest_decoration.skill.points * (torso_inc + 1) / chest_decoration.slots) : -1;
-        const other_density = other_decoration.skill.points / other_decoration.slots;
-        const is_chest = chest_density >= other_density;
-
-        const decoration = is_chest ? chest_decoration : other_decoration;
-
-        // we have our decoration, gem it
-        if (is_chest)
-        {
-          build.chest_decorations.push(decoration);
-          --chest_slots[decoration.slots];
-        }
-        else
-        {
-          build.decorations.push(decoration);
-          --slots[decoration.slots];
-        }
-        points -= decoration.skill.points * (is_chest ? (torso_inc + 1) : 1);
-
-        if (decoration.penalty !== undefined)
-        {
-          if (skills[decoration.penalty.skill] === undefined)
-            skills[decoration.penalty.skill] = 0;
-          skills[decoration.penalty.skill] += decoration.penalty.points;
-        }
-      }
-      need.find(e => e.name === name).points = points;
-    }
-    // attempt to fix bad skills if we have them
-
-    return {...build, skills};
-  }
-
   decoration(build, need, slots, chest_slots, skill)
   {
     const decorations = this.decorations.filter(d => d.skill.skill == skill.name);
