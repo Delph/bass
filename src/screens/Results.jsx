@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 
 import { connect } from 'react-redux';
 
+import SearchControls from '../components/SearchControls';
 import ResultPagination from '../components/ResultPagination';
 
 import { number_format, activated_effect, translate } from '../util';
@@ -59,6 +60,9 @@ function Row({search, set}) {
 function Results(props) {
   const { search, results, pagination } = props;
 
+  const max = Math.min(pagination.offset + pagination.count, results.length);
+  const show = useMemo(() => results.slice(pagination.offset, max), [pagination, max]);
+
   return (
     <div className={style.container}>
       <div className={style.top}>
@@ -67,11 +71,14 @@ function Results(props) {
           <div>
             {search.effects.map(e => <div>{translate('effect', activated_effect(e.skill, e.points))}</div>)}
           </div>
+          {/*
           <div>
             <div>VR: {search.vr}</div>
             <div>HR: {search.hr}</div>
           </div>
+          */}
         </fieldset>
+        <SearchControls/>
         <ResultPagination/>
       </div>
       <div className={style.tableContainer}>
@@ -97,7 +104,7 @@ function Results(props) {
             </tr>
           </thead>
           <tbody>
-          {results.map((r, i) => <Row key={pagination.offset + i} search={search} set={r}/>)}
+          {show.map((r, i) => <Row key={pagination.offset + i} search={search} set={r}/>)}
           </tbody>
         </table>
       </div>
@@ -105,20 +112,22 @@ function Results(props) {
   );
 }
 
+function shouldNotRerender(prev, next) {
+  if (prev.pagination.count != next.pagination.count)
+    return false;
+
+  const prev_max = Math.min(prev.pagination.offset + prev.pagination.count, prev.results.length);
+  const next_max = Math.min(next.pagination.offset + next.pagination.count, next.results.length);
+  return prev_max == next_max;
+}
 
 function mapStateToProps(state) {
   return {
     search: state.search,
-    results: state.results.sets.slice(state.results.pagination.offset, Math.min(state.results.pagination.offset + state.results.pagination.count, state.results.sets.length)),
+    results: state.results.sets,
     pagination: state.results.pagination,
 
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    stop: () => dispatch({type: 'stop'})
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Results);
+export default connect(mapStateToProps)(React.memo(Results, shouldNotRerender));
