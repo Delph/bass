@@ -49,13 +49,12 @@ function filter(state = {}, action) {
   }
 }
 
-function results(state = {pagination: {offset: 0, count: 100}, sets: []}, action) {
+function results(state = {pagination: {offset: 0, count: 100}, sets: [], count: 0, total: 0}, action) {
   switch (action.type)
   {
     case 'next':
     {
       const offset = state.pagination.offset + state.pagination.count;
-      console.log(offset);
       if (offset > state.sets.length)
         return state;
       return {...state, pagination: {...state.pagination, offset}}
@@ -63,15 +62,16 @@ function results(state = {pagination: {offset: 0, count: 100}, sets: []}, action
     case 'prev':
     {
       const offset = state.pagination.offset - state.pagination.count;
-      console.log(offset);
       if (offset < 0)
         return state;
       return {...state, pagination: {...state.pagination, offset}}
     }
     case 'clear':
-      return {pagination: {...state.pagination, offset: 0}, sets: []};
+      return {pagination: {...state.pagination, offset: 0}, sets: [], count: 0, total: 0};
     case 'set':
       return {...state, sets: [...state.sets, action.payload]};
+    case 'progress':
+      return {...state, ...action.payload};
     case 'sets':
       return {...state, sets: [...state.sets, ...action.payload]};
     default:
@@ -99,14 +99,14 @@ function basic(state = {}, action) {
 
 let worker = null;
 const workerMiddleware = store => next => action => {
-  if (action.type !== 'worker')
-    return next(action);
-
   if (worker === null)
   {
     worker = new Worker('./worker.js');
     worker.onmessage = m => store.dispatch(m.data);
   }
+
+  if (action.type !== 'worker')
+    return next(action);
 
   worker.postMessage(action.payload);
 }
