@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { store, persistor } from './store';
 
@@ -17,6 +17,7 @@ import Results from './screens/Results';
 import Settings from './screens/Settings';
 
 import style from './css/App.module.css';
+import { heads, chests, arms, waists, legs, decorations, skills } from './gamedata';
 
 library.add(fas);
 
@@ -34,13 +35,29 @@ function Body(props) {
   );
 }
 
+function Startup_(props) {
+  const { children, worker } = props;
+
+  useEffect(() => {
+    worker({type: 'skills', payload: skills});
+    worker({type: 'decorations', payload: decorations});
+    worker({type: 'armour', payload: {heads, chests, arms, waists, legs}});
+  },
+  [worker]);
+
+  return children;
+}
+const Startup = connect(null, mapDispatchToProps)(Startup_);
+
 function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
         <BrowserRouter>
-          <Body/>
-          <TabBar/>
+          <Startup>
+            <Body/>
+            <TabBar/>
+          </Startup>
         </BrowserRouter>
       </PersistGate>
     </Provider>
@@ -75,6 +92,12 @@ function About() {
   return (
     <p>Browser Armour Set Search</p>
   );
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    worker: payload => dispatch({type: 'worker', payload})
+  }
 }
 
 export default App;

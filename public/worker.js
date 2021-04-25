@@ -15,6 +15,7 @@ class Context
     this.query = query;
 
     this.run = true;
+    this.paused = false;
 
     this.batch = [];
 
@@ -126,7 +127,7 @@ class Context
   {
     this.setup_start = new Date();
 
-    const length = 10;
+    const length = 5;
     this.heads = this.filter_gear(heads).sort((a, b) => this.gear_is_better(a, b)).slice(0, length);
     this.chests = this.filter_gear(chests).sort((a, b) => this.gear_is_better(a, b)).slice(0, length);
     this.arms = this.filter_gear(arms).sort((a, b) => this.gear_is_better(a, b)).slice(0, length);
@@ -383,13 +384,21 @@ class Context
 
   loop()
   {
-    if (this.run)
+    const max_lock = 1000;
+    const start = (new Date()).getTime();
+    while (this.run && !this.paused && (new Date()).getTime() - start < max_lock)
     {
       setTimeout(this.loop.bind(this), 0);
 
       ++this.count;
       if (this.count % 100 == 0)
-        console.log(this.count + ' ' + this.num_combinations);
+      {
+        postMessage({type: 'progress', payload: {
+          count: this.count,
+          total: this.num_combinations
+        }});
+      }
+
       const {done, value} = this.combinations.next();
       const combination = value;
       // we're done, stop
@@ -461,7 +470,7 @@ class Context
         this.batch = [];
       }
     }
-    else
+    if (!this.run)
     {
       // send the last batch
       postMessage({type: 'sets', payload: this.batch});
@@ -473,17 +482,18 @@ class Context
   stop()
   {
     this.run = false;
+    this.paused = false;
   }
 
   pause()
   {
-    this.run = false;
+    this.paused = true;
     this.pause_start = new Date();
   }
 
   resume()
   {
-    this.run = true;
+    this.paused = false;
     this.paused_time += (new Date()).getTime() - this.pause_start.getTime();
   }
 }

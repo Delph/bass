@@ -55,7 +55,7 @@ function Row({search, set}) {
 }
 
 function Results(props) {
-  const { search, results, pagination, next, prev } = props;
+  const { search, results, pagination, next, prev, count, total } = props;
 
   const max = Math.min(pagination.offset + pagination.count, results.length);
   return (
@@ -73,10 +73,11 @@ function Results(props) {
         </fieldset>
         <fieldset>
           <div>
-            <input type="button" value="Prev" onClick={prev} disabled={pagination.offset === 0}/>
-            <input type="button" value="Next" onClick={next} disabled={pagination.offset + 10 >= results.length}/>
+            <input type={'button'} value={'Prev'} onClick={prev} disabled={pagination.offset === 0}/>
+            <input type={'button'} value={'Next'} onClick={next} disabled={pagination.offset + 10 >= results.length}/>
           </div>
           <div>Showing {number_format(pagination.offset)} to {number_format(max)} of {number_format(results.length)} results.</div>
+          <progress max={total} value={count}/>
         </fieldset>
       </div>
       <div className={style.tableContainer}>
@@ -115,6 +116,8 @@ function mapStateToProps(state) {
   return {
     search: state.search,
     results: state.results.sets,
+    count: state.results.count,
+    total: state.results.total,
     pagination: state.results.pagination
   };
 }

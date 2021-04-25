@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -8,7 +8,7 @@ import { Label } from '../components/Label';
 import { Checkbox } from '../components/Checkbox';
 import { Select } from '../components/Select';
 
-import { heads, chests, arms, waists, legs, decorations, skills } from '../gamedata';
+import { skills } from '../gamedata';
 
 import { translate } from '../util';
 
@@ -114,7 +114,7 @@ function CategoryFilter({category, onChange, value}) {
 
 
 function Search(props) {
-  const { search, update, update_check, sets, remove_effect, filter, set_filter, worker } = props;
+  const { search, update, update_check, remove_effect, filter, set_filter, worker } = props;
   const vr = [
     {value: 9, label: '9★ (Nekoht)'},
     {value: 8, label: '8★ (Nekoht)'},
