@@ -9,6 +9,7 @@ import { number_format, activated_effect, translate } from '../util';
 
 import style from '../css/screens/Results.module.css';
 
+import defence from '../img/defence.png';
 import fire from '../img/elem/fire.png';
 import water from '../img/elem/water.png';
 import thunder from '../img/elem/thunder.png';
@@ -31,19 +32,19 @@ function Row({search, set}) {
       <td className={style.desktop} title={`Effective ${set.eff.thunder}`}>{number_format(set.raw.thunder)}</td>
       <td className={style.desktop} title={`Effective ${set.eff.ice}`}>{number_format(set.raw.ice)}</td>
       <td className={style.desktop} title={`Effective ${set.eff.dragon}`}>{number_format(set.raw.dragon)}</td>
-      <td className={style.mobile}>
-        <div>{number_format(set.raw.raw)}</div>
-        <div>{number_format(set.raw.fire)}</div>
-        <div>{number_format(set.raw.water)}</div>
-        <div>{number_format(set.raw.thunder)}</div>
-        <div>{number_format(set.raw.ice)}</div>
-        <div>{number_format(set.raw.dragon)}</div>
-      </td>
-      <td className={style.desktop}>{translate('head', set.combination[0].name)}</td>
-      <td className={style.desktop}>{translate('body', set.combination[1].name)}</td>
-      <td className={style.desktop}>{translate('arms', set.combination[2].name)}</td>
-      <td className={style.desktop}>{translate('waist', set.combination[3].name)}</td>
-      <td className={style.desktop}>{translate('legs', set.combination[4].name)}</td>
+      {/*<td className={style.mobile}>
+        <div><img style={{width: 16}} src={defence} alt={'Raw'}/>{number_format(set.raw.raw)}</div>
+        <div><img style={{width: 16}} src={fire} alt={'Fire'}/>{number_format(set.raw.fire)}</div>
+        <div><img style={{width: 16}} src={water} alt={'Water'}/>{number_format(set.raw.water)}</div>
+        <div><img style={{width: 16}} src={thunder} alt={'Thunder'}/>{number_format(set.raw.thunder)}</div>
+        <div><img style={{width: 16}} src={ice} alt={'Ice'}/>{number_format(set.raw.ice)}</div>
+        <div><img style={{width: 16}} src={dragon} alt={'Dragon'}/>{number_format(set.raw.dragon)}</div>
+      </td>*/}
+      {/*<td className={style.desktop}>{translate('head', set.combination[0].name)}</td>*/}
+      {/*<td className={style.desktop}>{translate('body', set.combination[1].name)}</td>*/}
+      {/*<td className={style.desktop}>{translate('arms', set.combination[2].name)}</td>*/}
+      {/*<td className={style.desktop}>{translate('waist', set.combination[3].name)}</td>*/}
+      {/*<td className={style.desktop}>{translate('legs', set.combination[4].name)}</td>*/}
       <td className={style.mobile}>{set.combination.map(g => <div>{g.name}</div>)}</td>
       <td>
         {extra_skills.map(s => <div key={s} className={set.skills[s] < 0 ? style.bad : style.good}>{translate('effect', activated_effect(s, set.skills[s]))}</div>)}
@@ -61,7 +62,8 @@ function Results(props) {
   const { search, results, pagination } = props;
 
   const max = Math.min(pagination.offset + pagination.count, results.length);
-  const show = useMemo(() => results.slice(pagination.offset, max), [pagination, max]);
+  // const show = useMemo(() => results.slice(pagination.offset, max), [pagination, max]);
+  const show = results.slice(pagination.offset, max);
 
   return (
     <div className={style.container}>
@@ -91,12 +93,12 @@ function Results(props) {
               <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={thunder} alt={'Thunder'}/></th>
               <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={ice} alt={'Ice'}/></th>
               <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={dragon} alt={'Dragon'}/></th>
-              <th className={`${style.head} ${style.mobile}`}>Defence</th>
-              <th className={`${style.head} ${style.desktop}`}>Head</th>
-              <th className={`${style.head} ${style.desktop}`}>Torso</th>
-              <th className={`${style.head} ${style.desktop}`}>Arms</th>
-              <th className={`${style.head} ${style.desktop}`}>Waist</th>
-              <th className={`${style.head} ${style.desktop}`}>Legs</th>
+              {/*<th className={`${style.head} ${style.mobile}`}>Defence</th>*/}
+              {/*<th className={`${style.head} ${style.desktop}`}>Head</th>*/}
+              {/*<th className={`${style.head} ${style.desktop}`}>Torso</th>*/}
+              {/*<th className={`${style.head} ${style.desktop}`}>Arms</th>*/}
+              {/*<th className={`${style.head} ${style.desktop}`}>Waist</th>*/}
+              {/*<th className={`${style.head} ${style.desktop}`}>Legs</th>*/}
               <th className={`${style.head} ${style.mobile}`}>Equipment</th>
               <th className={style.head}>Extra Skills</th>
               <th className={style.head}>Decorations</th>
@@ -113,12 +115,12 @@ function Results(props) {
 }
 
 function shouldNotRerender(prev, next) {
-  if (prev.pagination.count != next.pagination.count)
+  if (prev.pagination.count !== next.pagination.count)
     return false;
 
   const prev_max = Math.min(prev.pagination.offset + prev.pagination.count, prev.results.length);
   const next_max = Math.min(next.pagination.offset + next.pagination.count, next.results.length);
-  return prev_max == next_max;
+  return prev_max === next_max;
 }
 
 function mapStateToProps(state) {
