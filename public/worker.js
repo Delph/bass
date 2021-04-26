@@ -17,8 +17,6 @@ class Context
     this.run = true;
     this.paused = false;
 
-    this.batch = [];
-
     // timing information
     this.setup_start = null;
     this.setup_end = null;
@@ -127,7 +125,7 @@ class Context
   {
     this.setup_start = new Date();
 
-    const length = 5;
+    const length = 10;
     this.heads = this.filter_gear(heads).sort((a, b) => this.gear_is_better(a, b)).slice(0, length);
     this.chests = this.filter_gear(chests).sort((a, b) => this.gear_is_better(a, b)).slice(0, length);
     this.arms = this.filter_gear(arms).sort((a, b) => this.gear_is_better(a, b)).slice(0, length);
@@ -138,8 +136,6 @@ class Context
     this.decorations = decorations.filter(d => d.hr <= this.query.hr && d.elder <= this.query.vr, this);
 
     this.combinations = this.generate();
-
-    this.batch = [];
 
     this.setup_end = new Date();
     this.loop_start = new Date();
@@ -323,27 +319,19 @@ class Context
   {
     const max_lock = 1000;
     const start = (new Date()).getTime();
+    const batch = [];
     while (this.run && !this.paused && (new Date()).getTime() - start < max_lock)
     {
-      setTimeout(this.loop.bind(this), 0);
-
-      ++this.count;
-      if (this.count % 100 == 0)
-      {
-        postMessage({type: 'progress', payload: {
-          count: this.count,
-          total: this.num_combinations
-        }});
-      }
-
       const {done, value} = this.combinations.next();
       const combination = value;
       // we're done, stop
       if (done)
       {
         this.run = false;
-        return;
+        break;
       }
+
+      ++this.count;
 
       const torso_inc = combination.filter(g => g.torso_inc).length;
 
@@ -374,11 +362,11 @@ class Context
 
       // check missing skills
       if (need.map(e => e.points).some(p => p > 0))
-        return;
+        continue;
 
       // check bad skills
       if (!this.query.allow_bad && Object.values(skills).some(s => s <= -10))
-        return;
+        continue;
 
 
       // calculate other set info
@@ -399,19 +387,21 @@ class Context
       build.eff.dragon = Math.floor((1 / ((160 * (1 - build.raw.dragon / 100)) / (build.raw.raw + 160))) * build.raw.raw);
 
 
-      // send to main thread
-      this.batch.push(build);
-      if (this.batch.length === 10)
-      {
-        postMessage({type: 'sets', payload: this.batch});
-        this.batch = [];
-      }
+      batch.push(build);
     }
-    if (!this.run)
-    {
-      // send the last batch
-      postMessage({type: 'sets', payload: this.batch});
-      this.batch = [];
+    // send to main thread
+
+    postMessage({type: 'sets', payload: batch});
+    postMessage({type: 'progress', payload: {
+      count: this.count,
+      total: this.num_combinations
+    }});
+
+    // queue the next run
+    if (this.run) {
+      setTimeout(this.loop.bind(this), 0);
+    }
+    else {
       this.loop_end = new Date();
     }
   }
@@ -438,6 +428,7 @@ let context = null;
 
 onmessage = message => {
   const data = message.data;
+  console.log(data.type);
   switch (data.type)
   {
     // data setup
