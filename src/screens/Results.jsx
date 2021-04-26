@@ -87,7 +87,7 @@ function Results(props) {
         <table className={style.table}>
           <thead>
             <tr>
-              <th className={`${style.head} ${style.desktop}`}>Defence</th>
+              <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={defence} alt={'Defence'}/></th>
               <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={fire} alt={'Fire'}/></th>
               <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={water} alt={'Water'}/></th>
               <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={thunder} alt={'Thunder'}/></th>
