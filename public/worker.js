@@ -67,6 +67,7 @@ class Context
     let b_points = 0;
     for (const effect of this.query.effects)
     {
+      // heavily way the combi skills, since these are only one these armour pieces
       if (['SwdMastery'].includes(effect.skill))
       {
         if (a.skills.map(s => s.skill).includes('SwdMastery'))
@@ -398,11 +399,10 @@ class Context
     }});
 
     // queue the next run
-    if (this.run) {
+    if (this.run && !this.paused) {
       setTimeout(this.loop.bind(this), 0);
     }
     else {
-      this.loop_end = new Date();
     }
   }
 
@@ -410,17 +410,22 @@ class Context
   {
     this.run = false;
     this.paused = false;
+    postMessage({type: 'stopped'});
+    this.loop_end = new Date();
   }
 
   pause()
   {
     this.paused = true;
     this.pause_start = new Date();
+    postMessage({type: 'paused'});
   }
 
   resume()
   {
     this.paused = false;
+    postMessage({type: 'resumed'});
+    setTimeout(this.loop.bind(this), 0);
     this.paused_time += (new Date()).getTime() - this.pause_start.getTime();
   }
 }
@@ -448,6 +453,7 @@ onmessage = message => {
 
     // execution
     case 'start':
+      postMessage({type: 'started'});
       context = new Context(data.payload);
       context.setup();
       context.loop();

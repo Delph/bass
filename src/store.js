@@ -93,22 +93,34 @@ function settings(state = {defence: 'effective', language: 'english'}, action) {
   }
 }
 
-function basic(state = {}, action) {
-  return state;
-}
-
-let worker = null;
+let _worker = null;
 const workerMiddleware = store => next => action => {
-  if (worker === null)
+  if (_worker === null)
   {
-    worker = new Worker('./worker.js');
-    worker.onmessage = m => store.dispatch(m.data);
+    _worker = new Worker('./worker.js');
+    _worker.onmessage = m => store.dispatch(m.data);
   }
 
   if (action.type !== 'worker')
     return next(action);
 
-  worker.postMessage(action.payload);
+  _worker.postMessage(action.payload);
+}
+
+function worker(state = {paused: false, stopped: true}, action) {
+  switch (action.type)
+  {
+    case 'started':
+      return {...state, stopped: false, paused: false};
+    case 'stopped':
+      return {...state, stopped: true};
+    case 'paused':
+      return {...state, paused: true};
+    case 'resumed':
+      return {...state, paused: false};
+    default:
+      return state;
+  }
 }
 
 const reducer = combineReducers({
@@ -117,14 +129,14 @@ const reducer = combineReducers({
   results,
   history,
   settings,
-  basic
+  worker,
 });
 
 const config = {
   key: 'bass',
   storage: storage,
   stateReconciler: autoMergeLevel1,
-  blacklist: ['results']
+  blacklist: ['results', 'worker']
 };
 
 const pReducer = persistReducer(config, reducer);
