@@ -41,6 +41,12 @@
   background-color: white;
 }
 
+.sort
+{
+  user-select: none;
+  cursor: pointer;
+}
+
 .body
 {
   overflow-y: auto;
@@ -51,6 +57,7 @@
 {
   background-color: #eee;
 }
+
 
 
 

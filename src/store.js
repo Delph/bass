@@ -49,13 +49,13 @@ function filter(state = {}, action) {
   }
 }
 
-function results(state = {pagination: {offset: 0, count: 100}, sets: [], count: 0, total: 0}, action) {
+function results(state = {pagination: {offset: 0, count: 100}, order: [], sets: [], count: 0, total: 0}, action) {
   switch (action.type)
   {
     case 'next':
     {
       const offset = state.pagination.offset + state.pagination.count;
-      if (offset > state.sets.length)
+      if (offset >= state.sets.length)
         return state;
       return {...state, pagination: {...state.pagination, offset}}
     }
@@ -67,13 +67,24 @@ function results(state = {pagination: {offset: 0, count: 100}, sets: [], count: 
       return {...state, pagination: {...state.pagination, offset}}
     }
     case 'clear':
-      return {pagination: {...state.pagination, offset: 0}, sets: [], count: 0, total: 0};
+      return {...state, pagination: {...state.pagination, offset: 0}, sets: [], count: 0, total: 0};
     case 'set':
       return {...state, sets: [...state.sets, action.payload]};
     case 'progress':
       return {...state, ...action.payload};
     case 'sets':
       return {...state, sets: [...state.sets, ...action.payload]};
+    case 'order':
+    {
+      const index = state.order.findIndex(o => o.key === action.payload);
+      if (index >= 0)
+      {
+        if (state.order[index].descending === true)
+          return {...state, order: [...state.order.slice(0, index), ...state.order.slice(index+1), {key: action.payload, descending: false}]};
+        return {...state, order: [...state.order.slice(0, index), ...state.order.slice(index+1)]};
+      }
+      return {...state, order: [...state.order, {key: action.payload, descending: true}]};
+    }
     default:
       return state;
   }

@@ -2,6 +2,8 @@ import React, { useMemo } from 'react';
 
 import { connect } from 'react-redux';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import SearchControls from '../components/SearchControls';
 import ResultPagination from '../components/ResultPagination';
 
@@ -58,12 +60,37 @@ function Row({search, set}) {
   );
 }
 
+function sort(results, order)
+{
+  return results.sort((a, b) => {
+    for (const o of order)
+    {
+      const keys = o.key.split('.');
+      let x = a;
+      let y = b;
+      for (const key of keys)
+      {
+        x = x[key];
+        y = y[key];
+      }
+      const cmp = y - x;
+      if (cmp !== 0)
+        return o.descending === true ? cmp : -cmp;
+    }
+    return 0;
+  });
+}
+
 function Results(props) {
-  const { search, results, pagination } = props;
+  const { search, results, pagination, order, set_order } = props;
 
   const max = Math.min(pagination.offset + pagination.count, results.length);
   // const show = useMemo(() => results.slice(pagination.offset, max), [pagination, max]);
-  const show = results.slice(pagination.offset, max);
+
+  const show = sort(results, order).slice(pagination.offset, max);
+
+
+  // 'sort', 'sort-up', 'sort-down'
 
   return (
     <div className={style.container}>
@@ -87,19 +114,31 @@ function Results(props) {
         <table className={style.table}>
           <thead>
             <tr>
-              <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={defence} alt={'Defence'}/></th>
-              <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={fire} alt={'Fire'}/></th>
-              <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={water} alt={'Water'}/></th>
-              <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={thunder} alt={'Thunder'}/></th>
-              <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={ice} alt={'Ice'}/></th>
-              <th className={`${style.head} ${style.desktop}`}><img style={{width: 16}} src={dragon} alt={'Dragon'}/></th>
-              {/*<th className={`${style.head} ${style.mobile}`}>Defence</th>*/}
-              {/*<th className={`${style.head} ${style.desktop}`}>Head</th>*/}
-              {/*<th className={`${style.head} ${style.desktop}`}>Torso</th>*/}
-              {/*<th className={`${style.head} ${style.desktop}`}>Arms</th>*/}
-              {/*<th className={`${style.head} ${style.desktop}`}>Waist</th>*/}
-              {/*<th className={`${style.head} ${style.desktop}`}>Legs</th>*/}
-              <th className={`${style.head} ${style.mobile}`}>Equipment</th>
+              <th className={style.head}>
+                <img style={{width: 16}} src={defence} alt={'Defence'}/>
+                <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.raw') ? (order.find(o => o.key === 'raw.raw').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.raw')}/>
+              </th>
+              <th className={style.head}>
+                <img style={{width: 16}} src={fire} alt={'Fire'}/>
+                <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.fire') ? (order.find(o => o.key === 'raw.fire').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.fire')}/>
+              </th>
+              <th className={style.head}>
+                <img style={{width: 16}} src={water} alt={'Water'}/>
+                <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.water') ? (order.find(o => o.key === 'raw.water').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.water')}/>
+              </th>
+              <th className={style.head}>
+                <img style={{width: 16}} src={thunder} alt={'Thunder'}/>
+                <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.thunder') ? (order.find(o => o.key === 'raw.thunder').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.thunder')}/>
+              </th>
+              <th className={style.head}>
+                <img style={{width: 16}} src={ice} alt={'Ice'}/>
+                <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.ice') ? (order.find(o => o.key === 'raw.ice').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.ice')}/>
+              </th>
+              <th className={style.head}>
+                <img style={{width: 16}} src={dragon} alt={'Dragon'}/>
+                <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.dragon') ? (order.find(o => o.key === 'raw.dragon').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.dragon')}/>
+              </th>
+              <th className={style.head}>Equipment</th>
               <th className={style.head}>Extra Skills</th>
               <th className={style.head}>Decorations</th>
               <th className={style.head}>Slots</th>
@@ -118,6 +157,9 @@ function shouldNotRerender(prev, next) {
   if (prev.pagination.count !== next.pagination.count)
     return false;
 
+  if (prev.order !== next.order)
+    return false;
+
   const prev_max = Math.min(prev.pagination.offset + prev.pagination.count, prev.results.length);
   const next_max = Math.min(next.pagination.offset + next.pagination.count, next.results.length);
   return prev_max === next_max;
@@ -128,8 +170,14 @@ function mapStateToProps(state) {
     search: state.search,
     results: state.results.sets,
     pagination: state.results.pagination,
-
+    order: state.results.order
   };
 }
 
-export default connect(mapStateToProps)(React.memo(Results, shouldNotRerender));
+function mapDispatchToProps(dispatch) {
+  return {
+    set_order: (key, descending) => dispatch({type: 'order', payload: key})
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Results, shouldNotRerender));
