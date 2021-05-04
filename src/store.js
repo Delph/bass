@@ -29,8 +29,13 @@ function search(state = {
     case 'allow_dummy':
       return {...state, [action.type]: action.payload};
     case 'add_effect':
-      if (state.effects.includes(action.payload))
-        return state;
+      if (state.effects.find(e => e.skill === action.payload.skill))
+      {
+        const effects = [...state.effects];
+        effects.find(e => e.skill === action.payload.skill).points = action.payload.points;
+        return {...state, effects};
+        return {...state, effects: [...state.effects.filter(e => e.skill !== action.payload.skill), action.payload]};
+      }
       return {...state, effects: [...state.effects, action.payload]};
     case 'remove_effect':
       return {...state, effects: state.effects.filter(e => e.skill !== action.payload)};
