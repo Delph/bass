@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-// import { Label } from '../components/Label';
+import { Label } from '../components/Label';
 // import { Radio } from '../components/Radio';
 // import { InputField } from '../components/InputField';
 import { Select } from '../components/Select';
@@ -25,7 +25,9 @@ function Settings(props) {
     <React.Fragment>
       <h1>Settings</h1>
 
-      <Select options={languages.map(l => { return {value: l.toLowerCase(), label: l}; })} value={settings.language} onChange={set_language}/>
+      <Label text={'Language'}>
+        <Select options={languages.map(l => { return {value: l.toLowerCase(), label: l}; })} value={settings.language} onChange={set_language}/>
+      </Label>
 
       {/*
       <Label text={'Defence display'}>
@@ -35,8 +37,8 @@ function Settings(props) {
       <Label text={'Workers'}>
         <InputField type={'number'} min={1} step={1} max={8}/>
       </Label>
-      */}
       <Link to={'/about'}>About</Link>
+      */}
 
     </React.Fragment>
   );
