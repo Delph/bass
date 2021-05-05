@@ -21,6 +21,8 @@ function Tab(props) {
 
 
 function TabBar(props) {
+  const info  = process.env.REACT_APP_VERSION;
+
   return (
     <div className={style.bar}>
       <nav>
@@ -36,6 +38,9 @@ function TabBar(props) {
         <h1>Donate</h1>
       </div>
       */}
+      <div className={style.version}>
+        <span>Version: {info}</span>
+      </div>
     </div>
   );
 }

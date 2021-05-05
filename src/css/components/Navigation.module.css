@@ -46,6 +46,14 @@
   margin: 0 auto;
 }
 
+.version
+{
+  width: 100%;
+  text-align: right;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
 @media (max-width: 968px)
 {
   .bar
