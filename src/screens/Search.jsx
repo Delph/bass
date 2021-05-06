@@ -21,28 +21,28 @@ function SkillRow(props) {
     <React.Fragment>
       <tr className={style.mobile}>
         <td rowSpan={6}>{translate('skill', skill.name)}</td>
-        <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => {if (skill.skills['20']) add_effect(skill.name, -20)}}>20</td>
-        <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => {if (skill.skills['20']) add_effect(skill.name, -20)}}>{translate('effect', skill.skills['20'] ?? '')}</td>
+        <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => {if (skill.skills['20']) add_effect(skill.name, 20)}}>20</td>
+        <td className={`${skill.skills['20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 20) ? style.selected : ''}`} onClick={() => {if (skill.skills['20']) add_effect(skill.name, 20)}}>{translate('effect', skill.skills['20'] ?? '')}</td>
       </tr>
       <tr className={style.mobile}>
-        <td className={`${skill.skills['15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 15) ? style.selected : ''}`} onClick={() => {if (skill.skills['15']) add_effect(skill.name, -15)}}>15</td>
-        <td className={`${skill.skills['15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 15) ? style.selected : ''}`} onClick={() => {if (skill.skills['15']) add_effect(skill.name, -15)}}>{translate('effect', skill.skills['15'] ?? '')}</td>
+        <td className={`${skill.skills['15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 15) ? style.selected : ''}`} onClick={() => {if (skill.skills['15']) add_effect(skill.name, 15)}}>15</td>
+        <td className={`${skill.skills['15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 15) ? style.selected : ''}`} onClick={() => {if (skill.skills['15']) add_effect(skill.name, 15)}}>{translate('effect', skill.skills['15'] ?? '')}</td>
       </tr>
       <tr className={style.mobile}>
-        <td className={`${skill.skills['10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 10) ? style.selected : ''}`} onClick={() => {if (skill.skills['10']) add_effect(skill.name, -10)}}>10</td>
-        <td className={`${skill.skills['10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 10) ? style.selected : ''}`} onClick={() => {if (skill.skills['10']) add_effect(skill.name, -10)}}>{translate('effect', skill.skills['10'] ?? '')}</td>
+        <td className={`${skill.skills['10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 10) ? style.selected : ''}`} onClick={() => {if (skill.skills['10']) add_effect(skill.name, 10)}}>10</td>
+        <td className={`${skill.skills['10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === 10) ? style.selected : ''}`} onClick={() => {if (skill.skills['10']) add_effect(skill.name, 10)}}>{translate('effect', skill.skills['10'] ?? '')}</td>
       </tr>
       <tr className={style.mobile}>
-        <td className={`${skill.skills['-10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -10) ? style.selected : ''}`} onClick={() => {if (skill.skills['-10']) add_effect(skill.name, 10)}}>-10</td>
-        <td className={`${skill.skills['-10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -10) ? style.selected : ''}`} onClick={() => {if (skill.skills['-10']) add_effect(skill.name, 10)}}>{translate('effect', skill.skills['-10'] ?? '')}</td>
+        <td className={`${skill.skills['-10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -10) ? style.selected : ''}`} onClick={() => {if (skill.skills['-10']) add_effect(skill.name, -10)}}>-10</td>
+        <td className={`${skill.skills['-10'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -10) ? style.selected : ''}`} onClick={() => {if (skill.skills['-10']) add_effect(skill.name, -10)}}>{translate('effect', skill.skills['-10'] ?? '')}</td>
       </tr>
       <tr className={style.mobile}>
-        <td className={`${skill.skills['-15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -15) ? style.selected : ''}`} onClick={() => {if (skill.skills['-15']) add_effect(skill.name, 15)}}>-15</td>
-        <td className={`${skill.skills['-15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -15) ? style.selected : ''}`} onClick={() => {if (skill.skills['-15']) add_effect(skill.name, 15)}}>{translate('effect', skill.skills['-15'] ?? '')}</td>
+        <td className={`${skill.skills['-15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -15) ? style.selected : ''}`} onClick={() => {if (skill.skills['-15']) add_effect(skill.name, -15)}}>-15</td>
+        <td className={`${skill.skills['-15'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -15) ? style.selected : ''}`} onClick={() => {if (skill.skills['-15']) add_effect(skill.name, -15)}}>{translate('effect', skill.skills['-15'] ?? '')}</td>
       </tr>
       <tr className={style.mobile}>
-        <td className={`${skill.skills['-20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -20) ? style.selected : ''}`} onClick={() => {if (skill.skills['-20']) add_effect(skill.name, 20)}}>-20</td>
-        <td className={`${skill.skills['-20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -20) ? style.selected : ''}`} onClick={() => {if (skill.skills['-20']) add_effect(skill.name, 20)}}>{translate('effect', skill.skills['-20'] ?? '')}</td>
+        <td className={`${skill.skills['-20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -20) ? style.selected : ''}`} onClick={() => {if (skill.skills['-20']) add_effect(skill.name, -20)}}>-20</td>
+        <td className={`${skill.skills['-20'] ? style.cell : ''} ${effects.some(e => e.skill === skill.name && e.points === -20) ? style.selected : ''}`} onClick={() => {if (skill.skills['-20']) add_effect(skill.name, -20)}}>{translate('effect', skill.skills['-20'] ?? '')}</td>
       </tr>
 
       <tr className={`${style.row} ${style.desktop}`}>
