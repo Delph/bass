@@ -80,4 +80,9 @@
   {
     font-size: 16px;
   }
+
+  .version
+  {
+    display: none;
+  }
 }

@@ -12,6 +12,8 @@ import { Select } from '../components/Select';
 function Settings(props) {
   const { settings, set_language } = props;
 
+  const info = process.env.REACT_APP_VERSION;
+
   // const games = [
   //   {
   //     value: 'mhfu',
@@ -39,7 +41,7 @@ function Settings(props) {
       </Label>
       <Link to={'/about'}>About</Link>
       */}
-
+      <div>Version: {info}</div>
     </React.Fragment>
   );
 }

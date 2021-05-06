@@ -21,7 +21,7 @@ function Tab(props) {
 
 
 function TabBar(props) {
-  const info  = process.env.REACT_APP_VERSION;
+  const info = process.env.REACT_APP_VERSION;
 
   return (
     <div className={style.bar}>
