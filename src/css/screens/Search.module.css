@@ -120,7 +120,8 @@
 
 
 
-.mobile
+.mobile,
+.mobile_head
 {
   display: none;
 }
@@ -135,5 +136,10 @@
   .mobile
   {
     display: table-row;
+  }
+
+  .mobile_head
+  {
+    display: table-cell;
   }
 }

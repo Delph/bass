@@ -76,8 +76,8 @@ function SkillTable({skills}) {
       <thead>
         <tr>
           <th className={style.head}>Skill</th>
-          <th className={`${style.head} ${style.mobile}`}>Points</th>
-          <th className={`${style.head} ${style.mobile}`}>Effect</th>
+          <th className={`${style.head} ${style.mobile_head}`}>Points</th>
+          <th className={`${style.head} ${style.mobile_head}`}>Effect</th>
           <th className={`${style.head} ${style.desktop}`}>-20</th>
           <th className={`${style.head} ${style.desktop}`}>-15</th>
           <th className={`${style.head} ${style.desktop}`}>-10</th>
