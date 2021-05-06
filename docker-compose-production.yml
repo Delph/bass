@@ -5,8 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
-    volumes:
-     - './build:/var/www/html'
     ports:
      - '5040:80'
     restart: always

@@ -5,3 +5,6 @@ build
 **/.git
 **/node_modules
 Dockerfile
+Dockerfile.production
+docker-compose.yml
+docker-compose-production.yml
