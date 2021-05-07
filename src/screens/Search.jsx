@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Label } from '../components/Label';
 import { Checkbox } from '../components/Checkbox';
 import { Select } from '../components/Select';
+import { InputField } from '../components/InputField';
 
 import { skills } from '../gamedata';
 
@@ -114,7 +115,10 @@ function CategoryFilter({category, onChange, value}) {
 
 
 function Search(props) {
-  const { search, update, update_check, remove_effect, filter, set_filter, worker } = props;
+  const { search, update, update_check, remove_effect, filter, set_filter, reset, worker } = props;
+
+  const [match, setMatch] = useState('');
+
   const vr = [
     {value: 9, label: '9★ (Nekoht)'},
     {value: 8, label: '8★ (Nekoht)'},
@@ -168,7 +172,14 @@ function Search(props) {
   };
 
 
-  const display_skills = useMemo(() => skills.filter(s => ((filter['none'] ?? true) && s.categories.length === 0) || s.categories.map(s => s.toLowerCase()).some(r => categories.map(c => c.toLowerCase()).filter(c => filter[c] === undefined || filter[c] === true).includes(r))), [filter, categories]);
+/*
+  const display_skills = useMemo(() => {
+    skills.filter(s => !match || translate('skill', s.name).toLowerCase().includes(match) || Object.values(s.skills).some(s => translate('effect', s).toLowerCase().includes(match)))
+      .filter(s => ((filter['none'] ?? true) && s.categories.length === 0) || s.categories.map(s => s.toLowerCase()).some(r => categories.map(c => c.toLowerCase()).filter(c => filter[c] === undefined || filter[c] === true).includes(r)))
+  }, [filter, categories, match]);
+*/
+  const display_skills = skills.filter(s => !match || translate('skill', s.name).toLowerCase().includes(match) || Object.values(s.skills).some(s => translate('effect', s).toLowerCase().includes(match)))
+      .filter(s => ((filter['none'] ?? true) && s.categories.length === 0) || s.categories.map(s => s.toLowerCase()).some(r => categories.map(c => c.toLowerCase()).filter(c => filter[c] === undefined || filter[c] === true).includes(r)));
 
   return (
     <div className={style.container}>
@@ -219,6 +230,7 @@ function Search(props) {
       </div>
       <fieldset>
         <legend>Filter</legend>
+        <InputField onChange={e => setMatch(e.target.value.toLowerCase())} value={match} placeholder={'Search'}/>
         {categories.map(c => <CategoryFilter category={c} onChange={set_filter} value={filter[c] ?? true}/>)}
         <CategoryFilter category={'None'} onChange={set_filter} value={filter['none'] ?? true}/>
       </fieldset>
