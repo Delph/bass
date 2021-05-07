@@ -71,11 +71,24 @@
   cursor: pointer;
 }
 
-.button
+.buttons
 {
-  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
+.start
+{
+  margin-top: 8px;
+  flex-grow: 1;
+}
+
+.reset
+{
+  height: 60px;
+  margin-top: 8px;
+}
 
 /* table */
 .tableContainer

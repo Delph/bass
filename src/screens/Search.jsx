@@ -226,7 +226,10 @@ function Search(props) {
           <legend>Effects</legend>
           {search.effects.map((e, i) => <EffectItem key={i} effect={e} remove={() => remove_effect(e.skill)}/>)}
         </fieldset>
-        <input className={style.button} type="button" value="Search" onClick={() => start(props)}/>
+        <div className={style.buttons}>
+          <input className={style.start} type={'button'} value={'Search'} onClick={() => start(props)}/>
+          <input className={style.reset} type={'button'} value={'Reset'} onClick={reset}/>
+        </div>
       </div>
       <fieldset>
         <legend>Filter</legend>
@@ -256,6 +259,7 @@ const mapDispatchToProps = dispatch => {
         clear: () => dispatch({type: 'clear'}),
         remove_effect: e => dispatch({type: 'remove_effect', payload: e}),
 
+        reset: e => dispatch({type: 'reset'}),
         set_filter: e => dispatch({type: 'filter', payload: {category: e.target.name, value: e.target.checked}})
     };
 };

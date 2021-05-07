@@ -38,6 +38,8 @@ function search(state = {
       return {...state, effects: [...state.effects, action.payload]};
     case 'remove_effect':
       return {...state, effects: state.effects.filter(e => e.skill !== action.payload)};
+    case 'reset':
+      return {...state, vr: 9, hr: 9, gender: 1, class: 1, slots: 0, allow_bad: false, allow_piercings: false, allow_torsoinc: false, allow_dummy: false, effects: []};
     default:
       return state;
   }
