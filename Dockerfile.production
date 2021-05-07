@@ -18,5 +18,8 @@ RUN apt install nginx -y
 COPY --from=build /app/build /var/www/html
 COPY nginx.conf /etc/nginx/conf.d
 
+RUN rm /etc/nginx/sites-available/default
+RUN rm /etc/nginx/sites-enabled/default
+
 CMD ["nginx", "-g", "daemon off;"]
 
