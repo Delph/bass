@@ -4,8 +4,30 @@ import { connect } from 'react-redux';
 import { number_format } from '../util';
 
 function ResultPagination(props) {
-  const { found, pagination, next, prev } = props;
+  const { found, pagination, order, next, prev } = props;
   const max = Math.min(pagination.offset + pagination.count, found);
+
+
+  const map = k => {
+    switch (k)
+    {
+      case 'raw.raw':
+        return 'defence';
+      case 'raw.fire':
+        return 'fire';
+      case 'raw.water':
+        return 'water';
+      case 'raw.thunder':
+        return 'thunder';
+      case 'raw.ice':
+        return 'ice';
+      case 'raw.dragon':
+        return 'dragon';
+      default:
+        return k;
+    }
+  }
+  const sorting = order.map(o => `${map(o.key)}${o.descending ? '' : ' (ascending)'}`).join(', then by ') + '.';
 
   return (
     <fieldset>
@@ -14,6 +36,11 @@ function ResultPagination(props) {
         <input type={'button'} value={'Next'} onClick={next} disabled={pagination.offset + pagination.count >= found}/>
       </div>
       <div>Showing {number_format(pagination.offset)} to {number_format(max)} of {number_format(found)} results.</div>
+      {order.length ?
+        <div>Sorting by {sorting}</div>
+      :
+        <div>Unsorted</div>
+      }
     </fieldset>
   );
 }
@@ -21,7 +48,8 @@ function ResultPagination(props) {
 function mapStateToProps(state) {
   return {
     found: state.results.sets.length,
-    pagination: state.results.pagination
+    pagination: state.results.pagination,
+    order: state.results.order
   };
 }
 
