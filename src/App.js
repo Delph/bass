@@ -102,10 +102,12 @@ function Changelog() {
       <div>
         <h3>0.1.1</h3>
         <ul>
+          <li>Added a change log!</li>
           <li>Text search filter on skills and effects</li>
           <li>Search reset button to clear state</li>
           <li>Descriptive text of current sorting method</li>
           <li>Fixed some meta data and manifest items</li>
+          <li>Fixed routing (404 on results/settings)</li>
         </ul>
       </div>
       <div>
