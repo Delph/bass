@@ -41,6 +41,7 @@ function Settings(props) {
       </Label>
       <Link to={'/about'}>About</Link>
       */}
+      <Link to={'/changelog'}>Changelog</Link>
       <div>Version: {info}</div>
     </React.Fragment>
   );

@@ -31,6 +31,7 @@ function Body(props) {
       <Route path={'/History'} component={History}/>
       <Route path={'/settings'} component={Settings}/>
       <Route path={'/about'} component={About}/>
+      <Route path={'/changelog'} component={Changelog}/>
     </div>
   );
 }
@@ -91,6 +92,29 @@ function History() {
 function About() {
   return (
     <p>Browser Armour Set Search</p>
+  );
+}
+
+function Changelog() {
+  return (
+    <React.Fragment>
+      <h1>Changelog</h1>
+      <div>
+        <h3>0.1.1</h3>
+        <ul>
+          <li>Text search filter on skills and effects</li>
+          <li>Search reset button to clear state</li>
+          <li>Descriptive text of current sorting method</li>
+          <li>Fixed some meta data and manifest items</li>
+        </ul>
+      </div>
+      <div>
+        <h3>0.1.0</h3>
+        <ul>
+          <li>Initial release</li>
+        </ul>
+      </div>
+    </React.Fragment>
   );
 }
 
