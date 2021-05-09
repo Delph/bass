@@ -100,7 +100,7 @@ function history(state = [], action) {
   switch (action.type)
   {
     case 'push_history':
-      return [action.payload, ...state];
+      return [{...action.payload, timestamp: Date.now()}, ...state];
     case 'remove_history':
       return [...state.slice(0, action.payload), ...state.slice(action.payload+1)];
     default:

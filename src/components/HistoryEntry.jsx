@@ -14,12 +14,14 @@ function HistoryEntry(props) {
   const start = (props) => {
     props.clear(); // clear result state
     props.worker({type: 'start', payload: props.search});
+    remove_history(id);
     props.push_history(props.search);
     history.push('/results');
   };
 
   return (
     <tr>
+      <td>{(new Date(entry.timestamp)).toLocaleDateString()}</td>
       <td>{entry.class === 1 ? 'Blademaster' : 'Gunner'}</td>
       <td>{entry.slots}</td>
       <td>{entry.hr}</td>
