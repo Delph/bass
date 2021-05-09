@@ -14,6 +14,7 @@ import { TabBar } from './components/Navigation';
 
 import Search from './screens/Search';
 import Results from './screens/Results';
+import History from './screens/History';
 import Settings from './screens/Settings';
 
 import style from './css/App.module.css';
@@ -28,7 +29,7 @@ function Body(props) {
       <Route path={'/results'} component={Results}/>
       <Route path={'/sets'} component={Sets}/>
       <Route path={'/builder'} component={Builder}/>
-      <Route path={'/History'} component={History}/>
+      <Route path={'/history'} component={History}/>
       <Route path={'/settings'} component={Settings}/>
       <Route path={'/about'} component={About}/>
       <Route path={'/changelog'} component={Changelog}/>
@@ -77,14 +78,6 @@ function Builder() {
   return (
     <React.Fragment>
       <h1>Builder</h1>
-    </React.Fragment>
-  );
-}
-
-function History() {
-  return (
-    <React.Fragment>
-      <h1>History</h1>
     </React.Fragment>
   );
 }

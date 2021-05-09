@@ -30,7 +30,7 @@ function TabBar(props) {
         <Tab href={'/results'} label={'Results'} icon={'file'}/>
         {/*<Tab href={'/sets'} label={'Sets'} icon={'folder'}/>*/}
         {/*<Tab href={'/builder'} label={'Builder'} icon={'hammer'}/>*/}
-        {/*<Tab href={'/history'} label={'History'} icon={'history'}/>*/}
+        <Tab href={'/history'} label={'History'} icon={'history'}/>
         <Tab href={'/settings'} label={'Settings'} icon={'cog'}/>
       </nav>
       {/*

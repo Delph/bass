@@ -97,7 +97,15 @@ function results(state = {pagination: {offset: 0, count: 100}, order: [], sets: 
 }
 
 function history(state = [], action) {
-  return state;
+  switch (action.type)
+  {
+    case 'push_history':
+      return [action.payload, ...state];
+    case 'remove_history':
+      return [...state.slice(0, action.payload), ...state.slice(action.payload+1)];
+    default:
+      return state;
+  }
 }
 
 function settings(state = {defence: 'effective', language: 'english'}, action) {
