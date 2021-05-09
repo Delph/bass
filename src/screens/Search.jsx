@@ -2,6 +2,8 @@ import React, { useMemo, useState } from 'react';
 
 import { connect } from 'react-redux';
 
+import { useHistory } from 'react-router-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Label } from '../components/Label';
@@ -117,6 +119,8 @@ function CategoryFilter({category, onChange, value}) {
 function Search(props) {
   const { search, update, update_check, remove_effect, filter, set_filter, reset, worker } = props;
 
+  const history = useHistory();
+
   const [match, setMatch] = useState('');
 
   const vr = [
@@ -168,7 +172,8 @@ function Search(props) {
   const start = (props) => {
     props.clear(); // clear result state
     worker({type: 'start', payload: search});
-    props.history.push('/results');
+    props.push_history(search);
+    history.push('/results');
   };
 
 
@@ -208,7 +213,7 @@ function Search(props) {
           </fieldset>
           <fieldset className={style.section}>
             <legend>Options</legend>
-            <Label text={'Allow Bad'}>
+            <Label text={'Allow Bad Effects'}>
               <Checkbox name={'allow_bad'} onChange={update_check} checked={search.allow_bad}/>
             </Label>
             <Label text={'Allow Piercings'}>
@@ -252,16 +257,17 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
-        update: e => dispatch({type: e.target.name, payload: e.target.value}),
-        update_check: e => dispatch({type: e.target.name, payload: e.target.checked}),
-        worker: payload => dispatch({type: 'worker', payload}),
-        clear: () => dispatch({type: 'clear'}),
-        remove_effect: e => dispatch({type: 'remove_effect', payload: e}),
+  return {
+    update: e => dispatch({type: e.target.name, payload: e.target.value}),
+    update_check: e => dispatch({type: e.target.name, payload: e.target.checked}),
+    worker: payload => dispatch({type: 'worker', payload}),
+    clear: () => dispatch({type: 'clear'}),
+    remove_effect: e => dispatch({type: 'remove_effect', payload: e}),
+    push_history: search => dispatch({type: 'push_history', payload: search}),
 
-        reset: e => dispatch({type: 'reset'}),
-        set_filter: e => dispatch({type: 'filter', payload: {category: e.target.name, value: e.target.checked}})
-    };
+    reset: e => dispatch({type: 'reset'}),
+    set_filter: e => dispatch({type: 'filter', payload: {category: e.target.name, value: e.target.checked}})
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
