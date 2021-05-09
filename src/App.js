@@ -10,7 +10,7 @@ import { store, persistor } from './store';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
-import { TabBar } from './components/Navigation';
+import TabBar from './components/Navigation';
 
 import Search from './screens/Search';
 import Results from './screens/Results';
@@ -92,6 +92,17 @@ function Changelog() {
   return (
     <React.Fragment>
       <h1>Changelog</h1>
+      <div>
+        <h3>0.1.2</h3>
+        <ul>
+          <li>Added search history</li>
+          <ul>
+            <li>Your search queries will appear in the history</li>
+            <li>Entries in the history can be searched again or removed using the buttons</li>
+          </ul>
+          <li>Added notices</li>
+        </ul>
+      </div>
       <div>
         <h3>0.1.1</h3>
         <ul>

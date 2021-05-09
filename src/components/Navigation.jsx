@@ -1,11 +1,15 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import style from '../css/components/Navigation.module.css';
 
+
+import Notice from '../components/Notice';
 
 function Tab(props) {
   const { href, label, icon } = props;
@@ -21,10 +25,30 @@ function Tab(props) {
 
 
 function TabBar(props) {
+  const { seen } = props;
   const info = process.env.REACT_APP_VERSION;
+
+  const notices = [
+/*
+    {
+      codename: 'v0.1.3',
+      replaces: 'v0.1.2',
+      title: 'Version 0.1.3',
+      notice: 'Foo'
+    },
+*/
+    {
+      codename: 'v0.1.2',
+      title: 'Version 0.1.2',
+      notice: 'New version introduces notices and search history. Changelog which was introduced in 0.1.1 can be accessed from Settings.'
+    }
+  ];
 
   return (
     <div className={style.bar}>
+      <div className={style.notices}>
+        {notices.filter(notice => !seen.includes(notice.codename) && !notices.some(n => n.replaces === notice.codename)).map(notice => <Notice key={notice.codename} notice={notice}/>)}
+      </div>
       <nav>
         <Tab href={'/'} label={'Search'} icon={'search'}/>
         <Tab href={'/results'} label={'Results'} icon={'file'}/>
@@ -46,4 +70,10 @@ function TabBar(props) {
 }
 
 
-export { TabBar };
+function mapStateToProps(state) {
+  return {
+    seen: state.notices
+  }
+};
+
+export default connect(mapStateToProps)(TabBar);

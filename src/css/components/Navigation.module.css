@@ -8,7 +8,6 @@
   border-right: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .tab
@@ -48,6 +47,7 @@
 
 .version
 {
+  margin-top: auto;
   width: 100%;
   text-align: right;
   padding: 4px;

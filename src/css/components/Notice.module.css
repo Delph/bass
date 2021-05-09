@@ -1,0 +1,36 @@
+.notice
+{
+  padding: 4px;
+  border-bottom: 1px solid black;
+}
+
+.header
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.title
+{
+  font-weight: bold;
+  margin: 4px 0;
+}
+
+.dismiss
+{
+  cursor: pointer;
+  user-select: none;
+}
+
+.text
+{
+  margin: 4px 0;
+}
+
+@media (max-width: 968px)
+{
+  .notices
+  {
+    display: none;
+  }
+}

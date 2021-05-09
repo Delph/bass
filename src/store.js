@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-import { persistStore, persistReducer } from 'redux-persist';
+import { createMigrate, persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import autoMergeLevel1 from 'redux-persist/lib/stateReconciler/autoMergeLevel1';
 
@@ -148,6 +148,21 @@ function worker(state = {paused: false, stopped: true}, action) {
   }
 }
 
+function notices(state = [], action) {
+  switch (action.type)
+  {
+    case 'seen':
+      return [...state, action.payload];
+    default:
+      return state;
+  }
+}
+
+const migrations = {
+  0: state => state,
+  1: state => ({...state, notices: []})
+};
+
 const reducer = combineReducers({
   search,
   filter,
@@ -155,13 +170,16 @@ const reducer = combineReducers({
   history,
   settings,
   worker,
+  notices
 });
 
 const config = {
   key: 'bass',
   storage: storage,
   stateReconciler: autoMergeLevel1,
-  blacklist: ['results', 'worker']
+  blacklist: ['results', 'worker'],
+  version: 1,
+  migrate: createMigrate(migrations, {debug: true})
 };
 
 const pReducer = persistReducer(config, reducer);
