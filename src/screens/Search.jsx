@@ -11,7 +11,7 @@ import { Checkbox } from '../components/Checkbox';
 import { Select } from '../components/Select';
 import { InputField } from '../components/InputField';
 
-import { game, skills } from '../gamedata';
+import { game } from '../gamedata';
 
 import { slots_format, translate } from '../util';
 
@@ -97,7 +97,7 @@ function SkillTable({skills}) {
 }
 
 function EffectItem({effect, remove}) {
-  const skill = skills.find(s => s.name === effect.skill);
+  const skill = game().skills.find(s => s.name === effect.skill);
 
   return (
     <div className={style.effectitem}>
@@ -146,7 +146,7 @@ function Search(props) {
     }
   ];
 
-  const categories = useMemo(() => [...skills.map(s => s.categories)].flat().filter((e, i, a) => i === a.indexOf(e)), []);
+  const categories = useMemo(() => [...game().skills.map(s => s.categories)].flat().filter((e, i, a) => i === a.indexOf(e)), []);
 
   const start = (props) => {
     props.clear(); // clear result state
@@ -162,7 +162,7 @@ function Search(props) {
       .filter(s => ((filter['none'] ?? true) && s.categories.length === 0) || s.categories.map(s => s.toLowerCase()).some(r => categories.map(c => c.toLowerCase()).filter(c => filter[c] === undefined || filter[c] === true).includes(r)))
   }, [filter, categories, match]);
 */
-  const display_skills = skills.filter(s => !match || translate('skill', s.name).toLowerCase().includes(match) || Object.values(s.skills).some(s => translate('effect', s).toLowerCase().includes(match)))
+  const display_skills = game().skills.filter(s => !match || translate('skill', s.name).toLowerCase().includes(match) || Object.values(s.skills).some(s => translate('effect', s).toLowerCase().includes(match)))
       .filter(s => ((filter['none'] ?? true) && s.categories.length === 0) || s.categories.map(s => s.toLowerCase()).some(r => categories.map(c => c.toLowerCase()).filter(c => filter[c] === undefined || filter[c] === true).includes(r)));
 
   return (
@@ -222,7 +222,7 @@ function Search(props) {
       <fieldset>
         <legend>Filter</legend>
         <InputField onChange={e => setMatch(e.target.value.toLowerCase())} value={match} placeholder={'Search'}/>
-        {categories.map(c => <CategoryFilter category={c} onChange={set_filter} value={filter[c] ?? true}/>)}
+        {categories.map(c => <CategoryFilter key={c} category={c} onChange={set_filter} value={filter[c] ?? true}/>)}
         <CategoryFilter category={'None'} onChange={set_filter} value={filter['none'] ?? true}/>
       </fieldset>
       <div className={style.tableContainer}>

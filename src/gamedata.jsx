@@ -1,18 +1,18 @@
-import heads from './gamedata/mhfu/head.json';
-import chests from './gamedata/mhfu/body.json';
-import arms from './gamedata/mhfu/arms.json';
-import waists from './gamedata/mhfu/waist.json';
-import legs from './gamedata/mhfu/legs.json';
-import translation from './gamedata/mhfu/translation.json';
+import mhfu_heads from './gamedata/mhfu/head.json';
+import mhfu_chests from './gamedata/mhfu/body.json';
+import mhfu_arms from './gamedata/mhfu/arms.json';
+import mhfu_waists from './gamedata/mhfu/waist.json';
+import mhfu_legs from './gamedata/mhfu/legs.json';
+import mhfu_translation from './gamedata/mhfu/translation.json';
 
-import skills from './gamedata/mhfu/skills.json';
+import mhfu_skills from './gamedata/mhfu/skills.json';
 
-import decorations from './gamedata/mhfu/decorations.json';
+import mhfu_decorations from './gamedata/mhfu/decorations.json';
 
 import { store } from './store';
 
 class GameConfiguration {
-  constructor(name, village_ranks, hunter_ranks, damage_types, has_decorations, has_charms)
+  constructor(name, village_ranks, hunter_ranks, damage_types, has_decorations, has_charms, gear, skills, decorations, translation)
   {
     this.name = name;
     this.village_ranks = village_ranks;
@@ -20,6 +20,10 @@ class GameConfiguration {
     this.damage_types = damage_types;
     this.has_decorations = has_decorations;
     this.has_charms = has_charms;
+    this.gear = gear;
+    this.skills = skills;
+    this.decorations = decorations;
+    this.translation = translation
   }
 
   vr_format(vr)
@@ -59,7 +63,11 @@ const mhfu = new GameConfiguration('mhfu',
   ],
   ['fire', 'water', 'thunder', 'ice', 'dragon'],
   true,
-  false
+  false,
+  {heads: mhfu_heads, chests: mhfu_chests, arms: mhfu_arms, waists: mhfu_waists, legs: mhfu_legs},
+  mhfu_skills,
+  mhfu_decorations,
+  mhfu_translation
 );
 
 const games = {
@@ -71,4 +79,4 @@ function game()
   return games[store.getState().game.game];
 }
 
-export { game, heads, chests, arms, waists, legs, skills, decorations, translation };
+export { game };

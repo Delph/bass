@@ -18,7 +18,7 @@ import History from './screens/History';
 import Settings from './screens/Settings';
 
 import style from './css/App.module.css';
-import { heads, chests, arms, waists, legs, decorations, skills } from './gamedata';
+import { game } from './gamedata';
 
 library.add(fas);
 
@@ -41,9 +41,9 @@ function Startup_(props) {
   const { children, worker } = props;
 
   useEffect(() => {
-    worker({type: 'skills', payload: skills});
-    worker({type: 'decorations', payload: decorations});
-    worker({type: 'armour', payload: {heads, chests, arms, waists, legs}});
+    worker({type: 'skills', payload: game().skills});
+    worker({type: 'decorations', payload: game().decorations});
+    worker({type: 'armour', payload: game().gear});
   },
   [worker]);
 

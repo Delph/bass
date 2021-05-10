@@ -1,5 +1,4 @@
-import { skills } from './gamedata';
-import { translation } from './gamedata';
+import { game } from './gamedata';
 
 import { store } from './store';
 
@@ -20,7 +19,7 @@ function slots_format(x)
 
 function activated_effect(name, points)
 {
-  const skill = skills.find(s => s.name === name);
+  const skill = game().skills.find(s => s.name === name);
   if (!skill)
     return null;
 
@@ -36,7 +35,7 @@ function activated_effect(name, points)
 
 function translate(type, key)
 {
-  const section = translation[type] ?? null;
+  const section = game().translation[type] ?? null;
   const dict = section[key] ?? null;
   return dict && dict[store.getState().game[store.getState().game.game].settings.language] ? dict[store.getState().game[store.getState().game.game].settings.language] : key;
 }

@@ -161,10 +161,9 @@ function notices(state = [], action) {
 const gameReducer = combineReducers({
   search,
   filter,
-  results,
   history,
   settings
-})
+});
 
 function game(state = {game: 'mhfu'}, action)
 {
@@ -180,6 +179,7 @@ function game(state = {game: 'mhfu'}, action)
 const reducer = combineReducers({
   worker,
   game,
+  results,
   notices
 });
 

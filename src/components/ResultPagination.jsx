@@ -47,9 +47,9 @@ function ResultPagination(props) {
 
 function mapStateToProps(state) {
   return {
-    found: state.game[state.game.game].results.sets.length,
-    pagination: state.game[state.game.game].results.pagination,
-    order: state.game[state.game.game].results.order
+    found: state.results.sets.length,
+    pagination: state.results.pagination,
+    order: state.results.order
   };
 }
 
