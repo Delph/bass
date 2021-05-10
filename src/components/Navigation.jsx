@@ -29,14 +29,12 @@ function TabBar(props) {
   const info = process.env.REACT_APP_VERSION;
 
   const notices = [
-/*
     {
       codename: 'v0.1.3',
       replaces: 'v0.1.2',
       title: 'Version 0.1.3',
-      notice: 'Foo'
+      notice: 'This version significantly changes how data is handled to support multiple games. Any saved state (history) will be lost.'
     },
-*/
     {
       codename: 'v0.1.2',
       title: 'Version 0.1.2',

@@ -29,8 +29,8 @@ function SearchControls(props) {
 
 function mapStateToProps(state) {
   return {
-    count: state.results.count,
-    total: state.results.total,
+    count: state.game[state.game.game].results.count,
+    total: state.game[state.game.game].results.total,
     paused: state.worker.paused,
     stopped: state.worker.stopped
   };

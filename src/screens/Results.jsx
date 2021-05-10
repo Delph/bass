@@ -167,10 +167,10 @@ function shouldNotRerender(prev, next) {
 
 function mapStateToProps(state) {
   return {
-    search: state.search,
-    results: state.results.sets,
-    pagination: state.results.pagination,
-    order: state.results.order
+    search: state.game[state.game.game].search,
+    results: state.game[state.game.game].results.sets,
+    pagination: state.game[state.game.game].results.pagination,
+    order: state.game[state.game.game].results.order
   };
 }
 

@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
 
-import { translate, activated_effect } from '../util';
+import { slots_format, translate, activated_effect } from '../util';
+
+import { game } from '../gamedata';
 
 function HistoryEntry(props) {
   const { entry, id, remove_history } = props;
@@ -23,9 +25,9 @@ function HistoryEntry(props) {
     <tr>
       <td>{(new Date(entry.timestamp)).toLocaleDateString()}</td>
       <td>{entry.class === 1 ? 'Blademaster' : 'Gunner'}</td>
-      <td>{entry.slots}</td>
-      <td>{entry.hr}</td>
-      <td>{entry.vr}</td>
+      <td>{slots_format(entry.slots)}</td>
+      <td>{game().vr_format(entry.vr)}</td>
+      <td>{game().hr_format(entry.hr)}</td>
       <td>{entry.gender === 1 ? 'Male' : 'Female'}</td>
       <td>
         <ul>

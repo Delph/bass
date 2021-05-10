@@ -158,28 +158,47 @@ function notices(state = [], action) {
   }
 }
 
-const migrations = {
-  0: state => state,
-  1: state => ({...state, notices: []})
-};
-
-const reducer = combineReducers({
+const gameReducer = combineReducers({
   search,
   filter,
   results,
   history,
-  settings,
+  settings
+})
+
+function game(state = {game: 'mhfu'}, action)
+{
+  switch (action.type)
+  {
+    case 'game':
+      return {...state, game: action.payload};
+    default:
+      return {...state, [state.game]: gameReducer(state[state.game], action)};
+  }
+}
+
+const reducer = combineReducers({
   worker,
+  game,
   notices
 });
+
+const migrations = {
+  0: state => state,
+  1: state => ({...state, notices: []}),
+  2: state => ({...state, settings: {...state.settings, game: 'mhfu'}}),
+  3: state => ({...state, settings: {...state.sttings, game: undefined}}),
+  4: state => undefined // just nuke it
+};
+
 
 const config = {
   key: 'bass',
   storage: storage,
   stateReconciler: autoMergeLevel1,
   blacklist: ['results', 'worker'],
-  version: 1,
-  migrate: createMigrate(migrations, {debug: true})
+  version: 4,
+  migrate: createMigrate(migrations, {debug: false})
 };
 
 const pReducer = persistReducer(config, reducer);

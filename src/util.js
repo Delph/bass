@@ -13,6 +13,11 @@ function money_format(x)
   return `${new Intl.NumberFormat().format(x)}z`;
 }
 
+function slots_format(x)
+{
+  return 'O'.repeat(x) + '-'.repeat(3-x);
+}
+
 function activated_effect(name, points)
 {
   const skill = skills.find(s => s.name === name);
@@ -33,7 +38,7 @@ function translate(type, key)
 {
   const section = translation[type] ?? null;
   const dict = section[key] ?? null;
-  return dict && dict[store.getState().settings.language] ? dict[store.getState().settings.language] : key;
+  return dict && dict[store.getState().game[store.getState().game.game].settings.language] ? dict[store.getState().game[store.getState().game.game].settings.language] : key;
 }
 
-export { number_format, money_format, activated_effect, translate };
+export { number_format, money_format, slots_format, activated_effect, translate };

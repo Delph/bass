@@ -11,9 +11,9 @@ import { Checkbox } from '../components/Checkbox';
 import { Select } from '../components/Select';
 import { InputField } from '../components/InputField';
 
-import { skills } from '../gamedata';
+import { game, skills } from '../gamedata';
 
-import { translate } from '../util';
+import { slots_format, translate } from '../util';
 
 import style from '../css/screens/Search.module.css';
 
@@ -62,7 +62,7 @@ function SkillRow(props) {
 }
 const srstate = state => {
   return {
-    effects: state.search.effects
+    effects: state.game[state.game.game].search.effects
   };
 }
 const srdispatch = dispatch => {
@@ -123,29 +123,8 @@ function Search(props) {
 
   const [match, setMatch] = useState('');
 
-  const vr = [
-    {value: 9, label: '9★ (Nekoht)'},
-    {value: 8, label: '8★ (Nekoht)'},
-    {value: 7, label: '7★ (Nekoht)'},
-    {value: 6, label: '6★'},
-    {value: 5, label: '5★'},
-    {value: 4, label: '4★'},
-    {value: 3, label: '3★'},
-    {value: 2, label: '2★'},
-    {value: 1, label: '1★'}
-  ];
-
-  const hr = [
-    {value: 9, label: 'HR9 (GR)'},
-    {value: 8, label: 'HR8 (GR)'},
-    {value: 7, label: 'HR7 (GR)'},
-    {value: 6, label: 'HR6 (HR)'},
-    {value: 5, label: 'HR5 (HR)'},
-    {value: 4, label: 'HR4 (HR)'},
-    {value: 3, label: 'HR3 (LR)'},
-    {value: 2, label: 'HR2 (LR)'},
-    {value: 1, label: 'HR1 (LR)'}
-  ];
+  const vr = game().village_ranks;
+  const hr = game().hunter_ranks;
   const genders = [
     {
       value: 1,
@@ -207,9 +186,13 @@ function Search(props) {
             <Label text={'Weapon Class'}>
               <Select options={classes} name={'class'} onChange={update} value={search.class}/>
             </Label>
-            <Label text={'Weapon Slots'}>
-              <Select options={'0123'.split('').map(x => { return {value: x, label: x}; })} name={'slots'} onChange={update} value={search.slots}/>
-            </Label>
+            {game().has_decorations ?
+              <Label text={'Weapon Slots'}>
+                <Select options={'0123'.split('').map(x => { return {value: x, label: slots_format(x)}; })} name={'slots'} onChange={update} value={search.slots}/>
+              </Label>
+            :
+              null
+            }
           </fieldset>
           <fieldset className={style.section}>
             <legend>Options</legend>
@@ -251,8 +234,8 @@ function Search(props) {
 
 function mapStateToProps(state) {
   return {
-    search: state.search,
-    filter: state.filter
+    search: state.game[state.game.game].search,
+    filter: state.game[state.game.game].filter
   };
 }
 

@@ -17,8 +17,8 @@ function History(props) {
             <th>Date</th>
             <th>Class</th>
             <th>Weapon slots</th>
-            <th>HR</th>
             <th>Village</th>
+            <th>HR</th>
             <th>Gender</th>
             <th>Effects</th>
             <th>Options</th>
@@ -35,7 +35,7 @@ function History(props) {
 
 function mapStateToProps(state) {
   return {
-    history: state.history,
+    history: state.game[state.game.game].history,
   };
 }
 

@@ -49,7 +49,7 @@ function Settings(props) {
 
 function mapStateToProps(state) {
   return {
-    settings: state.settings
+    settings: state.game[state.game.game].settings
   };
 }
 
