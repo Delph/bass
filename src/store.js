@@ -1,8 +1,8 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
 import { createMigrate, persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import autoMergeLevel1 from 'redux-persist/lib/stateReconciler/autoMergeLevel1';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 function search(state = {
   vr: 9,
@@ -170,7 +170,9 @@ function game(state = {game: 'mhfu'}, action)
   switch (action.type)
   {
     case 'game':
-      return {...state, game: action.payload};
+      return {...state, [action.payload]: gameReducer(state[action.payload], {action: undefined}), game: action.payload};
+    case 'persist/REHYDRATE':
+      return state;
     default:
       return {...state, [state.game]: gameReducer(state[state.game], action)};
   }
@@ -195,14 +197,17 @@ const migrations = {
 const config = {
   key: 'bass',
   storage: storage,
-  stateReconciler: autoMergeLevel1,
+  stateReconciler: autoMergeLevel2,
   blacklist: ['results', 'worker'],
   version: 4,
   migrate: createMigrate(migrations, {debug: false})
 };
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+
 const pReducer = persistReducer(config, reducer);
-const store = createStore(pReducer, applyMiddleware(workerMiddleware));
+const store = createStore(pReducer, composeEnhancers(applyMiddleware(workerMiddleware)));
 const persistor = persistStore(store);
 // persistor.purge();
 export { store, persistor };

@@ -4,10 +4,17 @@ import mhfu_arms from './gamedata/mhfu/arms.json';
 import mhfu_waists from './gamedata/mhfu/waist.json';
 import mhfu_legs from './gamedata/mhfu/legs.json';
 import mhfu_translation from './gamedata/mhfu/translation.json';
-
 import mhfu_skills from './gamedata/mhfu/skills.json';
-
 import mhfu_decorations from './gamedata/mhfu/decorations.json';
+
+import mhf_heads from './gamedata/mhf/head.json';
+import mhf_chests from './gamedata/mhf/body.json';
+import mhf_arms from './gamedata/mhf/arms.json';
+import mhf_waists from './gamedata/mhf/waist.json';
+import mhf_legs from './gamedata/mhf/legs.json';
+import mhf_translation from './gamedata/mhf/translation.json';
+import mhf_skills from './gamedata/mhf/skills.json';
+
 
 import { store } from './store';
 
@@ -70,8 +77,34 @@ const mhfu = new GameConfiguration('mhfu',
   mhfu_translation
 );
 
+const mhf = new GameConfiguration('mhf',
+  [
+    {value: 6, label: '6★'},
+    {value: 5, label: '5★'},
+    {value: 4, label: '4★'},
+    {value: 3, label: '3★'},
+    {value: 2, label: '2★'},
+    {value: 1, label: '1★'}
+  ],
+  [
+    {value: 5, label: 'HR5 (GR)'},
+    {value: 4, label: 'HR4 (GR)'},
+    {value: 3, label: 'HR3 (HR)'},
+    {value: 2, label: 'HR2 (HR)'},
+    {value: 1, label: 'HR1 (HR)'}
+  ],
+  ['fire', 'water', 'thunder', 'ice', 'dragon'],
+  false,
+  false,
+  {heads: mhf_heads, chests: mhf_chests, arms: mhf_arms, waists: mhf_waists, legs: mhf_legs},
+  mhf_skills,
+  [],
+  mhf_translation
+);
+
 const games = {
-  mhfu
+  mhfu,
+  mhf
 };
 
 function game()
@@ -79,4 +112,4 @@ function game()
   return games[store.getState().game.game];
 }
 
-export { game };
+export { game, games };
