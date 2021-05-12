@@ -186,35 +186,68 @@ class Context
     const decorations = this.decorations.filter(d => d.skill.skill == skill.name);
     let size = 3;
     let decoration = null;
-    while (size > 0 && !(decoration = decorations.find(d => d.slots == size)))
+    let use_torso = build.torso_inc !== 0;
+    let slot = size; // start at size, look upwards until we can't fit it
+    while (size > 0)
+    {
+      decoration = decorations.find(d => d.slots == size);
       --size;
 
-    // if there isn't one, this set isn't possible, so bail
+      // if there isn't one, this set isn't possible, so bail
+      if (decoration === undefined)
+        continue;
+
+      // check if the decoration gives more points than needed and if there is a smaller one
+      // specific use case: Full 'Jang (first set) when searching for meta + dragon res +10
+      if (decoration.skill.points > skill.points)
+      {
+        let smsize = size;
+        while (smsize > 0)
+        {
+          const smaller = decorations.find(d => d.slots == smsize);
+          --smsize;
+          if (smaller === undefined)
+            continue;
+
+          // if this decoration, which is smaller, provides enough then switch it
+          if (smaller.skill.points >= skill.points)
+            decoration = smaller;
+        }
+      }
+
+      // find a slot
+      // check against the chest first for torso inc
+      if (use_torso)
+      {
+        slot = decoration.slots;
+        while (slot < 4 && chest_slots[slot] == 0)
+          ++slot;
+        // 404, slot not found
+        if (slot == 4)
+          use_torso = false;
+      }
+      // if we're not using the chest, look for any slot
+      if (use_torso === false)
+      {
+        slot = decoration.slots;
+        while (slot < 4 && slots[slot] == 0)
+          ++slot;
+        // 404, slot not found
+        if (slot == 4)
+        {
+          // clear it out, so we fail the if statement if this is our last iteration
+          decoration = null;
+          continue;
+        }
+      }
+
+      // all good, go ahead
+      break;
+    }
+
     if (decoration == null)
       return false;
 
-    // find a slot
-    let use_torso = build.torso_inc !== 0;
-    let slot = size; // start at size, look upwards until we can't fit it
-    // check against the chest first for torso inc
-    if (use_torso)
-    {
-      while (slot < 4 && chest_slots[slot] == 0)
-        ++slot;
-      // 404, slot not found
-      if (slot == 4)
-        use_torso = false;
-    }
-    // if we're not using the chest, look for any slot
-    if (use_torso === false)
-    {
-      slot = 1;
-      while (slot < 4 && slots[slot] == 0)
-        ++slot;
-      // 404, slot not found
-      if (slot == 4)
-        return false;
-    }
     // gem it
     // we've used this slot
     if (use_torso)
@@ -286,6 +319,7 @@ class Context
         if (p.points > 0 && (skill === null || p.points > skill.points))
           skill = p;
       }
+      skill = need.find(p => p.points > 0);
       // no skill to gem, we're done
       if (skill === null)
         break;
@@ -302,9 +336,9 @@ class Context
     {
       for (const skill of Object.keys(skills))
       {
-        while (skills[skill] <= 10)
+        while (skills[skill].points <= -10)
         {
-          if (!this.decoration(build, need, slots, chest_slots, skill))
+          if (!this.decoration(build, need, slots, chest_slots, skills[skill]))
             break;
         }
       }
