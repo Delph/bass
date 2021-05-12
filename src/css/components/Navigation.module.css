@@ -62,6 +62,11 @@
   box-sizing: border-box;
 }
 
+.mobile
+{
+  display: none;
+}
+
 @media (max-width: 968px)
 {
   .bar
@@ -80,10 +85,6 @@
     display: none;
   }
 
-  .container
-  {
-  }
-
   .icon
   {
     font-size: 16px;
@@ -92,5 +93,14 @@
   .version
   {
     display: none;
+  }
+
+  .desktop
+  {
+    display: none;
+  }
+  .mobile
+  {
+    display: block;
   }
 }

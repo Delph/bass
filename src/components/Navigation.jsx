@@ -44,10 +44,11 @@ function TabBar(props) {
 
   return (
     <div className={style.bar}>
-      <div>
+      <div className={style.desktop}>
         {notices.filter(notice => !seen.includes(notice.codename) && !notices.some(n => n.replaces === notice.codename)).map(notice => <Notice key={notice.codename} notice={notice}/>)}
       </div>
-      <div className={style.game}>{game.toUpperCase()}</div>
+      <div className={`${style.game} ${style.desktop}`}>{game.toUpperCase()}</div>
+      <div className={`${style.game} ${style.mobile}`}>{game.substr(2).toUpperCase()}</div>
       <nav>
         <Tab href={'/'} label={'Search'} icon={'search'}/>
         <Tab href={'/results'} label={'Results'} icon={'file'}/>
