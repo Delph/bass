@@ -10,6 +10,14 @@
   flex-direction: column;
 }
 
+.game
+{
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0;
+  border-bottom: 1px solid black;
+}
+
 .tab
 {
   border-bottom: 1px solid black;

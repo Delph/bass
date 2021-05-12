@@ -25,15 +25,15 @@ function Tab(props) {
 
 
 function TabBar(props) {
-  const { seen } = props;
+  const { game, seen } = props;
   const info = process.env.REACT_APP_VERSION;
 
   const notices = [
     {
-      codename: 'v0.1.3',
+      codename: 'v0.2.0',
       replaces: 'v0.1.2',
-      title: 'Version 0.1.3',
-      notice: 'This version significantly changes how data is handled to support multiple games. Any saved state (history) will be lost.'
+      title: 'Version 0.2.0',
+      notice: 'MHF support has been added. This required significant changes to how data is handled, any saved state (history) will be lost.'
     },
     {
       codename: 'v0.1.2',
@@ -44,9 +44,10 @@ function TabBar(props) {
 
   return (
     <div className={style.bar}>
-      <div className={style.notices}>
+      <div>
         {notices.filter(notice => !seen.includes(notice.codename) && !notices.some(n => n.replaces === notice.codename)).map(notice => <Notice key={notice.codename} notice={notice}/>)}
       </div>
+      <div className={style.game}>{game.toUpperCase()}</div>
       <nav>
         <Tab href={'/'} label={'Search'} icon={'search'}/>
         <Tab href={'/results'} label={'Results'} icon={'file'}/>
@@ -70,6 +71,7 @@ function TabBar(props) {
 
 function mapStateToProps(state) {
   return {
+    game: state.game.game,
     seen: state.notices
   }
 };
