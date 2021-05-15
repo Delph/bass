@@ -30,6 +30,12 @@ function TabBar(props) {
 
   const notices = [
     {
+      codename: 'v0.2.1',
+      replaces: 'v0.2.0',
+      title: 'Version 0.2.1',
+      notice: 'MHF: Removed ice, implemented Torso +1, Torso +2'
+    },
+    {
       codename: 'v0.2.0',
       replaces: 'v0.1.2',
       title: 'Version 0.2.0',
