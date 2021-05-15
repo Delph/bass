@@ -20,6 +20,9 @@ import style from '../css/screens/Search.module.css';
 function SkillRow(props) {
   const { skill, add_effect, effects } = props;
 
+  if (Object.keys(skill.skills).length === 0)
+    return null;
+
   return (
     <React.Fragment>
       <tr className={style.mobile}>
