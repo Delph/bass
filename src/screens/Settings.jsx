@@ -19,6 +19,7 @@ function Settings(props) {
   const languages = ['Deutsch', 'English', 'Español', 'Français', 'Italiano'];
 
   const set_game = e => {
+    props.clear();
     props.set_game(e);
     worker({type: 'skills', payload: games[e.target.value].skills});
     worker({type: 'decorations', payload: games[e.target.value].decorations});
@@ -64,6 +65,7 @@ function mapDispatchToProps(dispatch) {
   return {
     set_language: e => dispatch({type: 'language', payload: e.target.value}),
     set_game: e => dispatch({type: 'game', payload: e.target.value}),
+    clear: e => dispatch({type: 'clear'}),
     worker: payload => dispatch({type: 'worker', payload})
   };
 }
