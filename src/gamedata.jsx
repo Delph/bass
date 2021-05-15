@@ -93,7 +93,7 @@ const mhf = new GameConfiguration('mhf',
     {value: 2, label: 'HR2 (HR)'},
     {value: 1, label: 'HR1 (HR)'}
   ],
-  ['fire', 'water', 'thunder', 'ice', 'dragon'],
+  ['fire', 'water', 'thunder', 'dragon'],
   false,
   false,
   {heads: mhf_heads, chests: mhf_chests, arms: mhf_arms, waists: mhf_waists, legs: mhf_legs},

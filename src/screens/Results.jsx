@@ -8,6 +8,7 @@ import SearchControls from '../components/SearchControls';
 import ResultPagination from '../components/ResultPagination';
 
 import { number_format, activated_effect, translate } from '../util';
+import { game } from '../gamedata';
 
 import style from '../css/screens/Results.module.css';
 
@@ -29,11 +30,9 @@ function Row({search, set}) {
   return (
     <tr className={style.row}>
       <td className={style.desktop} title={`Effective ${set.eff.raw}`}>{number_format(set.raw.raw)}</td>
-      <td className={style.desktop} title={`Effective ${set.eff.fire}`}>{number_format(set.raw.fire)}</td>
-      <td className={style.desktop} title={`Effective ${set.eff.water}`}>{number_format(set.raw.water)}</td>
-      <td className={style.desktop} title={`Effective ${set.eff.thunder}`}>{number_format(set.raw.thunder)}</td>
-      <td className={style.desktop} title={`Effective ${set.eff.ice}`}>{number_format(set.raw.ice)}</td>
-      <td className={style.desktop} title={`Effective ${set.eff.dragon}`}>{number_format(set.raw.dragon)}</td>
+      {game().damage_types.map(r =>
+        <td className={style.desktop} title={`Effective ${set.eff[r]}`}>{number_format(set.raw[r])}</td>
+      )}
       {/*<td className={style.mobile}>
         <div><img style={{width: 16}} src={defence} alt={'Raw'}/>{number_format(set.raw.raw)}</div>
         <div><img style={{width: 16}} src={fire} alt={'Fire'}/>{number_format(set.raw.fire)}</div>
@@ -51,11 +50,17 @@ function Row({search, set}) {
       <td>
         {extra_skills.map(s => <div key={s} className={set.skills[s] < 0 ? style.bad : style.good}>{translate('effect', activated_effect(s, set.skills[s]))}</div>)}
       </td>
-      <td>
-        {set.torso_inc ? `Chest: ${Object.keys(torso_decorations).map(d => `${torso_decorations[d]} ${translate('decoration', d)}${(torso_decorations[d] > 1 ? 's' : '')}`).join(', ')}` : ''}<br/>
-        {Object.keys(decorations).map(d => `${decorations[d]} ${translate('decoration', d)}${(decorations[d] > 1 ? 's' : '')}`).join(', ')}
-      </td>
-      <td>{JSON.stringify(set.slots)}</td>
+      {game().has_decorations ?
+        <React.Fragment>
+          <td>
+            {set.torso_inc ? `Chest: ${Object.keys(torso_decorations).map(d => `${torso_decorations[d]} ${translate('decoration', d)}${(torso_decorations[d] > 1 ? 's' : '')}`).join(', ')}` : ''}<br/>
+            {Object.keys(decorations).map(d => `${decorations[d]} ${translate('decoration', d)}${(decorations[d] > 1 ? 's' : '')}`).join(', ')}
+          </td>
+          <td>{JSON.stringify(set.slots)}</td>
+        </React.Fragment>
+      :
+        null
+      }
     </tr>
   );
 }
@@ -118,10 +123,10 @@ function Results(props) {
                 <img style={{width: 16}} src={defence} alt={'Defence'}/>
                 <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.raw') ? (order.find(o => o.key === 'raw.raw').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.raw')}/>
               </th>
-              <th className={style.head}>
-                <img style={{width: 16}} src={fire} alt={'Fire'}/>
-                <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.fire') ? (order.find(o => o.key === 'raw.fire').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.fire')}/>
-              </th>
+                <th className={style.head}>
+                  <img style={{width: 16}} src={fire} alt={'Fire'}/>
+                  <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.fire') ? (order.find(o => o.key === 'raw.fire').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.fire')}/>
+                </th>
               <th className={style.head}>
                 <img style={{width: 16}} src={water} alt={'Water'}/>
                 <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.water') ? (order.find(o => o.key === 'raw.water').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.water')}/>
@@ -130,18 +135,28 @@ function Results(props) {
                 <img style={{width: 16}} src={thunder} alt={'Thunder'}/>
                 <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.thunder') ? (order.find(o => o.key === 'raw.thunder').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.thunder')}/>
               </th>
+              {game().damage_types.includes('ice') ?
               <th className={style.head}>
                 <img style={{width: 16}} src={ice} alt={'Ice'}/>
                 <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.ice') ? (order.find(o => o.key === 'raw.ice').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.ice')}/>
               </th>
+              :
+                null
+              }
               <th className={style.head}>
                 <img style={{width: 16}} src={dragon} alt={'Dragon'}/>
                 <FontAwesomeIcon icon={['fas', order.find(o => o.key === 'raw.dragon') ? (order.find(o => o.key === 'raw.dragon').descending ? 'sort-down' : 'sort-up') : 'sort']} className={style.sort} onClick={() => set_order('raw.dragon')}/>
               </th>
               <th className={style.head}>Equipment</th>
               <th className={style.head}>Extra Skills</th>
-              <th className={style.head}>Decorations</th>
-              <th className={style.head}>Slots</th>
+              {game().has_decorations ?
+                <React.Fragment>
+                  <th className={style.head}>Decorations</th>
+                  <th className={style.head}>Slots</th>
+                </React.Fragment>
+              :
+                null
+              }
             </tr>
           </thead>
           <tbody>
