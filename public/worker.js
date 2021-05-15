@@ -83,6 +83,16 @@ class Context
     if (b.torso_inc)
       b_points += 5;
 
+    // torso +1/+2 (mhf)
+    if (a.torso_1)
+      a_points += 5;
+    if (b.torso_1)
+      b_points += 5;
+    if (a.torso_2)
+      a_points += 10;
+    if (b.torso_2)
+      b_points += 10;
+
     // whichever contributes more
     if (a_points > b_points)
       return -1;
@@ -369,6 +379,8 @@ class Context
       ++this.count;
 
       const torso_inc = combination.filter(g => g.torso_inc).length;
+      const torso_1 = combination.filter(g => g.torso_1).length;
+      const torso_2 = combination.filter(g => g.torso_2).length;
 
       // calculate what we got
       const skills = {};
@@ -381,6 +393,13 @@ class Context
             skills[skill.skill] = 0;
           skills[skill.skill] += skill.points * (i === 1 ? (torso_inc + 1) : 1);
         }
+      }
+      // add in Torso +1/+2 (MHF1)
+      // we don't need to care about decorations, they don't exist in MHF1
+      for (const key of Object.keys(skills))
+      {
+        skills[key] += torso_1;
+        skills[key] += torso_2;
       }
 
       const need = [];
