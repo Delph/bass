@@ -8,21 +8,22 @@ import { slots_format, translate, activated_effect } from '../util';
 
 import { game } from '../gamedata';
 
+import style from '../css/components/HistoryEntry.module.css';
+
 function HistoryEntry(props) {
-  const { entry, id, remove_history } = props;
+  const { entry, remove_history } = props;
 
   const history = useHistory();
 
   const start = (props) => {
     props.clear(); // clear result state
-    props.worker({type: 'start', payload: props.search});
-    remove_history(id);
-    props.push_history(props.search);
+    props.worker({type: 'start', payload: props.entry});
+    props.add_history(props.entry);
     history.push('/results');
   };
 
   return (
-    <tr>
+    <tr className={style.row}>
       <td>{(new Date(entry.timestamp)).toLocaleDateString()}</td>
       <td>{entry.class === 1 ? 'Blademaster' : 'Gunner'}</td>
       <td>{slots_format(entry.slots)}</td>
@@ -31,7 +32,7 @@ function HistoryEntry(props) {
       <td>{entry.gender === 1 ? 'Male' : 'Female'}</td>
       <td>
         <ul>
-          {entry.effects.map(effect => (<li>{translate('effect', activated_effect(effect.skill, effect.points))}</li>))}
+          {entry.effects?.map(effect => (<li>{translate('effect', activated_effect(effect.skill, effect.points))}</li>))}
         </ul>
       </td>
       <td>
@@ -44,25 +45,19 @@ function HistoryEntry(props) {
       </td>
       <td>
         <input type={'button'} value={'Search'} onClick={() => start(props)}/>
-        <input type={'button'} value={'Remove'} onClick={() => remove_history(id)}/>
+        <input type={'button'} value={'Remove'} onClick={() => remove_history(entry)}/>
       </td>
     </tr>
   );
-}
-
-function mapStateToProps(state) {
-  return {
-    search: state.search
-  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     clear: () => dispatch({type: 'clear'}),
     worker: payload => dispatch({type: 'worker', payload}),
-    push_history: search => dispatch({type: 'push_history', payload: search}),
-    remove_history: id => dispatch({type: 'remove_history', payload: id})
+    add_history: entry => dispatch({type: 'add_history', payload: entry}),
+    remove_history: entry => dispatch({type: 'remove_history', payload: entry})
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HistoryEntry);
+export default connect(null, mapDispatchToProps)(HistoryEntry);

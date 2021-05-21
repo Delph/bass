@@ -14,6 +14,7 @@ import TabBar from './components/Navigation';
 
 import Search from './screens/Search';
 import Results from './screens/Results';
+import Sets from './screens/Sets';
 import History from './screens/History';
 import Settings from './screens/Settings';
 
@@ -63,14 +64,6 @@ function App() {
         </BrowserRouter>
       </PersistGate>
     </Provider>
-  );
-}
-
-function Sets() {
-  return (
-    <React.Fragment>
-      <h1>Sets</h1>
-    </React.Fragment>
   );
 }
 

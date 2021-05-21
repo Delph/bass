@@ -422,6 +422,10 @@ class Context
       if (!this.query.allow_bad && Object.values(skills).some(s => s <= -10))
         continue;
 
+      // copy data from query we want
+      build.class = this.query.class;
+      build.gender = this.query.gender;
+      build.weapon_slots = this.query.slots;
 
       // calculate other set info
       build.raw = {};

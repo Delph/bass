@@ -154,7 +154,7 @@ function Search(props) {
   const start = (props) => {
     props.clear(); // clear result state
     worker({type: 'start', payload: search});
-    props.push_history(search);
+    props.add_history(search);
     history.push('/results');
   };
 
@@ -191,7 +191,7 @@ function Search(props) {
             </Label>
             {game().has_decorations ?
               <Label text={'Weapon Slots'}>
-                <Select options={'0123'.split('').map(x => { return {value: x, label: slots_format(x)}; })} name={'slots'} onChange={update} value={search.slots}/>
+                <Select options={[0, 1, 2, 3].map(x => { return {value: x, label: slots_format(x)}; })} name={'slots'} onChange={update} value={search.slots}/>
               </Label>
             :
               null
@@ -244,12 +244,12 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    update: e => dispatch({type: e.target.name, payload: e.target.value}),
+    update: e => dispatch({type: e.target.name, payload: parseInt(e.target.value)}),
     update_check: e => dispatch({type: e.target.name, payload: e.target.checked}),
     worker: payload => dispatch({type: 'worker', payload}),
     clear: () => dispatch({type: 'clear'}),
     remove_effect: e => dispatch({type: 'remove_effect', payload: e}),
-    push_history: search => dispatch({type: 'push_history', payload: search}),
+    add_history: search => dispatch({type: 'add_history', payload: search}),
 
     reset: e => dispatch({type: 'reset'}),
     set_filter: e => dispatch({type: 'filter', payload: {category: e.target.name, value: e.target.checked}})

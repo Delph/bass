@@ -58,7 +58,7 @@ function TabBar(props) {
       <nav>
         <Tab href={'/'} label={'Search'} icon={'search'}/>
         <Tab href={'/results'} label={'Results'} icon={'file'}/>
-        {/*<Tab href={'/sets'} label={'Sets'} icon={'folder'}/>*/}
+        <Tab href={'/sets'} label={'Sets'} icon={'layer-group'}/>
         {/*<Tab href={'/builder'} label={'Builder'} icon={'hammer'}/>*/}
         <Tab href={'/history'} label={'History'} icon={'history'}/>
         <Tab href={'/settings'} label={'Settings'} icon={'cog'}/>

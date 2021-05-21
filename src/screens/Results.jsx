@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 
@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SearchControls from '../components/SearchControls';
 import ResultPagination from '../components/ResultPagination';
 
-import { number_format, activated_effect, translate } from '../util';
+import { activated_effect, translate } from '../util';
 import { game } from '../gamedata';
 
 import style from '../css/screens/Results.module.css';
@@ -19,51 +19,7 @@ import thunder from '../img/elem/thunder.png';
 import ice from '../img/elem/ice.png';
 import dragon from '../img/elem/dragon.png';
 
-function Row({search, set}) {
-  const chosen_effects = useMemo(() => search.effects.map(e => activated_effect(e.skill, e.points)), [search]);
-
-  const extra_skills = Object.keys(set.skills).filter(s => !chosen_effects.includes(activated_effect(s, set.skills[s])));
-
-  const torso_decorations = set.chest_decorations.reduce((a, c) => { a[c.name] = (a[c.name] ?? 0) + 1; return a; }, {});
-  const decorations = set.decorations.reduce((a, c) => { a[c.name] = (a[c.name] ?? 0) + 1; return a; }, {});
-
-  return (
-    <tr className={style.row}>
-      <td className={style.desktop} title={`Effective ${set.eff.raw}`}>{number_format(set.raw.raw)}</td>
-      {game().damage_types.map(r =>
-        <td className={style.desktop} title={`Effective ${set.eff[r]}`}>{number_format(set.raw[r])}</td>
-      )}
-      {/*<td className={style.mobile}>
-        <div><img style={{width: 16}} src={defence} alt={'Raw'}/>{number_format(set.raw.raw)}</div>
-        <div><img style={{width: 16}} src={fire} alt={'Fire'}/>{number_format(set.raw.fire)}</div>
-        <div><img style={{width: 16}} src={water} alt={'Water'}/>{number_format(set.raw.water)}</div>
-        <div><img style={{width: 16}} src={thunder} alt={'Thunder'}/>{number_format(set.raw.thunder)}</div>
-        <div><img style={{width: 16}} src={ice} alt={'Ice'}/>{number_format(set.raw.ice)}</div>
-        <div><img style={{width: 16}} src={dragon} alt={'Dragon'}/>{number_format(set.raw.dragon)}</div>
-      </td>*/}
-      {/*<td className={style.desktop}>{translate('head', set.combination[0].name)}</td>*/}
-      {/*<td className={style.desktop}>{translate('body', set.combination[1].name)}</td>*/}
-      {/*<td className={style.desktop}>{translate('arms', set.combination[2].name)}</td>*/}
-      {/*<td className={style.desktop}>{translate('waist', set.combination[3].name)}</td>*/}
-      {/*<td className={style.desktop}>{translate('legs', set.combination[4].name)}</td>*/}
-      <td className={style.mobile}>{set.combination.map(g => <div>{g.name}</div>)}</td>
-      <td>
-        {extra_skills.map(s => <div key={s} className={set.skills[s] < 0 ? style.bad : style.good}>{translate('effect', activated_effect(s, set.skills[s]))}</div>)}
-      </td>
-      {game().has_decorations ?
-        <React.Fragment>
-          <td>
-            {set.torso_inc ? `Chest: ${Object.keys(torso_decorations).map(d => `${torso_decorations[d]} ${translate('decoration', d)}${(torso_decorations[d] > 1 ? 's' : '')}`).join(', ')}` : ''}<br/>
-            {Object.keys(decorations).map(d => `${decorations[d]} ${translate('decoration', d)}${(decorations[d] > 1 ? 's' : '')}`).join(', ')}
-          </td>
-          <td>{JSON.stringify(set.slots)}</td>
-        </React.Fragment>
-      :
-        null
-      }
-    </tr>
-  );
-}
+import ResultRow from '../components/ResultRow';
 
 function sort(results, order)
 {
@@ -157,10 +113,11 @@ function Results(props) {
               :
                 null
               }
+              <th></th>
             </tr>
           </thead>
           <tbody>
-          {show.map((r, i) => <Row key={pagination.offset + i} search={search} set={r}/>)}
+          {show.map((r, i) => <ResultRow key={pagination.offset + i} set={r}/>)}
           </tbody>
         </table>
       </div>

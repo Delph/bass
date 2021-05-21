@@ -17,6 +17,32 @@ function slots_format(x)
   return 'O'.repeat(x) + '-'.repeat(3-x);
 }
 
+function weapon_class(c)
+{
+  switch (c)
+  {
+    case 1:
+      return 'Blademaster';
+    case 2:
+      return 'Gunner';
+    default:
+      return '';
+  }
+}
+
+function gender(g)
+{
+  switch (g)
+  {
+    case 1:
+      return 'Male';
+    case 2:
+      return 'Female';
+    default:
+      return '';
+  }
+}
+
 function activated_effect(name, points)
 {
   const skill = game().skills.find(s => s.name === name);
@@ -40,4 +66,4 @@ function translate(type, key)
   return dict && dict[store.getState().game[store.getState().game.game].settings.language] ? dict[store.getState().game[store.getState().game.game].settings.language] : key;
 }
 
-export { number_format, money_format, slots_format, activated_effect, translate };
+export { number_format, money_format, slots_format, weapon_class, gender, activated_effect, translate };

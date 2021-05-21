@@ -26,7 +26,7 @@ function History(props) {
           </tr>
         </thead>
         <tbody>
-          {history.map((entry, i) => <HistoryEntry entry={entry} key={i} id={i}/>)}
+          {history.map((entry, i) => <HistoryEntry entry={entry} key={i}/>)}
         </tbody>
       </table>
     </React.Fragment>

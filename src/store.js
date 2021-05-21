@@ -102,7 +102,70 @@ function history(state = [], action) {
     case 'push_history':
       return [{...action.payload, timestamp: Date.now()}, ...state];
     case 'remove_history':
-      return [...state.slice(0, action.payload), ...state.slice(action.payload+1)];
+    {
+      const index = state.findIndex(e => {
+        for (const k of Object.keys(e))
+        {
+          if (k === 'timestamp')
+            continue;
+          if (e[k] !== action.payload[k])
+            return false;
+        }
+        return true;
+      });
+      if (index === -1)
+        return state;
+      return [...state.slice(0, index), ...state.slice(index + 1)];
+    }
+    case 'add_history':
+    {
+      const index = state.findIndex(e => {
+        for (const k of Object.keys(e))
+        {
+          if (k === 'timestamp')
+            continue;
+          if (e[k] !== action.payload[k])
+            return false;
+        }
+        return true;
+      });
+      if (index === -1)
+        return [{...action.payload, timestamp: Date.now()}, ...state];
+      return [{...action.payload, timestamp: Date.now()}, ...state.slice(0, index), ...state.slice(index+1)];
+    }
+    default:
+      return state;
+  }
+}
+
+function sets(state = [], action) {
+  switch (action.type)
+  {
+    case 'set_add':
+      return [...state, action.payload];
+    case 'set_remove':
+      const index = state.indexOf(action.payload);
+      return [...state.slice(0, index), ...state.slice(index + 1)];
+    case 'set_move_up':
+    {
+      const index = state.indexOf(action.payload);
+      if (index <= 0)
+        return state;
+
+      const sets = [...state];
+      sets.splice(index - 1, 0, sets.splice(index, 1)[0]);
+      return sets;
+    }
+    case 'set_move_down':
+    {
+      const index = state.indexOf(action.payload);
+      if (index === -1 || index >= state.length - 1)
+        return state;
+
+      const sets = [...state];
+      sets.splice(index + 1, 0, sets.splice(index, 1)[0]);
+      return sets;
+    }
     default:
       return state;
   }
@@ -162,6 +225,7 @@ const gameReducer = combineReducers({
   search,
   filter,
   history,
+  sets,
   settings
 });
 
@@ -185,12 +249,23 @@ const reducer = combineReducers({
   notices
 });
 
+function migration6(state) {
+  const newstate = {...state};
+
+  newstate.mhfu.sets = [];
+  newstate.mhf.sets = [];
+
+  return newstate;
+}
+
 const migrations = {
   0: state => state,
   1: state => ({...state, notices: []}),
   2: state => ({...state, settings: {...state.settings, game: 'mhfu'}}),
-  3: state => ({...state, settings: {...state.sttings, game: undefined}}),
-  4: state => undefined // just nuke it
+  3: state => ({...state, settings: {...state.settings, game: undefined}}),
+  4: state => undefined, // just nuke it
+  5: state => state,
+  6: state => migration6(state)
 };
 
 
@@ -199,7 +274,7 @@ const config = {
   storage: storage,
   stateReconciler: autoMergeLevel2,
   blacklist: ['results', 'worker'],
-  version: 4,
+  version: 6,
   migrate: createMigrate(migrations, {debug: false})
 };
 
