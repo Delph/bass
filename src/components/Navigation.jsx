@@ -30,6 +30,12 @@ function TabBar(props) {
 
   const notices = [
     {
+      codename: 'v0.2.2',
+      replaces: 'v0.2.1',
+      title: 'Version 0.2.2',
+      notice: 'Sets feature. Individual results can now be saved for later use in the Sets tab. Improved history management'
+    },
+    {
       codename: 'v0.2.1',
       replaces: 'v0.2.0',
       title: 'Version 0.2.1',

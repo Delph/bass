@@ -86,6 +86,31 @@ function Changelog() {
     <React.Fragment>
       <h1>Changelog</h1>
       <div>
+        <h3>0.2.2</h3>
+        <ul>
+          <li>Sets feature</li>
+          <ul>
+            <li>On the Results screen, sets can be saved.</li>
+            <li>These sets can be later accessed from the Sets screen.</li>
+          </ul>
+          <li>Improved history management. Searching for the same set twice will no longer cause duplicate history entries, but just update the timestamp on the original entry.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>0.2.1</h3>
+        <ul>
+          <li>Removed Ice from MHF.</li>
+          <li>Implemented Torso +1 and Torso +2 for MHF.</li>
+          <li>Removed the display of skills with no effects (Torso Inc, Torso +1, and Torso +2).</li>
+        </ul>
+      </div>
+      <div>
+        <h3>0.2.0</h3>
+        <ul>
+          <li>MHF support. Game can be switched in settings.</li>
+        </ul>
+      </div>
+      <div>
         <h3>0.1.2</h3>
         <ul>
           <li>Added search history</li>
