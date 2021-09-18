@@ -1,1 +1,994 @@
-[{"name": "Attack", "categories": ["Offensive"], "skills": {"20": "Attack Up (Large)", "15": "Attack Up (Medium)", "10": "Attack Up (Small)", "-10": "Attack Dwn (Small)", "-15": "Attack Dwn (Medium)", "-20": "Attack Dwn (Large)"}}, {"name": "Defence", "categories": ["Defensive"], "skills": {"20": "Defence +40", "15": "Defence +30", "10": "Defence +20", "-10": "Defence -20", "-15": "Defence -30", "-20": "Defence -40"}}, {"name": "Health", "categories": ["Defensive"], "skills": {"20": "Health +50", "15": "Health +30", "10": "Health +20", "-10": "Health -10", "-15": "Health -20", "-20": "Health -30"}}, {"name": "All Resist", "categories": ["Resistance"], "skills": {"20": "All Resist +10", "15": "All Resist +5", "10": "All Resist +3", "-10": "All Resist -3", "-15": "All Resist -5", "-20": "All Resist -10"}}, {"name": "Ice Res", "categories": ["Resistance"], "skills": {"15": "Ice Res +10", "10": "Ice Res +5", "-10": "Ice Res -5", "-15": "Ice Res -10"}}, {"name": "Water Res", "categories": ["Resistance"], "skills": {"15": "Water Res +10", "10": "Water Res +5", "-10": "Water Res -5", "-15": "Water Res -10"}}, {"name": "ThunderRes", "categories": ["Resistance"], "skills": {"15": "Thunder Res +10", "10": "Thunder Res +5", "-10": "Thunder Res -5", "-15": "Thunder Res -10"}}, {"name": "Dragon Res", "categories": ["Resistance"], "skills": {"15": "Dragon Res +10", "10": "Dragon Res +5", "-10": "Dragon Res -5", "-15": "Dragon Res -10"}}, {"name": "Fire Res", "categories": ["Resistance"], "skills": {"15": "Fire Resist +10", "10": "Fire Resist +5", "-10": "Fire Resist -5", "-15": "Fire Resist -10"}}, {"name": "Faint", "categories": ["Resistance"], "skills": {"15": "Faint Negated", "10": "Faint Prob Halved", "-10": "Faint Duration [x2]"}}, {"name": "Poison", "categories": ["Resistance"], "skills": {"15": "Poison Negated", "10": "Poison Dur Halved", "-10": "Poison Duration[x2]"}}, {"name": "Paralysis", "categories": ["Resistance"], "skills": {"15": "Paralysis Negated", "10": "Para Duration Halved", "-10": "Para Duration[x2]"}}, {"name": "Sleep", "categories": ["Resistance"], "skills": {"15": "Sleep Negated", "10": "Sleep Dur Halved", "-10": "Sleep Duration[x2]"}}, {"name": "Antiseptic", "categories": ["Resistance"], "skills": {"10": "Antiseptic"}}, {"name": "Fatigue", "categories": ["Resistance"], "skills": {"10": "Fatigue Cancellation"}}, {"name": "Snow Res", "categories": ["Resistance"], "skills": {"10": "Snow Res"}}, {"name": "Quake Res", "categories": ["Resistance"], "skills": {"10": "Quake Res"}}, {"name": "HearProtct", "categories": ["Defensive"], "skills": {"15": "High Grade Earplug", "10": "Earplug"}}, {"name": "WindPress", "categories": ["Defensive"], "skills": {"20": "Dragon Wind Breaker", "15": "High Wind Res", "10": "Low Wind Res"}}, {"name": "Anti-Theft", "categories": ["Resistance"], "skills": {"10": "Steal No Effect"}}, {"name": "Status Res", "categories": ["Resistance"], "skills": {"10": "Abnormal Sts Negated"}}, {"name": "FireDrgRes", "categories": ["Resistance"], "skills": {"10": "Daora Ward"}}, {"name": "Daora Res", "categories": ["Resistance"], "skills": {"10": "Chameleos Ward"}}, {"name": "ChmleosRes", "categories": ["Resistance"], "skills": {"10": "Fire Dragon Ward"}}, {"name": "Artisan", "categories": ["Offensive", "Blademaster"], "skills": {"10": "Sharpness +1"}}, {"name": "Sharpness", "categories": ["Blademaster"], "skills": {"10": "Sharp Sword", "-10": "Blunt Edge"}}, {"name": "Fencing", "categories": ["Blademaster"], "skills": {"10": "ESP"}}, {"name": "SwdShrpner", "categories": ["Blademaster"], "skills": {"10": "Sharpening Skl Inc", "-10": "Sharpening Skl Halved"}}, {"name": "Guard", "categories": ["Defensive"], "skills": {"20": "Guard +2", "10": "Guard +1", "-10": "Guard -1", "-20": "Guard -2"}}, {"name": "Auto-Guard", "categories": ["Defensive"], "skills": {"10": "Auto-Guard"}}, {"name": "Drawn Crit", "categories": ["Blademaster", "Offensive"], "skills": {"10": "Unsheathed Atk Crit"}}, {"name": "SwdMastery", "categories": ["Blademaster", "Offensive"], "skills": {"10": "True Strike"}}, {"name": "NormalS Up", "categories": ["Bowgun", "Bow", "Offensive"], "skills": {"10": "NormalS/RapidBow Up"}}, {"name": "PierceS Up", "categories": ["Bowgun", "Bow", "Offensive"], "skills": {"10": "PierceS/PierceBow Up"}}, {"name": "PelletS Up", "categories": ["Bowgun", "Bow", "Offensive"], "skills": {"10": "PelletS/ScattrBow Up"}}, {"name": "NormalSAdd", "categories": ["Bowgun", "Bow", "Offensive"], "skills": {"10": "All Shots Up"}}, {"name": "PierceSAdd", "categories": ["Bowgun", "Bow"], "skills": {"15": "All Pierce Lvls Up", "10": "Pierce S LV1 Add"}}, {"name": "PelletSAdd", "categories": ["Bowgun", "Bow"], "skills": {"15": "All Scatter Lvls Up", "10": "Scatter Lvl1 Up"}}, {"name": "CragS Add", "categories": ["Bowgun"], "skills": {"15": "All Crag Lvls Up", "10": "Crag Lvl1 Up"}}, {"name": "ClustS Add", "categories": ["Bowgun"], "skills": {"15": "All Clust Lvl Up", "10": "Clust Lvl1 Up"}}, {"name": "Load", "categories": ["Bowgun"], "skills": {"20": "Reloading Speed +3", "15": "Reloading Speed +2", "10": "Reloading Speed +1", "-10": "Reloading Speed -1", "-15": "Reloading Speed -2", "-20": "Reloading Speed -3"}}, {"name": "Speed Fire", "categories": ["Bowgun", "Bow"], "skills": {"10": "Speed Fire"}}, {"name": "Recoil", "categories": ["Bowgun"], "skills": {"20": "Recoil Reduction +2", "10": "Recoil Reduction +1"}}, {"name": "Precision", "categories": ["Bowgun"], "skills": {"10": "Target Range Down", "-10": "Target Range Up"}}, {"name": "PoisnCtAdd", "categories": ["Bow"], "skills": {"10": "Poison Coat Add"}}, {"name": "Para CtAdd", "categories": ["Bow"], "skills": {"10": "Paralysis Coat Add"}}, {"name": "SleepCtAdd", "categories": ["Bow"], "skills": {"10": "Sleep Coat Add"}}, {"name": "PowerCtAdd", "categories": ["Bow"], "skills": {"10": "Power Coat Add"}}, {"name": "RazorCtAdd", "categories": ["Bow"], "skills": {"10": "Razor Coat Add"}}, {"name": "Marksman", "categories": ["Bowgun"], "skills": {"10": "Shot Damage Up"}}, {"name": "Expert", "categories": ["Offensive"], "skills": {"20": "Reckless Abandon+3", "15": "Reckless Abandon+2", "10": "Reckless Abandon+1", "-10": "Reckless Abandon-1", "-15": "Reckless Abandon-2", "-20": "Reckless Abandon-3"}}, {"name": "Spc Attack", "categories": ["Offensive"], "skills": {"10": "Abnormal Sts Atk Up"}}, {"name": "ElementAtk", "categories": ["Offensive"], "skills": {"10": "Element Atk Up"}}, {"name": "Rec Speed", "categories": ["Defensive"], "skills": {"20": "Damage Rec Speed +2", "10": "Damage Rec Speed +1", "-10": "Damage Rec Speed -1", "-20": "Damage Rec Speed -2"}}, {"name": "Protection", "categories": ["Defensive"], "skills": {"10": "Divine Protection", "-10": "Demonic Protection"}}, {"name": "Guard Up", "categories": ["Defensive"], "skills": {"10": "Guard Inc"}}, {"name": "Evade", "categories": ["Defensive"], "skills": {"15": "Evade +2", "10": "Evade +1"}}, {"name": "Evade Inc", "categories": ["Defensive"], "skills": {"10": "Evade Distance Up"}}, {"name": "Potential", "categories": ["Offensive"], "skills": {"15": "Adrenaline +2", "10": "Adrenaline +1", "-10": "Worry"}}, {"name": "Gunnery", "categories": ["Offensive"], "skills": {"15": "Gunnery King", "10": "Gunnery Master"}}, {"name": "Loading", "categories": ["Offensive", "Bowgun", "Bow"], "skills": {"10": "Load Up"}}, {"name": "Fast Chrge", "categories": ["Bow"], "skills": {"10": "Concentration", "-10": "Distraction"}}, {"name": "Survival", "categories": ["Defensive"], "skills": {"10": "Survival"}}, {"name": "Rage", "categories": ["Offensive", "Defensive"], "skills": {"10": "Rampage"}}, {"name": "Map", "categories": [], "skills": {"10": "Farsight", "-10": "Map Unavailable"}}, {"name": "PsychicVis", "categories": [], "skills": {"15": "Autotracker", "10": "Detect"}}, {"name": "Gathering", "categories": ["Treasure Hunting"], "skills": {"15": "Gathering +2", "10": "Gathering +1", "-10": "Gathering -1", "-15": "Gathering -2"}}, {"name": "Carving", "categories": ["Farming", "Treasure Hunting"], "skills": {"20": "Carving Celebrity", "10": "Carving Iron Man"}}, {"name": "HiSpdGathr", "categories": ["Treasure Hunting"], "skills": {"10": "High Speed Gathering"}}, {"name": "Backpackng", "categories": ["Treasure Hunting"], "skills": {"10": "Backpacking Expert"}}, {"name": "Whim", "categories": ["Treasure Hunting"], "skills": {"15": "Spirit's Whim", "10": "Divine Whim", "-10": "Spectre's Whim", "-15": "Demon Whim"}}, {"name": "Fishing", "categories": ["Treasure Hunting"], "skills": {"10": "Fishing Expert"}}, {"name": "Heat Res", "categories": ["Resistance"], "skills": {"15": "Heat Cancel [Hi]", "10": "Heat Cancel [Lo]", "-10": "Heat Inc [Lo]", "-15": "Heat Inc [Hi]"}}, {"name": "Cold Res", "categories": ["Resistance"], "skills": {"15": "Cold Elimination[Hi]", "10": "Cold Elimination[Lo]", "-10": "Cold Increase [Lo]", "-15": "Cold Increase [Hi]"}}, {"name": "Terrain", "categories": ["Resistance"], "skills": {"15": "TrrainDmgeReduce[Hi]", "10": "TrrainDmgeReduce[Lo]", "-10": "TerrainDamageInc[Lo]", "-15": "TerrainDamageInc[Hi]"}}, {"name": "Stamina", "categories": ["Defensive"], "skills": {"10": "Runner", "-10": "Flat Footed"}}, {"name": "Technique", "categories": ["Defensive"], "skills": {"15": "Defensive Maneuvers +2", "10": "Defensive Maneuvers +1", "-10": "Defensive Maneuvers -1", "-15": "Defensive Maneuvers -2"}}, {"name": "Hunger", "categories": [], "skills": {"15": "Hunger Negated", "10": "Hunger Halved", "-10": "Hunger Increase [Lo]", "-15": "Hunger Increase [Hi]"}}, {"name": "Sneak", "categories": [], "skills": {"10": "Stealth", "-10": "Taunt"}}, {"name": "Fate", "categories": ["Farming"], "skills": {"15": "Luck Booster", "10": "Good Luck", "-10": "Bad Luck", "-20": "Calamity"}}, {"name": "Set Trap", "categories": [], "skills": {"10": "Trap Expert"}}, {"name": "Trapper", "categories": ["Farming"], "skills": {"15": "Reward Celebrity", "10": "Reward Specialist"}}, {"name": "Observance", "categories": ["Farming"], "skills": {"10": "Eagle Eye"}}, {"name": "Recovery", "categories": ["Defensive"], "skills": {"10": "HealthRecItemsImprvd", "-10": "HealthRecItemsWeak"}}, {"name": "Everlastng", "categories": [], "skills": {"10": "Item Usage Improve", "-10": "Item Usage Decline"}}, {"name": "Wide Area", "categories": [], "skills": {"20": "Wide Area +2", "10": "Wide Area +1"}}, {"name": "Throw", "categories": [], "skills": {"10": "Throwing Skill Up"}}, {"name": "BombStrUp", "categories": ["Offensive"], "skills": {"10": "Bomber"}}, {"name": "Gluttony", "categories": [], "skills": {"15": "Picky Eater", "10": "Filled Up"}}, {"name": "Cooking", "categories": [], "skills": {"10": "Quick Eating", "-10": "Slow Life"}}, {"name": "BBQ", "categories": [], "skills": {"10": "BBQ Celebrity", "-10": "So-Called BBQ King"}}, {"name": "Horn", "categories": ["Blademaster"], "skills": {"10": "Flute Expert"}}, {"name": "MixSucRate", "categories": [], "skills": {"20": "Combine Success +45%", "15": "Combine Success +25%", "10": "Combine Success +15%", "-10": "Combine Success -5%", "-15": "Combine Success -10%", "-20": "Combine Success -15%"}}, {"name": "Shot Mix", "categories": ["Bowgun", "Bow"], "skills": {"10": "Bullet Limit"}}, {"name": "Alchemy", "categories": [], "skills": {"10": "Alchemy"}}, {"name": "FlyneGuide", "categories": [], "skills": {"15": "Felyne Mentor", "10": "Felyne Tutor"}}, {"name": "Flyne Atk", "categories": [], "skills": {"10": "Felyne Attack Up"}}, {"name": "Flyne Def", "categories": [], "skills": {"10": "Felyne Defence Up"}}, {"name": "Torso Inc", "categories": [], "skills": {}}]
+[
+  {
+    "name": "Attack",
+    "categories": [
+      "Offensive"
+    ],
+    "skills": {
+      "10": "Attack Up (Small)",
+      "15": "Attack Up (Medium)",
+      "20": "Attack Up (Large)",
+      "-10": "Attack Dwn (Small)",
+      "-15": "Attack Dwn (Medium)",
+      "-20": "Attack Dwn (Large)"
+    }
+  },
+  {
+    "name": "Defence",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Defence +20",
+      "15": "Defence +30",
+      "20": "Defence +40",
+      "-10": "Defence -20",
+      "-15": "Defence -30",
+      "-20": "Defence -40"
+    }
+  },
+  {
+    "name": "Health",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Health +20",
+      "15": "Health +30",
+      "20": "Health +50",
+      "-10": "Health -10",
+      "-15": "Health -20",
+      "-20": "Health -30"
+    }
+  },
+  {
+    "name": "All Resist",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "All Resist +3",
+      "15": "All Resist +5",
+      "20": "All Resist +10",
+      "-10": "All Resist -3",
+      "-15": "All Resist -5",
+      "-20": "All Resist -10"
+    }
+  },
+  {
+    "name": "Ice Res",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Ice Res +5",
+      "15": "Ice Res +10",
+      "-10": "Ice Res -5",
+      "-15": "Ice Res -10"
+    }
+  },
+  {
+    "name": "Water Res",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Water Res +5",
+      "15": "Water Res +10",
+      "-10": "Water Res -5",
+      "-15": "Water Res -10"
+    }
+  },
+  {
+    "name": "ThunderRes",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Thunder Res +5",
+      "15": "Thunder Res +10",
+      "-10": "Thunder Res -5",
+      "-15": "Thunder Res -10"
+    }
+  },
+  {
+    "name": "Dragon Res",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Dragon Res +5",
+      "15": "Dragon Res +10",
+      "-10": "Dragon Res -5",
+      "-15": "Dragon Res -10"
+    }
+  },
+  {
+    "name": "Fire Res",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Fire Resist +5",
+      "15": "Fire Resist +10",
+      "-10": "Fire Resist -5",
+      "-15": "Fire Resist -10"
+    }
+  },
+  {
+    "name": "Faint",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Faint Prob Halved",
+      "15": "Faint Negated",
+      "-10": "Faint Duration [x2]"
+    }
+  },
+  {
+    "name": "Poison",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Poison Dur Halved",
+      "15": "Poison Negated",
+      "-10": "Poison Duration[x2]"
+    }
+  },
+  {
+    "name": "Paralysis",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Para Duration Halved",
+      "15": "Paralysis Negated",
+      "-10": "Para Duration[x2]"
+    }
+  },
+  {
+    "name": "Sleep",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Sleep Dur Halved",
+      "15": "Sleep Negated",
+      "-10": "Sleep Duration[x2]"
+    }
+  },
+  {
+    "name": "Antiseptic",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Antiseptic"
+    }
+  },
+  {
+    "name": "Fatigue",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Fatigue Cancellation"
+    }
+  },
+  {
+    "name": "Snow Res",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Snow Res"
+    }
+  },
+  {
+    "name": "Quake Res",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Quake Res"
+    }
+  },
+  {
+    "name": "HearProtct",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Earplug",
+      "15": "High Grade Earplug"
+    }
+  },
+  {
+    "name": "WindPress",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Low Wind Res",
+      "15": "High Wind Res",
+      "20": "Dragon Wind Breaker"
+    }
+  },
+  {
+    "name": "Anti-Theft",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Steal No Effect"
+    }
+  },
+  {
+    "name": "Status Res",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Abnormal Sts Negated"
+    }
+  },
+  {
+    "name": "FireDrgRes",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Daora Ward"
+    }
+  },
+  {
+    "name": "Daora Res",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Chameleos Ward"
+    }
+  },
+  {
+    "name": "ChmleosRes",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Fire Dragon Ward"
+    }
+  },
+  {
+    "name": "Artisan",
+    "categories": [
+      "Offensive",
+      "Blademaster"
+    ],
+    "skills": {
+      "10": "Sharpness +1"
+    }
+  },
+  {
+    "name": "Sharpness",
+    "categories": [
+      "Blademaster"
+    ],
+    "skills": {
+      "10": "Sharp Sword",
+      "-10": "Blunt Edge"
+    }
+  },
+  {
+    "name": "Fencing",
+    "categories": [
+      "Blademaster"
+    ],
+    "skills": {
+      "10": "ESP"
+    }
+  },
+  {
+    "name": "SwdShrpner",
+    "categories": [
+      "Blademaster"
+    ],
+    "skills": {
+      "10": "Sharpening Skl Inc",
+      "-10": "Sharpening Skl Halved"
+    }
+  },
+  {
+    "name": "Guard",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Guard +1",
+      "20": "Guard +2",
+      "-10": "Guard -1",
+      "-20": "Guard -2"
+    }
+  },
+  {
+    "name": "Auto-Guard",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Auto-Guard"
+    }
+  },
+  {
+    "name": "Drawn Crit",
+    "categories": [
+      "Blademaster",
+      "Offensive"
+    ],
+    "skills": {
+      "10": "Unsheathed Atk Crit"
+    }
+  },
+  {
+    "name": "SwdMastery",
+    "categories": [
+      "Blademaster",
+      "Offensive"
+    ],
+    "skills": {
+      "10": "True Strike"
+    }
+  },
+  {
+    "name": "NormalS Up",
+    "categories": [
+      "Bowgun",
+      "Bow",
+      "Offensive"
+    ],
+    "skills": {
+      "10": "NormalS/RapidBow Up"
+    }
+  },
+  {
+    "name": "PierceS Up",
+    "categories": [
+      "Bowgun",
+      "Bow",
+      "Offensive"
+    ],
+    "skills": {
+      "10": "PierceS/PierceBow Up"
+    }
+  },
+  {
+    "name": "PelletS Up",
+    "categories": [
+      "Bowgun",
+      "Bow",
+      "Offensive"
+    ],
+    "skills": {
+      "10": "PelletS/ScattrBow Up"
+    }
+  },
+  {
+    "name": "NormalSAdd",
+    "categories": [
+      "Bowgun",
+      "Bow",
+      "Offensive"
+    ],
+    "skills": {
+      "10": "All Shots Up"
+    }
+  },
+  {
+    "name": "PierceSAdd",
+    "categories": [
+      "Bowgun",
+      "Bow"
+    ],
+    "skills": {
+      "10": "Pierce S LV1 Add",
+      "15": "All Pierce Lvls Up"
+    }
+  },
+  {
+    "name": "PelletSAdd",
+    "categories": [
+      "Bowgun",
+      "Bow"
+    ],
+    "skills": {
+      "10": "Scatter Lvl1 Up",
+      "15": "All Scatter Lvls Up"
+    }
+  },
+  {
+    "name": "CragS Add",
+    "categories": [
+      "Bowgun"
+    ],
+    "skills": {
+      "10": "Crag Lvl1 Up",
+      "15": "All Crag Lvls Up"
+    }
+  },
+  {
+    "name": "ClustS Add",
+    "categories": [
+      "Bowgun"
+    ],
+    "skills": {
+      "10": "Clust Lvl1 Up",
+      "15": "All Clust Lvl Up"
+    }
+  },
+  {
+    "name": "Load",
+    "categories": [
+      "Bowgun"
+    ],
+    "skills": {
+      "10": "Reloading Speed +1",
+      "15": "Reloading Speed +2",
+      "20": "Reloading Speed +3",
+      "-10": "Reloading Speed -1",
+      "-15": "Reloading Speed -2",
+      "-20": "Reloading Speed -3"
+    }
+  },
+  {
+    "name": "Speed Fire",
+    "categories": [
+      "Bowgun",
+      "Bow"
+    ],
+    "skills": {
+      "10": "Speed Fire"
+    }
+  },
+  {
+    "name": "Recoil",
+    "categories": [
+      "Bowgun"
+    ],
+    "skills": {
+      "10": "Recoil Reduction +1",
+      "20": "Recoil Reduction +2"
+    }
+  },
+  {
+    "name": "Precision",
+    "categories": [
+      "Bowgun"
+    ],
+    "skills": {
+      "10": "Target Range Down",
+      "-10": "Target Range Up"
+    }
+  },
+  {
+    "name": "PoisnCtAdd",
+    "categories": [
+      "Bow"
+    ],
+    "skills": {
+      "10": "Poison Coat Add"
+    }
+  },
+  {
+    "name": "Para CtAdd",
+    "categories": [
+      "Bow"
+    ],
+    "skills": {
+      "10": "Paralysis Coat Add"
+    }
+  },
+  {
+    "name": "SleepCtAdd",
+    "categories": [
+      "Bow"
+    ],
+    "skills": {
+      "10": "Sleep Coat Add"
+    }
+  },
+  {
+    "name": "PowerCtAdd",
+    "categories": [
+      "Bow"
+    ],
+    "skills": {
+      "10": "Power Coat Add"
+    }
+  },
+  {
+    "name": "RazorCtAdd",
+    "categories": [
+      "Bow"
+    ],
+    "skills": {
+      "10": "Razor Coat Add"
+    }
+  },
+  {
+    "name": "Marksman",
+    "categories": [
+      "Bowgun"
+    ],
+    "skills": {
+      "10": "Shot Damage Up"
+    }
+  },
+  {
+    "name": "Expert",
+    "categories": [
+      "Offensive"
+    ],
+    "skills": {
+      "10": "Reckless Abandon+1",
+      "15": "Reckless Abandon+2",
+      "20": "Reckless Abandon+3",
+      "-10": "Reckless Abandon-1",
+      "-15": "Reckless Abandon-2",
+      "-20": "Reckless Abandon-3"
+    }
+  },
+  {
+    "name": "Spc Attack",
+    "categories": [
+      "Offensive"
+    ],
+    "skills": {
+      "10": "Abnormal Sts Atk Up"
+    }
+  },
+  {
+    "name": "ElementAtk",
+    "categories": [
+      "Offensive"
+    ],
+    "skills": {
+      "10": "Element Atk Up"
+    }
+  },
+  {
+    "name": "Rec Speed",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Damage Rec Speed +1",
+      "20": "Damage Rec Speed +2",
+      "-10": "Damage Rec Speed -1",
+      "-20": "Damage Rec Speed -2"
+    }
+  },
+  {
+    "name": "Protection",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Divine Protection",
+      "-10": "Demonic Protection"
+    }
+  },
+  {
+    "name": "Guard Up",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Guard Inc"
+    }
+  },
+  {
+    "name": "Evade",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Evade +1",
+      "15": "Evade +2"
+    }
+  },
+  {
+    "name": "Evade Inc",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Evade Distance Up"
+    }
+  },
+  {
+    "name": "Potential",
+    "categories": [
+      "Offensive"
+    ],
+    "skills": {
+      "10": "Adrenaline +1",
+      "15": "Adrenaline +2",
+      "-10": "Worry"
+    }
+  },
+  {
+    "name": "Gunnery",
+    "categories": [
+      "Offensive"
+    ],
+    "skills": {
+      "10": "Gunnery Master",
+      "15": "Gunnery King"
+    }
+  },
+  {
+    "name": "Loading",
+    "categories": [
+      "Offensive",
+      "Bowgun",
+      "Bow"
+    ],
+    "skills": {
+      "10": "Load Up"
+    }
+  },
+  {
+    "name": "Fast Chrge",
+    "categories": [
+      "Bow"
+    ],
+    "skills": {
+      "10": "Concentration",
+      "-10": "Distraction"
+    }
+  },
+  {
+    "name": "Survival",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Survival"
+    }
+  },
+  {
+    "name": "Rage",
+    "categories": [
+      "Offensive",
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Rampage"
+    }
+  },
+  {
+    "name": "Map",
+    "categories": [],
+    "skills": {
+      "10": "Farsight",
+      "-10": "Map Unavailable"
+    }
+  },
+  {
+    "name": "PsychicVis",
+    "categories": [],
+    "skills": {
+      "10": "Detect",
+      "15": "Autotracker"
+    }
+  },
+  {
+    "name": "Gathering",
+    "categories": [
+      "Treasure Hunting"
+    ],
+    "skills": {
+      "10": "Gathering +1",
+      "15": "Gathering +2",
+      "-10": "Gathering -1",
+      "-15": "Gathering -2"
+    }
+  },
+  {
+    "name": "Carving",
+    "categories": [
+      "Farming",
+      "Treasure Hunting"
+    ],
+    "skills": {
+      "10": "Carving Iron Man",
+      "20": "Carving Celebrity"
+    }
+  },
+  {
+    "name": "HiSpdGathr",
+    "categories": [
+      "Treasure Hunting"
+    ],
+    "skills": {
+      "10": "High Speed Gathering"
+    }
+  },
+  {
+    "name": "Backpackng",
+    "categories": [
+      "Treasure Hunting"
+    ],
+    "skills": {
+      "10": "Backpacking Expert"
+    }
+  },
+  {
+    "name": "Whim",
+    "categories": [
+      "Treasure Hunting"
+    ],
+    "skills": {
+      "10": "Divine Whim",
+      "15": "Spirit's Whim",
+      "-10": "Spectre's Whim",
+      "-15": "Demon Whim"
+    }
+  },
+  {
+    "name": "Fishing",
+    "categories": [
+      "Treasure Hunting"
+    ],
+    "skills": {
+      "10": "Fishing Expert"
+    }
+  },
+  {
+    "name": "Heat Res",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Heat Cancel [Lo]",
+      "15": "Heat Cancel [Hi]",
+      "-10": "Heat Inc [Lo]",
+      "-15": "Heat Inc [Hi]"
+    }
+  },
+  {
+    "name": "Cold Res",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "Cold Elimination[Lo]",
+      "15": "Cold Elimination[Hi]",
+      "-10": "Cold Increase [Lo]",
+      "-15": "Cold Increase [Hi]"
+    }
+  },
+  {
+    "name": "Terrain",
+    "categories": [
+      "Resistance"
+    ],
+    "skills": {
+      "10": "TrrainDmgeReduce[Lo]",
+      "15": "TrrainDmgeReduce[Hi]",
+      "-10": "TerrainDamageInc[Lo]",
+      "-15": "TerrainDamageInc[Hi]"
+    }
+  },
+  {
+    "name": "Stamina",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Runner",
+      "-10": "Flat Footed"
+    }
+  },
+  {
+    "name": "Technique",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "Defensive Maneuvers +1",
+      "15": "Defensive Maneuvers +2",
+      "-10": "Defensive Maneuvers -1",
+      "-15": "Defensive Maneuvers -2"
+    }
+  },
+  {
+    "name": "Hunger",
+    "categories": [],
+    "skills": {
+      "10": "Hunger Halved",
+      "15": "Hunger Negated",
+      "-10": "Hunger Increase [Lo]",
+      "-15": "Hunger Increase [Hi]"
+    }
+  },
+  {
+    "name": "Sneak",
+    "categories": [],
+    "skills": {
+      "10": "Stealth",
+      "-10": "Taunt"
+    }
+  },
+  {
+    "name": "Fate",
+    "categories": [
+      "Farming"
+    ],
+    "skills": {
+      "10": "Good Luck",
+      "15": "Luck Booster",
+      "-10": "Bad Luck",
+      "-20": "Calamity"
+    }
+  },
+  {
+    "name": "Set Trap",
+    "categories": [],
+    "skills": {
+      "10": "Trap Expert"
+    }
+  },
+  {
+    "name": "Trapper",
+    "categories": [
+      "Farming"
+    ],
+    "skills": {
+      "10": "Reward Specialist",
+      "15": "Reward Celebrity"
+    }
+  },
+  {
+    "name": "Observance",
+    "categories": [
+      "Farming"
+    ],
+    "skills": {
+      "10": "Eagle Eye"
+    }
+  },
+  {
+    "name": "Recovery",
+    "categories": [
+      "Defensive"
+    ],
+    "skills": {
+      "10": "HealthRecItemsImprvd",
+      "-10": "HealthRecItemsWeak"
+    }
+  },
+  {
+    "name": "Everlastng",
+    "categories": [],
+    "skills": {
+      "10": "Item Usage Improve",
+      "-10": "Item Usage Decline"
+    }
+  },
+  {
+    "name": "Wide Area",
+    "categories": [],
+    "skills": {
+      "10": "Wide Area +1",
+      "20": "Wide Area +2"
+    }
+  },
+  {
+    "name": "Throw",
+    "categories": [],
+    "skills": {
+      "10": "Throwing Skill Up"
+    }
+  },
+  {
+    "name": "BombStrUp",
+    "categories": [
+      "Offensive"
+    ],
+    "skills": {
+      "10": "Bomber"
+    }
+  },
+  {
+    "name": "Gluttony",
+    "categories": [],
+    "skills": {
+      "10": "Filled Up",
+      "15": "Picky Eater"
+    }
+  },
+  {
+    "name": "Cooking",
+    "categories": [],
+    "skills": {
+      "10": "Quick Eating",
+      "-10": "Slow Life"
+    }
+  },
+  {
+    "name": "BBQ",
+    "categories": [],
+    "skills": {
+      "10": "BBQ Celebrity",
+      "-10": "So-Called BBQ King"
+    }
+  },
+  {
+    "name": "Horn",
+    "categories": [
+      "Blademaster"
+    ],
+    "skills": {
+      "10": "Flute Expert"
+    }
+  },
+  {
+    "name": "MixSucRate",
+    "categories": [],
+    "skills": {
+      "10": "Combine Success +15%",
+      "15": "Combine Success +25%",
+      "20": "Combine Success +45%",
+      "-10": "Combine Success -5%",
+      "-15": "Combine Success -10%",
+      "-20": "Combine Success -15%"
+    }
+  },
+  {
+    "name": "Shot Mix",
+    "categories": [
+      "Bowgun",
+      "Bow"
+    ],
+    "skills": {
+      "10": "Bullet Limit"
+    }
+  },
+  {
+    "name": "Alchemy",
+    "categories": [],
+    "skills": {
+      "10": "Alchemy"
+    }
+  },
+  {
+    "name": "FlyneGuide",
+    "categories": [],
+    "skills": {
+      "10": "Felyne Tutor",
+      "15": "Felyne Mentor"
+    }
+  },
+  {
+    "name": "Flyne Atk",
+    "categories": [],
+    "skills": {
+      "10": "Felyne Attack Up"
+    }
+  },
+  {
+    "name": "Flyne Def",
+    "categories": [],
+    "skills": {
+      "10": "Felyne Defence Up"
+    }
+  },
+  {
+    "name": "Torso Inc",
+    "categories": [],
+    "skills": {}
+  }
+]
