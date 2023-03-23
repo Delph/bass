@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { slots_format, translate, activated_effect } from '../util';
 
@@ -13,13 +13,13 @@ import style from '../css/components/HistoryEntry.module.css';
 function HistoryEntry(props) {
   const { entry, remove_history } = props;
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const start = (props) => {
     props.clear(); // clear result state
     props.worker({type: 'start', payload: props.entry});
     props.add_history(props.entry);
-    history.push('/results');
+    navigate('/results');
   };
 
   return (

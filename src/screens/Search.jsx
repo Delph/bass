@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 
 import { connect } from 'react-redux';
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -122,7 +122,7 @@ function CategoryFilter({category, onChange, value}) {
 function Search(props) {
   const { search, update, update_check, remove_effect, filter, set_filter, reset, worker } = props;
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [match, setMatch] = useState('');
 
@@ -155,7 +155,7 @@ function Search(props) {
     props.clear(); // clear result state
     worker({type: 'start', payload: search});
     props.add_history(search);
-    history.push('/results');
+    navigate('/results');
   };
 
 
