@@ -73,7 +73,7 @@ const srdispatch = dispatch => {
     add_effect: (skill, points) => dispatch({type: 'add_effect', payload: {skill, points}})
   };
 };
-const SkillRow_ = connect(srstate, srdispatch)(SkillRow);
+const SkillRowConnected = connect(srstate, srdispatch)(SkillRow);
 
 
 function SkillTable({skills}) {
@@ -93,7 +93,7 @@ function SkillTable({skills}) {
         </tr>
       </thead>
       <tbody className={style.body}>
-        {skills.map((skill, i) => <SkillRow_ skill={skill} key={i}/>)}
+        {skills.map((skill, i) => <SkillRowConnected skill={skill} key={i}/>)}
       </tbody>
     </table>
   );

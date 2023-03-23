@@ -30,6 +30,12 @@ function TabBar(props) {
 
   const notices = [
     {
+      codename: 'v0.2.3',
+      replaces: 'v0.2.2',
+      title: 'Version 0.2.3',
+      notice: 'Updated dependencies.'
+    },
+    {
       codename: 'v0.2.2',
       replaces: 'v0.2.1',
       title: 'Version 0.2.2',

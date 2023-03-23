@@ -59,7 +59,7 @@ function Results(props) {
         <fieldset className={style.search}>
           <legend>Search</legend>
           <div>
-            {search.effects.map(e => <div>{translate('effect', activated_effect(e.skill, e.points))}</div>)}
+            {search.effects.map(e => <div key={e.skill}>{translate('effect', activated_effect(e.skill, e.points))}</div>)}
           </div>
           {/*
           <div>

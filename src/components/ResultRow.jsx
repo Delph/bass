@@ -22,22 +22,9 @@ function ResultRow(props) {
     <tr className={style.row}>
       <td className={style.desktop} title={`Effective ${set.eff.raw}`}>{number_format(set.raw.raw)}</td>
       {game().damage_types.map(r =>
-        <td className={style.desktop} title={`Effective ${set.eff[r]}`}>{number_format(set.raw[r])}</td>
+        <td key={r} className={style.desktop} title={`Effective ${set.eff[r]}`}>{number_format(set.raw[r])}</td>
       )}
-      {/*<td className={style.mobile}>
-        <div><img style={{width: 16}} src={defence} alt={'Raw'}/>{number_format(set.raw.raw)}</div>
-        <div><img style={{width: 16}} src={fire} alt={'Fire'}/>{number_format(set.raw.fire)}</div>
-        <div><img style={{width: 16}} src={water} alt={'Water'}/>{number_format(set.raw.water)}</div>
-        <div><img style={{width: 16}} src={thunder} alt={'Thunder'}/>{number_format(set.raw.thunder)}</div>
-        <div><img style={{width: 16}} src={ice} alt={'Ice'}/>{number_format(set.raw.ice)}</div>
-        <div><img style={{width: 16}} src={dragon} alt={'Dragon'}/>{number_format(set.raw.dragon)}</div>
-      </td>*/}
-      {/*<td className={style.desktop}>{translate('head', set.combination[0].name)}</td>*/}
-      {/*<td className={style.desktop}>{translate('body', set.combination[1].name)}</td>*/}
-      {/*<td className={style.desktop}>{translate('arms', set.combination[2].name)}</td>*/}
-      {/*<td className={style.desktop}>{translate('waist', set.combination[3].name)}</td>*/}
-      {/*<td className={style.desktop}>{translate('legs', set.combination[4].name)}</td>*/}
-      <td className={style.mobile}>{set.combination.map(g => <div>{g.name}</div>)}</td>
+      <td className={style.mobile}>{set.combination.map(g => <div key={g.name}>{g.name}</div>)}</td>
       <td>
         {extra_skills.map(s => <div key={s} className={set.skills[s] < 0 ? style.bad : style.good}>{translate('effect', activated_effect(s, set.skills[s]))}</div>)}
       </td>
