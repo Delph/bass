@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Provider, connect } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
@@ -26,14 +26,16 @@ library.add(fas);
 function Body(props) {
   return (
     <div className={style.body}>
-      <Route path={'/'} exact component={Search}/>
-      <Route path={'/results'} component={Results}/>
-      <Route path={'/sets'} component={Sets}/>
-      <Route path={'/builder'} component={Builder}/>
-      <Route path={'/history'} component={History}/>
-      <Route path={'/settings'} component={Settings}/>
-      <Route path={'/about'} component={About}/>
-      <Route path={'/changelog'} component={Changelog}/>
+      <Routes>
+        <Route path={'/'} exact element={<Search/>}/>
+        <Route path={'/results'} element={<Results/>}/>
+        <Route path={'/sets'} element={<Sets/>}/>
+        <Route path={'/builder'} element={<Builder/>}/>
+        <Route path={'/history'} element={<History/>}/>
+        <Route path={'/settings'} element={<Settings/>}/>
+        <Route path={'/about'} element={<About/>}/>
+        <Route path={'/changelog'} element={<Changelog/>}/>
+      </Routes>
     </div>
   );
 }
