@@ -93,6 +93,9 @@ class Context
     if (b.torso_2)
       b_points += 10;
 
+    a_points += a.slots * 2;
+    b_points += b.slots * 2;
+
     // whichever contributes more
     if (a_points > b_points)
       return -1;
