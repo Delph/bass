@@ -30,6 +30,12 @@ function TabBar(props) {
 
   const notices = [
     {
+      codename: 'v0.2.4',
+      replaces: 'v0.2.3',
+      title: 'Version 0.2.4',
+      notice: 'Added dark mode, some styling improvements.'
+    },
+    {
       codename: 'v0.2.3',
       replaces: 'v0.2.2',
       title: 'Version 0.2.3',
@@ -75,13 +81,24 @@ function TabBar(props) {
         <Tab href={'/history'} label={'History'} icon={'history'}/>
         <Tab href={'/settings'} label={'Settings'} icon={'cog'}/>
       </nav>
-      {/*
-      <div>
-        <h1>Donate</h1>
-      </div>
-      */}
-      <div className={style.version}>
-        <span>Version: {info}</span>
+
+      <a
+        className={`${style.donate} ${style.tab}`}
+        href="https://buymeacoffee.com/bobbo"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <div className={style.icon}>💰</div>
+        <div className={style.label}>Donate</div>
+      </a>
+
+      <div className={style.bottom}>
+        <div className={style.privacy}>
+          <Link to={'/privacy'}>Privacy Policy</Link>
+        </div>
+        <div className={style.version}>
+          <span>Version: {info}</span>
+        </div>
       </div>
     </div>
   );

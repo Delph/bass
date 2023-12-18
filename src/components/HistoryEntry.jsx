@@ -32,7 +32,7 @@ function HistoryEntry(props) {
       <td>{entry.gender === 1 ? 'Male' : 'Female'}</td>
       <td>
         <ul>
-          {entry.effects?.map(effect => (<li>{translate('effect', activated_effect(effect.skill, effect.points))}</li>))}
+          {entry.effects?.map(effect => (<li key={effect.skill}>{translate('effect', activated_effect(effect.skill, effect.points))}</li>))}
         </ul>
       </td>
       <td>

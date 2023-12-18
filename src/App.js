@@ -17,6 +17,7 @@ import Results from './screens/Results';
 import Sets from './screens/Sets';
 import History from './screens/History';
 import Settings from './screens/Settings';
+import Privacy from './screens/Privacy';
 
 import style from './css/App.module.css';
 import { game } from './gamedata';
@@ -35,6 +36,7 @@ function Body(props) {
         <Route path={'/settings'} element={<Settings/>}/>
         <Route path={'/about'} element={<About/>}/>
         <Route path={'/changelog'} element={<Changelog/>}/>
+        <Route path={'/privacy'} element={<Privacy/>}/>
       </Routes>
     </div>
   );

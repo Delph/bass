@@ -1,70 +1,14 @@
-.container
-{
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  padding: 4px;
-  box-sizing: border-box;
-}
-
-.top
-{
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-
-.search
-{
-  display: flex;
-  flex-direction: row;
-}
-
-
-.tableContainer
-{
-  flex-grow: 1;
-  overflow-y: auto;
-  margin-top: 4px;
-}
-.table
-{
-  width: 100%;
-}
-
-.head
-{
-  position: sticky;
-  top: 0;
-  background-color: white;
-}
-
-.sort
-{
-  user-select: none;
-  cursor: pointer;
-}
-
-.body
-{
-  overflow-y: auto;
-  user-select: none;
-}
-
 .row:nth-child(even)
 {
-  background-color: #eee;
+  background-color: var(--bg-accent);
 }
-
-
 
 
 .good
 {
   color:#4caf50;
 }
+
 
 .bad
 {

@@ -32,11 +32,11 @@ function Settings(props) {
 
       <Label text={'Language'}>
         <Select options={languages.map(l => { return {value: l.toLowerCase(), label: l}; })} value={settings.language} onChange={set_language}/>
-      </Label>
+      </Label><br/>
 
       <Label text={'Game'}>
         <Select options={Object.keys(games).map(g => ({value: g, label: g.toUpperCase()}))} value={game} onChange={set_game}/>
-      </Label>
+      </Label><br/><br/>
 
       {/*
       <Label text={'Defence display'}>
@@ -48,7 +48,8 @@ function Settings(props) {
       </Label>
       <Link to={'/about'}>About</Link>
       */}
-      <Link to={'/changelog'}>Changelog</Link>
+      <Link to={'/changelog'}>Changelog</Link><br/>
+      <Link to={'/privacy'}>Privacy Policy</Link><br/>
       <div>Version: {info}</div>
     </React.Fragment>
   );
