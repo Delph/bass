@@ -90,15 +90,23 @@ function Changelog() {
     <React.Fragment>
       <h1>Changelog</h1>
       <div>
+        <h3>0.2.5</h3>
+        <ul>
+          <li>Updated donation URL.</li>
+          <li>Added GitHub repository URL.</li>
+          <li>Slight change to some formatting / data display functions.</li>
+        </ul>
+      </div>
+      <div>
         <h3>0.2.4</h3>
         <ul>
-          <li>Tweaked the gemming algorithm slightly</li>
+          <li>Tweaked the gemming algorithm slightly.</li>
         </ul>
       </div>
       <div>
         <h3>0.2.3</h3>
         <ul>
-          <li>Update dependencies</li>
+          <li>Update dependencies.</li>
         </ul>
       </div>
       <div>

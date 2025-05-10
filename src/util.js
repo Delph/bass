@@ -12,9 +12,9 @@ function money_format(x)
   return `${new Intl.NumberFormat().format(x)}z`;
 }
 
-function slots_format(x)
+function slots_format(x, f=0, m=3)
 {
-  return 'O'.repeat(x) + '-'.repeat(3-x);
+  return '●'.repeat(f) + '○'.repeat(x) + '-'.repeat(m-x-f);
 }
 
 function weapon_class(c)
@@ -25,8 +25,10 @@ function weapon_class(c)
       return 'Blademaster';
     case 2:
       return 'Gunner';
-    default:
+    case 3:
       return '';
+    default:
+      return `UNKNOWN: ${c}`;
   }
 }
 
@@ -38,8 +40,10 @@ function gender(g)
       return 'Male';
     case 2:
       return 'Female';
-    default:
+    case 3:
       return '';
+    default:
+      return `UNKNOWN: ${g}`;
   }
 }
 

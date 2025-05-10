@@ -30,6 +30,12 @@ function TabBar(props) {
 
   const notices = [
     {
+      codename: 'v0.2.5',
+      replaces: 'v0.2.4',
+      title: 'Version 0.2.5',
+      notice: 'Updated donation URL, added GitHub link'
+    },
+    {
       codename: 'v0.2.4',
       replaces: 'v0.2.3',
       title: 'Version 0.2.4',
@@ -84,12 +90,21 @@ function TabBar(props) {
 
       <a
         className={`${style.donate} ${style.tab}`}
-        href="https://buymeacoffee.com/bobbo"
+        href="https://buymeacoffee.com/delph.dev"
         target="_blank"
         rel="noreferrer"
       >
         <div className={style.icon}>💰</div>
         <div className={style.label}>Donate</div>
+      </a>
+
+      <a
+        className={`${style.donate} ${style.tab}`}
+        href="https://github.com/Delph/bass"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <div className={style.label}>Fork me on GitHub</div>
       </a>
 
       <div className={style.bottom}>
