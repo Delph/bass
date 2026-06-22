@@ -1,0 +1,55 @@
+{
+  "bass-title-short": "BASS",
+  "bass-title-full": "Browser Armour Set Search",
+  "game-menu-open": "Menu",
+  "game-mhf-title-short": "MHF",
+  "game-mhf-title-full": "Monster Hunter Freedom",
+  "game-mhfu-title-short": "MHFU",
+  "game-mhfu-title-full": "Monster Hunter Freedom Unite",
+
+  "gender-male": "Male",
+  "gender-female": "Female",
+  "gender-both": "All",
+
+  "search-hunter": "Hunter",
+  "search-hunter-rank-guild": "Guild Rank",
+  "search-hunter-rank-village": "Village Rank",
+  "search-hunter-gender": "Gender",
+  "search-weapon": "Weapon",
+  "search-weapon-class": "Class",
+  "weapon-class-blademaster": "Blademaster",
+  "weapon-class-gunner": "Gunner",
+  "search-weapon-slots": "Slots",
+
+  "search-options": "Options",
+  "search-options-allow-bad": "Allow bad skills",
+  "search-options-allow-dummy": "Allow dummy pieces",
+  "search-submit": "Search",
+
+  "search-skills": "Skills",
+  "search-skill-filter": "Filter",
+  "search-skill-levels-count": {
+    "one": "{count} level",
+    "other": "{count} levels"
+  },
+  "search-skills-empty": "No skills selected",
+  "search-skills-matching-count": {
+    "one": "{count} skill",
+    "other": "{count} skills"
+  },
+  "search-skills-no-results": "No skills match the current filters.",
+  "search-skills-continue": "Continue",
+  "search-skills-selected": {
+    "one": "Selected {count} skill",
+    "other": "Selected {count} skills"
+  },
+  "search-skills-show-negative": "Show negative skills",
+
+  "navigation-tab-home": "Home",
+  "navigation-back": "Back",
+  "navigation-tab-search": "Search",
+  "navigation-tab-sets": "Sets",
+  "navigation-tab-history": "History",
+
+  "theme-dark-mode": "Dark mode"
+}

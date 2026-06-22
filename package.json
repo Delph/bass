@@ -1,0 +1,29 @@
+{
+  "name": "bass-v3",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "generate": "nuxt generate",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "preview": "nuxt preview",
+    "profile": "bun run scripts/profile.ts",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/icon": "^2.2.3",
+    "@tailwindcss/vite": "^4.3.0",
+    "nuxt": "^4.4.7",
+    "tailwindcss": "^4.3.0",
+    "vue": "^3.5.35",
+    "vue-router": "^5.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.4",
+    "vitest": "^4.1.8"
+  }
+}
