@@ -534,7 +534,7 @@
     ],
     "skills": [
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 2
       },
       {
@@ -1304,7 +1304,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -1
       },
       {
@@ -1359,7 +1359,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -1
       },
       {
@@ -1630,7 +1630,7 @@
         "points": -1
       },
       {
-        "skill": "ThunderRes",
+        "skill": "Thunder Res",
         "points": 2
       },
       {
@@ -1685,7 +1685,7 @@
         "points": -2
       },
       {
-        "skill": "ThunderRes",
+        "skill": "Thunder Res",
         "points": 2
       },
       {
@@ -1850,11 +1850,11 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
-        "skill": "ThunderRes",
+        "skill": "Thunder Res",
         "points": -2
       }
     ],
@@ -1905,11 +1905,11 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
-        "skill": "ThunderRes",
+        "skill": "Thunder Res",
         "points": -2
       }
     ],
@@ -2620,7 +2620,7 @@
         "points": -1
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
@@ -2679,7 +2679,7 @@
         "points": -1
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
@@ -3072,7 +3072,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -3
       }
     ],
@@ -3123,7 +3123,7 @@
         "points": 1
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       },
       {
@@ -3610,7 +3610,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
@@ -3708,7 +3708,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -1
       },
       {
@@ -3755,7 +3755,7 @@
     ],
     "skills": [
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 2
       },
       {
@@ -3818,7 +3818,7 @@
         "points": -2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 3
       }
     ],
@@ -3869,7 +3869,7 @@
         "points": -2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 3
       }
     ],
@@ -4018,7 +4018,7 @@
         "points": 2
       },
       {
-        "skill": "ThunderRes",
+        "skill": "Thunder Res",
         "points": -2
       },
       {
@@ -4069,7 +4069,7 @@
         "points": -2
       },
       {
-        "skill": "ThunderRes",
+        "skill": "Thunder Res",
         "points": 2
       },
       {
@@ -4767,7 +4767,7 @@
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": -2
       },
       {
@@ -5050,11 +5050,11 @@
         "points": -2
       },
       {
-        "skill": "Trapper",
+        "skill": "Tranquilzr",
         "points": 3
       },
       {
-        "skill": "Observance",
+        "skill": "Perceive",
         "points": 2
       }
     ],
@@ -5101,15 +5101,15 @@
         "points": -2
       },
       {
-        "skill": "SleepCtAdd",
+        "skill": "SleepCAdd",
         "points": 2
       },
       {
-        "skill": "Trapper",
+        "skill": "Tranquilzr",
         "points": 3
       },
       {
-        "skill": "Observance",
+        "skill": "Perceive",
         "points": 2
       }
     ],
@@ -5507,7 +5507,7 @@
         "points": 2
       },
       {
-        "skill": "Speed Fire",
+        "skill": "AutoReload",
         "points": 2
       }
     ],
@@ -5770,7 +5770,7 @@
         "points": 4
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": 2
       }
     ],
@@ -5821,7 +5821,7 @@
         "points": 4
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": 2
       }
     ],
@@ -5868,7 +5868,7 @@
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": 3
       },
       {
@@ -5923,7 +5923,7 @@
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": 3
       },
       {
@@ -5982,7 +5982,7 @@
         "points": 1
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": 4
       },
       {
@@ -6033,7 +6033,7 @@
         "points": 1
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": 4
       },
       {
@@ -6041,7 +6041,7 @@
         "points": -2
       },
       {
-        "skill": "Loading",
+        "skill": "Capacity",
         "points": 2
       }
     ],
@@ -6143,7 +6143,7 @@
         "points": 2
       },
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 3
       },
       {
@@ -6253,7 +6253,7 @@
         "points": 2
       },
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 3
       },
       {
@@ -6469,7 +6469,7 @@
     ],
     "skills": [
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": -1
       },
       {
@@ -6799,7 +6799,7 @@
         "points": 4
       },
       {
-        "skill": "Loading",
+        "skill": "Capacity",
         "points": 1
       }
     ],
@@ -7482,7 +7482,7 @@
     ],
     "skills": [
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 2
       },
       {
@@ -7741,11 +7741,11 @@
     ],
     "skills": [
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": -2
       },
       {
@@ -7792,11 +7792,11 @@
     ],
     "skills": [
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": -2
       },
       {
@@ -8110,7 +8110,7 @@
         "points": 3
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       }
     ],
@@ -8204,7 +8204,7 @@
         "points": 3
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       },
       {
@@ -8251,7 +8251,7 @@
         "points": 3
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       },
       {
@@ -8722,7 +8722,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
@@ -8769,7 +8769,7 @@
     ],
     "skills": [
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 2
       },
       {
@@ -8777,11 +8777,11 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": -1
       }
     ],
@@ -8934,7 +8934,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
@@ -8989,7 +8989,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
@@ -9307,7 +9307,7 @@
         "points": -2
       },
       {
-        "skill": "PoisnCtAdd",
+        "skill": "PoisonCAdd",
         "points": 3
       }
     ],
@@ -9472,7 +9472,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       }
     ],
@@ -9523,7 +9523,7 @@
         "points": 3
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       }
     ],
@@ -9672,11 +9672,11 @@
         "points": -2
       },
       {
-        "skill": "Evade Inc",
+        "skill": "Evade Dist",
         "points": 3
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": 2
       }
     ],
@@ -9723,11 +9723,11 @@
         "points": -2
       },
       {
-        "skill": "Evade Inc",
+        "skill": "Evade Dist",
         "points": 1
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": 4
       }
     ],
@@ -10088,7 +10088,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 5
       },
       {
@@ -10139,7 +10139,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 3
       },
       {
@@ -10500,7 +10500,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 3
       },
       {
@@ -10547,15 +10547,15 @@
     ],
     "skills": [
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 3
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": -2
       }
     ],
@@ -11163,7 +11163,7 @@
         "points": 2
       },
       {
-        "skill": "ThunderRes",
+        "skill": "Thunder Res",
         "points": -3
       },
       {
@@ -11214,7 +11214,7 @@
         "points": 2
       },
       {
-        "skill": "ThunderRes",
+        "skill": "Thunder Res",
         "points": -3
       },
       {
@@ -11775,11 +11775,11 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 3
       },
       {
-        "skill": "ThunderRes",
+        "skill": "Thunder Res",
         "points": -2
       }
     ],
@@ -11826,11 +11826,11 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 3
       },
       {
-        "skill": "ThunderRes",
+        "skill": "Thunder Res",
         "points": -2
       }
     ],
@@ -12238,7 +12238,7 @@
         "points": 2
       },
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 2
       }
     ],
@@ -12285,7 +12285,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -3
       },
       {
@@ -12332,7 +12332,7 @@
     ],
     "skills": [
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 2
       },
       {
@@ -12391,7 +12391,7 @@
         "points": -2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 3
       }
     ],
@@ -12442,7 +12442,7 @@
         "points": -2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 1
       }
     ],
@@ -13057,11 +13057,11 @@
         "points": 2
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": -2
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": 2
       }
     ],
@@ -13112,11 +13112,11 @@
         "points": 1
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": -2
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": 2
       }
     ],
@@ -13634,7 +13634,7 @@
         "points": 2
       },
       {
-        "skill": "Speed Fire",
+        "skill": "AutoReload",
         "points": 2
       }
     ],
@@ -13787,7 +13787,7 @@
         "points": 4
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": 2
       }
     ],
@@ -13838,7 +13838,7 @@
         "points": 4
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": 2
       }
     ],
@@ -13885,7 +13885,7 @@
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": 5
       },
       {
@@ -13936,7 +13936,7 @@
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": 5
       },
       {
@@ -14046,7 +14046,7 @@
         "points": 2
       },
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 4
       }
     ],
@@ -14152,7 +14152,7 @@
         "points": 2
       },
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 4
       }
     ],
@@ -14470,7 +14470,7 @@
         "points": -3
       },
       {
-        "skill": "Speed Fire",
+        "skill": "AutoReload",
         "points": 1
       }
     ],
@@ -14525,7 +14525,7 @@
         "points": 1
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": -2
       }
     ],
@@ -14576,11 +14576,11 @@
         "points": 1
       },
       {
-        "skill": "Loading",
+        "skill": "Capacity",
         "points": 2
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": -2
       }
     ],
@@ -15200,7 +15200,7 @@
         "points": 4
       },
       {
-        "skill": "Loading",
+        "skill": "Capacity",
         "points": 2
       }
     ],
@@ -15565,7 +15565,7 @@
         "points": 3
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       }
     ],
@@ -15620,7 +15620,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       }
     ],
@@ -15871,7 +15871,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       },
       {
@@ -15922,7 +15922,7 @@
     ],
     "skills": [
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       },
       {
@@ -15934,7 +15934,7 @@
         "points": 2
       },
       {
-        "skill": "Loading",
+        "skill": "Capacity",
         "points": 2
       }
     ],
@@ -16040,11 +16040,11 @@
         "points": -2
       },
       {
-        "skill": "Loading",
+        "skill": "Capacity",
         "points": 2
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": 2
       }
     ],
@@ -16095,7 +16095,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       },
       {
@@ -16150,7 +16150,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       },
       {
@@ -16358,7 +16358,7 @@
         "points": 4
       },
       {
-        "skill": "PoisnCtAdd",
+        "skill": "PoisonCAdd",
         "points": 2
       }
     ],
@@ -16511,11 +16511,11 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": -2
       }
     ],
@@ -16566,11 +16566,11 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": -2
       }
     ],
@@ -16621,7 +16621,7 @@
         "points": 4
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": 3
       }
     ],
@@ -16672,11 +16672,11 @@
         "points": 1
       },
       {
-        "skill": "SleepCtAdd",
+        "skill": "SleepCAdd",
         "points": 3
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": 3
       }
     ],
@@ -16723,7 +16723,7 @@
         "points": -2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 3
       },
       {
@@ -16774,7 +16774,7 @@
         "points": -2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 2
       },
       {
@@ -16829,15 +16829,15 @@
         "points": 1
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": -1
       },
       {
-        "skill": "Trapper",
+        "skill": "Tranquilzr",
         "points": 2
       },
       {
-        "skill": "Observance",
+        "skill": "Perceive",
         "points": 5
       }
     ],
@@ -16884,11 +16884,11 @@
         "points": 3
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": 3
       },
       {
-        "skill": "Trapper",
+        "skill": "Tranquilzr",
         "points": 3
       }
     ],
@@ -17108,7 +17108,7 @@
         "points": 2
       },
       {
-        "skill": "RazorCtAdd",
+        "skill": "ClsRngCAdd",
         "points": 1
       }
     ],
@@ -17261,7 +17261,7 @@
         "points": 1
       },
       {
-        "skill": "Drawn Crit",
+        "skill": "Sword Draw",
         "points": 4
       }
     ],
@@ -17312,7 +17312,7 @@
         "points": 5
       },
       {
-        "skill": "Loading",
+        "skill": "Capacity",
         "points": 1
       }
     ],
@@ -17465,11 +17465,11 @@
         "points": 2
       },
       {
-        "skill": "Evade Inc",
+        "skill": "Evade Dist",
         "points": 3
       },
       {
-        "skill": "Set Trap",
+        "skill": "SpeedSetup",
         "points": 2
       }
     ],
@@ -17520,7 +17520,7 @@
         "points": 5
       },
       {
-        "skill": "Evade Inc",
+        "skill": "Evade Dist",
         "points": 2
       }
     ],
@@ -17571,11 +17571,11 @@
         "points": 5
       },
       {
-        "skill": "Survival",
+        "skill": "Guts",
         "points": 1
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": 3
       }
     ],
@@ -17626,11 +17626,11 @@
         "points": 5
       },
       {
-        "skill": "Survival",
+        "skill": "Guts",
         "points": 1
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": 3
       }
     ],
@@ -17685,7 +17685,7 @@
         "points": 3
       },
       {
-        "skill": "Observance",
+        "skill": "Perceive",
         "points": 3
       }
     ],
@@ -17740,7 +17740,7 @@
         "points": 3
       },
       {
-        "skill": "Observance",
+        "skill": "Perceive",
         "points": 3
       }
     ],
@@ -17787,11 +17787,11 @@
         "points": 5
       },
       {
-        "skill": "Drawn Crit",
+        "skill": "Sword Draw",
         "points": 2
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": -2
       }
     ],
@@ -17842,7 +17842,7 @@
         "points": 5
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": -2
       }
     ],
@@ -17999,7 +17999,7 @@
         "points": 1
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": -2
       }
     ],
@@ -18054,7 +18054,7 @@
         "points": 3
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": -2
       }
     ],
@@ -18160,7 +18160,7 @@
         "points": 3
       },
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 1
       },
       {
@@ -18266,7 +18266,7 @@
         "points": 2
       },
       {
-        "skill": "Fast Chrge",
+        "skill": "ShortCharg",
         "points": -3
       }
     ],
@@ -18521,7 +18521,7 @@
         "points": -3
       },
       {
-        "skill": "Survival",
+        "skill": "Guts",
         "points": 3
       }
     ],
@@ -18564,7 +18564,7 @@
     ],
     "skills": [
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": -3
       },
       {
@@ -18572,7 +18572,7 @@
         "points": 1
       },
       {
-        "skill": "Survival",
+        "skill": "Guts",
         "points": 3
       }
     ],
@@ -18627,7 +18627,7 @@
         "points": 1
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": -1
       }
     ],
@@ -18678,7 +18678,7 @@
         "points": 3
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": 3
       }
     ],
@@ -18788,7 +18788,7 @@
         "points": -2
       },
       {
-        "skill": "Speed Fire",
+        "skill": "AutoReload",
         "points": 3
       }
     ],
@@ -18839,7 +18839,7 @@
         "points": 1
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -5
       }
     ],
@@ -18882,7 +18882,7 @@
     ],
     "skills": [
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 2
       },
       {
@@ -18890,7 +18890,7 @@
         "points": 1
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -4
       }
     ],
@@ -18992,7 +18992,7 @@
         "points": 3
       },
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 2
       },
       {
@@ -19047,7 +19047,7 @@
         "points": 2
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 5
       },
       {
@@ -19098,7 +19098,7 @@
         "points": 3
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": 3
       },
       {
@@ -19573,7 +19573,7 @@
         "points": -2
       },
       {
-        "skill": "Daora Res",
+        "skill": "AntiDaora",
         "points": 3
       }
     ],
@@ -19628,7 +19628,7 @@
         "points": -2
       },
       {
-        "skill": "Daora Res",
+        "skill": "AntiDaora",
         "points": 1
       }
     ],
@@ -19683,7 +19683,7 @@
         "points": 2
       },
       {
-        "skill": "FireDrgRes",
+        "skill": "AntiFireDrg",
         "points": 2
       }
     ],
@@ -19730,7 +19730,7 @@
         "points": -2
       },
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 2
       },
       {
@@ -19738,7 +19738,7 @@
         "points": 3
       },
       {
-        "skill": "FireDrgRes",
+        "skill": "AntiFireDrg",
         "points": 2
       }
     ],
@@ -19789,7 +19789,7 @@
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": -2
       },
       {
@@ -19844,7 +19844,7 @@
         "points": 2
       },
       {
-        "skill": "All Resist",
+        "skill": "All Res",
         "points": -2
       },
       {
@@ -19903,7 +19903,7 @@
         "points": -2
       },
       {
-        "skill": "ChmleosRes",
+        "skill": "AntiChamel",
         "points": 2
       }
     ],
@@ -19958,7 +19958,7 @@
         "points": -2
       },
       {
-        "skill": "ChmleosRes",
+        "skill": "AntiChamel",
         "points": 2
       }
     ],
@@ -20009,7 +20009,7 @@
         "points": -2
       },
       {
-        "skill": "Survival",
+        "skill": "Guts",
         "points": 4
       }
     ],
@@ -20060,7 +20060,7 @@
         "points": -2
       },
       {
-        "skill": "Survival",
+        "skill": "Guts",
         "points": 4
       }
     ],
@@ -20111,7 +20111,7 @@
         "points": -2
       },
       {
-        "skill": "ChmleosRes",
+        "skill": "AntiChamel",
         "points": 2
       }
     ],
@@ -20162,7 +20162,7 @@
         "points": -2
       },
       {
-        "skill": "ChmleosRes",
+        "skill": "AntiChamel",
         "points": 2
       }
     ],
@@ -20264,7 +20264,7 @@
         "points": -2
       },
       {
-        "skill": "Loading",
+        "skill": "Capacity",
         "points": 1
       },
       {
@@ -20272,7 +20272,7 @@
         "points": 3
       },
       {
-        "skill": "Para CtAdd",
+        "skill": "ParalyCAdd",
         "points": 3
       }
     ],
@@ -20323,11 +20323,11 @@
         "points": -3
       },
       {
-        "skill": "Evade Inc",
+        "skill": "Evade Dist",
         "points": 3
       },
       {
-        "skill": "Status Res",
+        "skill": "ResistSts",
         "points": 2
       }
     ],
@@ -20378,11 +20378,11 @@
         "points": -3
       },
       {
-        "skill": "Evade Inc",
+        "skill": "Evade Dist",
         "points": 3
       },
       {
-        "skill": "Status Res",
+        "skill": "ResistSts",
         "points": 2
       }
     ],
@@ -20480,7 +20480,7 @@
     ],
     "skills": [
       {
-        "skill": "Load",
+        "skill": "Reload",
         "points": 6
       },
       {
@@ -20488,7 +20488,7 @@
         "points": -2
       },
       {
-        "skill": "Loading",
+        "skill": "Capacity",
         "points": 1
       }
     ],
@@ -20539,11 +20539,11 @@
         "points": -2
       },
       {
-        "skill": "Evade Inc",
+        "skill": "Evade Dist",
         "points": 2
       },
       {
-        "skill": "Set Trap",
+        "skill": "SpeedSetup",
         "points": 3
       }
     ],
@@ -20594,11 +20594,11 @@
         "points": -2
       },
       {
-        "skill": "Evade Inc",
+        "skill": "Evade Dist",
         "points": 2
       },
       {
-        "skill": "Set Trap",
+        "skill": "SpeedSetup",
         "points": 3
       }
     ],
@@ -20900,7 +20900,7 @@
         "points": 1
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": 4
       }
     ],
@@ -20951,7 +20951,7 @@
         "points": 4
       },
       {
-        "skill": "Trapper",
+        "skill": "Tranquilzr",
         "points": 3
       }
     ],
@@ -21002,7 +21002,7 @@
         "points": 4
       },
       {
-        "skill": "Trapper",
+        "skill": "Tranquilzr",
         "points": 3
       }
     ],
@@ -21053,7 +21053,7 @@
         "points": 4
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       }
     ],
@@ -21104,7 +21104,7 @@
         "points": 4
       },
       {
-        "skill": "Defence",
+        "skill": "Defense",
         "points": -2
       }
     ],
@@ -21155,7 +21155,7 @@
         "points": 6
       },
       {
-        "skill": "Drawn Crit",
+        "skill": "Sword Draw",
         "points": 1
       }
     ],
@@ -21257,7 +21257,7 @@
         "points": 6
       },
       {
-        "skill": "Drawn Crit",
+        "skill": "Sword Draw",
         "points": 1
       }
     ],
@@ -21363,7 +21363,7 @@
         "points": 2
       },
       {
-        "skill": "Rage",
+        "skill": "Fury",
         "points": 2
       }
     ],
@@ -21414,11 +21414,11 @@
         "points": 2
       },
       {
-        "skill": "Loading",
+        "skill": "Capacity",
         "points": 2
       },
       {
-        "skill": "Rage",
+        "skill": "Fury",
         "points": 2
       }
     ],
@@ -21465,11 +21465,11 @@
         "points": -3
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": 4
       },
       {
-        "skill": "SwdMastery",
+        "skill": "EdgeMaster",
         "points": 2
       }
     ],
@@ -21516,11 +21516,11 @@
         "points": -3
       },
       {
-        "skill": "Technique",
+        "skill": "Constitutn",
         "points": 2
       },
       {
-        "skill": "Marksman",
+        "skill": "SteadyHand",
         "points": 2
       }
     ],

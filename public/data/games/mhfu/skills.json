@@ -4,27 +4,63 @@
     "categories": [
       "Offensive"
     ],
-    "skills": {
-      "10": "Attack Up (Small)",
-      "15": "Attack Up (Medium)",
-      "20": "Attack Up (Large)",
-      "-10": "Attack Dwn (Small)",
-      "-15": "Attack Dwn (Medium)",
-      "-20": "Attack Dwn (Large)"
+    "effects": {
+      "10": {
+        "name": "Attack Up (Small)",
+        "description": "Increases attack power by 10."
+      },
+      "15": {
+        "name": "Attack Up (Medium)",
+        "description": "Increases attack power by 15."
+      },
+      "20": {
+        "name": "Attack Up (Large)",
+        "description": "Increases attack power by 20."
+      },
+      "-10": {
+        "name": "Attack Down (Small)",
+        "description": "Decreases attack power by 10."
+      },
+      "-15": {
+        "name": "Attack Down (Medium)",
+        "description": "Decreases attack power by 15."
+      },
+      "-20": {
+        "name": "Attack Down (Large)",
+        "description": "Decreases attack power by 20."
+      }
     }
   },
   {
-    "name": "Defence",
+    "name": "Defense",
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Defence +20",
-      "15": "Defence +30",
-      "20": "Defence +40",
-      "-10": "Defence -20",
-      "-15": "Defence -30",
-      "-20": "Defence -40"
+    "effects": {
+      "10": {
+        "name": "Defense +20",
+        "description": "Adds 20 points to defense."
+      },
+      "15": {
+        "name": "Defense +30",
+        "description": "Adds 30 points to defense."
+      },
+      "20": {
+        "name": "Defense +40",
+        "description": "Adds 40 points to defense."
+      },
+      "-10": {
+        "name": "Defense -20",
+        "description": "Subtracts 20 points from your defense."
+      },
+      "-15": {
+        "name": "Defense -30",
+        "description": "Subtracts 30 points from your defense."
+      },
+      "-20": {
+        "name": "Defense -40",
+        "description": "Subtracts 40 points from your defense."
+      }
     }
   },
   {
@@ -32,27 +68,63 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Health +20",
-      "15": "Health +30",
-      "20": "Health +50",
-      "-10": "Health -10",
-      "-15": "Health -20",
-      "-20": "Health -30"
+    "effects": {
+      "10": {
+        "name": "Health +20",
+        "description": "Adds 20 points to maximum health."
+      },
+      "15": {
+        "name": "Health +30",
+        "description": "Adds 30 points to maximum health."
+      },
+      "20": {
+        "name": "Health +50",
+        "description": "Adds 50 points to maximum health."
+      },
+      "-10": {
+        "name": "Health -10",
+        "description": "Subtracts 10 points from your maximum health."
+      },
+      "-15": {
+        "name": "Health -20",
+        "description": "Subtracts 20 points from your maximum health."
+      },
+      "-20": {
+        "name": "Health -30",
+        "description": "Subtracts 30 points from your maximum health."
+      }
     }
   },
   {
-    "name": "All Resist",
+    "name": "All Res",
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "All Resist +3",
-      "15": "All Resist +5",
-      "20": "All Resist +10",
-      "-10": "All Resist -3",
-      "-15": "All Resist -5",
-      "-20": "All Resist -10"
+    "effects": {
+      "10": {
+        "name": "All Res +3",
+        "description": "Adds 3 points to all element resistances."
+      },
+      "15": {
+        "name": "All Res +5",
+        "description": "Adds 5 points to all element resistances."
+      },
+      "20": {
+        "name": "All Res +10",
+        "description": "Adds 10 points to all element resistances."
+      },
+      "-10": {
+        "name": "All Res -3",
+        "description": "Subtracts 3 points from all element resistances."
+      },
+      "-15": {
+        "name": "All Res -5",
+        "description": "Subtracts 5 points from all element resistances."
+      },
+      "-20": {
+        "name": "All Res -10",
+        "description": "Subtracts 10 points from all element resistances."
+      }
     }
   },
   {
@@ -60,11 +132,31 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Ice Res +5",
-      "15": "Ice Res +10",
-      "-10": "Ice Res -5",
-      "-15": "Ice Res -10"
+    "effects": {
+      "10": {
+        "name": "Ice Res +3",
+        "description": "Adds 3 points to ice resistance."
+      },
+      "15": {
+        "name": "Ice Res +5",
+        "description": "Adds 5 points to ice resistance."
+      },
+      "20": {
+        "name": "Ice Res +10",
+        "description": "Adds 10 points to ice resistance."
+      },
+      "-10": {
+        "name": "Ice Res -3",
+        "description": "Subtracts 3 points from ice resistance."
+      },
+      "-15": {
+        "name": "Ice Res -5",
+        "description": "Subtracts 5 points from ice resistance."
+      },
+      "-20": {
+        "name": "Ice Res -10",
+        "description": "Subtracts 10 points from ice resistance."
+      }
     }
   },
   {
@@ -72,23 +164,63 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Water Res +5",
-      "15": "Water Res +10",
-      "-10": "Water Res -5",
-      "-15": "Water Res -10"
+    "effects": {
+      "10": {
+        "name": "Water Res +3",
+        "description": "Adds 3 points to water resistance."
+      },
+      "15": {
+        "name": "Water Res +5",
+        "description": "Adds 5 points to water resistance."
+      },
+      "20": {
+        "name": "Water Res +10",
+        "description": "Adds 10 points to water resistance."
+      },
+      "-10": {
+        "name": "Water Res -3",
+        "description": "Subtracts 3 points from water resistance."
+      },
+      "-15": {
+        "name": "Water Res -5",
+        "description": "Subtracts 5 points from water resistance."
+      },
+      "-20": {
+        "name": "Water Res -10",
+        "description": "Subtracts 10 points from water resistance."
+      }
     }
   },
   {
-    "name": "ThunderRes",
+    "name": "Thunder Res",
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Thunder Res +5",
-      "15": "Thunder Res +10",
-      "-10": "Thunder Res -5",
-      "-15": "Thunder Res -10"
+    "effects": {
+      "10": {
+        "name": "Thunder Res +3",
+        "description": "Adds 3 points to thunder resistance."
+      },
+      "15": {
+        "name": "Thunder Res +5",
+        "description": "Adds 5 points to thunder resistance."
+      },
+      "20": {
+        "name": "Thunder Res +10",
+        "description": "Adds 10 points to thunder resistance."
+      },
+      "-10": {
+        "name": "Thunder Res -3",
+        "description": "Subtracts 3 points from thunder resistance."
+      },
+      "-15": {
+        "name": "Thunder Res -5",
+        "description": "Subtracts 5 points from thunder resistance."
+      },
+      "-20": {
+        "name": "Thunder Res -10",
+        "description": "Subtracts 10 points from thunder resistance."
+      }
     }
   },
   {
@@ -96,11 +228,31 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Dragon Res +5",
-      "15": "Dragon Res +10",
-      "-10": "Dragon Res -5",
-      "-15": "Dragon Res -10"
+    "effects": {
+      "10": {
+        "name": "Dragon Res +3",
+        "description": "Adds 3 points to dragon resistance."
+      },
+      "15": {
+        "name": "Dragon Res +5",
+        "description": "Adds 5 points to dragon resistance."
+      },
+      "20": {
+        "name": "Dragon Res +10",
+        "description": "Adds 10 points to dragon resistance."
+      },
+      "-10": {
+        "name": "Dragon Res -3",
+        "description": "Subtracts 3 points from dragon resistance."
+      },
+      "-15": {
+        "name": "Dragon Res -5",
+        "description": "Subtracts 5 points from dragon resistance."
+      },
+      "-20": {
+        "name": "Dragon Res -10",
+        "description": "Subtracts 10 points from dragon resistance."
+      }
     }
   },
   {
@@ -108,11 +260,31 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Fire Resist +5",
-      "15": "Fire Resist +10",
-      "-10": "Fire Resist -5",
-      "-15": "Fire Resist -10"
+    "effects": {
+      "10": {
+        "name": "Fire Res +3",
+        "description": "Adds 3 points to fire resistance."
+      },
+      "15": {
+        "name": "Fire Res +5",
+        "description": "Adds 5 points to fire resistance."
+      },
+      "20": {
+        "name": "Fire Res +10",
+        "description": "Adds 10 points to fire resistance."
+      },
+      "-10": {
+        "name": "Fire Res -3",
+        "description": "Subtracts 3 points from fire resistance."
+      },
+      "-15": {
+        "name": "Fire Res -5",
+        "description": "Subtracts 5 points from fire resistance."
+      },
+      "-20": {
+        "name": "Fire Res -10",
+        "description": "Subtracts 10 points from fire resistance."
+      }
     }
   },
   {
@@ -120,10 +292,19 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Faint Prob Halved",
-      "15": "Faint Negated",
-      "-10": "Faint Duration [x2]"
+    "effects": {
+      "10": {
+        "name": "Faint Prob Halved",
+        "description": "Faint duration halved."
+      },
+      "15": {
+        "name": "Faint Negated",
+        "description": "Faint negated."
+      },
+      "-10": {
+        "name": "Faint Duration[x2]",
+        "description": "Faint duration doubled."
+      }
     }
   },
   {
@@ -131,10 +312,19 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Poison Dur Halved",
-      "15": "Poison Negated",
-      "-10": "Poison Duration[x2]"
+    "effects": {
+      "10": {
+        "name": "Poison Dur Halved",
+        "description": "Poison duration halved."
+      },
+      "15": {
+        "name": "Poison Negated",
+        "description": "Poison negated."
+      },
+      "-10": {
+        "name": "Poison Dur[x2]",
+        "description": "Poison duration doubled."
+      }
     }
   },
   {
@@ -142,10 +332,19 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Para Duration Halved",
-      "15": "Paralysis Negated",
-      "-10": "Para Duration[x2]"
+    "effects": {
+      "10": {
+        "name": "Para Duration Halved",
+        "description": "Paralysis duration halved."
+      },
+      "15": {
+        "name": "Paralysis Negated",
+        "description": "Paralysis negated."
+      },
+      "-10": {
+        "name": "Para Duration[x2]",
+        "description": "Paralysis duration doubled."
+      }
     }
   },
   {
@@ -153,10 +352,19 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Sleep Dur Halved",
-      "15": "Sleep Negated",
-      "-10": "Sleep Duration[x2]"
+    "effects": {
+      "10": {
+        "name": "Sleep Dur Halved",
+        "description": "Sleep duration halved."
+      },
+      "15": {
+        "name": "Sleep Negated",
+        "description": "Sleep negated."
+      },
+      "-10": {
+        "name": "Sleep Dur[x2]",
+        "description": "Sleep duration doubled."
+      }
     }
   },
   {
@@ -164,8 +372,11 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Antiseptic"
+    "effects": {
+      "10": {
+        "name": "Antiseptic",
+        "description": "Provides immunity to Soiled status."
+      }
     }
   },
   {
@@ -173,8 +384,11 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Fatigue Cancellation"
+    "effects": {
+      "10": {
+        "name": "Fatigue Cancellation",
+        "description": "Fatigue negated."
+      }
     }
   },
   {
@@ -182,8 +396,11 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Snow Res"
+    "effects": {
+      "10": {
+        "name": "Snow Resistance",
+        "description": "Provides immunity to Snowman status."
+      }
     }
   },
   {
@@ -191,8 +408,11 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Quake Res"
+    "effects": {
+      "10": {
+        "name": "Quake Resistance",
+        "description": "Provides immunity to Quake status."
+      }
     }
   },
   {
@@ -200,9 +420,15 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Earplug",
-      "15": "High Grade Earplug"
+    "effects": {
+      "10": {
+        "name": "Earplug",
+        "description": "Immunity to small roars."
+      },
+      "15": {
+        "name": "High Grade Earplug",
+        "description": "Immunity to all roars."
+      }
     }
   },
   {
@@ -210,10 +436,19 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Low Wind Res",
-      "15": "High Wind Res",
-      "20": "Dragon Wind Breaker"
+    "effects": {
+      "10": {
+        "name": "Low Wind Res",
+        "description": "Immunity to small Wind Press."
+      },
+      "15": {
+        "name": "High Wind Res",
+        "description": "Immunity to large Wind Press."
+      },
+      "20": {
+        "name": "Dragon Wind Breaker",
+        "description": "Immunity to all Wind Press."
+      }
     }
   },
   {
@@ -221,44 +456,78 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Steal No Effect"
+    "effects": {
+      "10": {
+        "name": "Steal No Effect",
+        "description": "Provides immunity to stealing."
+      }
     }
   },
   {
-    "name": "Status Res",
+    "name": "ResistSts",
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Abnormal Sts Negated"
+    "effects": {
+      "10": {
+        "name": "Self-Defense",
+        "description": "Provides immunity to all abnormal status effects.",
+        "combines": [
+          "Paralysis Negated",
+          "Sleep Negated",
+          "Poison Negated",
+          "Faint Negated"
+        ]
+      }
     }
   },
   {
-    "name": "FireDrgRes",
+    "name": "AntiFireDrg",
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Daora Ward"
+    "effects": {
+      "10": {
+        "name": "Metallic Protection",
+        "description": "Provides higher resistance to fire-based elemental damage and cancels damage from lava or Teostra/Lunastra's aura.",
+        "combines": [
+          "Fire Res +10",
+          "TerrainDamageNegate"
+        ]
+      }
     }
   },
   {
-    "name": "Daora Res",
+    "name": "AntiDaora",
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Chameleos Ward"
+    "effects": {
+      "10": {
+        "name": "Frosty Protection",
+        "description": "Provides immunity to Snowman and Wind Press status.",
+        "combines": [
+          "Snow Resistance",
+          "Dragon Wind Breaker"
+        ]
+      }
     }
   },
   {
-    "name": "ChmleosRes",
+    "name": "AntiChamel",
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Fire Dragon Ward"
+    "effects": {
+      "10": {
+        "name": "Fiery Protection",
+        "description": "Provides immunity to all status ailments given by Chameleos, including poison, stealing, and fatigue.",
+        "combines": [
+          "Poison Negated",
+          "Steal No Effect",
+          "Fatigue Cancellation"
+        ]
+      }
     }
   },
   {
@@ -267,8 +536,11 @@
       "Offensive",
       "Blademaster"
     ],
-    "skills": {
-      "10": "Sharpness +1"
+    "effects": {
+      "10": {
+        "name": "Sharpness +1",
+        "description": "Increases maximum sharpness by one level."
+      }
     }
   },
   {
@@ -276,9 +548,15 @@
     "categories": [
       "Blademaster"
     ],
-    "skills": {
-      "10": "Sharp Sword",
-      "-10": "Blunt Edge"
+    "effects": {
+      "10": {
+        "name": "Sharp Sword",
+        "description": "Decreases sharpness lost on weapon by half."
+      },
+      "-10": {
+        "name": "Blunt",
+        "description": "Increases sharpness lost on weapon by x2."
+      }
     }
   },
   {
@@ -286,8 +564,11 @@
     "categories": [
       "Blademaster"
     ],
-    "skills": {
-      "10": "ESP"
+    "effects": {
+      "10": {
+        "name": "ESP",
+        "description": "Prevents attacks from being deflected."
+      }
     }
   },
   {
@@ -295,9 +576,15 @@
     "categories": [
       "Blademaster"
     ],
-    "skills": {
-      "10": "Sharpening Skl Inc",
-      "-10": "Sharpening Skl Halved"
+    "effects": {
+      "10": {
+        "name": "Sharpening Skl Inc",
+        "description": "Whetstone usage speed increases."
+      },
+      "-10": {
+        "name": "Sharpening Skl Half",
+        "description": "Whetstones restore half sharpness."
+      }
     }
   },
   {
@@ -305,11 +592,19 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Guard +1",
-      "20": "Guard +2",
-      "-10": "Guard -1",
-      "-20": "Guard -2"
+    "effects": {
+      "10": {
+        "name": "Guard +1",
+        "description": "Block requires less stamina, and hunter receives less damage and push back."
+      },
+      "20": {
+        "name": "Guard +2",
+        "description": "Block requires even less stamina, and hunter receives even less damage and push back."
+      },
+      "-10": {
+        "name": "Guard -1",
+        "description": "Block requires more stamina, and hunter receives more damage and push back."
+      }
     }
   },
   {
@@ -317,28 +612,41 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Auto-Guard"
+    "effects": {
+      "10": {
+        "name": "Auto-Guard",
+        "description": "Automatically blocks attacks if the weapon permits."
+      }
     }
   },
   {
-    "name": "Drawn Crit",
+    "name": "Sword Draw",
     "categories": [
       "Blademaster",
       "Offensive"
     ],
-    "skills": {
-      "10": "Unsheathed Atk Crit"
+    "effects": {
+      "10": {
+        "name": "Art of Unsheathing",
+        "description": "Unsheathing attacks have a 100% chance to be critical hits."
+      }
     }
   },
   {
-    "name": "SwdMastery",
+    "name": "EdgeMaster",
     "categories": [
       "Blademaster",
       "Offensive"
     ],
-    "skills": {
-      "10": "True Strike"
+    "effects": {
+      "10": {
+        "name": "Stellar Hunter",
+        "description": "Grants Sharpness +1 and Attack Up (Large).",
+        "combines": [
+          "Sharpness +1",
+          "Attack Up (Large)"
+        ]
+      }
     }
   },
   {
@@ -348,8 +656,11 @@
       "Bow",
       "Offensive"
     ],
-    "skills": {
-      "10": "NormalS/RapidBow Up"
+    "effects": {
+      "10": {
+        "name": "NormalS/RapidBow Up",
+        "description": "Increases damage of Normal S shots and Rapid bow shots by 10%."
+      }
     }
   },
   {
@@ -359,8 +670,11 @@
       "Bow",
       "Offensive"
     ],
-    "skills": {
-      "10": "PierceS/PierceBow Up"
+    "effects": {
+      "10": {
+        "name": "PierceS/PierceBow Up",
+        "description": "Increases damage of Pierce S shots and Pierce bow shots by 10%."
+      }
     }
   },
   {
@@ -370,41 +684,59 @@
       "Bow",
       "Offensive"
     ],
-    "skills": {
-      "10": "PelletS/ScattrBow Up"
+    "effects": {
+      "10": {
+        "name": "PelletS/ScattrBow Up",
+        "description": "Increases damage of Pellet S shots and Scatter bow shots by 10%."
+      }
     }
   },
   {
     "name": "NormalSAdd",
     "categories": [
-      "Bowgun",
-      "Bow",
-      "Offensive"
+      "Bowgun"
     ],
-    "skills": {
-      "10": "All Shots Up"
+    "effects": {
+      "15": {
+        "name": "Normal S LV1 Add",
+        "description": "Normal LV1 is enabled."
+      },
+      "20": {
+        "name": "Normal S All LV Add",
+        "description": "Normal LV1, LV2, and LV3 are enabled."
+      }
     }
   },
   {
     "name": "PierceSAdd",
     "categories": [
-      "Bowgun",
-      "Bow"
+      "Bowgun"
     ],
-    "skills": {
-      "10": "Pierce S LV1 Add",
-      "15": "All Pierce Lvls Up"
+    "effects": {
+      "10": {
+        "name": "Pierce S LV1 Add",
+        "description": "Pierce LV1 is enabled."
+      },
+      "15": {
+        "name": "Pierce S All LV Add",
+        "description": "Pierce LV1, LV2, and LV3 are enabled."
+      }
     }
   },
   {
     "name": "PelletSAdd",
     "categories": [
-      "Bowgun",
-      "Bow"
+      "Bowgun"
     ],
-    "skills": {
-      "10": "Scatter Lvl1 Up",
-      "15": "All Scatter Lvls Up"
+    "effects": {
+      "10": {
+        "name": "Pellet S LV1 Add",
+        "description": "Pellet LV1 is enabled."
+      },
+      "15": {
+        "name": "Pellet S All LV Add",
+        "description": "Pellet LV1, LV2, and LV3 are enabled."
+      }
     }
   },
   {
@@ -412,9 +744,15 @@
     "categories": [
       "Bowgun"
     ],
-    "skills": {
-      "10": "Crag Lvl1 Up",
-      "15": "All Crag Lvls Up"
+    "effects": {
+      "10": {
+        "name": "Crag S LV1 Add",
+        "description": "Crag LV1 is enabled."
+      },
+      "15": {
+        "name": "Crag S All LV Add",
+        "description": "Crag LV1, LV2, and LV3 are enabled."
+      }
     }
   },
   {
@@ -422,33 +760,57 @@
     "categories": [
       "Bowgun"
     ],
-    "skills": {
-      "10": "Clust Lvl1 Up",
-      "15": "All Clust Lvl Up"
+    "effects": {
+      "10": {
+        "name": "Clust S LV1 Add",
+        "description": "Clust LV1 is enabled."
+      },
+      "15": {
+        "name": "Clust S All LV Add",
+        "description": "Clust LV1, LV2, and LV3 are enabled."
+      }
     }
   },
   {
-    "name": "Load",
-    "categories": [
-      "Bowgun"
-    ],
-    "skills": {
-      "10": "Reloading Speed +1",
-      "15": "Reloading Speed +2",
-      "20": "Reloading Speed +3",
-      "-10": "Reloading Speed -1",
-      "-15": "Reloading Speed -2",
-      "-20": "Reloading Speed -3"
-    }
-  },
-  {
-    "name": "Speed Fire",
+    "name": "Reload",
     "categories": [
       "Bowgun",
       "Bow"
     ],
-    "skills": {
-      "10": "Speed Fire"
+    "effects": {
+      "10": {
+        "name": "Reloading Speed +1",
+        "description": "Reload speed increases by 1."
+      },
+      "15": {
+        "name": "Reloading Speed +2",
+        "description": "Reload speed increases by 2."
+      },
+      "20": {
+        "name": "Reloading Speed +3",
+        "description": "Reload speed increases by 3."
+      },
+      "-10": {
+        "name": "Reloading Speed -1",
+        "description": "Reload speed decreases by 1."
+      },
+      "-15": {
+        "name": "Reloading Speed -2",
+        "description": "Reload speed decreases by 2."
+      }
+    }
+  },
+  {
+    "name": "AutoReload",
+    "categories": [
+      "Bowgun",
+      "Bow"
+    ],
+    "effects": {
+      "10": {
+        "name": "Auto-Reload",
+        "description": "Current ammo fires without reloading, except rapid-fire ammo; bow coatings apply automatically."
+      }
     }
   },
   {
@@ -456,9 +818,23 @@
     "categories": [
       "Bowgun"
     ],
-    "skills": {
-      "10": "Recoil Reduction +1",
-      "20": "Recoil Reduction +2"
+    "effects": {
+      "10": {
+        "name": "Recoil Reduction +1",
+        "description": "Recoil from bowgun decreases by 2."
+      },
+      "20": {
+        "name": "Recoil Reduction +2",
+        "description": "Recoil from bowgun decreases by 4."
+      },
+      "-10": {
+        "name": "Recoil Increase +1",
+        "description": "Recoil from bowgun increases by 1."
+      },
+      "-15": {
+        "name": "Recoil Increase +2",
+        "description": "Recoil from bowgun increases by 2."
+      }
     }
   },
   {
@@ -466,63 +842,94 @@
     "categories": [
       "Bowgun"
     ],
-    "skills": {
-      "10": "Target Range Down",
-      "-10": "Target Range Up"
+    "effects": {
+      "10": {
+        "name": "Shell Deviation Down",
+        "description": "Being off-center decreases."
+      },
+      "-10": {
+        "name": "Shell Deviation Up",
+        "description": "Being off-center increases."
+      }
     }
   },
   {
-    "name": "PoisnCtAdd",
+    "name": "PoisonCAdd",
     "categories": [
       "Bow"
     ],
-    "skills": {
-      "10": "Poison Coat Add"
+    "effects": {
+      "15": {
+        "name": "Poison Coating Add",
+        "description": "Poison Coating is enabled."
+      }
     }
   },
   {
-    "name": "Para CtAdd",
+    "name": "ParalyCAdd",
     "categories": [
       "Bow"
     ],
-    "skills": {
-      "10": "Paralysis Coat Add"
+    "effects": {
+      "15": {
+        "name": "Paralysis Coat Add",
+        "description": "Paralysis Coating is enabled."
+      }
     }
   },
   {
-    "name": "SleepCtAdd",
+    "name": "SleepCAdd",
     "categories": [
       "Bow"
     ],
-    "skills": {
-      "10": "Sleep Coat Add"
+    "effects": {
+      "15": {
+        "name": "Sleep Coating Add",
+        "description": "Sleep Coating is enabled."
+      }
     }
   },
   {
-    "name": "PowerCtAdd",
+    "name": "PowerCAdd",
     "categories": [
       "Bow"
     ],
-    "skills": {
-      "10": "Power Coat Add"
+    "effects": {
+      "15": {
+        "name": "Power Coating Add",
+        "description": "Power Coating is enabled."
+      }
     }
   },
   {
-    "name": "RazorCtAdd",
+    "name": "ClsRngCAdd",
     "categories": [
       "Bow"
     ],
-    "skills": {
-      "10": "Razor Coat Add"
+    "effects": {
+      "15": {
+        "name": "ClsRngCAdd",
+        "description": "Close-range Coating is enabled."
+      }
     }
   },
   {
-    "name": "Marksman",
+    "name": "SteadyHand",
     "categories": [
-      "Bowgun"
+      "Bowgun",
+      "Bow",
+      "Offensive"
     ],
-    "skills": {
-      "10": "Shot Damage Up"
+    "effects": {
+      "10": {
+        "name": "Straight & True",
+        "description": "Grants shot-type damage boosts for normal/rapid, pierce, and pellet/scatter shots.",
+        "combines": [
+          "NormalS/RapidBow Up",
+          "PierceS/PierceBow Up",
+          "PelletS/ScattrBow Up"
+        ]
+      }
     }
   },
   {
@@ -530,13 +937,23 @@
     "categories": [
       "Offensive"
     ],
-    "skills": {
-      "10": "Reckless Abandon+1",
-      "15": "Reckless Abandon+2",
-      "20": "Reckless Abandon+3",
-      "-10": "Reckless Abandon-1",
-      "-15": "Reckless Abandon-2",
-      "-20": "Reckless Abandon-3"
+    "effects": {
+      "10": {
+        "name": "Reckless Abandon+1",
+        "description": "Increases affinity by 10%."
+      },
+      "15": {
+        "name": "Reckless Abandon+2",
+        "description": "Increases affinity by 20%."
+      },
+      "20": {
+        "name": "Reckless Abandon+3",
+        "description": "Increases affinity by 30%."
+      },
+      "-10": {
+        "name": "Reckless Abandon-1",
+        "description": "Decreases affinity by 10%."
+      }
     }
   },
   {
@@ -544,8 +961,11 @@
     "categories": [
       "Offensive"
     ],
-    "skills": {
-      "10": "Abnormal Sts Atk Up"
+    "effects": {
+      "10": {
+        "name": "Abnormal Sts Atk Up",
+        "description": "Increases weapon poison, paralysis, and sleep values by x1.125."
+      }
     }
   },
   {
@@ -553,8 +973,11 @@
     "categories": [
       "Offensive"
     ],
-    "skills": {
-      "10": "Element Atk Up"
+    "effects": {
+      "10": {
+        "name": "Element Attack Up",
+        "description": "Increases fire, water, ice, thunder, and dragon elemental damage by x1.2."
+      }
     }
   },
   {
@@ -562,11 +985,19 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Damage Rec Speed +1",
-      "20": "Damage Rec Speed +2",
-      "-10": "Damage Rec Speed -1",
-      "-20": "Damage Rec Speed -2"
+    "effects": {
+      "10": {
+        "name": "Damage Rec Speed +1",
+        "description": "Red portion of health recovers 2x faster."
+      },
+      "20": {
+        "name": "Damage Rec Speed +2",
+        "description": "Red portion of health recovers 4x faster."
+      },
+      "-10": {
+        "name": "Damage Rec Speed -1",
+        "description": "Red portion of health recovers 2x slower."
+      }
     }
   },
   {
@@ -574,9 +1005,15 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Divine Protection",
-      "-10": "Demonic Protection"
+    "effects": {
+      "10": {
+        "name": "Divine Protection",
+        "description": "20% chance of receiving 30% less damage when taking damage."
+      },
+      "-10": {
+        "name": "Demonic Protection",
+        "description": "20% chance of receiving 30% more damage when taking damage."
+      }
     }
   },
   {
@@ -584,8 +1021,11 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Guard Inc"
+    "effects": {
+      "10": {
+        "name": "Guard Inc",
+        "description": "Enables blocking attacks that normally cannot be blocked."
+      }
     }
   },
   {
@@ -593,18 +1033,27 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Evade +1",
-      "15": "Evade +2"
+    "effects": {
+      "10": {
+        "name": "Evade +1",
+        "description": "Slightly increases invincibility time during rolling and diving."
+      },
+      "15": {
+        "name": "Evade +2",
+        "description": "Greatly increases invincibility time during rolling and diving."
+      }
     }
   },
   {
-    "name": "Evade Inc",
+    "name": "Evade Dist",
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Evade Distance Up"
+    "effects": {
+      "10": {
+        "name": "Evade Distance Up",
+        "description": "Increases covered distance when dodge rolling and diving."
+      }
     }
   },
   {
@@ -612,10 +1061,19 @@
     "categories": [
       "Offensive"
     ],
-    "skills": {
-      "10": "Adrenaline +1",
-      "15": "Adrenaline +2",
-      "-10": "Worry"
+    "effects": {
+      "10": {
+        "name": "Adrenaline +1",
+        "description": "+90 defense when health is below 40%."
+      },
+      "15": {
+        "name": "Adrenaline +2",
+        "description": "+90 defense and +30% attack when health is below 40%."
+      },
+      "-10": {
+        "name": "Worry",
+        "description": "Increases defense but cuts attack by 30% when health is below 40%."
+      }
     }
   },
   {
@@ -623,65 +1081,104 @@
     "categories": [
       "Offensive"
     ],
-    "skills": {
-      "10": "Gunnery Master",
-      "15": "Gunnery King"
+    "effects": {
+      "10": {
+        "name": "Gunnery Master",
+        "description": "Increases damage of Ballista S and Cannon S."
+      },
+      "15": {
+        "name": "Gunnery King",
+        "description": "Increases damage of Ballista S, Cannon S, Gunlance shells, Wyvern's Fire, and Crag S."
+      }
     }
   },
   {
-    "name": "Loading",
+    "name": "Capacity",
     "categories": [
       "Offensive",
       "Bowgun",
-      "Bow"
+      "Bow",
+      "Blademaster"
     ],
-    "skills": {
-      "10": "Load Up"
+    "effects": {
+      "10": {
+        "name": "Capacity Up",
+        "description": "Adds a Gunlance shell, adds ammo capacity to bowgun ammo types, or adds one bow charge level up to level 4."
+      }
     }
   },
   {
-    "name": "Fast Chrge",
+    "name": "ShortCharg",
     "categories": [
-      "Bow"
+      "Bow",
+      "Blademaster"
     ],
-    "skills": {
-      "10": "Concentration",
-      "-10": "Distraction"
+    "effects": {
+      "10": {
+        "name": "Focus",
+        "description": "Decreases charging time and increases Long Sword spirit gauge gain."
+      },
+      "-10": {
+        "name": "Distracted",
+        "description": "Increases charging time and decreases Long Sword spirit gauge gain."
+      }
     }
   },
   {
-    "name": "Survival",
+    "name": "Guts",
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Survival"
+    "effects": {
+      "10": {
+        "name": "Guts",
+        "description": "Saves the hunter from an instant-death hit when health is above 65."
+      }
     }
   },
   {
-    "name": "Rage",
+    "name": "Fury",
     "categories": [
       "Offensive",
       "Defensive"
     ],
-    "skills": {
-      "10": "Rampage"
+    "effects": {
+      "10": {
+        "name": "Emboldened",
+        "description": "Saves the hunter from deadly hits and increases damage during low health.",
+        "combines": [
+          "Guts",
+          "Adrenaline +2"
+        ]
+      }
     }
   },
   {
     "name": "Map",
     "categories": [],
-    "skills": {
-      "10": "Farsight",
-      "-10": "Map Unavailable"
+    "effects": {
+      "10": {
+        "name": "FarSight",
+        "description": "See the entire map without the map item."
+      },
+      "-10": {
+        "name": "Map Unavailable",
+        "description": "Cannot see the map even with the map item."
+      }
     }
   },
   {
     "name": "PsychicVis",
     "categories": [],
-    "skills": {
-      "10": "Detect",
-      "15": "Autotracker"
+    "effects": {
+      "10": {
+        "name": "Detect",
+        "description": "Provides detailed information on painted monsters, including calm or angry state."
+      },
+      "15": {
+        "name": "Autotracker",
+        "description": "Constantly shows large monster locations and activity state on the map."
+      }
     }
   },
   {
@@ -689,11 +1186,23 @@
     "categories": [
       "Treasure Hunting"
     ],
-    "skills": {
-      "10": "Gathering +1",
-      "15": "Gathering +2",
-      "-10": "Gathering -1",
-      "-15": "Gathering -2"
+    "effects": {
+      "10": {
+        "name": "Gathering +1",
+        "description": "Increases extra gathering by 1 time."
+      },
+      "15": {
+        "name": "Gathering +2",
+        "description": "Increases extra gathering by 2 times."
+      },
+      "-10": {
+        "name": "Gathering -1",
+        "description": "Decreases possible gathering by 1 time."
+      },
+      "-15": {
+        "name": "Gathering -2",
+        "description": "Decreases possible gathering by 2 times."
+      }
     }
   },
   {
@@ -702,9 +1211,15 @@
       "Farming",
       "Treasure Hunting"
     ],
-    "skills": {
-      "10": "Carving Iron Man",
-      "20": "Carving Celebrity"
+    "effects": {
+      "10": {
+        "name": "Carving Iron Man",
+        "description": "Carving won't be interrupted by small attacks."
+      },
+      "20": {
+        "name": "Carving Celebrity",
+        "description": "Can carve one extra time off any carving."
+      }
     }
   },
   {
@@ -712,8 +1227,11 @@
     "categories": [
       "Treasure Hunting"
     ],
-    "skills": {
-      "10": "High Speed Gathering"
+    "effects": {
+      "10": {
+        "name": "High Speed Gathering",
+        "description": "Increases the speed of carving, mining, gathering, and bugnetting."
+      }
     }
   },
   {
@@ -721,8 +1239,11 @@
     "categories": [
       "Treasure Hunting"
     ],
-    "skills": {
-      "10": "Backpacking Expert"
+    "effects": {
+      "10": {
+        "name": "Backpacking Expert",
+        "description": "Increases movement speed when carrying eggs and lets you fall farther without breaking them."
+      }
     }
   },
   {
@@ -730,11 +1251,23 @@
     "categories": [
       "Treasure Hunting"
     ],
-    "skills": {
-      "10": "Divine Whim",
-      "15": "Spirit's Whim",
-      "-10": "Spectre's Whim",
-      "-15": "Demon Whim"
+    "effects": {
+      "15": {
+        "name": "Spirit's Whim",
+        "description": "Prevents Pickaxes, Bugnets, and Flutes from breaking 25% of the time."
+      },
+      "20": {
+        "name": "Divine Whim",
+        "description": "Prevents Pickaxes, Bugnets, and Flutes from breaking 50% of the time."
+      },
+      "-10": {
+        "name": "Spectre's Whim",
+        "description": "Doubles chance of Pickaxes, Bugnets, and Flutes breaking 25% of the time."
+      },
+      "-15": {
+        "name": "Devil's Whim",
+        "description": "Doubles chance of Pickaxes, Bugnets, and Flutes breaking 50% of the time."
+      }
     }
   },
   {
@@ -742,8 +1275,11 @@
     "categories": [
       "Treasure Hunting"
     ],
-    "skills": {
-      "10": "Fishing Expert"
+    "effects": {
+      "10": {
+        "name": "Fishing Expert",
+        "description": "Increases the time to hook fish when the bait is eaten."
+      }
     }
   },
   {
@@ -751,11 +1287,19 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Heat Cancel [Lo]",
-      "15": "Heat Cancel [Hi]",
-      "-10": "Heat Inc [Lo]",
-      "-15": "Heat Inc [Hi]"
+    "effects": {
+      "10": {
+        "name": "Heat Cancel [Lo]",
+        "description": "Immunity to heat at specific areas."
+      },
+      "15": {
+        "name": "Heat Cancel [Hi]",
+        "description": "Immunity to heat anyplace."
+      },
+      "-10": {
+        "name": "Heat Inc [Lo]",
+        "description": "Health decreases x1.5 faster in hot areas."
+      }
     }
   },
   {
@@ -763,11 +1307,19 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "Cold Elimination[Lo]",
-      "15": "Cold Elimination[Hi]",
-      "-10": "Cold Increase [Lo]",
-      "-15": "Cold Increase [Hi]"
+    "effects": {
+      "10": {
+        "name": "Cold Elimination[Lo]",
+        "description": "Immunity to cold at specific areas."
+      },
+      "15": {
+        "name": "Cold Elimination[Hi]",
+        "description": "Immunity to cold anyplace."
+      },
+      "-10": {
+        "name": "Cold Increase [Lo]",
+        "description": "Stamina bar decreases x1.5 faster in cold areas."
+      }
     }
   },
   {
@@ -775,11 +1327,23 @@
     "categories": [
       "Resistance"
     ],
-    "skills": {
-      "10": "TrrainDmgeReduce[Lo]",
-      "15": "TrrainDmgeReduce[Hi]",
-      "-10": "TerrainDamageInc[Lo]",
-      "-15": "TerrainDamageInc[Hi]"
+    "effects": {
+      "10": {
+        "name": "TerrainDamageHalf",
+        "description": "Terrain damage is halved."
+      },
+      "15": {
+        "name": "TerrainDamageNegate",
+        "description": "No terrain damage received."
+      },
+      "-10": {
+        "name": "TerrainDamageInc[Lo]",
+        "description": "Terrain damage increases by x1.5."
+      },
+      "-15": {
+        "name": "TerrainDamageInc[Hi]",
+        "description": "Terrain damage increases by x2."
+      }
     }
   },
   {
@@ -787,39 +1351,67 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Runner",
-      "-10": "Flat Footed"
+    "effects": {
+      "10": {
+        "name": "Runner",
+        "description": "Stamina usage is greatly decreased."
+      },
+      "-10": {
+        "name": "Flat Footed",
+        "description": "Stamina usage is increased."
+      }
     }
   },
   {
-    "name": "Technique",
+    "name": "Constitutn",
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "Defensive Maneuvers +1",
-      "15": "Defensive Maneuvers +2",
-      "-10": "Defensive Maneuvers -1",
-      "-15": "Defensive Maneuvers -2"
+    "effects": {
+      "10": {
+        "name": "Constitution +1",
+        "description": "Stamina used to roll or dive is halved."
+      },
+      "15": {
+        "name": "Constitution +2",
+        "description": "Stamina used to roll or dive is greatly reduced."
+      }
     }
   },
   {
     "name": "Hunger",
     "categories": [],
-    "skills": {
-      "10": "Hunger Halved",
-      "15": "Hunger Negated",
-      "-10": "Hunger Increase [Lo]",
-      "-15": "Hunger Increase [Hi]"
+    "effects": {
+      "10": {
+        "name": "Hunger Halved",
+        "description": "Stamina bar decreases x0.5 slower."
+      },
+      "15": {
+        "name": "Hunger Negated",
+        "description": "Stamina bar does not decrease."
+      },
+      "-10": {
+        "name": "Hunger Increase[Lo]",
+        "description": "Stamina bar decreases x1.5 faster."
+      },
+      "-15": {
+        "name": "Hunger Increase[Hi]",
+        "description": "Stamina bar decreases x2.0 faster."
+      }
     }
   },
   {
     "name": "Sneak",
     "categories": [],
-    "skills": {
-      "10": "Stealth",
-      "-10": "Taunt"
+    "effects": {
+      "10": {
+        "name": "Stealth",
+        "description": "Monsters target the hunter less often than teammates."
+      },
+      "-10": {
+        "name": "Taunt",
+        "description": "Monsters target the hunter more often than teammates."
+      }
     }
   },
   {
@@ -827,37 +1419,61 @@
     "categories": [
       "Farming"
     ],
-    "skills": {
-      "10": "Good Luck",
-      "15": "Luck Booster",
-      "-10": "Bad Luck",
-      "-20": "Calamity"
+    "effects": {
+      "10": {
+        "name": "Good Luck",
+        "description": "Chance for increasing rewards."
+      },
+      "15": {
+        "name": "Luck Booster",
+        "description": "Greater chance for increasing rewards."
+      },
+      "-10": {
+        "name": "Bad Luck",
+        "description": "Chance for decreasing rewards."
+      },
+      "-20": {
+        "name": "Calamity",
+        "description": "Greater chance for decreasing rewards."
+      }
     }
   },
   {
-    "name": "Set Trap",
+    "name": "SpeedSetup",
     "categories": [],
-    "skills": {
-      "10": "Trap Expert"
+    "effects": {
+      "10": {
+        "name": "Trap Master",
+        "description": "Guarantees trap combinations succeed, and speeds up trap and bomb-setting time."
+      }
     }
   },
   {
-    "name": "Trapper",
+    "name": "Tranquilzr",
     "categories": [
       "Farming"
     ],
-    "skills": {
-      "10": "Reward Specialist",
-      "15": "Reward Celebrity"
+    "effects": {
+      "10": {
+        "name": "Tranquilizing Whiz",
+        "description": "Sometimes increases the chance of more capture rewards."
+      },
+      "15": {
+        "name": "Tranquilizing Celeb",
+        "description": "Often increases the chance of more capture rewards."
+      }
     }
   },
   {
-    "name": "Observance",
+    "name": "Perceive",
     "categories": [
       "Farming"
     ],
-    "skills": {
-      "10": "Eagle Eye"
+    "effects": {
+      "10": {
+        "name": "Tranquilizing Guru",
+        "description": "Painted or auto-tracked capture targets turn yellow when they are ready to be captured."
+      }
     }
   },
   {
@@ -865,32 +1481,53 @@
     "categories": [
       "Defensive"
     ],
-    "skills": {
-      "10": "HealthRecItemsImprvd",
-      "-10": "HealthRecItemsWeak"
+    "effects": {
+      "10": {
+        "name": "HealthRecItemsImprvd",
+        "description": "Healing item effectiveness increases by 25%."
+      },
+      "-10": {
+        "name": "HealthRecItemsWeaknd",
+        "description": "Healing item effectiveness drops by 25%."
+      }
     }
   },
   {
     "name": "Everlastng",
     "categories": [],
-    "skills": {
-      "10": "Item Usage Improve",
-      "-10": "Item Usage Decline"
+    "effects": {
+      "10": {
+        "name": "Item Usage Improved",
+        "description": "Item effects last 50% longer."
+      },
+      "-10": {
+        "name": "Item Usage Decline",
+        "description": "Item effect duration is cut by 40%."
+      }
     }
   },
   {
     "name": "Wide Area",
     "categories": [],
-    "skills": {
-      "10": "Wide Area +1",
-      "20": "Wide Area +2"
+    "effects": {
+      "10": {
+        "name": "Wide Area +1",
+        "description": "Item effects are spread 50%."
+      },
+      "20": {
+        "name": "Wide Area +2",
+        "description": "Item effects are spread 100%."
+      }
     }
   },
   {
     "name": "Throw",
     "categories": [],
-    "skills": {
-      "10": "Throwing Skill Up"
+    "effects": {
+      "10": {
+        "name": "Throwing Skill Up",
+        "description": "Increases thrown item distance and reduces the chance of boomerangs breaking."
+      }
     }
   },
   {
@@ -898,32 +1535,53 @@
     "categories": [
       "Offensive"
     ],
-    "skills": {
-      "10": "Bomber"
+    "effects": {
+      "10": {
+        "name": "Bomber",
+        "description": "Guarantees bomb combinations succeed and increases bomb damage by x1.5."
+      }
     }
   },
   {
     "name": "Gluttony",
     "categories": [],
-    "skills": {
-      "10": "Filled Up",
-      "15": "Picky Eater"
+    "effects": {
+      "10": {
+        "name": "Filled Up",
+        "description": "Can get a stamina increase from fish steaks."
+      },
+      "15": {
+        "name": "Scavenger",
+        "description": "Can get a stamina increase from healing items."
+      }
     }
   },
   {
     "name": "Cooking",
     "categories": [],
-    "skills": {
-      "10": "Quick Eating",
-      "-10": "Slow Life"
+    "effects": {
+      "10": {
+        "name": "Quick Eating",
+        "description": "Increases eating speed."
+      },
+      "-10": {
+        "name": "Slow Life",
+        "description": "Decreases eating speed."
+      }
     }
   },
   {
     "name": "BBQ",
     "categories": [],
-    "skills": {
-      "10": "BBQ Celebrity",
-      "-10": "So-Called BBQ King"
+    "effects": {
+      "10": {
+        "name": "BBQ Celebrity",
+        "description": "Makes it easier to cook Well-Done Steaks and possible to cook Gourmet Steaks."
+      },
+      "-10": {
+        "name": "So-called BBQ King",
+        "description": "Makes it hard to cook steaks."
+      }
     }
   },
   {
@@ -931,20 +1589,33 @@
     "categories": [
       "Blademaster"
     ],
-    "skills": {
-      "10": "Flute Expert"
+    "effects": {
+      "10": {
+        "name": "Flute Expert",
+        "description": "Halves the chance for flute items to break and extends Hunting Horn song duration by 1 minute."
+      }
     }
   },
   {
     "name": "MixSucRate",
     "categories": [],
-    "skills": {
-      "10": "Combine Success +15%",
-      "15": "Combine Success +25%",
-      "20": "Combine Success +45%",
-      "-10": "Combine Success -5%",
-      "-15": "Combine Success -10%",
-      "-20": "Combine Success -15%"
+    "effects": {
+      "10": {
+        "name": "Combine Success +15%",
+        "description": "Increases combination success rate by 15%."
+      },
+      "15": {
+        "name": "Combine Success +25%",
+        "description": "Increases combination success rate by 25%."
+      },
+      "20": {
+        "name": "Combine Success +45%",
+        "description": "Increases combination success rate by 45%."
+      },
+      "-10": {
+        "name": "Combine Success -10%",
+        "description": "Decreases combination success rate by 10%."
+      }
     }
   },
   {
@@ -953,42 +1624,60 @@
       "Bowgun",
       "Bow"
     ],
-    "skills": {
-      "10": "Bullet Limit"
+    "effects": {
+      "10": {
+        "name": "Bullet Limit",
+        "description": "Maxes out the amount of ammo or coatings made by each combination."
+      }
     }
   },
   {
     "name": "Alchemy",
     "categories": [],
-    "skills": {
-      "10": "Alchemy"
+    "effects": {
+      "10": {
+        "name": "Alchemy",
+        "description": "Enables combinations for items that require Alchemy."
+      }
     }
   },
   {
-    "name": "FlyneGuide",
+    "name": "ComrdGuide",
     "categories": [],
-    "skills": {
-      "10": "Felyne Tutor",
-      "15": "Felyne Mentor"
+    "effects": {
+      "10": {
+        "name": "Comrade Guidance",
+        "description": "Increases Felyne Comrade experience after clearing quests."
+      },
+      "15": {
+        "name": "Comrade Guidance&Trade",
+        "description": "Increases Felyne Comrade experience and skill points after clearing quests."
+      }
     }
   },
   {
-    "name": "Flyne Atk",
+    "name": "ComradeAtk",
     "categories": [],
-    "skills": {
-      "10": "Felyne Attack Up"
+    "effects": {
+      "10": {
+        "name": "Comrade Attack Up",
+        "description": "Increases Felyne Comrade attack."
+      }
     }
   },
   {
-    "name": "Flyne Def",
+    "name": "ComradeDef",
     "categories": [],
-    "skills": {
-      "10": "Felyne Defence Up"
+    "effects": {
+      "10": {
+        "name": "Comrade Defense Up",
+        "description": "Increases Felyne Comrade defense."
+      }
     }
   },
   {
     "name": "Torso Inc",
     "categories": [],
-    "skills": {}
+    "effects": {}
   }
 ]

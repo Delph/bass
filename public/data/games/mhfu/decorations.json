@@ -49,7 +49,7 @@
       }
     ],
     "penalty": {
-      "skill": "Defence",
+      "skill": "Defense",
       "points": -1
     }
   },
@@ -82,7 +82,7 @@
       }
     ],
     "penalty": {
-      "skill": "Defence",
+      "skill": "Defense",
       "points": -1
     }
   },
@@ -93,7 +93,7 @@
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Defence",
+      "skill": "Defense",
       "points": 1
     },
     "materials": [
@@ -114,7 +114,7 @@
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "Defence",
+      "skill": "Defense",
       "points": 3
     },
     "materials": [
@@ -140,7 +140,7 @@
       }
     ],
     "penalty": {
-      "skill": "All Resist",
+      "skill": "All Res",
       "points": -1
     }
   },
@@ -903,7 +903,7 @@
       }
     ],
     "penalty": {
-      "skill": "Defence",
+      "skill": "Defense",
       "points": -1
     }
   },
@@ -936,7 +936,7 @@
       }
     ],
     "penalty": {
-      "skill": "Defence",
+      "skill": "Defense",
       "points": -2
     }
   },
@@ -947,7 +947,7 @@
     "hr": 1,
     "elder": 8,
     "skill": {
-      "skill": "Drawn Crit",
+      "skill": "Sword Draw",
       "points": 1
     },
     "materials": [
@@ -984,7 +984,7 @@
     "hr": 8,
     "elder": 1,
     "skill": {
-      "skill": "Drawn Crit",
+      "skill": "Sword Draw",
       "points": 3
     },
     "materials": [
@@ -1013,7 +1013,7 @@
     "hr": 3,
     "elder": 4,
     "skill": {
-      "skill": "Fast Chrge",
+      "skill": "ShortCharg",
       "points": 1
     },
     "materials": [
@@ -1043,7 +1043,7 @@
       }
     ],
     "penalty": {
-      "skill": "Technique",
+      "skill": "Constitutn",
       "points": -1
     }
   },
@@ -1054,7 +1054,7 @@
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "Fast Chrge",
+      "skill": "ShortCharg",
       "points": 4
     },
     "materials": [
@@ -1076,7 +1076,7 @@
       }
     ],
     "penalty": {
-      "skill": "Technique",
+      "skill": "Constitutn",
       "points": -2
     }
   },
@@ -1418,7 +1418,7 @@
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": 1
     },
     "materials": [
@@ -1447,7 +1447,7 @@
     "hr": 2,
     "elder": 6,
     "skill": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": 3
     },
     "materials": [
@@ -1492,7 +1492,7 @@
     "hr": 3,
     "elder": 6,
     "skill": {
-      "skill": "Speed Fire",
+      "skill": "AutoReload",
       "points": 1
     },
     "materials": [
@@ -1529,7 +1529,7 @@
     "hr": 6,
     "elder": 9,
     "skill": {
-      "skill": "Speed Fire",
+      "skill": "AutoReload",
       "points": 4
     },
     "materials": [
@@ -1592,7 +1592,7 @@
       }
     ],
     "penalty": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": -1
     }
   },
@@ -1625,7 +1625,7 @@
       }
     ],
     "penalty": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": -2
     }
   },
@@ -1654,7 +1654,7 @@
       }
     ],
     "penalty": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": -1
     }
   },
@@ -1687,7 +1687,7 @@
       }
     ],
     "penalty": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": -2
     }
   },
@@ -1716,7 +1716,7 @@
       }
     ],
     "penalty": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": -1
     }
   },
@@ -1749,7 +1749,7 @@
       }
     ],
     "penalty": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": -2
     }
   },
@@ -1778,7 +1778,7 @@
       }
     ],
     "penalty": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": -1
     }
   },
@@ -1811,7 +1811,7 @@
       }
     ],
     "penalty": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": -2
     }
   },
@@ -1947,7 +1947,7 @@
     "hr": 4,
     "elder": 7,
     "skill": {
-      "skill": "PowerCtAdd",
+      "skill": "PowerCAdd",
       "points": 1
     },
     "materials": [
@@ -1969,7 +1969,7 @@
       }
     ],
     "penalty": {
-      "skill": "Fast Chrge",
+      "skill": "ShortCharg",
       "points": -1
     }
   },
@@ -1980,7 +1980,7 @@
     "hr": 7,
     "elder": 5,
     "skill": {
-      "skill": "PowerCtAdd",
+      "skill": "PowerCAdd",
       "points": 3
     },
     "materials": [
@@ -2002,7 +2002,7 @@
       }
     ],
     "penalty": {
-      "skill": "Fast Chrge",
+      "skill": "ShortCharg",
       "points": -1
     }
   },
@@ -2013,7 +2013,7 @@
     "hr": 1,
     "elder": 4,
     "skill": {
-      "skill": "RazorCtAdd",
+      "skill": "ClsRngCAdd",
       "points": 2
     },
     "materials": [
@@ -2042,7 +2042,7 @@
     "hr": 2,
     "elder": 3,
     "skill": {
-      "skill": "PoisnCtAdd",
+      "skill": "PoisonCAdd",
       "points": 2
     },
     "materials": [
@@ -2071,7 +2071,7 @@
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Para CtAdd",
+      "skill": "ParalyCAdd",
       "points": 1
     },
     "materials": [
@@ -2093,7 +2093,7 @@
       }
     ],
     "penalty": {
-      "skill": "Fast Chrge",
+      "skill": "ShortCharg",
       "points": -1
     }
   },
@@ -2104,7 +2104,7 @@
     "hr": 4,
     "elder": 7,
     "skill": {
-      "skill": "Para CtAdd",
+      "skill": "ParalyCAdd",
       "points": 3
     },
     "materials": [
@@ -2126,7 +2126,7 @@
       }
     ],
     "penalty": {
-      "skill": "Fast Chrge",
+      "skill": "ShortCharg",
       "points": -1
     }
   },
@@ -2137,7 +2137,7 @@
     "hr": 2,
     "elder": 3,
     "skill": {
-      "skill": "SleepCtAdd",
+      "skill": "SleepCAdd",
       "points": 2
     },
     "materials": [
@@ -2166,7 +2166,7 @@
     "hr": 5,
     "elder": 9,
     "skill": {
-      "skill": "Loading",
+      "skill": "Capacity",
       "points": 1
     },
     "materials": [
@@ -2196,7 +2196,7 @@
       }
     ],
     "penalty": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": -1
     }
   },
@@ -2207,7 +2207,7 @@
     "hr": 6,
     "elder": 1,
     "skill": {
-      "skill": "Loading",
+      "skill": "Capacity",
       "points": 4
     },
     "materials": [
@@ -2229,7 +2229,7 @@
       }
     ],
     "penalty": {
-      "skill": "Load",
+      "skill": "Reload",
       "points": -2
     }
   },
@@ -2258,7 +2258,7 @@
       }
     ],
     "penalty": {
-      "skill": "Speed Fire",
+      "skill": "AutoReload",
       "points": -1
     }
   },
@@ -2447,7 +2447,7 @@
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Set Trap",
+      "skill": "SpeedSetup",
       "points": 2
     },
     "materials": [
@@ -2786,7 +2786,7 @@
     "hr": 1,
     "elder": 4,
     "skill": {
-      "skill": "Technique",
+      "skill": "Constitutn",
       "points": 1
     },
     "materials": [
@@ -2815,7 +2815,7 @@
     "hr": 1,
     "elder": 9,
     "skill": {
-      "skill": "Technique",
+      "skill": "Constitutn",
       "points": 3
     },
     "materials": [
@@ -3231,7 +3231,7 @@
     "hr": 8,
     "elder": 8,
     "skill": {
-      "skill": "Evade Inc",
+      "skill": "Evade Dist",
       "points": 1
     },
     "materials": [
@@ -3272,7 +3272,7 @@
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "Evade Inc",
+      "skill": "Evade Dist",
       "points": 4
     },
     "materials": [
@@ -3400,7 +3400,7 @@
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Survival",
+      "skill": "Guts",
       "points": 1
     },
     "materials": [
@@ -3429,7 +3429,7 @@
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "Survival",
+      "skill": "Guts",
       "points": 3
     },
     "materials": [
@@ -3698,7 +3698,7 @@
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "All Resist",
+      "skill": "All Res",
       "points": 1
     },
     "materials": [
@@ -3723,7 +3723,7 @@
     "hr": 5,
     "elder": 9,
     "skill": {
-      "skill": "All Resist",
+      "skill": "All Res",
       "points": 3
     },
     "materials": [
@@ -3752,7 +3752,7 @@
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "All Resist",
+      "skill": "All Res",
       "points": 5
     },
     "materials": [
@@ -3845,7 +3845,7 @@
       }
     ],
     "penalty": {
-      "skill": "ThunderRes",
+      "skill": "Thunder Res",
       "points": -1
     }
   },
@@ -3923,7 +3923,7 @@
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "ThunderRes",
+      "skill": "Thunder Res",
       "points": 1
     },
     "materials": [
@@ -3948,7 +3948,7 @@
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "ThunderRes",
+      "skill": "Thunder Res",
       "points": 2
     },
     "materials": [
@@ -4417,7 +4417,7 @@
     "hr": 7,
     "elder": 7,
     "skill": {
-      "skill": "Trapper",
+      "skill": "Tranquilzr",
       "points": 1
     },
     "materials": [
@@ -4450,7 +4450,7 @@
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Trapper",
+      "skill": "Tranquilzr",
       "points": 3
     },
     "materials": [
@@ -4583,7 +4583,7 @@
     "hr": 7,
     "elder": 7,
     "skill": {
-      "skill": "Observance",
+      "skill": "Perceive",
       "points": 2
     },
     "materials": [
@@ -4935,7 +4935,7 @@
     "hr": 8,
     "elder": 8,
     "skill": {
-      "skill": "FlyneGuide",
+      "skill": "ComrdGuide",
       "points": 2
     },
     "materials": [
@@ -4972,7 +4972,7 @@
     "hr": 8,
     "elder": 8,
     "skill": {
-      "skill": "Flyne Atk",
+      "skill": "ComradeAtk",
       "points": 2
     },
     "materials": [
@@ -5001,7 +5001,7 @@
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Flyne Def",
+      "skill": "ComradeDef",
       "points": 2
     },
     "materials": [
