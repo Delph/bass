@@ -61,6 +61,14 @@ export function pick<T extends object, K extends keyof T>(
   return obj;
 }
 
+export function sum(array: number[]) {
+  return array.reduce((a, c) => a + c, 0);
+}
+
+export function product(array: number[]) {
+  return array.reduce((a, c) => a * c, 1);
+}
+
 /**
  * @brief A range generator, akin to Python's range() function
  * @details Generates a series of numbers in the range provided (inclusive, exclusive). The range can run in either direction (ascending or descending) and can step whatever amount is necessary.

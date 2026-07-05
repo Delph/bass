@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Attack",
     "categories": [
       "Offensive"
@@ -32,6 +33,7 @@
     }
   },
   {
+    "id": 2,
     "name": "Defense",
     "categories": [
       "Defensive"
@@ -64,6 +66,7 @@
     }
   },
   {
+    "id": 3,
     "name": "Health",
     "categories": [
       "Defensive"
@@ -96,6 +99,7 @@
     }
   },
   {
+    "id": 4,
     "name": "All Res",
     "categories": [
       "Resistance"
@@ -128,6 +132,7 @@
     }
   },
   {
+    "id": 5,
     "name": "Ice Res",
     "categories": [
       "Resistance"
@@ -160,6 +165,7 @@
     }
   },
   {
+    "id": 6,
     "name": "Water Res",
     "categories": [
       "Resistance"
@@ -192,6 +198,7 @@
     }
   },
   {
+    "id": 7,
     "name": "Thunder Res",
     "categories": [
       "Resistance"
@@ -224,6 +231,7 @@
     }
   },
   {
+    "id": 8,
     "name": "Dragon Res",
     "categories": [
       "Resistance"
@@ -256,6 +264,7 @@
     }
   },
   {
+    "id": 9,
     "name": "Fire Res",
     "categories": [
       "Resistance"
@@ -288,6 +297,7 @@
     }
   },
   {
+    "id": 10,
     "name": "Faint",
     "categories": [
       "Resistance"
@@ -308,6 +318,7 @@
     }
   },
   {
+    "id": 11,
     "name": "Poison",
     "categories": [
       "Resistance"
@@ -328,6 +339,7 @@
     }
   },
   {
+    "id": 12,
     "name": "Paralysis",
     "categories": [
       "Resistance"
@@ -348,6 +360,7 @@
     }
   },
   {
+    "id": 13,
     "name": "Sleep",
     "categories": [
       "Resistance"
@@ -368,6 +381,7 @@
     }
   },
   {
+    "id": 14,
     "name": "Antiseptic",
     "categories": [
       "Resistance"
@@ -380,6 +394,7 @@
     }
   },
   {
+    "id": 15,
     "name": "Fatigue",
     "categories": [
       "Resistance"
@@ -392,6 +407,7 @@
     }
   },
   {
+    "id": 16,
     "name": "Snow Res",
     "categories": [
       "Resistance"
@@ -404,6 +420,7 @@
     }
   },
   {
+    "id": 17,
     "name": "Quake Res",
     "categories": [
       "Resistance"
@@ -416,6 +433,7 @@
     }
   },
   {
+    "id": 18,
     "name": "HearProtct",
     "categories": [
       "Defensive"
@@ -432,6 +450,7 @@
     }
   },
   {
+    "id": 19,
     "name": "WindPress",
     "categories": [
       "Defensive"
@@ -452,6 +471,7 @@
     }
   },
   {
+    "id": 20,
     "name": "Anti-Theft",
     "categories": [
       "Resistance"
@@ -464,6 +484,7 @@
     }
   },
   {
+    "id": 21,
     "name": "ResistSts",
     "categories": [
       "Resistance"
@@ -482,6 +503,7 @@
     }
   },
   {
+    "id": 22,
     "name": "AntiFireDrg",
     "categories": [
       "Resistance"
@@ -498,6 +520,7 @@
     }
   },
   {
+    "id": 23,
     "name": "AntiDaora",
     "categories": [
       "Resistance"
@@ -514,6 +537,7 @@
     }
   },
   {
+    "id": 24,
     "name": "AntiChamel",
     "categories": [
       "Resistance"
@@ -531,6 +555,7 @@
     }
   },
   {
+    "id": 25,
     "name": "Artisan",
     "categories": [
       "Offensive",
@@ -544,6 +569,7 @@
     }
   },
   {
+    "id": 26,
     "name": "Sharpness",
     "categories": [
       "Blademaster"
@@ -560,6 +586,7 @@
     }
   },
   {
+    "id": 27,
     "name": "Fencing",
     "categories": [
       "Blademaster"
@@ -572,6 +599,7 @@
     }
   },
   {
+    "id": 28,
     "name": "SwdShrpner",
     "categories": [
       "Blademaster"
@@ -588,6 +616,7 @@
     }
   },
   {
+    "id": 29,
     "name": "Guard",
     "categories": [
       "Defensive"
@@ -608,6 +637,7 @@
     }
   },
   {
+    "id": 30,
     "name": "Auto-Guard",
     "categories": [
       "Defensive"
@@ -620,6 +650,7 @@
     }
   },
   {
+    "id": 31,
     "name": "Sword Draw",
     "categories": [
       "Blademaster",
@@ -633,6 +664,7 @@
     }
   },
   {
+    "id": 32,
     "name": "EdgeMaster",
     "categories": [
       "Blademaster",
@@ -650,6 +682,7 @@
     }
   },
   {
+    "id": 33,
     "name": "NormalS Up",
     "categories": [
       "Bowgun",
@@ -664,6 +697,7 @@
     }
   },
   {
+    "id": 34,
     "name": "PierceS Up",
     "categories": [
       "Bowgun",
@@ -678,6 +712,7 @@
     }
   },
   {
+    "id": 35,
     "name": "PelletS Up",
     "categories": [
       "Bowgun",
@@ -692,6 +727,7 @@
     }
   },
   {
+    "id": 36,
     "name": "NormalSAdd",
     "categories": [
       "Bowgun"
@@ -708,6 +744,7 @@
     }
   },
   {
+    "id": 37,
     "name": "PierceSAdd",
     "categories": [
       "Bowgun"
@@ -724,6 +761,7 @@
     }
   },
   {
+    "id": 38,
     "name": "PelletSAdd",
     "categories": [
       "Bowgun"
@@ -740,6 +778,7 @@
     }
   },
   {
+    "id": 39,
     "name": "CragS Add",
     "categories": [
       "Bowgun"
@@ -756,6 +795,7 @@
     }
   },
   {
+    "id": 40,
     "name": "ClustS Add",
     "categories": [
       "Bowgun"
@@ -772,6 +812,7 @@
     }
   },
   {
+    "id": 41,
     "name": "Reload",
     "categories": [
       "Bowgun",
@@ -801,6 +842,7 @@
     }
   },
   {
+    "id": 42,
     "name": "AutoReload",
     "categories": [
       "Bowgun",
@@ -814,6 +856,7 @@
     }
   },
   {
+    "id": 43,
     "name": "Recoil",
     "categories": [
       "Bowgun"
@@ -838,6 +881,7 @@
     }
   },
   {
+    "id": 44,
     "name": "Precision",
     "categories": [
       "Bowgun"
@@ -854,6 +898,7 @@
     }
   },
   {
+    "id": 45,
     "name": "PoisonCAdd",
     "categories": [
       "Bow"
@@ -866,6 +911,7 @@
     }
   },
   {
+    "id": 46,
     "name": "ParalyCAdd",
     "categories": [
       "Bow"
@@ -878,6 +924,7 @@
     }
   },
   {
+    "id": 47,
     "name": "SleepCAdd",
     "categories": [
       "Bow"
@@ -890,6 +937,7 @@
     }
   },
   {
+    "id": 48,
     "name": "PowerCAdd",
     "categories": [
       "Bow"
@@ -902,6 +950,7 @@
     }
   },
   {
+    "id": 49,
     "name": "ClsRngCAdd",
     "categories": [
       "Bow"
@@ -914,6 +963,7 @@
     }
   },
   {
+    "id": 50,
     "name": "SteadyHand",
     "categories": [
       "Bowgun",
@@ -933,6 +983,7 @@
     }
   },
   {
+    "id": 51,
     "name": "Expert",
     "categories": [
       "Offensive"
@@ -957,6 +1008,7 @@
     }
   },
   {
+    "id": 52,
     "name": "Spc Attack",
     "categories": [
       "Offensive"
@@ -969,6 +1021,7 @@
     }
   },
   {
+    "id": 53,
     "name": "ElementAtk",
     "categories": [
       "Offensive"
@@ -981,6 +1034,7 @@
     }
   },
   {
+    "id": 54,
     "name": "Rec Speed",
     "categories": [
       "Defensive"
@@ -1001,6 +1055,7 @@
     }
   },
   {
+    "id": 55,
     "name": "Protection",
     "categories": [
       "Defensive"
@@ -1017,6 +1072,7 @@
     }
   },
   {
+    "id": 56,
     "name": "Guard Up",
     "categories": [
       "Defensive"
@@ -1029,6 +1085,7 @@
     }
   },
   {
+    "id": 57,
     "name": "Evade",
     "categories": [
       "Defensive"
@@ -1045,6 +1102,7 @@
     }
   },
   {
+    "id": 58,
     "name": "Evade Dist",
     "categories": [
       "Defensive"
@@ -1057,6 +1115,7 @@
     }
   },
   {
+    "id": 59,
     "name": "Potential",
     "categories": [
       "Offensive"
@@ -1077,6 +1136,7 @@
     }
   },
   {
+    "id": 60,
     "name": "Gunnery",
     "categories": [
       "Offensive"
@@ -1093,6 +1153,7 @@
     }
   },
   {
+    "id": 61,
     "name": "Capacity",
     "categories": [
       "Offensive",
@@ -1108,6 +1169,7 @@
     }
   },
   {
+    "id": 62,
     "name": "ShortCharg",
     "categories": [
       "Bow",
@@ -1125,6 +1187,7 @@
     }
   },
   {
+    "id": 63,
     "name": "Guts",
     "categories": [
       "Defensive"
@@ -1137,6 +1200,7 @@
     }
   },
   {
+    "id": 64,
     "name": "Fury",
     "categories": [
       "Offensive",
@@ -1154,6 +1218,7 @@
     }
   },
   {
+    "id": 65,
     "name": "Map",
     "categories": [],
     "effects": {
@@ -1168,6 +1233,7 @@
     }
   },
   {
+    "id": 66,
     "name": "PsychicVis",
     "categories": [],
     "effects": {
@@ -1182,6 +1248,7 @@
     }
   },
   {
+    "id": 67,
     "name": "Gathering",
     "categories": [
       "Treasure Hunting"
@@ -1206,6 +1273,7 @@
     }
   },
   {
+    "id": 68,
     "name": "Carving",
     "categories": [
       "Farming",
@@ -1223,6 +1291,7 @@
     }
   },
   {
+    "id": 69,
     "name": "HiSpdGathr",
     "categories": [
       "Treasure Hunting"
@@ -1235,6 +1304,7 @@
     }
   },
   {
+    "id": 70,
     "name": "Backpackng",
     "categories": [
       "Treasure Hunting"
@@ -1247,6 +1317,7 @@
     }
   },
   {
+    "id": 71,
     "name": "Whim",
     "categories": [
       "Treasure Hunting"
@@ -1271,6 +1342,7 @@
     }
   },
   {
+    "id": 72,
     "name": "Fishing",
     "categories": [
       "Treasure Hunting"
@@ -1283,6 +1355,7 @@
     }
   },
   {
+    "id": 73,
     "name": "Heat Res",
     "categories": [
       "Resistance"
@@ -1303,6 +1376,7 @@
     }
   },
   {
+    "id": 74,
     "name": "Cold Res",
     "categories": [
       "Resistance"
@@ -1323,6 +1397,7 @@
     }
   },
   {
+    "id": 75,
     "name": "Terrain",
     "categories": [
       "Resistance"
@@ -1347,6 +1422,7 @@
     }
   },
   {
+    "id": 76,
     "name": "Stamina",
     "categories": [
       "Defensive"
@@ -1363,6 +1439,7 @@
     }
   },
   {
+    "id": 77,
     "name": "Constitutn",
     "categories": [
       "Defensive"
@@ -1379,6 +1456,7 @@
     }
   },
   {
+    "id": 78,
     "name": "Hunger",
     "categories": [],
     "effects": {
@@ -1401,6 +1479,7 @@
     }
   },
   {
+    "id": 79,
     "name": "Sneak",
     "categories": [],
     "effects": {
@@ -1415,6 +1494,7 @@
     }
   },
   {
+    "id": 80,
     "name": "Fate",
     "categories": [
       "Farming"
@@ -1439,6 +1519,7 @@
     }
   },
   {
+    "id": 81,
     "name": "SpeedSetup",
     "categories": [],
     "effects": {
@@ -1449,6 +1530,7 @@
     }
   },
   {
+    "id": 82,
     "name": "Tranquilzr",
     "categories": [
       "Farming"
@@ -1465,6 +1547,7 @@
     }
   },
   {
+    "id": 83,
     "name": "Perceive",
     "categories": [
       "Farming"
@@ -1477,6 +1560,7 @@
     }
   },
   {
+    "id": 84,
     "name": "Recovery",
     "categories": [
       "Defensive"
@@ -1493,6 +1577,7 @@
     }
   },
   {
+    "id": 85,
     "name": "Everlastng",
     "categories": [],
     "effects": {
@@ -1507,6 +1592,7 @@
     }
   },
   {
+    "id": 86,
     "name": "Wide Area",
     "categories": [],
     "effects": {
@@ -1521,6 +1607,7 @@
     }
   },
   {
+    "id": 87,
     "name": "Throw",
     "categories": [],
     "effects": {
@@ -1531,6 +1618,7 @@
     }
   },
   {
+    "id": 88,
     "name": "BombStrUp",
     "categories": [
       "Offensive"
@@ -1543,6 +1631,7 @@
     }
   },
   {
+    "id": 89,
     "name": "Gluttony",
     "categories": [],
     "effects": {
@@ -1557,6 +1646,7 @@
     }
   },
   {
+    "id": 90,
     "name": "Cooking",
     "categories": [],
     "effects": {
@@ -1571,6 +1661,7 @@
     }
   },
   {
+    "id": 91,
     "name": "BBQ",
     "categories": [],
     "effects": {
@@ -1585,6 +1676,7 @@
     }
   },
   {
+    "id": 92,
     "name": "Horn",
     "categories": [
       "Blademaster"
@@ -1597,6 +1689,7 @@
     }
   },
   {
+    "id": 93,
     "name": "MixSucRate",
     "categories": [],
     "effects": {
@@ -1619,6 +1712,7 @@
     }
   },
   {
+    "id": 94,
     "name": "Shot Mix",
     "categories": [
       "Bowgun",
@@ -1632,6 +1726,7 @@
     }
   },
   {
+    "id": 95,
     "name": "Alchemy",
     "categories": [],
     "effects": {
@@ -1642,6 +1737,7 @@
     }
   },
   {
+    "id": 96,
     "name": "ComrdGuide",
     "categories": [],
     "effects": {
@@ -1656,6 +1752,7 @@
     }
   },
   {
+    "id": 97,
     "name": "ComradeAtk",
     "categories": [],
     "effects": {
@@ -1666,6 +1763,7 @@
     }
   },
   {
+    "id": 98,
     "name": "ComradeDef",
     "categories": [],
     "effects": {
@@ -1676,6 +1774,7 @@
     }
   },
   {
+    "id": 99,
     "name": "Torso Inc",
     "categories": [],
     "effects": {}

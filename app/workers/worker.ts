@@ -10,6 +10,8 @@ type TypedWorkerMessage<T extends WorkerMessageType> = Extract<
 
 let game: Omit<GameData, 'armour'> | null = null;
 let aborter: AbortController | null = null;
+let paused = false;
+let resume: (() => void) | null = null;
 
 function post(message: WorkerResponse) {
   postMessage(message);
@@ -21,6 +23,23 @@ function getErrorMessage(error: unknown) {
 
 function data(message: TypedWorkerMessage<'data'>) {
   game = message.payload;
+}
+
+function wake() {
+  resume?.();
+  resume = null;
+}
+
+function yieldToMessages() {
+  return new Promise((resolve) => setTimeout(resolve, 0));
+}
+
+async function waitWhilePaused(signal: AbortSignal) {
+  while (paused && !signal.aborted) {
+    await new Promise<void>((resolve) => {
+      resume = resolve;
+    });
+  }
 }
 
 async function query(message: TypedWorkerMessage<'query'>) {
@@ -57,18 +76,37 @@ async function query(message: TypedWorkerMessage<'query'>) {
 
       for (const result of batch.results)
         postMessage({type: 'result', payload: result});
+
+      await yieldToMessages();
+      await waitWhilePaused(aborter.signal);
     }
   } finally {
+    paused = false;
+    wake();
     aborter = null;
   }
 }
 
 function stop(_message: TypedWorkerMessage<'stop'>) {
   aborter?.abort();
+  paused = false;
+  wake();
+}
+
+function pause(_message: TypedWorkerMessage<'pause'>) {
+  if (aborter)
+    paused = true;
+}
+
+function resumeSearch(_message: TypedWorkerMessage<'resume'>) {
+  paused = false;
+  wake();
 }
 
 function terminate(_message: TypedWorkerMessage<'terminate'>) {
   aborter?.abort();
+  paused = false;
+  wake();
   close();
 }
 
@@ -78,10 +116,15 @@ function dispatchMessage(message: WorkerMessage) {
       data(message);
       return;
     case 'query':
-      query(message);
-      return;
+      return query(message);
     case 'stop':
       stop(message);
+      return;
+    case 'pause':
+      pause(message);
+      return;
+    case 'resume':
+      resumeSearch(message);
       return;
     case 'terminate':
       terminate(message);
@@ -89,9 +132,9 @@ function dispatchMessage(message: WorkerMessage) {
   }
 }
 
-onmessage = (message: MessageEvent<WorkerMessage>) => {
+onmessage = async (message: MessageEvent<WorkerMessage>) => {
   try {
-    dispatchMessage(message.data);
+    await dispatchMessage(message.data);
   } catch (error) {
     post({
       type: 'error',

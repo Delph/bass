@@ -4,24 +4,88 @@ import { useGame } from '~/composables/useGame';
 import { useQuery } from '~/composables/useQuery';
 import type { WorkerMessage, WorkerResponse } from '~/workers/types';
 import type { BuildResult } from '~/solver/solver';
-import { formatNumber } from '~/format';
-import { range, omit } from "~/utility";
-import { prepare, type PreparedGear } from "~/solver/prepare";
-import SetCard from "~/components/SetCard.vue";
+import { formatNumber, formatPercent } from '~/format';
+import { range, omit } from '~/utility';
+import { prepare, type PreparedGear } from '~/solver/prepare';
+import ResultCard from '~/components/ResultCard.vue';
+import Progress from '~/components/Progress.vue';
+import SkillPill from '~/components/SkillPill.vue';
+import Select from '~/components/Select.vue';
+import type { DamageType } from '~/game/types';
+import type { Identity } from '~/types';
+import { useTranslation } from '#imports';
 
+const { translate } = useTranslation();
 const { query } = useQuery();
-const { data } = useGame();
+const { game, data } = useGame();
 
 const workers = ref<Worker[]>([]);
 const attempts = ref<number[]>([]);
 const combinationCounts = ref<number[]>([]);
 const results = ref<BuildResult[]>([]);
+const stopped = ref(false);
+const paused = ref(false);
 
-const attempted = computed(() => attempts.value.reduce((total, count) => total + count, 0));
-const combinations = computed(() => combinationCounts.value.reduce((total, count) => total + count, 0));
+type SortCriteria = Identity<'defence' | DamageType>;
+const sort = ref<SortCriteria | null>(null);
+
+const attempted = computed(() =>
+  attempts.value.reduce((total, count) => total + count, 0),
+);
+const combinations = computed(() =>
+  combinationCounts.value.reduce((total, count) => total + count, 0),
+);
+const progress = computed(() =>
+  combinations.value === 0 ? 0 : attempted.value / combinations.value,
+);
+const sortedResults = computed(() => {
+  if (sort.value === null) return results.value;
+
+  return results.value
+    .map((result, index) => ({ result, index }))
+    .toSorted((a, b) => {
+      const difference =
+        sortValue(b.result, sort.value!) - sortValue(a.result, sort.value!);
+
+      if (difference !== 0) return difference;
+
+      return a.index - b.index;
+    })
+    .map(({ result }) => result);
+});
 
 function clone<T>(payload: T): T {
   return JSON.parse(JSON.stringify(payload)) as T;
+}
+
+function pieces(result: BuildResult) {
+  return Object.values(result.armour);
+}
+
+function defence(result: BuildResult) {
+  return pieces(result).reduce((total, piece) => total + piece.defence, 0);
+}
+
+function resistance(result: BuildResult, element: DamageType) {
+  return pieces(result).reduce(
+    (total, piece) => total + piece.resistances[element],
+    0,
+  );
+}
+
+function effectiveDefence(result: BuildResult, element: DamageType) {
+  const rawDefence = defence(result);
+  const rawResistance = resistance(result, element);
+
+  return Math.floor(
+    (1 / ((160 * (1 - rawResistance / 100)) / (rawDefence + 160))) * rawDefence,
+  );
+}
+
+function sortValue(result: BuildResult, criterion: SortCriteria) {
+  if (criterion === 'defence') return defence(result);
+
+  return effectiveDefence(result, criterion);
 }
 
 function onMessage(worker: number, message: MessageEvent<WorkerResponse>) {
@@ -46,7 +110,11 @@ function threads(gear: PreparedGear): number {
   return Math.max(1, Math.min(navigator.hardwareConcurrency, gear.head.length));
 }
 
-function partition(gear: PreparedGear, worker: number, workers: number): PreparedGear {
+function partition(
+  gear: PreparedGear,
+  worker: number,
+  workers: number,
+): PreparedGear {
   return {
     ...gear,
     head: gear.head.filter((_, index) => index % workers === worker),
@@ -54,8 +122,23 @@ function partition(gear: PreparedGear, worker: number, workers: number): Prepare
 }
 
 function stop() {
+  stopped.value = true;
+  paused.value = false;
+
   for (const worker of Object.values(workers.value))
     worker.postMessage({ type: 'stop' } satisfies WorkerMessage);
+}
+
+function togglePause() {
+  if (stopped.value) return;
+
+  paused.value = !paused.value;
+
+  for (const worker of Object.values(workers.value)) {
+    worker.postMessage({
+      type: paused.value ? 'pause' : 'resume',
+    } satisfies WorkerMessage);
+  }
 }
 
 onMounted(() => {
@@ -64,6 +147,8 @@ onMounted(() => {
   attempts.value = [];
   combinationCounts.value = [];
   results.value = [];
+  stopped.value = false;
+  paused.value = false;
 
   const prepared = prepare(query.value, data.value);
   const workerCount = threads(prepared);
@@ -80,50 +165,88 @@ onMounted(() => {
     } satisfies WorkerMessage);
     workers.value[i].postMessage({
       type: 'query',
-      payload: { gear: clone(partition(prepared, i, workerCount)), query: clone(query.value) },
+      payload: {
+        gear: clone(partition(prepared, i, workerCount)),
+        query: clone(query.value),
+      },
     } satisfies WorkerMessage);
   }
 });
 
 onBeforeUnmount(() => {
+  stop();
+
   for (const worker of Object.values(workers.value)) {
-    worker.postMessage({ type: 'stop' } satisfies WorkerMessage);
     worker.postMessage({ type: 'terminate' } satisfies WorkerMessage);
     worker.terminate();
   }
   workers.value = [];
   attempts.value = [];
   combinationCounts.value = [];
+  stopped.value = true;
+  paused.value = false;
 });
 </script>
 <template>
-  <div>
-    {{ formatNumber(results.length) }} results, {{ formatNumber(attempted) }} of
-    {{ formatNumber(combinations) }} combinations
+  <div class="flex flex-col gap-2">
+    <!--div class="flex flex-wrap gap-2">
+      <SkillPill
+        v-for="(points, skill) in query.skills"
+        :skill="{ skill, points }"
+      />
+      </div-->
+    <div
+      class="rounded-xl border border-stone-200 bg-white p-2 dark:border-stone-700 dark:bg-stone-900"
+    >
+      <div class="mb-2 flex items-center justify-between gap-3">
+        <p class="min-w-0 text-sm text-stone-600 dark:text-stone-400">
+          {{
+            translate('results-progress', {
+              attempted: formatNumber(attempted),
+              combinations: formatNumber(combinations),
+            })
+          }}
+        </p>
+        <div class="flex shrink-0 items-center gap-2">
+          <span class="font-mono text-sm text-stone-600 dark:text-stone-400">
+            {{ formatPercent(progress) }}
+          </span>
+          <button
+            type="button"
+            class="flex size-8 items-center justify-center rounded-lg border border-stone-300 text-stone-700 disabled:opacity-40 dark:border-stone-700 dark:text-stone-200"
+            :disabled="stopped"
+            @click="togglePause"
+          >
+            <Icon :name="paused ? 'lucide:play' : 'lucide:pause'" />
+          </button>
+        </div>
+      </div>
+      <Progress :value="attempted" :max="combinations || 1" />
+    </div>
 
-    <progress v-for="i in range(0, workers.length)" :value="attempts[i] / combinationCounts[i]"/>
+    {{
+      translate('results-count', {
+        count: results.length,
+        formatted: formatNumber(results.length),
+      })
+    }}
 
-    <button @click="() => stop()">stop</button>
-
+    <Select
+      name="sort"
+      :value="sort"
+      :options="[
+        { value: null, label: translate('result-sort-default') },
+        { value: 'defence', label: translate('result-sort-defence') },
+        ...game!.elements.map((e) => ({
+          value: e,
+          label: translate(`result-sort-${e}`),
+        })),
+      ]"
+      @change="(s) => (sort = s as SortCriteria | null)"
+      class="w-full"
+    />
     <div class="flex flex-col gap-2">
-      <SetCard
-        :set="{
-          armour: {
-            head: { piece: data!.armour.head[0]!, decorations: [] },
-            body: { piece: data!.armour.body[0]!, decorations: [] },
-            arms: { piece: data!.armour.arms[0]!, decorations: [] },
-            waist: { piece: data!.armour.waist[0]!, decorations: [] },
-            legs: { piece: data!.armour.legs[0]!, decorations: [] },
-          },
-          torsoInc: 0,
-          skills: {}
-        }"
-      />
-
-      <SetCard
-        v-for="result in results"
-        :set="result"
-      />
+      <ResultCard v-for="result in sortedResults" :set="result" />
     </div>
   </div>
 </template>

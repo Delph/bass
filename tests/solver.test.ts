@@ -14,7 +14,7 @@ import decorations from '../public/data/games/mhfu/decorations.json';
 import skills from '../public/data/games/mhfu/skills.json';
 import translations from '../public/data/games/mhfu/translation.json';
 import { omit } from '~/utility';
-import { query } from '~/composables/useQuery';
+import { query } from '~/query/types';
 
 const data: GameData = {
   armour: { head, body, arms, waist, legs },
@@ -25,18 +25,16 @@ const data: GameData = {
 
 export function hasSkill(build: BuildResult, skill: string, points?: number) {
   points ??= 0;
-  if (points < 0)
-    return (build.skills[skill] ?? 0) <= points;
-  else
-    return (build.skills[skill] ?? 0) >= points;
+  if (points < 0) return (build.skills[skill] ?? 0) <= points;
+  else return (build.skills[skill] ?? 0) >= points;
 }
 
 export function hasNoBadSkill(build: BuildResult) {
-  return Object.values(build.skills).every(p => p > -10);
+  return Object.values(build.skills).every((p) => p > -10);
 }
 
 export function hasDecoration(build: BuildResult, name: string) {
-  return build.armour.head.decorations.find(d => d.name === name) !== undefined;
+  return build.decorations.armour.find((d) => d.name === name) !== undefined;
 }
 
 test('solver/prepare', () => {
@@ -48,22 +46,28 @@ test('solver/prepare', () => {
   expect(pieces.length).toBeGreaterThan(0);
   expect(pieces.every((piece) => piece.hr <= q.hunter.rank)).toBe(true);
   expect(pieces.every((piece) => piece.elder <= q.hunter.village)).toBe(true);
-  expect(pieces.every((piece) => (piece.gender & q.hunter.gender) !== 0)).toBe(true);
-  expect(pieces.every((piece) => (piece.class & q.weapon.class) !== 0)).toBe(true);
+  expect(pieces.every((piece) => (piece.gender & q.hunter.gender) !== 0)).toBe(
+    true,
+  );
+  expect(pieces.every((piece) => (piece.class & q.weapon.class) !== 0)).toBe(
+    true,
+  );
   expect(pieces.every((piece) => !piece.name.includes('dummy'))).toBe(true);
 });
-
 
 test('solver/solver:decorationsForSkill', () => {
   const attack = decorationsForSkill(omit(data, 'armour'), 'Attack');
   expect(attack.length).toBe(3);
-  expect(attack.map(d => d.slots)).toStrictEqual([3, 2, 1]);
+  expect(attack.map((d) => d.slots)).toStrictEqual([3, 2, 1]);
 
   const heat = decorationsForSkill(omit(data, 'armour'), 'Heat Res');
-  expect(heat.map(d => d.skill.points)).toStrictEqual([3, 2, 1]);
-  expect(heat.map(d => d.name)).toStrictEqual(['Cold Wind Jewel', 'Icy Gale Jewel', 'CoolBreeze Jewel']);
+  expect(heat.map((d) => d.skill.points)).toStrictEqual([3, 2, 1]);
+  expect(heat.map((d) => d.name)).toStrictEqual([
+    'Cold Wind Jewel',
+    'Icy Gale Jewel',
+    'CoolBreeze Jewel',
+  ]);
 });
-
 
 // test('solver/solver:solve - basic', () => {
 //   const query: QueryState = {
@@ -107,8 +111,8 @@ test('solver/solver:solve - KAS meta', () => {
       allowBad: false,
     },
     skills: {
-      'Fast Chrge': 10,
-      'Drawn Crit': 10,
+      ShortCharg: 10,
+      'Sword Draw': 10,
       Artisan: 10,
       'Dragon Res': 15,
     },
@@ -116,31 +120,32 @@ test('solver/solver:solve - KAS meta', () => {
 
   const gear = prepare(q, data);
   for (const [slot, collection] of Object.entries(gear)) {
-    gear[slot as ArmourSlot] = collection.filter(p => p.hr === 9);
+    gear[slot as ArmourSlot] = collection.filter((p) => p.hr === 9);
   }
 
-  expect(Object.values(gear).map(c => c.length)).toStrictEqual([8, 5, 5, 5, 6]);
+  expect(Object.values(gear).map((c) => c.length)).toStrictEqual([
+    8, 5, 5, 5, 6,
+  ]);
 
-  const {done, value} = solve(q, gear, omit(data, 'armour')).next();
+  const { done, value } = solve(q, gear, omit(data, 'armour')).next();
 
   assert(!done);
 
-  expect(hasSkill(value, 'Fast Chrge', 10)).toBe(true);
-  expect(hasSkill(value, 'Drawn Crit', 10)).toBe(true);
+  expect(hasSkill(value, 'ShortCharg', 10)).toBe(true);
+  expect(hasSkill(value, 'Sword Draw', 10)).toBe(true);
   expect(hasSkill(value, 'Artisan', 10)).toBe(true);
   expect(hasSkill(value, 'Dragon Res', 15)).toBe(true);
   expect(hasNoBadSkill(value)).toBe(true);
 });
 
-
 test('solver/solver:solve - AR, Evd Dist Up, EAU, 1 slot', () => {
   const q = query({
-    weapon: {class: WEAPON_CLASS.Gunner, slots: 1},
+    weapon: { class: WEAPON_CLASS.Gunner, slots: 1 },
     skills: {
       'Element Atk Up': 10,
       'Evade Dist Up': 10,
-      'AutoReload': 10
-    }
+      AutoReload: 10,
+    },
   });
 
   expect(true).toBe(true);

@@ -19,6 +19,12 @@ export type WorkerMessage =
       type: 'stop';
     }
   | {
+      type: 'pause';
+    }
+  | {
+      type: 'resume';
+    }
+  | {
       type: 'terminate';
     };
 

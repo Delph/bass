@@ -24,7 +24,7 @@ export type DeepPartial<T> = T extends (...args: any[]) => any
 export type Replace<
   TOriginal,
   Key extends keyof TOriginal,
-  TReplace
+  TReplace,
 > = Identity<Omit<TOriginal, Key> & { [P in Key]: TReplace }>;
 
 /**
@@ -37,5 +37,7 @@ export type Replace<
  */
 export type ReplaceMultiple<
   TOriginal,
-  Replacements extends Partial<Record<keyof TOriginal, any>>
+  Replacements extends Partial<Record<keyof TOriginal, any>>,
 > = Identity<Omit<TOriginal, keyof Replacements> & Replacements>;
+
+export type UUID = ReturnType<typeof crypto.randomUUID>;

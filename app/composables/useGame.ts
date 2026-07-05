@@ -20,7 +20,7 @@ const games: Game[] = [
   //     ...range(1, 4).map(r => ({rank: r, label: `${r}★`, group: 'low-rank'})),
   //     ...range(4, 6).map(r => ({rank: r, label: `${r}★`, group: 'high-rank'}))
   //   ],
-  //   elements: ['fire', 'water', 'thunder', 'ice', 'dragon'],
+    // elements: ['fire', 'water', 'thunder', 'dragon'],
   //   features: {
   //     decorations: true
   //   }
@@ -36,7 +36,7 @@ const games: Game[] = [
       ...range(4, 7).map(r => ({rank: r, label: `${r}★`, group: 'high-rank'})),
       ...range(7, 10).map(r => ({rank: r, label: `G${r - 6}★`, group: 'g-rank'}))
     ],
-    elements: ['fire', 'water', 'thunder', 'dragon'],
+    elements: ['fire', 'water', 'thunder', 'ice', 'dragon'],
     features: {
       decorations: true
     }

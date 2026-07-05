@@ -2,21 +2,19 @@
 
 import tailwindcss from '@tailwindcss/vite';
 
-
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
   components: false,
   imports: {
-    autoImport: false
+    autoImport: false,
+    dirs: [],
   },
   modules: ['@nuxt/icon'],
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
   vite: {
-    plugins: [
-      tailwindcss()
-    ]
+    plugins: [tailwindcss()],
   },
-  ssr: false
+  ssr: false,
 });

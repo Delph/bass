@@ -1,7 +1,11 @@
 <script lang="ts" setup>
-import { computed } from "vue";
+import { computed } from 'vue';
 
-type Value = string | number | boolean;
+defineOptions({
+  inheritAttrs: false,
+});
+
+type Value = string | number | boolean | null;
 type Option = {
   value: Value;
   label: string;
@@ -39,39 +43,50 @@ const grouped = computed(() => {
 
 function change(event: Event) {
   const target = event.target as HTMLSelectElement;
-  const option = props.options.find(opt => String(opt.value) === target.value);
+  const option = props.options.find(
+    (opt) => String(opt.value) === target.value,
+  );
   emit('change', option!.value);
 }
 </script>
 
 <template>
-  <select
-    class="rounded border border-stone-300 bg-white px-2 py-1 text-stone-950 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100"
-    :name="name"
-    :value="String(value)"
-    @change="change"
-    :disabled="disabled"
+  <span
+    v-bind="$attrs"
+    class="relative inline-block"
   >
-    <template v-for="group in grouped" :key="group.label">
-      <optgroup v-if="group.label" :label="group.label">
-        <option
-          v-for="option in group.options"
-          :key="String(option.value)"
-          :value="String(option.value)"
-        >
-          {{ option.label }}
-        </option>
-      </optgroup>
-      <template v-else>
-        <option
-          v-for="option in group.options"
-          :key="String(option.value)"
-          :value="String(option.value)"
-          :disabled="option.disabled"
-        >
-          {{ option.label }}
-        </option>
+    <select
+      class="w-full appearance-none rounded border border-stone-300 bg-white py-1 pl-2 pr-8 text-stone-950 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100"
+      :name="name"
+      :value="String(value)"
+      @change="change"
+      :disabled="disabled"
+    >
+      <template v-for="group in grouped" :key="group.label">
+        <optgroup v-if="group.label" :label="group.label">
+          <option
+            v-for="option in group.options"
+            :key="String(option.value)"
+            :value="String(option.value)"
+          >
+            {{ option.label }}
+          </option>
+        </optgroup>
+        <template v-else>
+          <option
+            v-for="option in group.options"
+            :key="String(option.value)"
+            :value="String(option.value)"
+            :disabled="option.disabled"
+          >
+            {{ option.label }}
+          </option>
+        </template>
       </template>
-    </template>
-  </select>
+    </select>
+    <Icon
+      name="lucide:chevron-down"
+      class="pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2 text-stone-500 dark:text-stone-400"
+    />
+  </span>
 </template>

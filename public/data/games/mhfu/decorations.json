@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Attack Jewel",
     "price": 200,
     "slots": 1,
@@ -25,6 +26,7 @@
     ]
   },
   {
+    "id": 2,
     "name": "Fierce Jewel",
     "price": 375,
     "slots": 2,
@@ -54,6 +56,7 @@
     }
   },
   {
+    "id": 3,
     "name": "Merciless Jewel",
     "price": 200,
     "slots": 3,
@@ -87,6 +90,7 @@
     }
   },
   {
+    "id": 4,
     "name": "Defense Jewel",
     "price": 200,
     "slots": 1,
@@ -108,6 +112,7 @@
     ]
   },
   {
+    "id": 5,
     "name": "Turtle Jewel",
     "price": 375,
     "slots": 2,
@@ -145,6 +150,7 @@
     }
   },
   {
+    "id": 6,
     "name": "Steadfast Jewel",
     "price": 200,
     "slots": 1,
@@ -170,6 +176,7 @@
     }
   },
   {
+    "id": 7,
     "name": "Anti-Faint Jewel",
     "price": 375,
     "slots": 2,
@@ -199,6 +206,7 @@
     }
   },
   {
+    "id": 8,
     "name": "Vigilance Jewel",
     "price": 200,
     "slots": 1,
@@ -224,6 +232,7 @@
     ]
   },
   {
+    "id": 9,
     "name": "Paralysis Jewel",
     "price": 200,
     "slots": 1,
@@ -249,6 +258,7 @@
     }
   },
   {
+    "id": 10,
     "name": "AntiParalyzJewel",
     "price": 375,
     "slots": 2,
@@ -274,6 +284,7 @@
     }
   },
   {
+    "id": 11,
     "name": "Petrification Jewel",
     "price": 200,
     "slots": 1,
@@ -299,6 +310,7 @@
     ]
   },
   {
+    "id": 12,
     "name": "Pep Jewel",
     "price": 200,
     "slots": 1,
@@ -324,6 +336,7 @@
     }
   },
   {
+    "id": 13,
     "name": "Jolt Jewel",
     "price": 200,
     "slots": 1,
@@ -349,6 +362,7 @@
     ]
   },
   {
+    "id": 14,
     "name": "Antidote Jewel",
     "price": 200,
     "slots": 1,
@@ -374,6 +388,7 @@
     }
   },
   {
+    "id": 15,
     "name": "Antivenin Jewel",
     "price": 375,
     "slots": 2,
@@ -403,6 +418,7 @@
     }
   },
   {
+    "id": 16,
     "name": "Anti-Toxin Jewel",
     "price": 200,
     "slots": 1,
@@ -428,6 +444,7 @@
     ]
   },
   {
+    "id": 17,
     "name": "Retroviral Jewel",
     "price": 200,
     "slots": 1,
@@ -457,6 +474,7 @@
     }
   },
   {
+    "id": 18,
     "name": "Antiviral Jewel",
     "price": 375,
     "slots": 1,
@@ -490,6 +508,7 @@
     ]
   },
   {
+    "id": 19,
     "name": "Tireless Jewel",
     "price": 200,
     "slots": 1,
@@ -527,6 +546,7 @@
     ]
   },
   {
+    "id": 20,
     "name": "Anchor Jewel",
     "price": 200,
     "slots": 1,
@@ -556,6 +576,7 @@
     }
   },
   {
+    "id": 21,
     "name": "Tectonic Jewel",
     "price": 375,
     "slots": 2,
@@ -593,6 +614,7 @@
     }
   },
   {
+    "id": 22,
     "name": "Snowblower Jewel",
     "price": 200,
     "slots": 1,
@@ -618,6 +640,7 @@
     }
   },
   {
+    "id": 23,
     "name": "Snowplow Jewel",
     "price": 375,
     "slots": 2,
@@ -643,6 +666,7 @@
     }
   },
   {
+    "id": 24,
     "name": "Defroster Jewel",
     "price": 375,
     "slots": 1,
@@ -668,6 +692,7 @@
     ]
   },
   {
+    "id": 25,
     "name": "Tip Toe Jewel",
     "price": 200,
     "slots": 1,
@@ -697,6 +722,7 @@
     }
   },
   {
+    "id": 26,
     "name": "Ninja Jewel",
     "price": 200,
     "slots": 1,
@@ -718,6 +744,7 @@
     ]
   },
   {
+    "id": 27,
     "name": "Strength Jewel",
     "price": 200,
     "slots": 1,
@@ -739,6 +766,7 @@
     ]
   },
   {
+    "id": 28,
     "name": "Artisan Jewel",
     "price": 200,
     "slots": 1,
@@ -776,6 +804,7 @@
     }
   },
   {
+    "id": 29,
     "name": "Master Jewel",
     "price": 450,
     "slots": 3,
@@ -809,6 +838,7 @@
     }
   },
   {
+    "id": 30,
     "name": "Fencer Jewel",
     "price": 200,
     "slots": 1,
@@ -846,6 +876,7 @@
     }
   },
   {
+    "id": 31,
     "name": "Swordsman Jewel",
     "price": 450,
     "slots": 3,
@@ -879,6 +910,7 @@
     }
   },
   {
+    "id": 32,
     "name": "Razor Jewel",
     "price": 200,
     "slots": 1,
@@ -908,6 +940,7 @@
     }
   },
   {
+    "id": 33,
     "name": "Cutter Jewel",
     "price": 450,
     "slots": 3,
@@ -941,6 +974,7 @@
     }
   },
   {
+    "id": 34,
     "name": "Draw Jewel",
     "price": 450,
     "slots": 1,
@@ -978,6 +1012,7 @@
     }
   },
   {
+    "id": 35,
     "name": "Unsheathe Jewel",
     "price": 450,
     "slots": 2,
@@ -1007,6 +1042,7 @@
     }
   },
   {
+    "id": 36,
     "name": "QuickCharge Jewel",
     "price": 200,
     "slots": 1,
@@ -1048,6 +1084,7 @@
     }
   },
   {
+    "id": 37,
     "name": "SpeedCharge Jewel",
     "price": 200,
     "slots": 3,
@@ -1081,6 +1118,7 @@
     }
   },
   {
+    "id": 38,
     "name": "Expert Jewel",
     "price": 200,
     "slots": 1,
@@ -1110,6 +1148,7 @@
     }
   },
   {
+    "id": 39,
     "name": "Celebrity Jewel",
     "price": 375,
     "slots": 2,
@@ -1147,6 +1186,7 @@
     }
   },
   {
+    "id": 40,
     "name": "Hermit Jewel",
     "price": 450,
     "slots": 3,
@@ -1180,6 +1220,7 @@
     }
   },
   {
+    "id": 41,
     "name": "Grinder Jewel",
     "price": 200,
     "slots": 1,
@@ -1205,6 +1246,7 @@
     ]
   },
   {
+    "id": 42,
     "name": "Stone Wall Jewel",
     "price": 200,
     "slots": 1,
@@ -1234,6 +1276,7 @@
     }
   },
   {
+    "id": 43,
     "name": "Iron Curtain Jewel",
     "price": 375,
     "slots": 2,
@@ -1275,6 +1318,7 @@
     }
   },
   {
+    "id": 44,
     "name": "Hard Wall Jewel",
     "price": 200,
     "slots": 1,
@@ -1300,6 +1344,7 @@
     }
   },
   {
+    "id": 45,
     "name": "StrongWall Jewel",
     "price": 450,
     "slots": 3,
@@ -1333,6 +1378,7 @@
     }
   },
   {
+    "id": 46,
     "name": "Rigid Wall Jewel",
     "price": 375,
     "slots": 2,
@@ -1362,6 +1408,7 @@
     }
   },
   {
+    "id": 47,
     "name": "HvnlyShieldJewel",
     "price": 200,
     "slots": 1,
@@ -1387,6 +1434,7 @@
     ]
   },
   {
+    "id": 48,
     "name": "Hardball Jewel",
     "price": 200,
     "slots": 1,
@@ -1412,6 +1460,7 @@
     ]
   },
   {
+    "id": 49,
     "name": "Early Bird Jewel",
     "price": 200,
     "slots": 1,
@@ -1441,6 +1490,7 @@
     }
   },
   {
+    "id": 50,
     "name": "High Speed Jewel",
     "price": 375,
     "slots": 2,
@@ -1486,6 +1536,7 @@
     }
   },
   {
+    "id": 51,
     "name": "SpeedFire Jewel",
     "price": 200,
     "slots": 1,
@@ -1523,6 +1574,7 @@
     }
   },
   {
+    "id": 52,
     "name": "Barrage Jewel",
     "price": 450,
     "slots": 3,
@@ -1556,6 +1608,7 @@
     }
   },
   {
+    "id": 53,
     "name": "Recoilless Jewel",
     "price": 200,
     "slots": 1,
@@ -1597,6 +1650,7 @@
     }
   },
   {
+    "id": 54,
     "name": "Shockless Jewel",
     "price": 450,
     "slots": 3,
@@ -1630,6 +1684,7 @@
     }
   },
   {
+    "id": 55,
     "name": "StrongShot Jewel",
     "price": 200,
     "slots": 1,
@@ -1659,6 +1714,7 @@
     }
   },
   {
+    "id": 56,
     "name": "MightyShot Jewel",
     "price": 450,
     "slots": 3,
@@ -1692,6 +1748,7 @@
     }
   },
   {
+    "id": 57,
     "name": "Pierce Jewel",
     "price": 200,
     "slots": 1,
@@ -1721,6 +1778,7 @@
     }
   },
   {
+    "id": 58,
     "name": "Impale Jewel",
     "price": 375,
     "slots": 3,
@@ -1754,6 +1812,7 @@
     }
   },
   {
+    "id": 59,
     "name": "Pellet Jewel",
     "price": 200,
     "slots": 1,
@@ -1783,6 +1842,7 @@
     }
   },
   {
+    "id": 60,
     "name": "Scatter Jewel",
     "price": 375,
     "slots": 3,
@@ -1816,6 +1876,7 @@
     }
   },
   {
+    "id": 61,
     "name": "Shot Bonus Jewel",
     "price": 200,
     "slots": 1,
@@ -1841,6 +1902,7 @@
     ]
   },
   {
+    "id": 62,
     "name": "PierceBonusJewel",
     "price": 200,
     "slots": 1,
@@ -1866,6 +1928,7 @@
     ]
   },
   {
+    "id": 63,
     "name": "PelletBonusJewel",
     "price": 200,
     "slots": 1,
@@ -1891,6 +1954,7 @@
     ]
   },
   {
+    "id": 64,
     "name": "Bomb Bonus Jewel",
     "price": 200,
     "slots": 1,
@@ -1916,6 +1980,7 @@
     ]
   },
   {
+    "id": 65,
     "name": "ScatterBonusJewel",
     "price": 200,
     "slots": 1,
@@ -1941,6 +2006,7 @@
     ]
   },
   {
+    "id": 66,
     "name": "PowerCoating Jewel",
     "price": 200,
     "slots": 1,
@@ -1974,6 +2040,7 @@
     }
   },
   {
+    "id": 67,
     "name": "Force Coating Jewel",
     "price": 375,
     "slots": 2,
@@ -2007,6 +2074,7 @@
     }
   },
   {
+    "id": 68,
     "name": "RazorCoating Jewel",
     "price": 200,
     "slots": 1,
@@ -2036,6 +2104,7 @@
     ]
   },
   {
+    "id": 69,
     "name": "PoisnCoating Jewel",
     "price": 200,
     "slots": 1,
@@ -2065,6 +2134,7 @@
     ]
   },
   {
+    "id": 70,
     "name": "ParaCoating Jewel",
     "price": 200,
     "slots": 1,
@@ -2098,6 +2168,7 @@
     }
   },
   {
+    "id": 71,
     "name": "Petrify Coating Jewel",
     "price": 450,
     "slots": 2,
@@ -2131,6 +2202,7 @@
     }
   },
   {
+    "id": 72,
     "name": "SleepCoating Jewel",
     "price": 200,
     "slots": 1,
@@ -2160,6 +2232,7 @@
     ]
   },
   {
+    "id": 73,
     "name": "Ammo Box Jewel",
     "price": 200,
     "slots": 1,
@@ -2201,6 +2274,7 @@
     }
   },
   {
+    "id": 74,
     "name": "Magazine Jewel",
     "price": 450,
     "slots": 3,
@@ -2234,6 +2308,7 @@
     }
   },
   {
+    "id": 75,
     "name": "Sniper Jewel",
     "price": 200,
     "slots": 1,
@@ -2263,6 +2338,7 @@
     }
   },
   {
+    "id": 76,
     "name": "SharpshootrJewel",
     "price": 200,
     "slots": 1,
@@ -2292,6 +2368,7 @@
     ]
   },
   {
+    "id": 77,
     "name": "SpecialAtk Jewel",
     "price": 200,
     "slots": 1,
@@ -2321,6 +2398,7 @@
     }
   },
   {
+    "id": 78,
     "name": "SpecialStrikeJewel",
     "price": 200,
     "slots": 2,
@@ -2350,6 +2428,7 @@
     }
   },
   {
+    "id": 79,
     "name": "Element Jewel",
     "price": 200,
     "slots": 1,
@@ -2383,6 +2462,7 @@
     }
   },
   {
+    "id": 80,
     "name": "Dire Element Jewel",
     "price": 200,
     "slots": 3,
@@ -2416,6 +2496,7 @@
     }
   },
   {
+    "id": 81,
     "name": "Bombardier Jewel",
     "price": 200,
     "slots": 1,
@@ -2441,6 +2522,7 @@
     ]
   },
   {
+    "id": 82,
     "name": "TrapMaster Jewel",
     "price": 450,
     "slots": 1,
@@ -2466,6 +2548,7 @@
     ]
   },
   {
+    "id": 83,
     "name": "PickyEater Jewel",
     "price": 200,
     "slots": 1,
@@ -2495,6 +2578,7 @@
     }
   },
   {
+    "id": 84,
     "name": "Fasting Jewel",
     "price": 375,
     "slots": 2,
@@ -2528,6 +2612,7 @@
     }
   },
   {
+    "id": 85,
     "name": "Anorexic Jewel",
     "price": 450,
     "slots": 1,
@@ -2557,6 +2642,7 @@
     ]
   },
   {
+    "id": 86,
     "name": "Fatso Jewel",
     "price": 200,
     "slots": 1,
@@ -2582,6 +2668,7 @@
     ]
   },
   {
+    "id": 87,
     "name": "QuickEaterJewel",
     "price": 200,
     "slots": 1,
@@ -2611,6 +2698,7 @@
     }
   },
   {
+    "id": 88,
     "name": "Fast Food Jewel",
     "price": 375,
     "slots": 2,
@@ -2644,6 +2732,7 @@
     }
   },
   {
+    "id": 89,
     "name": "Instant Meal Jewel",
     "price": 200,
     "slots": 3,
@@ -2677,6 +2766,7 @@
     }
   },
   {
+    "id": 90,
     "name": "BBQ Jewel",
     "price": 200,
     "slots": 1,
@@ -2702,6 +2792,7 @@
     ]
   },
   {
+    "id": 91,
     "name": "Marathon Jewel",
     "price": 200,
     "slots": 1,
@@ -2735,6 +2826,7 @@
     }
   },
   {
+    "id": 92,
     "name": "Sprinter Jewel",
     "price": 450,
     "slots": 3,
@@ -2780,6 +2872,7 @@
     }
   },
   {
+    "id": 93,
     "name": "Stamina Jewel",
     "price": 200,
     "slots": 1,
@@ -2809,6 +2902,7 @@
     }
   },
   {
+    "id": 94,
     "name": "Body Arts Jewel",
     "price": 450,
     "slots": 2,
@@ -2854,6 +2948,7 @@
     }
   },
   {
+    "id": 95,
     "name": "Protection Jewel",
     "price": 200,
     "slots": 1,
@@ -2879,6 +2974,7 @@
     ]
   },
   {
+    "id": 96,
     "name": "DivinePrtctionJewel",
     "price": 450,
     "slots": 1,
@@ -2904,6 +3000,7 @@
     ]
   },
   {
+    "id": 97,
     "name": "Earplug Jewel",
     "price": 200,
     "slots": 1,
@@ -2941,6 +3038,7 @@
     }
   },
   {
+    "id": 98,
     "name": "Silencer Jewel",
     "price": 450,
     "slots": 3,
@@ -2986,6 +3084,7 @@
     }
   },
   {
+    "id": 99,
     "name": "PaperweightJewel",
     "price": 200,
     "slots": 1,
@@ -3015,6 +3114,7 @@
     }
   },
   {
+    "id": 100,
     "name": "HeavyMetal Jewel",
     "price": 375,
     "slots": 2,
@@ -3044,6 +3144,7 @@
     }
   },
   {
+    "id": 101,
     "name": "Solid Rock Jewel",
     "price": 450,
     "slots": 3,
@@ -3077,6 +3178,7 @@
     }
   },
   {
+    "id": 102,
     "name": "Melt-Proof Jewel",
     "price": 200,
     "slots": 1,
@@ -3106,6 +3208,7 @@
     }
   },
   {
+    "id": 103,
     "name": "Anti-Thaw Jewel",
     "price": 375,
     "slots": 2,
@@ -3155,6 +3258,7 @@
     }
   },
   {
+    "id": 104,
     "name": "Evade Jewel",
     "price": 200,
     "slots": 1,
@@ -3196,6 +3300,7 @@
     }
   },
   {
+    "id": 105,
     "name": "Dodge Jewel",
     "price": 375,
     "slots": 2,
@@ -3225,6 +3330,7 @@
     }
   },
   {
+    "id": 106,
     "name": "Jump Jewel",
     "price": 200,
     "slots": 1,
@@ -3266,6 +3372,7 @@
     }
   },
   {
+    "id": 107,
     "name": "Leap Jewel",
     "price": 375,
     "slots": 3,
@@ -3299,6 +3406,7 @@
     }
   },
   {
+    "id": 108,
     "name": "Danger Jewel",
     "price": 200,
     "slots": 1,
@@ -3328,6 +3436,7 @@
     }
   },
   {
+    "id": 109,
     "name": "Crisis Jewel",
     "price": 450,
     "slots": 3,
@@ -3361,6 +3470,7 @@
     }
   },
   {
+    "id": 110,
     "name": "Pinch Jewel",
     "price": 375,
     "slots": 2,
@@ -3394,6 +3504,7 @@
     }
   },
   {
+    "id": 111,
     "name": "Survivor Jewel",
     "price": 375,
     "slots": 1,
@@ -3423,6 +3534,7 @@
     }
   },
   {
+    "id": 112,
     "name": "Immortal Jewel",
     "price": 450,
     "slots": 2,
@@ -3456,6 +3568,7 @@
     }
   },
   {
+    "id": 113,
     "name": "Alarm Jewel",
     "price": 200,
     "slots": 1,
@@ -3481,6 +3594,7 @@
     ]
   },
   {
+    "id": 114,
     "name": "StayingPwr Jewel",
     "price": 200,
     "slots": 1,
@@ -3510,6 +3624,7 @@
     }
   },
   {
+    "id": 115,
     "name": "Permanence Jewel",
     "price": 375,
     "slots": 2,
@@ -3539,6 +3654,7 @@
     }
   },
   {
+    "id": 116,
     "name": "Eternal Jewel",
     "price": 450,
     "slots": 2,
@@ -3572,6 +3688,7 @@
     }
   },
   {
+    "id": 117,
     "name": "Friendship Jewel",
     "price": 200,
     "slots": 1,
@@ -3601,6 +3718,7 @@
     }
   },
   {
+    "id": 118,
     "name": "Beloved Jewel",
     "price": 375,
     "slots": 2,
@@ -3634,6 +3752,7 @@
     }
   },
   {
+    "id": 119,
     "name": "True Love Jewel",
     "price": 200,
     "slots": 3,
@@ -3667,6 +3786,7 @@
     }
   },
   {
+    "id": 120,
     "name": "Backpacker Jewel",
     "price": 200,
     "slots": 1,
@@ -3692,6 +3812,7 @@
     ]
   },
   {
+    "id": 121,
     "name": "Impervious Jewel",
     "price": 200,
     "slots": 1,
@@ -3717,6 +3838,7 @@
     }
   },
   {
+    "id": 122,
     "name": "Omnipotent Jewel",
     "price": 375,
     "slots": 2,
@@ -3746,6 +3868,7 @@
     }
   },
   {
+    "id": 123,
     "name": "Invulnerable Jewel",
     "price": 200,
     "slots": 3,
@@ -3779,6 +3902,7 @@
     }
   },
   {
+    "id": 124,
     "name": "Inferno Jewel",
     "price": 200,
     "slots": 1,
@@ -3804,6 +3928,7 @@
     }
   },
   {
+    "id": 125,
     "name": "Crimson Jewel",
     "price": 200,
     "slots": 1,
@@ -3825,6 +3950,7 @@
     ]
   },
   {
+    "id": 126,
     "name": "Stream Jewel",
     "price": 200,
     "slots": 1,
@@ -3850,6 +3976,7 @@
     }
   },
   {
+    "id": 127,
     "name": "Torrent Jewel",
     "price": 200,
     "slots": 1,
@@ -3871,6 +3998,7 @@
     ]
   },
   {
+    "id": 128,
     "name": "Freeze Jewel",
     "price": 200,
     "slots": 1,
@@ -3896,6 +4024,7 @@
     }
   },
   {
+    "id": 129,
     "name": "Glacier Jewel",
     "price": 200,
     "slots": 1,
@@ -3917,6 +4046,7 @@
     ]
   },
   {
+    "id": 130,
     "name": "Lightning Jewel",
     "price": 200,
     "slots": 1,
@@ -3942,6 +4072,7 @@
     }
   },
   {
+    "id": 131,
     "name": "Thunder Jewel",
     "price": 200,
     "slots": 1,
@@ -3963,6 +4094,7 @@
     ]
   },
   {
+    "id": 132,
     "name": "Slayer Jewel",
     "price": 200,
     "slots": 1,
@@ -3992,6 +4124,7 @@
     }
   },
   {
+    "id": 133,
     "name": "Extinction Jewel",
     "price": 375,
     "slots": 2,
@@ -4021,6 +4154,7 @@
     }
   },
   {
+    "id": 134,
     "name": "Dracocide Jewel",
     "price": 200,
     "slots": 1,
@@ -4046,6 +4180,7 @@
     ]
   },
   {
+    "id": 135,
     "name": "CoolBreeze Jewel",
     "price": 200,
     "slots": 1,
@@ -4071,6 +4206,7 @@
     }
   },
   {
+    "id": 136,
     "name": "Cold Wind Jewel",
     "price": 375,
     "slots": 2,
@@ -4100,6 +4236,7 @@
     }
   },
   {
+    "id": 137,
     "name": "Icy Gale Jewel",
     "price": 450,
     "slots": 1,
@@ -4125,6 +4262,7 @@
     ]
   },
   {
+    "id": 138,
     "name": "Warm Breeze Jewel",
     "price": 200,
     "slots": 1,
@@ -4150,6 +4288,7 @@
     }
   },
   {
+    "id": 139,
     "name": "Hot Wind Jewel",
     "price": 375,
     "slots": 2,
@@ -4179,6 +4318,7 @@
     }
   },
   {
+    "id": 140,
     "name": "Fiery Gale Jewel",
     "price": 375,
     "slots": 1,
@@ -4204,6 +4344,7 @@
     ]
   },
   {
+    "id": 141,
     "name": "Map Jewel",
     "price": 200,
     "slots": 1,
@@ -4229,6 +4370,7 @@
     ]
   },
   {
+    "id": 142,
     "name": "Gathering Jewel",
     "price": 200,
     "slots": 1,
@@ -4254,6 +4396,7 @@
     ]
   },
   {
+    "id": 143,
     "name": "Grab'n'DashJewel",
     "price": 200,
     "slots": 1,
@@ -4279,6 +4422,7 @@
     ]
   },
   {
+    "id": 144,
     "name": "Good Luck Jewel",
     "price": 200,
     "slots": 1,
@@ -4308,6 +4452,7 @@
     ]
   },
   {
+    "id": 145,
     "name": "Blessing Jewel",
     "price": 200,
     "slots": 1,
@@ -4337,6 +4482,7 @@
     ]
   },
   {
+    "id": 146,
     "name": "HideCutter Jewel",
     "price": 200,
     "slots": 1,
@@ -4378,6 +4524,7 @@
     }
   },
   {
+    "id": 147,
     "name": "ShellCutter Jewel",
     "price": 200,
     "slots": 3,
@@ -4411,6 +4558,7 @@
     }
   },
   {
+    "id": 148,
     "name": "Bind Jewel",
     "price": 200,
     "slots": 1,
@@ -4444,6 +4592,7 @@
     }
   },
   {
+    "id": 149,
     "name": "Cage Jewel",
     "price": 375,
     "slots": 2,
@@ -4477,6 +4626,7 @@
     }
   },
   {
+    "id": 150,
     "name": "Fate Jewel",
     "price": 200,
     "slots": 1,
@@ -4502,6 +4652,7 @@
     }
   },
   {
+    "id": 151,
     "name": "Destiny Jewel",
     "price": 375,
     "slots": 2,
@@ -4527,6 +4678,7 @@
     }
   },
   {
+    "id": 152,
     "name": "Fisher Jewel",
     "price": 200,
     "slots": 1,
@@ -4552,6 +4704,7 @@
     ]
   },
   {
+    "id": 153,
     "name": "Psychic Jewel",
     "price": 200,
     "slots": 1,
@@ -4577,6 +4730,7 @@
     ]
   },
   {
+    "id": 154,
     "name": "Observer Jewel",
     "price": 200,
     "slots": 1,
@@ -4602,6 +4756,7 @@
     ]
   },
   {
+    "id": 155,
     "name": "Feel Good Jewel",
     "price": 200,
     "slots": 1,
@@ -4631,6 +4786,7 @@
     }
   },
   {
+    "id": 156,
     "name": "Quick Fix Jewel",
     "price": 375,
     "slots": 2,
@@ -4676,6 +4832,7 @@
     }
   },
   {
+    "id": 157,
     "name": "Curing Jewel",
     "price": 200,
     "slots": 1,
@@ -4705,6 +4862,7 @@
     }
   },
   {
+    "id": 158,
     "name": "Cure All Jewel",
     "price": 375,
     "slots": 2,
@@ -4734,6 +4892,7 @@
     }
   },
   {
+    "id": 159,
     "name": "Divine Cure Jewel",
     "price": 200,
     "slots": 2,
@@ -4767,6 +4926,7 @@
     }
   },
   {
+    "id": 160,
     "name": "Professor Jewel",
     "price": 200,
     "slots": 1,
@@ -4792,6 +4952,7 @@
     ]
   },
   {
+    "id": 161,
     "name": "Armory Jewel",
     "price": 200,
     "slots": 1,
@@ -4821,6 +4982,7 @@
     ]
   },
   {
+    "id": 162,
     "name": "SecretArts Jewel",
     "price": 200,
     "slots": 1,
@@ -4850,6 +5012,7 @@
     ]
   },
   {
+    "id": 163,
     "name": "Small Arms Jewel",
     "price": 200,
     "slots": 1,
@@ -4879,6 +5042,7 @@
     }
   },
   {
+    "id": 164,
     "name": "Howitzer Jewel",
     "price": 200,
     "slots": 1,
@@ -4904,6 +5068,7 @@
     ]
   },
   {
+    "id": 165,
     "name": "Fife Jewel",
     "price": 200,
     "slots": 1,
@@ -4929,6 +5094,7 @@
     ]
   },
   {
+    "id": 166,
     "name": "FlynMaster Jewel",
     "price": 200,
     "slots": 1,
@@ -4966,6 +5132,7 @@
     ]
   },
   {
+    "id": 167,
     "name": "FlynAttack Jewel",
     "price": 200,
     "slots": 1,
@@ -4995,6 +5162,7 @@
     ]
   },
   {
+    "id": 168,
     "name": "FlynDefence Jewel",
     "price": 200,
     "slots": 1,

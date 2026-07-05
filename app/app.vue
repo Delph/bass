@@ -5,9 +5,11 @@ import { useRoute, useRouter } from "vue-router";
 import { useGame } from "~/composables/useGame";
 import { useTheme } from "~/composables/useTheme";
 import { useTranslation } from "~/composables/useTranslation";
+import { useToasts } from '~/composables/useToasts';
 
 import SideBar from "~/components/SideBar.vue";
 import Progress from "~/components/Progress.vue";
+import Toast from '~/components/Toast.vue';
 
 const {
   ready,
@@ -22,6 +24,7 @@ const {
 } = useGame();
 const route = useRoute();
 const router = useRouter();
+const { toasts } = useToasts();
 
 useTheme();
 
@@ -91,11 +94,13 @@ const scroll = computed(() => route.meta.scroll !== false);
         :open="menu"
         @close="menu = false"
       />
-      <main class="flex min-h-0 flex-1 flex-col overflow-hidden p-4 md:pt-4">
+      <main
+        class="flex min-h-0 flex-1 flex-col p-4 md:pt-4"
+        :class="scroll ? 'overflow-y-auto' : 'overflow-hidden'"
+      >
         <div
           v-if="!game || data"
-          class="flex min-h-0 flex-1 flex-col gap-4"
-          :class="scroll ? 'overflow-y-auto' : 'overflow-hidden'"
+          class="flex flex-col gap-4"
         >
           <NuxtPage />
         </div>
@@ -114,5 +119,25 @@ const scroll = computed(() => route.meta.scroll !== false);
         </div>
       </main>
     </div>
+    <Teleport to="body">
+      <div
+        class="pointer-events-none fixed inset-x-4 bottom-4 z-50 sm:bottom-6"
+        aria-live="polite"
+        aria-relevant="additions"
+      >
+        <TransitionGroup
+          tag="div"
+          class="flex flex-col gap-3"
+          enter-active-class="transition-all duration-150 ease-out"
+          enter-from-class="translate-y-2 opacity-0"
+          enter-to-class="translate-y-0 opacity-100"
+          leave-active-class="transition-all duration-150 ease-in"
+          leave-from-class="translate-y-0 opacity-100"
+          leave-to-class="-translate-y-2 opacity-0"
+        >
+          <Toast v-for="toast in toasts" :key="toast.id" :toast="toast" />
+        </TransitionGroup>
+      </div>
+    </Teleport>
   </div>
 </template>

@@ -1,16 +1,22 @@
 <script lang="ts" setup>
-import { computed } from "vue";
-import Fieldset from "~/components/Fieldset.vue";
-import Field from "~/components/Field.vue";
-import Select from "~/components/Select.vue";
-import Toggle from "~/components/Toggle.vue";
-import { useGame } from "~/composables/useGame";
-import { useQuery } from "~/composables/useQuery";
-import { useTranslation } from "~/composables/useTranslation";
-import { formatSkillPoints, getSkillLabel } from "~/skills";
-import { HUNTER_GENDER, type HunterGender, WEAPON_CLASS, type WeaponClass } from "~/query/types";
-import Label from "~/components/Label.vue";
-import Radioboxes from "~/components/Radioboxes.vue";
+import { computed } from 'vue';
+import Fieldset from '~/components/Fieldset.vue';
+import Field from '~/components/Field.vue';
+import Select from '~/components/Select.vue';
+import Toggle from '~/components/Toggle.vue';
+import { useGame } from '~/composables/useGame';
+import { useQuery } from '~/composables/useQuery';
+import { useTranslation } from '~/composables/useTranslation';
+import { formatSkillPoints } from '~/skills';
+import {
+  HUNTER_GENDER,
+  type HunterGender,
+  WEAPON_CLASS,
+  type WeaponClass,
+} from '~/query/types';
+import Label from '~/components/Label.vue';
+import SkillPill from '~/components/SkillPill.vue';
+import Radioboxes from '~/components/Radioboxes.vue';
 
 const { data, game } = useGame();
 const { translate } = useTranslation();
@@ -24,40 +30,44 @@ const {
 } = useQuery();
 
 const guildRankOptions = computed(() => {
-  return game.value?.guild.map((rank) => ({
-    value: rank.rank,
-    label: rank.label,
-    group: rank.group,
-  })) ?? [];
+  return (
+    game.value?.guild.map((rank) => ({
+      value: rank.rank,
+      label: rank.label,
+      group: rank.group,
+    })) ?? []
+  );
 });
 
 const villageRankOptions = computed(() => {
-  return game.value?.village.map((rank) => ({
-    value: rank.rank,
-    label: rank.label,
-    group: rank.group,
-  })) ?? [];
+  return (
+    game.value?.village.map((rank) => ({
+      value: rank.rank,
+      label: rank.label,
+      group: rank.group,
+    })) ?? []
+  );
 });
 
 const genderOptions = computed(() => [
   {
     value: 1,
-    label: translate("gender-male"),
+    label: translate('gender-male'),
   },
   {
     value: 2,
-    label: translate("gender-female"),
-  }
+    label: translate('gender-female'),
+  },
 ]);
 
 const weaponClassOptions = computed(() => [
   {
     value: 1,
-    label: translate("weapon-class-blademaster"),
+    label: translate('weapon-class-blademaster'),
   },
   {
     value: 2,
-    label: translate("weapon-class-gunner"),
+    label: translate('weapon-class-gunner'),
   },
 ]);
 
@@ -66,19 +76,20 @@ const slotOptions = [0, 1, 2, 3].map((slots) => ({
   label: String(slots),
 }));
 
-const resultsPath = computed(() => game.value ? `/${game.value.slug}/search/results` : '/');
+const resultsPath = computed(() =>
+  game.value ? `/${game.value.slug}/search/results` : '/',
+);
 const selectedSkills = computed(() => {
   return Object.entries(query.value.skills).map(([skill, points]) => ({
     skill,
     points,
   }));
 });
-
 </script>
 
 <template>
   <h2 class="text-2xl font-bold">
-    {{ translate("navigation-tab-search") }}
+    {{ translate('navigation-tab-search') }}
   </h2>
   <Fieldset :legend="translate('search-hunter')">
     <Label>
@@ -87,7 +98,7 @@ const selectedSkills = computed(() => {
         :name="translate('search-hunter-rank-guild')"
         :value="query.hunter.rank"
         :options="guildRankOptions"
-        @change="v => setGuildRank(v as number)"
+        @change="(v) => setGuildRank(v as number)"
       />
     </Label>
     <Label>
@@ -96,7 +107,7 @@ const selectedSkills = computed(() => {
         :name="translate('search-hunter-rank-village')"
         :value="query.hunter.village"
         :options="villageRankOptions"
-        @change="v => setVillageRank(v as number)"
+        @change="(v) => setVillageRank(v as number)"
       />
     </Label>
     <Label>
@@ -105,7 +116,9 @@ const selectedSkills = computed(() => {
         :name="translate('search-hunter-gender')"
         :value="query.hunter.gender"
         :options="genderOptions"
-        @change=" v => setHunterGender(v as typeof HUNTER_GENDER[HunterGender])"
+        @change="
+          (v) => setHunterGender(v as (typeof HUNTER_GENDER)[HunterGender])
+        "
       />
     </Label>
   </Fieldset>
@@ -116,18 +129,16 @@ const selectedSkills = computed(() => {
         :name="translate('search-weapon-class')"
         :value="query.weapon.class"
         :options="weaponClassOptions"
-        @change="v => setWeaponClass(v as typeof WEAPON_CLASS[WeaponClass])"
+        @change="(v) => setWeaponClass(v as (typeof WEAPON_CLASS)[WeaponClass])"
       />
     </Label>
-    <Label
-      v-if="game?.features.decorations"
-    >
+    <Label v-if="game?.features.decorations">
       {{ translate('search-weapon-slots') }}
       <Radioboxes
         :name="translate('search-weapon-slots')"
         :value="query.weapon.slots"
         :options="slotOptions"
-        @change="v => setWeaponSlots(v as number)"
+        @change="(v) => setWeaponSlots(v as number)"
       />
     </Label>
   </Fieldset>
@@ -142,18 +153,13 @@ const selectedSkills = computed(() => {
       >
         {{ translate('search-skills-empty') }}
       </p>
-      <div
-        v-else
-        class="flex flex-wrap gap-2"
-      >
-        <span
+      <div v-else class="flex flex-wrap gap-2">
+        <SkillPill
           v-for="skill in selectedSkills"
           :key="`${skill.skill}:${skill.points}`"
-          class="rounded-full bg-emerald-100 px-3 py-1 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-100"
-        >
-          {{ getSkillLabel(skill, data?.skills) }}
-          <span class="text-xs text-emerald-700 dark:text-emerald-300">{{ formatSkillPoints(skill.points) }}</span>
-        </span>
+          :skill="skill.skill"
+          :points="skill.points"
+        />
       </div>
     </NuxtLink>
   </Fieldset>

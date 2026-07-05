@@ -9,30 +9,8 @@ import {
   type SkillRequirement,
   type HunterGender,
   type QueryState,
+  query,
 } from '~/query/types';
-import type { DeepPartial } from '~/types';
-import { merge } from '~/utility';
-
-const defaultQuery: QueryState = {
-  hunter: {
-    rank: 9,
-    village: 9,
-    gender: HUNTER_GENDER.Male,
-  },
-  weapon: {
-    class: WEAPON_CLASS.Blademaster,
-    slots: 0,
-  },
-  options: {
-    allowBad: false,
-    allowDummy: false,
-  },
-  skills: {},
-};
-
-export function query(overrides: DeepPartial<QueryState> = {}): QueryState {
-  return merge<QueryState>(defaultQuery, overrides);
-}
 
 const bucket = defineBucket<Record<string, QueryState>>({
   key: 'bass:query',
@@ -94,6 +72,7 @@ export function useQuery() {
 
   function removeSkill(skill: string) {
     delete query.value.skills[skill];
+    bucket.save(queries.value);
   }
 
   return {

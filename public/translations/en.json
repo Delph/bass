@@ -40,8 +40,8 @@
   "search-skills-no-results": "No skills match the current filters.",
   "search-skills-continue": "Continue",
   "search-skills-selected": {
-    "one": "Selected {count} skill",
-    "other": "Selected {count} skills"
+    "one": "Selected {count} skill — Click to remove",
+    "other": "Selected {count} skills — Click to remove"
   },
   "search-skills-show-negative": "Show negative skills",
 
@@ -50,6 +50,42 @@
   "navigation-tab-search": "Search",
   "navigation-tab-sets": "Sets",
   "navigation-tab-history": "History",
+  "common-cancel": "Cancel",
+
+  "results-progress": "{attempted} / {combinations}",
+  "results-count": {
+    "one": "{formatted} result",
+    "other": "{formatted} results"
+  },
+  "result-sort-default": "Default sorting",
+  "result-sort-defence": "Defence",
+  "result-sort-fire": "Effective Fire Defence",
+  "result-sort-water": "Effective Water Defence",
+  "result-sort-thunder": "Effective Thunder Defence",
+  "result-sort-ice": "Effective Ice Defence",
+  "result-sort-dragon": "Effective Dragon Defence",
+
+  "sets-no-sets": "No saved sets yet.",
+  "set-copy-link": "Copy link",
+  "set-delete": "Delete",
+  "set-delete-message": "This saved set will be removed from your local saved sets.",
+  "set-delete-title": "Delete saved set?",
+  "set-invalid": "This set link is invalid.",
+  "set-link-copied": "Copied link",
+  "set-name": "Set name",
+  "set-notes": "Notes",
+  "set-save": "Save",
+  "set-saved": "Set saved",
+  "set-section-armour": "Armour",
+  "set-section-decorations": "Decorations",
+  "set-section-defence": "Defence",
+  "set-section-notes": "Notes",
+  "set-section-skills": "Skills",
+  "set-stat-effective": "Eff.",
+  "set-stat-raw": "Raw",
+  "set-unnamed": "Unnamed set",
+  "set-created-at": "Created at {timestamp}",
+  "set-updated-at": "Last updated at {timestamp}",
 
   "theme-dark-mode": "Dark mode"
 }
