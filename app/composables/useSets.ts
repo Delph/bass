@@ -1,50 +1,18 @@
-import { useState } from '#app';
 import { computed } from 'vue';
 
 import { useGame } from '~/composables/useGame';
-import { current, defineBucket } from '~/persistence/storage';
+import { bucket, type SavedSet } from '~/persistence/buckets/sets';
+import { current } from '~/persistence/storage';
 import { armourSetIDv1 } from '~/set';
 import type { ArmourSet } from '~/solver/solver';
 import type { UUID } from '~/types';
 
-export type SavedSet = {
-  /// an id to identify this set
-  id: UUID;
-
-  /// a user assigned name
-  name: string;
-
-  /// user notes about the set (not shared)
-  notes: string;
-
-  /// when the set was created (saved)
-  createdAt: number;
-
-  /// when it was updated
-  updatedAt: number | null;
-
-  /// when it was deleted
-  deletedAt: number | null;
-} & ArmourSet;
-
-const bucket = defineBucket<Record<string, SavedSet[]>>({
-  key: 'bass:sets',
-  version: 0,
-  initial: {
-    mhfu: [],
-  },
-  migrate: function (
-    version: number,
-    stored: unknown,
-  ): Record<string, SavedSet[]> {
-    return stored as Record<string, SavedSet[]>;
-  },
-});
+export type { SavedSet } from '~/persistence/buckets/sets';
 
 export function useSets() {
   const { slug } = useGame();
 
-  const allSets = useState<Record<string, SavedSet[]>>('sets', bucket.load);
+  const allSets = bucket.state('sets');
 
   const sets = computed(() =>
     current(slug.value ?? 'mhfu', allSets.value, () => []),

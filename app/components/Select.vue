@@ -86,7 +86,7 @@ function change(event: Event) {
     </select>
     <Icon
       name="lucide:chevron-down"
-      class="pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2 text-stone-500 dark:text-stone-400"
+      class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-stone-500 dark:text-stone-400"
     />
   </span>
 </template>

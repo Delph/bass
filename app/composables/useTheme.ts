@@ -1,4 +1,4 @@
-import type { Theme } from "~/persistence/preferences";
+import type { Theme } from "~/persistence/buckets/preferences";
 import { usePreferences } from "./usePreferences";
 
 export function useTheme() {

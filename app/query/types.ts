@@ -4,7 +4,6 @@ import { merge } from '~/utility';
 export const HUNTER_GENDER = {
   Male: 1,
   Female: 2,
-  All: 3,
 } as const;
 
 export type HunterGender = keyof typeof HUNTER_GENDER;

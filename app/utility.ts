@@ -1,5 +1,10 @@
 import type { DeepPartial } from '~/types';
 
+export function bound(a: number, min: number, max: number) {
+  if (max < min) throw Error(`Max (${max}) is less than min (${min})`);
+  return Math.min(Math.max(a, min), max);
+}
+
 export function* chunk<T>(array: T[], size: number): Generator<T[]> {
   for (let i = 0, l = array.length / size; i < l; ++i)
     yield array.slice(i * size, (i + 1) * size);
@@ -20,7 +25,8 @@ export function merge<T extends object>(base: T, overrides: DeepPartial<T>): T {
     if (value === undefined) continue;
 
     const existing = result[key as keyof T];
-    result[key as keyof T] = isRecord(existing) && isRecord(value) ? merge(existing, value) : value;
+    result[key as keyof T] =
+      isRecord(existing) && isRecord(value) ? merge(existing, value) : value;
   }
 
   return result;

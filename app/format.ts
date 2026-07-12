@@ -1,6 +1,6 @@
 import { useTranslation } from '~/composables/useTranslation';
 
-export type DateTimeFormatOptions = Intl.DateTimeFormatOptions & {
+type DateTimeFormatOptions = Intl.DateTimeFormatOptions & {
   /// custom formatter option, either "locale", to format to whatever the locale says or "iso8601" which is not quite standard
   format?: 'locale' | 'iso8601';
 };
@@ -27,7 +27,7 @@ export function formatDateTime(
     format: 'locale',
     ...options,
   };
-  locale ??= translation.locale;
+  locale ??= translation.locale.value;
 
   const format = new Intl.DateTimeFormat(locale, options);
   switch (options.format) {
@@ -57,7 +57,7 @@ export function formatNumber(
   locale?: string,
 ): string {
   const translation = useTranslation();
-  locale ??= translation.locale;
+  locale ??= translation.locale.value;
 
   const format = new Intl.NumberFormat(locale, { ...options });
   return format.format(value);
@@ -67,10 +67,15 @@ export function formatNumber(
  * Formats a number as a percentage (e.g., 0.05 becomes 5%)
  * Essentially just a convenience function for formatNumber with the options of style: "percent" and setting the minimum and maximumFractionDigits.
  */
-export function formatPercent(value: number, dp: number = 0): string {
+export function formatPercent(
+  value: number,
+  dp: number = 0,
+  options?: Intl.NumberFormatOptions,
+): string {
   return formatNumber(value, {
     style: 'percent',
     minimumFractionDigits: dp,
     maximumFractionDigits: dp,
+    ...options,
   });
 }

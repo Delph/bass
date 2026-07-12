@@ -40,4 +40,16 @@ export type ReplaceMultiple<
   Replacements extends Partial<Record<keyof TOriginal, any>>,
 > = Identity<Omit<TOriginal, keyof Replacements> & Replacements>;
 
+/// A type for UUIDs
 export type UUID = ReturnType<typeof crypto.randomUUID>;
+
+export type AuditFields = {
+  /// when the record was created
+  createdAt: number;
+
+  /// when the record was updated, if it has been
+  updatedAt: number | null;
+
+  /// when the record was deleted (soft-delete)
+  deletedAt: number | null;
+};

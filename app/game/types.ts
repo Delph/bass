@@ -1,3 +1,5 @@
+import type { Translations } from '~/translation';
+
 type QuestRank = {
   rank: number;
   label: string;
@@ -48,7 +50,7 @@ export type ArmourPiece = {
   skills: SkillPoints[];
   resistances: Resistances;
   torso_inc: boolean;
-  name: string;
+  slug: string;
   price?: number;
   defence: number;
   gender: number;
@@ -61,7 +63,7 @@ export type ArmourPiece = {
 
 export type Decoration = {
   id: number;
-  name: string;
+  slug: string;
   price: number;
   slots: number;
   hr: number;
@@ -73,25 +75,19 @@ export type Decoration = {
 
 export type EffectDefinition = Record<
   string,
-  { name: string; description: string }
+  { description: string }
 >;
 
 export type SkillDefinition = {
   id: number;
-  name: string;
+  slug: string;
   categories: string[];
   effects: Partial<EffectDefinition>;
 };
-
-export type GameTranslationEntry = Record<string, string>;
-export type GameTranslations = Record<
-  string,
-  Record<string, GameTranslationEntry>
->;
 
 export type GameData = {
   armour: Record<ArmourSlot, ArmourPiece[]>;
   decorations: Decoration[];
   skills: SkillDefinition[];
-  translations: GameTranslations;
+  translations: Translations;
 };

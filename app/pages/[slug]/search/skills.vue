@@ -5,9 +5,8 @@ import { useGame } from '~/composables/useGame';
 import { useQuery } from '~/composables/useQuery';
 import { useTranslation } from '~/composables/useTranslation';
 import {
-  formatSkillPoints,
-  getEffect,
   getSkillCategoryIcon,
+  getSkillEffectKey,
   getSkillOptions,
 } from '~/skills';
 
@@ -80,28 +79,29 @@ const filteredSkillCards = computed(() => {
   const term = filter.value.search.trim().toLocaleLowerCase();
 
   return data.value.skills
-    .filter((skill) => {
-      const matchesQuery =
-        term.length === 0 ||
-        skill.name.toLocaleLowerCase().includes(term) ||
-        Object.values(skill.effects).some(
-          (effect) =>
-            effect !== undefined &&
-            effect.name.toLocaleLowerCase().includes(term),
-        );
-
-      return (
-        matchesQuery &&
-        skill.categories.some((category) =>
-          filter.value.categories.includes(category),
-        )
-      );
-    })
     .map((skill) => ({
       options: getSkillOptions(skill, showNegativeSkills.value),
       skill,
     }))
-    .filter((card) => card.options.length > 0);
+    .filter((card) => card.options.length > 0)
+    .filter((card) => {
+      const matchesQuery =
+        term.length === 0 ||
+        card.skill.slug.toLocaleLowerCase().includes(term) ||
+        translate(`skill-${card.skill.slug}`).toLocaleLowerCase().includes(term) ||
+        card.options.some((option) =>
+          translate(getSkillEffectKey(card.skill.slug, option.points))
+            .toLocaleLowerCase()
+            .includes(term),
+        );
+
+      return (
+        matchesQuery &&
+        card.skill.categories.some((category) =>
+          filter.value.categories.includes(category),
+        )
+      );
+    });
 });
 </script>
 
@@ -112,7 +112,7 @@ const filteredSkillCards = computed(() => {
         type="text"
         :name="translate('search-skill-filter')"
         :placeholder="translate('search-skill-filter')"
-        :model-value="filter.search"
+        :value="filter.search"
         @change="(value: string) => (filter.search = value)"
       />
 
@@ -149,7 +149,7 @@ const filteredSkillCards = computed(() => {
           @click="toggleCategory(category)"
         >
           <Icon :name="getSkillCategoryIcon(category)" />
-          {{ category }}
+          {{ translate(`category-${category}`) }}
         </button>
       </div>
 
@@ -191,7 +191,7 @@ const filteredSkillCards = computed(() => {
     <section class="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto pr-1">
       <SkillCard
         v-for="card in filteredSkillCards"
-        :key="card.skill.name"
+        :key="card.skill.slug"
         :card="card"
       />
 

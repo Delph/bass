@@ -44,7 +44,7 @@ function colour(type = 'information') {
       class="flex size-6 shrink-0 cursor-pointer select-none items-center justify-center rounded text-white hover:bg-white/10"
       @click.stop="remove(toast.id)"
     >
-      <Icon name="lucide:x" class="size-4" />
+      <Icon name="lucide:x" />
     </button>
   </div>
 </template>

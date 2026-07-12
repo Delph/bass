@@ -52,24 +52,24 @@ test('armourSetIDv1 canonicalizes decoration order', () => {
   expect(parseWireID(armourSetIDv1(first))).toStrictEqual(canonical);
 });
 
-test('setSkills returns skills in skill-name order', () => {
+test('setSkills returns skills in skill-slug order', () => {
   const skills = setSkills(
     {
-      head: piece('Wind Res'),
-      body: piece('Attack'),
-      arms: piece('Gathering'),
-      waist: piece('Defense'),
-      legs: piece('Hearing'),
+      head: piece('wind-res'),
+      body: piece('attack'),
+      arms: piece('gathering'),
+      waist: piece('defense'),
+      legs: piece('hearing'),
     },
     { armour: [], torso: [], weapon: [] },
   );
 
   expect(Object.keys(skills)).toStrictEqual([
-    'Attack',
-    'Defense',
-    'Gathering',
-    'Hearing',
-    'Wind Res',
+    'attack',
+    'defense',
+    'gathering',
+    'hearing',
+    'wind-res',
   ]);
 });
 

@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "name": "Attack Jewel",
+    "slug": "attack-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Attack",
+      "skill": "attack",
       "points": 1
     },
     "materials": [
@@ -27,13 +27,13 @@
   },
   {
     "id": 2,
-    "name": "Fierce Jewel",
+    "slug": "fierce-jewel",
     "price": 375,
     "slots": 2,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Attack",
+      "skill": "attack",
       "points": 3
     },
     "materials": [
@@ -51,19 +51,19 @@
       }
     ],
     "penalty": {
-      "skill": "Defense",
+      "skill": "defense",
       "points": -1
     }
   },
   {
     "id": 3,
-    "name": "Merciless Jewel",
+    "slug": "merciless-jewel",
     "price": 200,
     "slots": 3,
     "hr": 8,
     "elder": 1,
     "skill": {
-      "skill": "Attack",
+      "skill": "attack",
       "points": 5
     },
     "materials": [
@@ -85,19 +85,19 @@
       }
     ],
     "penalty": {
-      "skill": "Defense",
+      "skill": "defense",
       "points": -1
     }
   },
   {
     "id": 4,
-    "name": "Defense Jewel",
+    "slug": "defense-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Defense",
+      "skill": "defense",
       "points": 1
     },
     "materials": [
@@ -113,13 +113,13 @@
   },
   {
     "id": 5,
-    "name": "Turtle Jewel",
+    "slug": "turtle-jewel",
     "price": 375,
     "slots": 2,
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "Defense",
+      "skill": "defense",
       "points": 3
     },
     "materials": [
@@ -145,19 +145,19 @@
       }
     ],
     "penalty": {
-      "skill": "All Res",
+      "skill": "all-res",
       "points": -1
     }
   },
   {
     "id": 6,
-    "name": "Steadfast Jewel",
+    "slug": "steadfast-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Faint",
+      "skill": "faint",
       "points": 1
     },
     "materials": [
@@ -171,19 +171,19 @@
       }
     ],
     "penalty": {
-      "skill": "Paralysis",
+      "skill": "paralysis",
       "points": -1
     }
   },
   {
     "id": 7,
-    "name": "Anti-Faint Jewel",
+    "slug": "anti-faint-jewel",
     "price": 375,
     "slots": 2,
     "hr": 2,
     "elder": 3,
     "skill": {
-      "skill": "Faint",
+      "skill": "faint",
       "points": 3
     },
     "materials": [
@@ -201,19 +201,19 @@
       }
     ],
     "penalty": {
-      "skill": "Paralysis",
+      "skill": "paralysis",
       "points": -1
     }
   },
   {
     "id": 8,
-    "name": "Vigilance Jewel",
+    "slug": "vigilance-jewel",
     "price": 200,
     "slots": 1,
     "hr": 8,
     "elder": 1,
     "skill": {
-      "skill": "Faint",
+      "skill": "faint",
       "points": 2
     },
     "materials": [
@@ -233,13 +233,13 @@
   },
   {
     "id": 9,
-    "name": "Paralysis Jewel",
+    "slug": "paralysis-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Paralysis",
+      "skill": "paralysis",
       "points": 1
     },
     "materials": [
@@ -253,19 +253,19 @@
       }
     ],
     "penalty": {
-      "skill": "Poison",
+      "skill": "poison",
       "points": -1
     }
   },
   {
     "id": 10,
-    "name": "AntiParalyzJewel",
+    "slug": "anti-paralyz-jewel",
     "price": 375,
     "slots": 2,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Paralysis",
+      "skill": "paralysis",
       "points": 3
     },
     "materials": [
@@ -279,19 +279,19 @@
       }
     ],
     "penalty": {
-      "skill": "Poison",
+      "skill": "poison",
       "points": -1
     }
   },
   {
     "id": 11,
-    "name": "Petrification Jewel",
+    "slug": "petrification-jewel",
     "price": 200,
     "slots": 1,
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Paralysis",
+      "skill": "paralysis",
       "points": 2
     },
     "materials": [
@@ -311,13 +311,13 @@
   },
   {
     "id": 12,
-    "name": "Pep Jewel",
+    "slug": "pep-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Sleep",
+      "skill": "sleep",
       "points": 1
     },
     "materials": [
@@ -331,19 +331,19 @@
       }
     ],
     "penalty": {
-      "skill": "Water Res",
+      "skill": "water-res",
       "points": -1
     }
   },
   {
     "id": 13,
-    "name": "Jolt Jewel",
+    "slug": "jolt-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Sleep",
+      "skill": "sleep",
       "points": 2
     },
     "materials": [
@@ -363,13 +363,13 @@
   },
   {
     "id": 14,
-    "name": "Antidote Jewel",
+    "slug": "antidote-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "Poison",
+      "skill": "poison",
       "points": 1
     },
     "materials": [
@@ -383,19 +383,19 @@
       }
     ],
     "penalty": {
-      "skill": "Faint",
+      "skill": "faint",
       "points": -1
     }
   },
   {
     "id": 15,
-    "name": "Antivenin Jewel",
+    "slug": "antivenin-jewel",
     "price": 375,
     "slots": 2,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "Poison",
+      "skill": "poison",
       "points": 3
     },
     "materials": [
@@ -413,19 +413,19 @@
       }
     ],
     "penalty": {
-      "skill": "Faint",
+      "skill": "faint",
       "points": -1
     }
   },
   {
     "id": 16,
-    "name": "Anti-Toxin Jewel",
+    "slug": "anti-toxin-jewel",
     "price": 200,
     "slots": 1,
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Poison",
+      "skill": "poison",
       "points": 2
     },
     "materials": [
@@ -445,13 +445,13 @@
   },
   {
     "id": 17,
-    "name": "Retroviral Jewel",
+    "slug": "retroviral-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Antiseptic",
+      "skill": "antiseptic",
       "points": 1
     },
     "materials": [
@@ -469,19 +469,19 @@
       }
     ],
     "penalty": {
-      "skill": "Sneak",
+      "skill": "sneak",
       "points": -1
     }
   },
   {
     "id": 18,
-    "name": "Antiviral Jewel",
+    "slug": "antiviral-jewel",
     "price": 375,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Antiseptic",
+      "skill": "antiseptic",
       "points": 2
     },
     "materials": [
@@ -509,13 +509,13 @@
   },
   {
     "id": 19,
-    "name": "Tireless Jewel",
+    "slug": "tireless-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "Fatigue",
+      "skill": "fatigue",
       "points": 2
     },
     "materials": [
@@ -547,13 +547,13 @@
   },
   {
     "id": 20,
-    "name": "Anchor Jewel",
+    "slug": "anchor-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "Quake Res",
+      "skill": "quake-res",
       "points": 1
     },
     "materials": [
@@ -571,19 +571,19 @@
       }
     ],
     "penalty": {
-      "skill": "Sleep",
+      "skill": "sleep",
       "points": -1
     }
   },
   {
     "id": 21,
-    "name": "Tectonic Jewel",
+    "slug": "tectonic-jewel",
     "price": 375,
     "slots": 2,
     "hr": 4,
     "elder": 6,
     "skill": {
-      "skill": "Quake Res",
+      "skill": "quake-res",
       "points": 3
     },
     "materials": [
@@ -609,19 +609,19 @@
       }
     ],
     "penalty": {
-      "skill": "Sleep",
+      "skill": "sleep",
       "points": -1
     }
   },
   {
     "id": 22,
-    "name": "Snowblower Jewel",
+    "slug": "snowblower-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Snow Res",
+      "skill": "snow-res",
       "points": 1
     },
     "materials": [
@@ -635,19 +635,19 @@
       }
     ],
     "penalty": {
-      "skill": "Terrain",
+      "skill": "terrain",
       "points": -1
     }
   },
   {
     "id": 23,
-    "name": "Snowplow Jewel",
+    "slug": "snowplow-jewel",
     "price": 375,
     "slots": 2,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "Snow Res",
+      "skill": "snow-res",
       "points": 3
     },
     "materials": [
@@ -661,19 +661,19 @@
       }
     ],
     "penalty": {
-      "skill": "Terrain",
+      "skill": "terrain",
       "points": -1
     }
   },
   {
     "id": 24,
-    "name": "Defroster Jewel",
+    "slug": "defroster-jewel",
     "price": 375,
     "slots": 1,
     "hr": 8,
     "elder": 1,
     "skill": {
-      "skill": "Snow Res",
+      "skill": "snow-res",
       "points": 2
     },
     "materials": [
@@ -693,13 +693,13 @@
   },
   {
     "id": 25,
-    "name": "Tip Toe Jewel",
+    "slug": "tip-toe-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Sneak",
+      "skill": "sneak",
       "points": 1
     },
     "materials": [
@@ -717,19 +717,19 @@
       }
     ],
     "penalty": {
-      "skill": "Map",
+      "skill": "map",
       "points": -1
     }
   },
   {
     "id": 26,
-    "name": "Ninja Jewel",
+    "slug": "ninja-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "Sneak",
+      "skill": "sneak",
       "points": 2
     },
     "materials": [
@@ -745,13 +745,13 @@
   },
   {
     "id": 27,
-    "name": "Strength Jewel",
+    "slug": "strength-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Health",
+      "skill": "health",
       "points": 2
     },
     "materials": [
@@ -767,13 +767,13 @@
   },
   {
     "id": 28,
-    "name": "Artisan Jewel",
+    "slug": "artisan-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 4,
     "skill": {
-      "skill": "Artisan",
+      "skill": "artisan",
       "points": 1
     },
     "materials": [
@@ -799,19 +799,19 @@
       }
     ],
     "penalty": {
-      "skill": "Potential",
+      "skill": "potential",
       "points": -1
     }
   },
   {
     "id": 29,
-    "name": "Master Jewel",
+    "slug": "master-jewel",
     "price": 450,
     "slots": 3,
     "hr": 6,
     "elder": 9,
     "skill": {
-      "skill": "Artisan",
+      "skill": "artisan",
       "points": 4
     },
     "materials": [
@@ -833,19 +833,19 @@
       }
     ],
     "penalty": {
-      "skill": "Potential",
+      "skill": "potential",
       "points": -2
     }
   },
   {
     "id": 30,
-    "name": "Fencer Jewel",
+    "slug": "fencer-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 6,
     "skill": {
-      "skill": "Fencing",
+      "skill": "fencing",
       "points": 1
     },
     "materials": [
@@ -871,19 +871,19 @@
       }
     ],
     "penalty": {
-      "skill": "Recovery",
+      "skill": "recovery",
       "points": -1
     }
   },
   {
     "id": 31,
-    "name": "Swordsman Jewel",
+    "slug": "swordsman-jewel",
     "price": 450,
     "slots": 3,
     "hr": 6,
     "elder": 1,
     "skill": {
-      "skill": "Fencing",
+      "skill": "fencing",
       "points": 4
     },
     "materials": [
@@ -905,19 +905,19 @@
       }
     ],
     "penalty": {
-      "skill": "Recovery",
+      "skill": "recovery",
       "points": -2
     }
   },
   {
     "id": 32,
-    "name": "Razor Jewel",
+    "slug": "razor-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 4,
     "skill": {
-      "skill": "Sharpness",
+      "skill": "sharpness",
       "points": 1
     },
     "materials": [
@@ -935,19 +935,19 @@
       }
     ],
     "penalty": {
-      "skill": "Defense",
+      "skill": "defense",
       "points": -1
     }
   },
   {
     "id": 33,
-    "name": "Cutter Jewel",
+    "slug": "cutter-jewel",
     "price": 450,
     "slots": 3,
     "hr": 8,
     "elder": 9,
     "skill": {
-      "skill": "Sharpness",
+      "skill": "sharpness",
       "points": 4
     },
     "materials": [
@@ -969,19 +969,19 @@
       }
     ],
     "penalty": {
-      "skill": "Defense",
+      "skill": "defense",
       "points": -2
     }
   },
   {
     "id": 34,
-    "name": "Draw Jewel",
+    "slug": "draw-jewel",
     "price": 450,
     "slots": 1,
     "hr": 1,
     "elder": 8,
     "skill": {
-      "skill": "Sword Draw",
+      "skill": "sword-draw",
       "points": 1
     },
     "materials": [
@@ -1007,19 +1007,19 @@
       }
     ],
     "penalty": {
-      "skill": "Expert",
+      "skill": "expert",
       "points": -1
     }
   },
   {
     "id": 35,
-    "name": "Unsheathe Jewel",
+    "slug": "unsheathe-jewel",
     "price": 450,
     "slots": 2,
     "hr": 8,
     "elder": 1,
     "skill": {
-      "skill": "Sword Draw",
+      "skill": "sword-draw",
       "points": 3
     },
     "materials": [
@@ -1037,19 +1037,19 @@
       }
     ],
     "penalty": {
-      "skill": "Expert",
+      "skill": "expert",
       "points": -1
     }
   },
   {
     "id": 36,
-    "name": "QuickCharge Jewel",
+    "slug": "quick-charge-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 4,
     "skill": {
-      "skill": "ShortCharg",
+      "skill": "short-charg",
       "points": 1
     },
     "materials": [
@@ -1079,19 +1079,19 @@
       }
     ],
     "penalty": {
-      "skill": "Constitutn",
+      "skill": "constitutn",
       "points": -1
     }
   },
   {
     "id": 37,
-    "name": "SpeedCharge Jewel",
+    "slug": "speed-charge-jewel",
     "price": 200,
     "slots": 3,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "ShortCharg",
+      "skill": "short-charg",
       "points": 4
     },
     "materials": [
@@ -1113,19 +1113,19 @@
       }
     ],
     "penalty": {
-      "skill": "Constitutn",
+      "skill": "constitutn",
       "points": -2
     }
   },
   {
     "id": 38,
-    "name": "Expert Jewel",
+    "slug": "expert-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Expert",
+      "skill": "expert",
       "points": 1
     },
     "materials": [
@@ -1143,19 +1143,19 @@
       }
     ],
     "penalty": {
-      "skill": "Health",
+      "skill": "health",
       "points": -1
     }
   },
   {
     "id": 39,
-    "name": "Celebrity Jewel",
+    "slug": "celebrity-jewel",
     "price": 375,
     "slots": 2,
     "hr": 3,
     "elder": 6,
     "skill": {
-      "skill": "Expert",
+      "skill": "expert",
       "points": 3
     },
     "materials": [
@@ -1181,19 +1181,19 @@
       }
     ],
     "penalty": {
-      "skill": "Health",
+      "skill": "health",
       "points": -1
     }
   },
   {
     "id": 40,
-    "name": "Hermit Jewel",
+    "slug": "hermit-jewel",
     "price": 450,
     "slots": 3,
     "hr": 6,
     "elder": 9,
     "skill": {
-      "skill": "Expert",
+      "skill": "expert",
       "points": 5
     },
     "materials": [
@@ -1215,19 +1215,19 @@
       }
     ],
     "penalty": {
-      "skill": "Health",
+      "skill": "health",
       "points": -1
     }
   },
   {
     "id": 41,
-    "name": "Grinder Jewel",
+    "slug": "grinder-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "SwdShrpner",
+      "skill": "swd-shrpner",
       "points": 2
     },
     "materials": [
@@ -1247,13 +1247,13 @@
   },
   {
     "id": 42,
-    "name": "Stone Wall Jewel",
+    "slug": "stone-wall-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "Guard",
+      "skill": "guard",
       "points": 1
     },
     "materials": [
@@ -1271,19 +1271,19 @@
       }
     ],
     "penalty": {
-      "skill": "Stamina",
+      "skill": "stamina",
       "points": -1
     }
   },
   {
     "id": 43,
-    "name": "Iron Curtain Jewel",
+    "slug": "iron-curtain-jewel",
     "price": 375,
     "slots": 2,
     "hr": 4,
     "elder": 6,
     "skill": {
-      "skill": "Guard",
+      "skill": "guard",
       "points": 3
     },
     "materials": [
@@ -1313,19 +1313,19 @@
       }
     ],
     "penalty": {
-      "skill": "Stamina",
+      "skill": "stamina",
       "points": -1
     }
   },
   {
     "id": 44,
-    "name": "Hard Wall Jewel",
+    "slug": "hard-wall-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "Guard Up",
+      "skill": "guard-up",
       "points": 1
     },
     "materials": [
@@ -1339,19 +1339,19 @@
       }
     ],
     "penalty": {
-      "skill": "Stamina",
+      "skill": "stamina",
       "points": -1
     }
   },
   {
     "id": 45,
-    "name": "StrongWall Jewel",
+    "slug": "strong-wall-jewel",
     "price": 450,
     "slots": 3,
     "hr": 6,
     "elder": 5,
     "skill": {
-      "skill": "Guard Up",
+      "skill": "guard-up",
       "points": 4
     },
     "materials": [
@@ -1373,19 +1373,19 @@
       }
     ],
     "penalty": {
-      "skill": "Stamina",
+      "skill": "stamina",
       "points": -2
     }
   },
   {
     "id": 46,
-    "name": "Rigid Wall Jewel",
+    "slug": "rigid-wall-jewel",
     "price": 375,
     "slots": 2,
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Guard Up",
+      "skill": "guard-up",
       "points": 3
     },
     "materials": [
@@ -1403,19 +1403,19 @@
       }
     ],
     "penalty": {
-      "skill": "Stamina",
+      "skill": "stamina",
       "points": -1
     }
   },
   {
     "id": 47,
-    "name": "HvnlyShieldJewel",
+    "slug": "hvnly-shield-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Auto-Guard",
+      "skill": "auto-guard",
       "points": 2
     },
     "materials": [
@@ -1435,13 +1435,13 @@
   },
   {
     "id": 48,
-    "name": "Hardball Jewel",
+    "slug": "hardball-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Throw",
+      "skill": "throw",
       "points": 2
     },
     "materials": [
@@ -1461,13 +1461,13 @@
   },
   {
     "id": 49,
-    "name": "Early Bird Jewel",
+    "slug": "early-bird-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": 1
     },
     "materials": [
@@ -1485,19 +1485,19 @@
       }
     ],
     "penalty": {
-      "skill": "Hunger",
+      "skill": "hunger",
       "points": -1
     }
   },
   {
     "id": 50,
-    "name": "High Speed Jewel",
+    "slug": "high-speed-jewel",
     "price": 375,
     "slots": 2,
     "hr": 2,
     "elder": 6,
     "skill": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": 3
     },
     "materials": [
@@ -1531,19 +1531,19 @@
       }
     ],
     "penalty": {
-      "skill": "Hunger",
+      "skill": "hunger",
       "points": -1
     }
   },
   {
     "id": 51,
-    "name": "SpeedFire Jewel",
+    "slug": "speed-fire-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 6,
     "skill": {
-      "skill": "AutoReload",
+      "skill": "auto-reload",
       "points": 1
     },
     "materials": [
@@ -1569,19 +1569,19 @@
       }
     ],
     "penalty": {
-      "skill": "Protection",
+      "skill": "protection",
       "points": -1
     }
   },
   {
     "id": 52,
-    "name": "Barrage Jewel",
+    "slug": "barrage-jewel",
     "price": 450,
     "slots": 3,
     "hr": 6,
     "elder": 9,
     "skill": {
-      "skill": "AutoReload",
+      "skill": "auto-reload",
       "points": 4
     },
     "materials": [
@@ -1603,19 +1603,19 @@
       }
     ],
     "penalty": {
-      "skill": "Protection",
+      "skill": "protection",
       "points": -2
     }
   },
   {
     "id": 53,
-    "name": "Recoilless Jewel",
+    "slug": "recoilless-jewel",
     "price": 200,
     "slots": 1,
     "hr": 4,
     "elder": 6,
     "skill": {
-      "skill": "Recoil",
+      "skill": "recoil",
       "points": 1
     },
     "materials": [
@@ -1645,19 +1645,19 @@
       }
     ],
     "penalty": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": -1
     }
   },
   {
     "id": 54,
-    "name": "Shockless Jewel",
+    "slug": "shockless-jewel",
     "price": 450,
     "slots": 3,
     "hr": 6,
     "elder": 9,
     "skill": {
-      "skill": "Recoil",
+      "skill": "recoil",
       "points": 4
     },
     "materials": [
@@ -1679,19 +1679,19 @@
       }
     ],
     "penalty": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": -2
     }
   },
   {
     "id": 55,
-    "name": "StrongShot Jewel",
+    "slug": "strong-shot-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "NormalS Up",
+      "skill": "normal-s-up",
       "points": 1
     },
     "materials": [
@@ -1709,19 +1709,19 @@
       }
     ],
     "penalty": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": -1
     }
   },
   {
     "id": 56,
-    "name": "MightyShot Jewel",
+    "slug": "mighty-shot-jewel",
     "price": 450,
     "slots": 3,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "NormalS Up",
+      "skill": "normal-s-up",
       "points": 4
     },
     "materials": [
@@ -1743,19 +1743,19 @@
       }
     ],
     "penalty": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": -2
     }
   },
   {
     "id": 57,
-    "name": "Pierce Jewel",
+    "slug": "pierce-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "PierceS Up",
+      "skill": "pierce-s-up",
       "points": 1
     },
     "materials": [
@@ -1773,19 +1773,19 @@
       }
     ],
     "penalty": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": -1
     }
   },
   {
     "id": 58,
-    "name": "Impale Jewel",
+    "slug": "impale-jewel",
     "price": 375,
     "slots": 3,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "PierceS Up",
+      "skill": "pierce-s-up",
       "points": 4
     },
     "materials": [
@@ -1807,19 +1807,19 @@
       }
     ],
     "penalty": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": -2
     }
   },
   {
     "id": 59,
-    "name": "Pellet Jewel",
+    "slug": "pellet-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "PelletS Up",
+      "skill": "pellet-s-up",
       "points": 1
     },
     "materials": [
@@ -1837,19 +1837,19 @@
       }
     ],
     "penalty": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": -1
     }
   },
   {
     "id": 60,
-    "name": "Scatter Jewel",
+    "slug": "scatter-jewel",
     "price": 375,
     "slots": 3,
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "PelletS Up",
+      "skill": "pellet-s-up",
       "points": 4
     },
     "materials": [
@@ -1871,19 +1871,19 @@
       }
     ],
     "penalty": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": -2
     }
   },
   {
     "id": 61,
-    "name": "Shot Bonus Jewel",
+    "slug": "shot-bonus-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 6,
     "skill": {
-      "skill": "NormalSAdd",
+      "skill": "normal-s-add",
       "points": 2
     },
     "materials": [
@@ -1903,13 +1903,13 @@
   },
   {
     "id": 62,
-    "name": "PierceBonusJewel",
+    "slug": "pierce-bonus-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 4,
     "skill": {
-      "skill": "PierceSAdd",
+      "skill": "pierce-s-add",
       "points": 2
     },
     "materials": [
@@ -1929,13 +1929,13 @@
   },
   {
     "id": 63,
-    "name": "PelletBonusJewel",
+    "slug": "pellet-bonus-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "PelletSAdd",
+      "skill": "pellet-s-add",
       "points": 2
     },
     "materials": [
@@ -1955,13 +1955,13 @@
   },
   {
     "id": 64,
-    "name": "Bomb Bonus Jewel",
+    "slug": "bomb-bonus-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "CragS Add",
+      "skill": "crag-s-add",
       "points": 2
     },
     "materials": [
@@ -1981,13 +1981,13 @@
   },
   {
     "id": 65,
-    "name": "ScatterBonusJewel",
+    "slug": "scatter-bonus-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "ClustS Add",
+      "skill": "clust-s-add",
       "points": 2
     },
     "materials": [
@@ -2007,13 +2007,13 @@
   },
   {
     "id": 66,
-    "name": "PowerCoating Jewel",
+    "slug": "power-coating-jewel",
     "price": 200,
     "slots": 1,
     "hr": 4,
     "elder": 7,
     "skill": {
-      "skill": "PowerCAdd",
+      "skill": "power-c-add",
       "points": 1
     },
     "materials": [
@@ -2035,19 +2035,19 @@
       }
     ],
     "penalty": {
-      "skill": "ShortCharg",
+      "skill": "short-charg",
       "points": -1
     }
   },
   {
     "id": 67,
-    "name": "Force Coating Jewel",
+    "slug": "force-coating-jewel",
     "price": 375,
     "slots": 2,
     "hr": 7,
     "elder": 5,
     "skill": {
-      "skill": "PowerCAdd",
+      "skill": "power-c-add",
       "points": 3
     },
     "materials": [
@@ -2069,19 +2069,19 @@
       }
     ],
     "penalty": {
-      "skill": "ShortCharg",
+      "skill": "short-charg",
       "points": -1
     }
   },
   {
     "id": 68,
-    "name": "RazorCoating Jewel",
+    "slug": "razor-coating-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 4,
     "skill": {
-      "skill": "ClsRngCAdd",
+      "skill": "cls-rng-c-add",
       "points": 2
     },
     "materials": [
@@ -2105,13 +2105,13 @@
   },
   {
     "id": 69,
-    "name": "PoisnCoating Jewel",
+    "slug": "poisn-coating-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 3,
     "skill": {
-      "skill": "PoisonCAdd",
+      "skill": "poison-c-add",
       "points": 2
     },
     "materials": [
@@ -2135,13 +2135,13 @@
   },
   {
     "id": 70,
-    "name": "ParaCoating Jewel",
+    "slug": "para-coating-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "ParalyCAdd",
+      "skill": "paraly-c-add",
       "points": 1
     },
     "materials": [
@@ -2163,19 +2163,19 @@
       }
     ],
     "penalty": {
-      "skill": "ShortCharg",
+      "skill": "short-charg",
       "points": -1
     }
   },
   {
     "id": 71,
-    "name": "Petrify Coating Jewel",
+    "slug": "petrify-coating-jewel",
     "price": 450,
     "slots": 2,
     "hr": 4,
     "elder": 7,
     "skill": {
-      "skill": "ParalyCAdd",
+      "skill": "paraly-c-add",
       "points": 3
     },
     "materials": [
@@ -2197,19 +2197,19 @@
       }
     ],
     "penalty": {
-      "skill": "ShortCharg",
+      "skill": "short-charg",
       "points": -1
     }
   },
   {
     "id": 72,
-    "name": "SleepCoating Jewel",
+    "slug": "sleep-coating-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 3,
     "skill": {
-      "skill": "SleepCAdd",
+      "skill": "sleep-c-add",
       "points": 2
     },
     "materials": [
@@ -2233,13 +2233,13 @@
   },
   {
     "id": 73,
-    "name": "Ammo Box Jewel",
+    "slug": "ammo-box-jewel",
     "price": 200,
     "slots": 1,
     "hr": 5,
     "elder": 9,
     "skill": {
-      "skill": "Capacity",
+      "skill": "capacity",
       "points": 1
     },
     "materials": [
@@ -2269,19 +2269,19 @@
       }
     ],
     "penalty": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": -1
     }
   },
   {
     "id": 74,
-    "name": "Magazine Jewel",
+    "slug": "magazine-jewel",
     "price": 450,
     "slots": 3,
     "hr": 6,
     "elder": 1,
     "skill": {
-      "skill": "Capacity",
+      "skill": "capacity",
       "points": 4
     },
     "materials": [
@@ -2303,19 +2303,19 @@
       }
     ],
     "penalty": {
-      "skill": "Reload",
+      "skill": "reload",
       "points": -2
     }
   },
   {
     "id": 75,
-    "name": "Sniper Jewel",
+    "slug": "sniper-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Precision",
+      "skill": "precision",
       "points": 1
     },
     "materials": [
@@ -2333,19 +2333,19 @@
       }
     ],
     "penalty": {
-      "skill": "AutoReload",
+      "skill": "auto-reload",
       "points": -1
     }
   },
   {
     "id": 76,
-    "name": "SharpshootrJewel",
+    "slug": "sharpshootr-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Precision",
+      "skill": "precision",
       "points": 2
     },
     "materials": [
@@ -2369,13 +2369,13 @@
   },
   {
     "id": 77,
-    "name": "SpecialAtk Jewel",
+    "slug": "special-atk-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "Spc Attack",
+      "skill": "spc-attack",
       "points": 1
     },
     "materials": [
@@ -2393,19 +2393,19 @@
       }
     ],
     "penalty": {
-      "skill": "Rec Speed",
+      "skill": "rec-speed",
       "points": -1
     }
   },
   {
     "id": 78,
-    "name": "SpecialStrikeJewel",
+    "slug": "special-strike-jewel",
     "price": 200,
     "slots": 2,
     "hr": 8,
     "elder": 1,
     "skill": {
-      "skill": "Spc Attack",
+      "skill": "spc-attack",
       "points": 3
     },
     "materials": [
@@ -2423,19 +2423,19 @@
       }
     ],
     "penalty": {
-      "skill": "Rec Speed",
+      "skill": "rec-speed",
       "points": -1
     }
   },
   {
     "id": 79,
-    "name": "Element Jewel",
+    "slug": "element-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "ElementAtk",
+      "skill": "element-atk",
       "points": 1
     },
     "materials": [
@@ -2457,19 +2457,19 @@
       }
     ],
     "penalty": {
-      "skill": "Rec Speed",
+      "skill": "rec-speed",
       "points": -1
     }
   },
   {
     "id": 80,
-    "name": "Dire Element Jewel",
+    "slug": "dire-element-jewel",
     "price": 200,
     "slots": 3,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "ElementAtk",
+      "skill": "element-atk",
       "points": 4
     },
     "materials": [
@@ -2491,19 +2491,19 @@
       }
     ],
     "penalty": {
-      "skill": "Rec Speed",
+      "skill": "rec-speed",
       "points": -2
     }
   },
   {
     "id": 81,
-    "name": "Bombardier Jewel",
+    "slug": "bombardier-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "BombStrUp",
+      "skill": "bomb-str-up",
       "points": 2
     },
     "materials": [
@@ -2523,13 +2523,13 @@
   },
   {
     "id": 82,
-    "name": "TrapMaster Jewel",
+    "slug": "trap-master-jewel",
     "price": 450,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "SpeedSetup",
+      "skill": "speed-setup",
       "points": 2
     },
     "materials": [
@@ -2549,13 +2549,13 @@
   },
   {
     "id": 83,
-    "name": "PickyEater Jewel",
+    "slug": "picky-eater-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Hunger",
+      "skill": "hunger",
       "points": 1
     },
     "materials": [
@@ -2573,19 +2573,19 @@
       }
     ],
     "penalty": {
-      "skill": "Cooking",
+      "skill": "cooking",
       "points": -1
     }
   },
   {
     "id": 84,
-    "name": "Fasting Jewel",
+    "slug": "fasting-jewel",
     "price": 375,
     "slots": 2,
     "hr": 2,
     "elder": 3,
     "skill": {
-      "skill": "Hunger",
+      "skill": "hunger",
       "points": 3
     },
     "materials": [
@@ -2607,19 +2607,19 @@
       }
     ],
     "penalty": {
-      "skill": "Cooking",
+      "skill": "cooking",
       "points": -1
     }
   },
   {
     "id": 85,
-    "name": "Anorexic Jewel",
+    "slug": "anorexic-jewel",
     "price": 450,
     "slots": 1,
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Hunger",
+      "skill": "hunger",
       "points": 2
     },
     "materials": [
@@ -2643,13 +2643,13 @@
   },
   {
     "id": 86,
-    "name": "Fatso Jewel",
+    "slug": "fatso-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Gluttony",
+      "skill": "gluttony",
       "points": 2
     },
     "materials": [
@@ -2669,13 +2669,13 @@
   },
   {
     "id": 87,
-    "name": "QuickEaterJewel",
+    "slug": "quick-eater-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "Cooking",
+      "skill": "cooking",
       "points": 1
     },
     "materials": [
@@ -2693,19 +2693,19 @@
       }
     ],
     "penalty": {
-      "skill": "Recovery",
+      "skill": "recovery",
       "points": -1
     }
   },
   {
     "id": 88,
-    "name": "Fast Food Jewel",
+    "slug": "fast-food-jewel",
     "price": 375,
     "slots": 2,
     "hr": 6,
     "elder": 9,
     "skill": {
-      "skill": "Cooking",
+      "skill": "cooking",
       "points": 2
     },
     "materials": [
@@ -2727,19 +2727,19 @@
       }
     ],
     "penalty": {
-      "skill": "Recovery",
+      "skill": "recovery",
       "points": -1
     }
   },
   {
     "id": 89,
-    "name": "Instant Meal Jewel",
+    "slug": "instant-meal-jewel",
     "price": 200,
     "slots": 3,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "Cooking",
+      "skill": "cooking",
       "points": 4
     },
     "materials": [
@@ -2761,19 +2761,19 @@
       }
     ],
     "penalty": {
-      "skill": "Recovery",
+      "skill": "recovery",
       "points": -2
     }
   },
   {
     "id": 90,
-    "name": "BBQ Jewel",
+    "slug": "bbq-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "BBQ",
+      "skill": "bbq",
       "points": 2
     },
     "materials": [
@@ -2793,13 +2793,13 @@
   },
   {
     "id": 91,
-    "name": "Marathon Jewel",
+    "slug": "marathon-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "Stamina",
+      "skill": "stamina",
       "points": 1
     },
     "materials": [
@@ -2821,19 +2821,19 @@
       }
     ],
     "penalty": {
-      "skill": "Hunger",
+      "skill": "hunger",
       "points": -1
     }
   },
   {
     "id": 92,
-    "name": "Sprinter Jewel",
+    "slug": "sprinter-jewel",
     "price": 450,
     "slots": 3,
     "hr": 5,
     "elder": 8,
     "skill": {
-      "skill": "Stamina",
+      "skill": "stamina",
       "points": 4
     },
     "materials": [
@@ -2867,19 +2867,19 @@
       }
     ],
     "penalty": {
-      "skill": "Hunger",
+      "skill": "hunger",
       "points": -2
     }
   },
   {
     "id": 93,
-    "name": "Stamina Jewel",
+    "slug": "stamina-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 4,
     "skill": {
-      "skill": "Constitutn",
+      "skill": "constitutn",
       "points": 1
     },
     "materials": [
@@ -2897,19 +2897,19 @@
       }
     ],
     "penalty": {
-      "skill": "Stamina",
+      "skill": "stamina",
       "points": -1
     }
   },
   {
     "id": 94,
-    "name": "Body Arts Jewel",
+    "slug": "body-arts-jewel",
     "price": 450,
     "slots": 2,
     "hr": 1,
     "elder": 9,
     "skill": {
-      "skill": "Constitutn",
+      "skill": "constitutn",
       "points": 3
     },
     "materials": [
@@ -2943,19 +2943,19 @@
       }
     ],
     "penalty": {
-      "skill": "Stamina",
+      "skill": "stamina",
       "points": -1
     }
   },
   {
     "id": 95,
-    "name": "Protection Jewel",
+    "slug": "protection-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Protection",
+      "skill": "protection",
       "points": 1
     },
     "materials": [
@@ -2975,13 +2975,13 @@
   },
   {
     "id": 96,
-    "name": "DivinePrtctionJewel",
+    "slug": "divine-prtction-jewel",
     "price": 450,
     "slots": 1,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "Protection",
+      "skill": "protection",
       "points": 2
     },
     "materials": [
@@ -3001,13 +3001,13 @@
   },
   {
     "id": 97,
-    "name": "Earplug Jewel",
+    "slug": "earplug-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 4,
     "skill": {
-      "skill": "HearProtct",
+      "skill": "hear-protct",
       "points": 1
     },
     "materials": [
@@ -3033,19 +3033,19 @@
       }
     ],
     "penalty": {
-      "skill": "Protection",
+      "skill": "protection",
       "points": -1
     }
   },
   {
     "id": 98,
-    "name": "Silencer Jewel",
+    "slug": "silencer-jewel",
     "price": 450,
     "slots": 3,
     "hr": 6,
     "elder": 9,
     "skill": {
-      "skill": "HearProtct",
+      "skill": "hear-protct",
       "points": 4
     },
     "materials": [
@@ -3079,19 +3079,19 @@
       }
     ],
     "penalty": {
-      "skill": "Protection",
+      "skill": "protection",
       "points": -2
     }
   },
   {
     "id": 99,
-    "name": "PaperweightJewel",
+    "slug": "paperweight-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "WindPress",
+      "skill": "wind-press",
       "points": 1
     },
     "materials": [
@@ -3109,19 +3109,19 @@
       }
     ],
     "penalty": {
-      "skill": "Fate",
+      "skill": "fate",
       "points": -1
     }
   },
   {
     "id": 100,
-    "name": "HeavyMetal Jewel",
+    "slug": "heavy-metal-jewel",
     "price": 375,
     "slots": 2,
     "hr": 6,
     "elder": 9,
     "skill": {
-      "skill": "WindPress",
+      "skill": "wind-press",
       "points": 3
     },
     "materials": [
@@ -3139,19 +3139,19 @@
       }
     ],
     "penalty": {
-      "skill": "Fate",
+      "skill": "fate",
       "points": -1
     }
   },
   {
     "id": 101,
-    "name": "Solid Rock Jewel",
+    "slug": "solid-rock-jewel",
     "price": 450,
     "slots": 3,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "WindPress",
+      "skill": "wind-press",
       "points": 5
     },
     "materials": [
@@ -3173,19 +3173,19 @@
       }
     ],
     "penalty": {
-      "skill": "Fate",
+      "skill": "fate",
       "points": -1
     }
   },
   {
     "id": 102,
-    "name": "Melt-Proof Jewel",
+    "slug": "melt-proof-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "Terrain",
+      "skill": "terrain",
       "points": 1
     },
     "materials": [
@@ -3203,19 +3203,19 @@
       }
     ],
     "penalty": {
-      "skill": "Faint",
+      "skill": "faint",
       "points": -1
     }
   },
   {
     "id": 103,
-    "name": "Anti-Thaw Jewel",
+    "slug": "anti-thaw-jewel",
     "price": 375,
     "slots": 2,
     "hr": 3,
     "elder": 4,
     "skill": {
-      "skill": "Terrain",
+      "skill": "terrain",
       "points": 3
     },
     "materials": [
@@ -3253,19 +3253,19 @@
       }
     ],
     "penalty": {
-      "skill": "Faint",
+      "skill": "faint",
       "points": -1
     }
   },
   {
     "id": 104,
-    "name": "Evade Jewel",
+    "slug": "evade-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Evade",
+      "skill": "evade",
       "points": 1
     },
     "materials": [
@@ -3295,19 +3295,19 @@
       }
     ],
     "penalty": {
-      "skill": "Cold Res",
+      "skill": "cold-res",
       "points": -1
     }
   },
   {
     "id": 105,
-    "name": "Dodge Jewel",
+    "slug": "dodge-jewel",
     "price": 375,
     "slots": 2,
     "hr": 4,
     "elder": 7,
     "skill": {
-      "skill": "Evade",
+      "skill": "evade",
       "points": 3
     },
     "materials": [
@@ -3325,19 +3325,19 @@
       }
     ],
     "penalty": {
-      "skill": "Cold Res",
+      "skill": "cold-res",
       "points": -1
     }
   },
   {
     "id": 106,
-    "name": "Jump Jewel",
+    "slug": "jump-jewel",
     "price": 200,
     "slots": 1,
     "hr": 8,
     "elder": 8,
     "skill": {
-      "skill": "Evade Dist",
+      "skill": "evade-dist",
       "points": 1
     },
     "materials": [
@@ -3367,19 +3367,19 @@
       }
     ],
     "penalty": {
-      "skill": "Attack",
+      "skill": "attack",
       "points": -1
     }
   },
   {
     "id": 107,
-    "name": "Leap Jewel",
+    "slug": "leap-jewel",
     "price": 375,
     "slots": 3,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "Evade Dist",
+      "skill": "evade-dist",
       "points": 4
     },
     "materials": [
@@ -3401,19 +3401,19 @@
       }
     ],
     "penalty": {
-      "skill": "Attack",
+      "skill": "attack",
       "points": -2
     }
   },
   {
     "id": 108,
-    "name": "Danger Jewel",
+    "slug": "danger-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 4,
     "skill": {
-      "skill": "Potential",
+      "skill": "potential",
       "points": 1
     },
     "materials": [
@@ -3431,19 +3431,19 @@
       }
     ],
     "penalty": {
-      "skill": "Protection",
+      "skill": "protection",
       "points": -1
     }
   },
   {
     "id": 109,
-    "name": "Crisis Jewel",
+    "slug": "crisis-jewel",
     "price": 450,
     "slots": 3,
     "hr": 6,
     "elder": 6,
     "skill": {
-      "skill": "Potential",
+      "skill": "potential",
       "points": 4
     },
     "materials": [
@@ -3465,19 +3465,19 @@
       }
     ],
     "penalty": {
-      "skill": "Protection",
+      "skill": "protection",
       "points": -2
     }
   },
   {
     "id": 110,
-    "name": "Pinch Jewel",
+    "slug": "pinch-jewel",
     "price": 375,
     "slots": 2,
     "hr": 6,
     "elder": 9,
     "skill": {
-      "skill": "Potential",
+      "skill": "potential",
       "points": 3
     },
     "materials": [
@@ -3499,19 +3499,19 @@
       }
     ],
     "penalty": {
-      "skill": "Protection",
+      "skill": "protection",
       "points": -1
     }
   },
   {
     "id": 111,
-    "name": "Survivor Jewel",
+    "slug": "survivor-jewel",
     "price": 375,
     "slots": 1,
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Guts",
+      "skill": "guts",
       "points": 1
     },
     "materials": [
@@ -3529,19 +3529,19 @@
       }
     ],
     "penalty": {
-      "skill": "MixSucRate",
+      "skill": "mix-suc-rate",
       "points": -1
     }
   },
   {
     "id": 112,
-    "name": "Immortal Jewel",
+    "slug": "immortal-jewel",
     "price": 450,
     "slots": 2,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "Guts",
+      "skill": "guts",
       "points": 3
     },
     "materials": [
@@ -3563,19 +3563,19 @@
       }
     ],
     "penalty": {
-      "skill": "MixSucRate",
+      "skill": "mix-suc-rate",
       "points": -1
     }
   },
   {
     "id": 113,
-    "name": "Alarm Jewel",
+    "slug": "alarm-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Anti-Theft",
+      "skill": "anti-theft",
       "points": 2
     },
     "materials": [
@@ -3595,13 +3595,13 @@
   },
   {
     "id": 114,
-    "name": "StayingPwr Jewel",
+    "slug": "staying-pwr-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 3,
     "skill": {
-      "skill": "Everlastng",
+      "skill": "everlastng",
       "points": 1
     },
     "materials": [
@@ -3619,19 +3619,19 @@
       }
     ],
     "penalty": {
-      "skill": "Poison",
+      "skill": "poison",
       "points": -1
     }
   },
   {
     "id": 115,
-    "name": "Permanence Jewel",
+    "slug": "permanence-jewel",
     "price": 375,
     "slots": 2,
     "hr": 4,
     "elder": 7,
     "skill": {
-      "skill": "Everlastng",
+      "skill": "everlastng",
       "points": 2
     },
     "materials": [
@@ -3649,19 +3649,19 @@
       }
     ],
     "penalty": {
-      "skill": "Poison",
+      "skill": "poison",
       "points": -1
     }
   },
   {
     "id": 116,
-    "name": "Eternal Jewel",
+    "slug": "eternal-jewel",
     "price": 450,
     "slots": 2,
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Everlastng",
+      "skill": "everlastng",
       "points": 3
     },
     "materials": [
@@ -3683,19 +3683,19 @@
       }
     ],
     "penalty": {
-      "skill": "Poison",
+      "skill": "poison",
       "points": -1
     }
   },
   {
     "id": 117,
-    "name": "Friendship Jewel",
+    "slug": "friendship-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "Wide Area",
+      "skill": "wide-area",
       "points": 1
     },
     "materials": [
@@ -3713,19 +3713,19 @@
       }
     ],
     "penalty": {
-      "skill": "Sneak",
+      "skill": "sneak",
       "points": -1
     }
   },
   {
     "id": 118,
-    "name": "Beloved Jewel",
+    "slug": "beloved-jewel",
     "price": 375,
     "slots": 2,
     "hr": 5,
     "elder": 7,
     "skill": {
-      "skill": "Wide Area",
+      "skill": "wide-area",
       "points": 3
     },
     "materials": [
@@ -3747,19 +3747,19 @@
       }
     ],
     "penalty": {
-      "skill": "Sneak",
+      "skill": "sneak",
       "points": -1
     }
   },
   {
     "id": 119,
-    "name": "True Love Jewel",
+    "slug": "true-love-jewel",
     "price": 200,
     "slots": 3,
     "hr": 8,
     "elder": 1,
     "skill": {
-      "skill": "Wide Area",
+      "skill": "wide-area",
       "points": 5
     },
     "materials": [
@@ -3781,19 +3781,19 @@
       }
     ],
     "penalty": {
-      "skill": "Sneak",
+      "skill": "sneak",
       "points": -1
     }
   },
   {
     "id": 120,
-    "name": "Backpacker Jewel",
+    "slug": "backpacker-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Backpackng",
+      "skill": "backpackng",
       "points": 2
     },
     "materials": [
@@ -3813,13 +3813,13 @@
   },
   {
     "id": 121,
-    "name": "Impervious Jewel",
+    "slug": "impervious-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 5,
     "skill": {
-      "skill": "All Res",
+      "skill": "all-res",
       "points": 1
     },
     "materials": [
@@ -3833,19 +3833,19 @@
       }
     ],
     "penalty": {
-      "skill": "Everlastng",
+      "skill": "everlastng",
       "points": -1
     }
   },
   {
     "id": 122,
-    "name": "Omnipotent Jewel",
+    "slug": "omnipotent-jewel",
     "price": 375,
     "slots": 2,
     "hr": 5,
     "elder": 9,
     "skill": {
-      "skill": "All Res",
+      "skill": "all-res",
       "points": 3
     },
     "materials": [
@@ -3863,19 +3863,19 @@
       }
     ],
     "penalty": {
-      "skill": "Everlastng",
+      "skill": "everlastng",
       "points": -1
     }
   },
   {
     "id": 123,
-    "name": "Invulnerable Jewel",
+    "slug": "invulnerable-jewel",
     "price": 200,
     "slots": 3,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "All Res",
+      "skill": "all-res",
       "points": 5
     },
     "materials": [
@@ -3897,19 +3897,19 @@
       }
     ],
     "penalty": {
-      "skill": "Everlastng",
+      "skill": "everlastng",
       "points": -1
     }
   },
   {
     "id": 124,
-    "name": "Inferno Jewel",
+    "slug": "inferno-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Fire Res",
+      "skill": "fire-res",
       "points": 1
     },
     "materials": [
@@ -3923,19 +3923,19 @@
       }
     ],
     "penalty": {
-      "skill": "Water Res",
+      "skill": "water-res",
       "points": -1
     }
   },
   {
     "id": 125,
-    "name": "Crimson Jewel",
+    "slug": "crimson-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Fire Res",
+      "skill": "fire-res",
       "points": 2
     },
     "materials": [
@@ -3951,13 +3951,13 @@
   },
   {
     "id": 126,
-    "name": "Stream Jewel",
+    "slug": "stream-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Water Res",
+      "skill": "water-res",
       "points": 1
     },
     "materials": [
@@ -3971,19 +3971,19 @@
       }
     ],
     "penalty": {
-      "skill": "Thunder Res",
+      "skill": "thunder-res",
       "points": -1
     }
   },
   {
     "id": 127,
-    "name": "Torrent Jewel",
+    "slug": "torrent-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Water Res",
+      "skill": "water-res",
       "points": 2
     },
     "materials": [
@@ -3999,13 +3999,13 @@
   },
   {
     "id": 128,
-    "name": "Freeze Jewel",
+    "slug": "freeze-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Ice Res",
+      "skill": "ice-res",
       "points": 1
     },
     "materials": [
@@ -4019,19 +4019,19 @@
       }
     ],
     "penalty": {
-      "skill": "Fire Res",
+      "skill": "fire-res",
       "points": -1
     }
   },
   {
     "id": 129,
-    "name": "Glacier Jewel",
+    "slug": "glacier-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Ice Res",
+      "skill": "ice-res",
       "points": 2
     },
     "materials": [
@@ -4047,13 +4047,13 @@
   },
   {
     "id": 130,
-    "name": "Lightning Jewel",
+    "slug": "lightning-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Thunder Res",
+      "skill": "thunder-res",
       "points": 1
     },
     "materials": [
@@ -4067,19 +4067,19 @@
       }
     ],
     "penalty": {
-      "skill": "Ice Res",
+      "skill": "ice-res",
       "points": -1
     }
   },
   {
     "id": 131,
-    "name": "Thunder Jewel",
+    "slug": "thunder-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Thunder Res",
+      "skill": "thunder-res",
       "points": 2
     },
     "materials": [
@@ -4095,13 +4095,13 @@
   },
   {
     "id": 132,
-    "name": "Slayer Jewel",
+    "slug": "slayer-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Dragon Res",
+      "skill": "dragon-res",
       "points": 2
     },
     "materials": [
@@ -4119,19 +4119,19 @@
       }
     ],
     "penalty": {
-      "skill": "Poison",
+      "skill": "poison",
       "points": -1
     }
   },
   {
     "id": 133,
-    "name": "Extinction Jewel",
+    "slug": "extinction-jewel",
     "price": 375,
     "slots": 2,
     "hr": 4,
     "elder": 7,
     "skill": {
-      "skill": "Dragon Res",
+      "skill": "dragon-res",
       "points": 3
     },
     "materials": [
@@ -4149,19 +4149,19 @@
       }
     ],
     "penalty": {
-      "skill": "Poison",
+      "skill": "poison",
       "points": -1
     }
   },
   {
     "id": 134,
-    "name": "Dracocide Jewel",
+    "slug": "dracocide-jewel",
     "price": 200,
     "slots": 1,
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Dragon Res",
+      "skill": "dragon-res",
       "points": 2
     },
     "materials": [
@@ -4181,13 +4181,13 @@
   },
   {
     "id": 135,
-    "name": "CoolBreeze Jewel",
+    "slug": "cool-breeze-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Heat Res",
+      "skill": "heat-res",
       "points": 1
     },
     "materials": [
@@ -4201,19 +4201,19 @@
       }
     ],
     "penalty": {
-      "skill": "Cold Res",
+      "skill": "cold-res",
       "points": -1
     }
   },
   {
     "id": 136,
-    "name": "Cold Wind Jewel",
+    "slug": "cold-wind-jewel",
     "price": 375,
     "slots": 2,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "Heat Res",
+      "skill": "heat-res",
       "points": 3
     },
     "materials": [
@@ -4231,19 +4231,19 @@
       }
     ],
     "penalty": {
-      "skill": "Cold Res",
+      "skill": "cold-res",
       "points": -1
     }
   },
   {
     "id": 137,
-    "name": "Icy Gale Jewel",
+    "slug": "icy-gale-jewel",
     "price": 450,
     "slots": 1,
     "hr": 8,
     "elder": 1,
     "skill": {
-      "skill": "Heat Res",
+      "skill": "heat-res",
       "points": 2
     },
     "materials": [
@@ -4263,13 +4263,13 @@
   },
   {
     "id": 138,
-    "name": "Warm Breeze Jewel",
+    "slug": "warm-breeze-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Cold Res",
+      "skill": "cold-res",
       "points": 1
     },
     "materials": [
@@ -4283,19 +4283,19 @@
       }
     ],
     "penalty": {
-      "skill": "Heat Res",
+      "skill": "heat-res",
       "points": -1
     }
   },
   {
     "id": 139,
-    "name": "Hot Wind Jewel",
+    "slug": "hot-wind-jewel",
     "price": 375,
     "slots": 2,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Cold Res",
+      "skill": "cold-res",
       "points": 3
     },
     "materials": [
@@ -4313,19 +4313,19 @@
       }
     ],
     "penalty": {
-      "skill": "Heat Res",
+      "skill": "heat-res",
       "points": -1
     }
   },
   {
     "id": 140,
-    "name": "Fiery Gale Jewel",
+    "slug": "fiery-gale-jewel",
     "price": 375,
     "slots": 1,
     "hr": 8,
     "elder": 1,
     "skill": {
-      "skill": "Cold Res",
+      "skill": "cold-res",
       "points": 2
     },
     "materials": [
@@ -4345,13 +4345,13 @@
   },
   {
     "id": 141,
-    "name": "Map Jewel",
+    "slug": "map-jewel",
     "price": 200,
     "slots": 1,
     "hr": 4,
     "elder": 7,
     "skill": {
-      "skill": "Map",
+      "skill": "map",
       "points": 2
     },
     "materials": [
@@ -4371,13 +4371,13 @@
   },
   {
     "id": 142,
-    "name": "Gathering Jewel",
+    "slug": "gathering-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Gathering",
+      "skill": "gathering",
       "points": 2
     },
     "materials": [
@@ -4397,13 +4397,13 @@
   },
   {
     "id": 143,
-    "name": "Grab'n'DashJewel",
+    "slug": "grab-n-dash-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "HiSpdGathr",
+      "skill": "hi-spd-gathr",
       "points": 2
     },
     "materials": [
@@ -4423,13 +4423,13 @@
   },
   {
     "id": 144,
-    "name": "Good Luck Jewel",
+    "slug": "good-luck-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Whim",
+      "skill": "whim",
       "points": 1
     },
     "materials": [
@@ -4453,13 +4453,13 @@
   },
   {
     "id": 145,
-    "name": "Blessing Jewel",
+    "slug": "blessing-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 6,
     "skill": {
-      "skill": "Whim",
+      "skill": "whim",
       "points": 2
     },
     "materials": [
@@ -4483,13 +4483,13 @@
   },
   {
     "id": 146,
-    "name": "HideCutter Jewel",
+    "slug": "hide-cutter-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
     "elder": 4,
     "skill": {
-      "skill": "Carving",
+      "skill": "carving",
       "points": 1
     },
     "materials": [
@@ -4519,19 +4519,19 @@
       }
     ],
     "penalty": {
-      "skill": "Fate",
+      "skill": "fate",
       "points": -1
     }
   },
   {
     "id": 147,
-    "name": "ShellCutter Jewel",
+    "slug": "shell-cutter-jewel",
     "price": 200,
     "slots": 3,
     "hr": 9,
     "elder": 1,
     "skill": {
-      "skill": "Carving",
+      "skill": "carving",
       "points": 4
     },
     "materials": [
@@ -4553,19 +4553,19 @@
       }
     ],
     "penalty": {
-      "skill": "Fate",
+      "skill": "fate",
       "points": -2
     }
   },
   {
     "id": 148,
-    "name": "Bind Jewel",
+    "slug": "bind-jewel",
     "price": 200,
     "slots": 1,
     "hr": 7,
     "elder": 7,
     "skill": {
-      "skill": "Tranquilzr",
+      "skill": "tranquilzr",
       "points": 1
     },
     "materials": [
@@ -4587,19 +4587,19 @@
       }
     ],
     "penalty": {
-      "skill": "Fate",
+      "skill": "fate",
       "points": -1
     }
   },
   {
     "id": 149,
-    "name": "Cage Jewel",
+    "slug": "cage-jewel",
     "price": 375,
     "slots": 2,
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "Tranquilzr",
+      "skill": "tranquilzr",
       "points": 3
     },
     "materials": [
@@ -4621,19 +4621,19 @@
       }
     ],
     "penalty": {
-      "skill": "Fate",
+      "skill": "fate",
       "points": -1
     }
   },
   {
     "id": 150,
-    "name": "Fate Jewel",
+    "slug": "fate-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Fate",
+      "skill": "fate",
       "points": 1
     },
     "materials": [
@@ -4647,19 +4647,19 @@
       }
     ],
     "penalty": {
-      "skill": "Whim",
+      "skill": "whim",
       "points": -1
     }
   },
   {
     "id": 151,
-    "name": "Destiny Jewel",
+    "slug": "destiny-jewel",
     "price": 375,
     "slots": 2,
     "hr": 4,
     "elder": 7,
     "skill": {
-      "skill": "Fate",
+      "skill": "fate",
       "points": 3
     },
     "materials": [
@@ -4673,19 +4673,19 @@
       }
     ],
     "penalty": {
-      "skill": "Whim",
+      "skill": "whim",
       "points": -1
     }
   },
   {
     "id": 152,
-    "name": "Fisher Jewel",
+    "slug": "fisher-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Fishing",
+      "skill": "fishing",
       "points": 2
     },
     "materials": [
@@ -4705,13 +4705,13 @@
   },
   {
     "id": 153,
-    "name": "Psychic Jewel",
+    "slug": "psychic-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "PsychicVis",
+      "skill": "psychic-vis",
       "points": 2
     },
     "materials": [
@@ -4731,13 +4731,13 @@
   },
   {
     "id": 154,
-    "name": "Observer Jewel",
+    "slug": "observer-jewel",
     "price": 200,
     "slots": 1,
     "hr": 7,
     "elder": 7,
     "skill": {
-      "skill": "Perceive",
+      "skill": "perceive",
       "points": 2
     },
     "materials": [
@@ -4757,13 +4757,13 @@
   },
   {
     "id": 155,
-    "name": "Feel Good Jewel",
+    "slug": "feel-good-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Rec Speed",
+      "skill": "rec-speed",
       "points": 1
     },
     "materials": [
@@ -4781,19 +4781,19 @@
       }
     ],
     "penalty": {
-      "skill": "Faint",
+      "skill": "faint",
       "points": -1
     }
   },
   {
     "id": 156,
-    "name": "Quick Fix Jewel",
+    "slug": "quick-fix-jewel",
     "price": 375,
     "slots": 2,
     "hr": 2,
     "elder": 6,
     "skill": {
-      "skill": "Rec Speed",
+      "skill": "rec-speed",
       "points": 3
     },
     "materials": [
@@ -4827,19 +4827,19 @@
       }
     ],
     "penalty": {
-      "skill": "Faint",
+      "skill": "faint",
       "points": -1
     }
   },
   {
     "id": 157,
-    "name": "Curing Jewel",
+    "slug": "curing-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Recovery",
+      "skill": "recovery",
       "points": 1
     },
     "materials": [
@@ -4857,19 +4857,19 @@
       }
     ],
     "penalty": {
-      "skill": "Health",
+      "skill": "health",
       "points": -1
     }
   },
   {
     "id": 158,
-    "name": "Cure All Jewel",
+    "slug": "cure-all-jewel",
     "price": 375,
     "slots": 2,
     "hr": 5,
     "elder": 7,
     "skill": {
-      "skill": "Recovery",
+      "skill": "recovery",
       "points": 2
     },
     "materials": [
@@ -4887,19 +4887,19 @@
       }
     ],
     "penalty": {
-      "skill": "Health",
+      "skill": "health",
       "points": -1
     }
   },
   {
     "id": 159,
-    "name": "Divine Cure Jewel",
+    "slug": "divine-cure-jewel",
     "price": 200,
     "slots": 2,
     "hr": 7,
     "elder": 8,
     "skill": {
-      "skill": "Recovery",
+      "skill": "recovery",
       "points": 3
     },
     "materials": [
@@ -4921,19 +4921,19 @@
       }
     ],
     "penalty": {
-      "skill": "Health",
+      "skill": "health",
       "points": -1
     }
   },
   {
     "id": 160,
-    "name": "Professor Jewel",
+    "slug": "professor-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "MixSucRate",
+      "skill": "mix-suc-rate",
       "points": 2
     },
     "materials": [
@@ -4953,13 +4953,13 @@
   },
   {
     "id": 161,
-    "name": "Armory Jewel",
+    "slug": "armory-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Shot Mix",
+      "skill": "shot-mix",
       "points": 2
     },
     "materials": [
@@ -4983,13 +4983,13 @@
   },
   {
     "id": 162,
-    "name": "SecretArts Jewel",
+    "slug": "secret-arts-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Alchemy",
+      "skill": "alchemy",
       "points": 2
     },
     "materials": [
@@ -5013,13 +5013,13 @@
   },
   {
     "id": 163,
-    "name": "Small Arms Jewel",
+    "slug": "small-arms-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Gunnery",
+      "skill": "gunnery",
       "points": 1
     },
     "materials": [
@@ -5037,19 +5037,19 @@
       }
     ],
     "penalty": {
-      "skill": "Stamina",
+      "skill": "stamina",
       "points": -1
     }
   },
   {
     "id": 164,
-    "name": "Howitzer Jewel",
+    "slug": "howitzer-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
     "elder": 4,
     "skill": {
-      "skill": "Gunnery",
+      "skill": "gunnery",
       "points": 2
     },
     "materials": [
@@ -5069,13 +5069,13 @@
   },
   {
     "id": 165,
-    "name": "Fife Jewel",
+    "slug": "fife-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
     "skill": {
-      "skill": "Horn",
+      "skill": "horn",
       "points": 2
     },
     "materials": [
@@ -5095,13 +5095,13 @@
   },
   {
     "id": 166,
-    "name": "FlynMaster Jewel",
+    "slug": "flyn-master-jewel",
     "price": 200,
     "slots": 1,
     "hr": 8,
     "elder": 8,
     "skill": {
-      "skill": "ComrdGuide",
+      "skill": "comrd-guide",
       "points": 2
     },
     "materials": [
@@ -5133,13 +5133,13 @@
   },
   {
     "id": 167,
-    "name": "FlynAttack Jewel",
+    "slug": "flyn-attack-jewel",
     "price": 200,
     "slots": 1,
     "hr": 8,
     "elder": 8,
     "skill": {
-      "skill": "ComradeAtk",
+      "skill": "comrade-atk",
       "points": 2
     },
     "materials": [
@@ -5163,13 +5163,13 @@
   },
   {
     "id": 168,
-    "name": "FlynDefence Jewel",
+    "slug": "flyn-defense-jewel",
     "price": 200,
     "slots": 1,
     "hr": 7,
     "elder": 1,
     "skill": {
-      "skill": "ComradeDef",
+      "skill": "comrade-def",
       "points": 2
     },
     "materials": [

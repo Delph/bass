@@ -74,12 +74,14 @@ async function query(message: TypedWorkerMessage<'query'>) {
       attempted += batch.attempted;
       postMessage({type: 'progress', payload: {attempted}});
 
-      for (const result of batch.results)
-        postMessage({type: 'result', payload: result});
+      if (batch.results.length > 0)
+        postMessage({type: 'results', payload: batch.results});
 
       await yieldToMessages();
       await waitWhilePaused(aborter.signal);
     }
+
+    if (!aborter.signal.aborted) post({ type: 'complete' });
   } finally {
     paused = false;
     wake();

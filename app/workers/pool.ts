@@ -1,3 +1,5 @@
+import { bound } from '~/utility';
+
 export type WorkerPoolJob<TPayload> = {
   id: number;
   payload: TPayload;
@@ -25,7 +27,9 @@ type PooledWorker<TPayload, TResult> = {
 };
 
 export function getWorkerPoolSize() {
-  return Math.max(1, Math.min(4, (navigator.hardwareConcurrency ?? 2) - 1));
+  const threads = navigator.hardwareConcurrency ?? 2;
+
+  return bound(Math.floor(threads / 2), 1, 4);
 }
 
 export function createWorkerPool<TPayload, TResult>(

@@ -84,6 +84,8 @@ function* generate(
 }
 
 const skillDecoCache = new Map<string, Decoration[]>();
+type SkillNeed = { name: string; points: number };
+
 export function decorationsForSkill(
   data: Omit<GameData, 'armour'>,
   skill: string,
@@ -112,7 +114,7 @@ function decoration(
   build: BuildResult,
   data: Omit<GameData, 'armour'>,
   slots: Record<number, number>,
-  need: { name: string; points: number },
+  need: SkillNeed,
 ): boolean {
   const decorations = decorationsForSkill(data, need.name);
 
@@ -161,20 +163,33 @@ function decoration(
   return true;
 }
 
+function updateNeed(
+  build: BuildResult,
+  requirements: [skill: string, points: number][],
+  need: SkillNeed[],
+) {
+  need.length = 0;
+
+  for (const [skill, points] of requirements) {
+    if ((build.skills[skill] ?? 0) < points)
+      need.push({ name: skill, points: points - (build.skills[skill] ?? 0) });
+  }
+
+  // sort so we gem the most needed first
+  need.sort((a, b) => b.points - a.points);
+}
+
 function decorate(
   build: BuildResult,
   data: Omit<GameData, 'armour'>,
   slots: Record<number, number>,
-  need: { name: string; points: number }[],
+  requirements: [skill: string, points: number][],
+  need: SkillNeed[],
 ) {
-  // sort so we gem the most needed first
-  need.sort((a, b) => b.points - a.points);
-
   while (need.length > 0) {
     const target = need[0]!;
     if (!decoration(build, data, slots, target)) break;
-    if (target.points <= 0) need.shift();
-    need.sort((a, b) => b.points - a.points);
+    updateNeed(build, requirements, need);
   }
 }
 
@@ -206,12 +221,8 @@ function evaluate(
     }
   }
 
-  const need: { name: string; points: number }[] = [];
-
-  for (const [skill, points] of requirements) {
-    if ((build.skills[skill] ?? 0) < points)
-      need.push({ name: skill, points: points - (build.skills[skill] ?? 0) });
-  }
+  const need: SkillNeed[] = [];
+  updateNeed(build, requirements, need);
 
   // work out what decoration slots we have
   const slots = Object.values(build.armour).reduce(
@@ -221,7 +232,7 @@ function evaluate(
   slots[query.weapon.slots] = (slots[query.weapon.slots] ?? 0) + 1;
 
   // gemming
-  decorate(build, data, slots, need);
+  decorate(build, data, slots, requirements, need);
 
   // if we're missing skills, then this set isn't valid
   if (need.some((s) => s.points > 0)) return null;

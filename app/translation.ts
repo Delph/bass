@@ -1,21 +1,19 @@
-export const languages = {
-  en: {
-    name: "English"
+export const defaultLocale = 'en-US';
+
+export const locales = {
+  'en-US': {
+    name: 'English (US)',
   },
-  fr: {
-    name: "Français"
-  }
 } as const;
 
-/// the two character language code, e.g., "en", "fr", or "jp"
-export type LanguageSlug = keyof typeof languages;
+export type LocaleSlug = keyof typeof locales;
 
 export type PluralTranslation = { other: string } & Partial<Record<Intl.LDMLPluralRule, string>>;
 export type Translations = Record<string, string | PluralTranslation>;
 export type TranslationVariables = Record<string, any>;
 
 export function translate(
-  language: LanguageSlug,
+  locale: LocaleSlug,
   translations: Translations,
   key: string,
   variables: TranslationVariables = {}
@@ -30,7 +28,7 @@ export function translate(
     if (!Number.isFinite(count))
       throw new Error(`Plural translation "${key}" requires a finite numeric count variable.`);
 
-    const rule = count === 0 && message.zero ? 'zero' : new Intl.PluralRules(language).select(count);
+    const rule = count === 0 && message.zero ? 'zero' : new Intl.PluralRules(locale).select(count);
     message = message[rule] ?? message.other ?? key;
   }
 

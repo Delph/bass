@@ -46,8 +46,15 @@ export type WorkerResponse =
       payload: BuildResult;
     }
   | {
+      type: 'results';
+      payload: BuildResult[];
+    }
+  | {
       type: 'progress';
       payload: {
         attempted: number;
       };
+    }
+  | {
+      type: 'complete';
     };

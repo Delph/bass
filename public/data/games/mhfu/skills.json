@@ -1,497 +1,420 @@
 [
   {
     "id": 1,
-    "name": "Attack",
+    "slug": "attack",
     "categories": [
-      "Offensive"
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "Attack Up (Small)",
         "description": "Increases attack power by 10."
       },
       "15": {
-        "name": "Attack Up (Medium)",
         "description": "Increases attack power by 15."
       },
       "20": {
-        "name": "Attack Up (Large)",
         "description": "Increases attack power by 20."
       },
       "-10": {
-        "name": "Attack Down (Small)",
         "description": "Decreases attack power by 10."
       },
       "-15": {
-        "name": "Attack Down (Medium)",
         "description": "Decreases attack power by 15."
       },
       "-20": {
-        "name": "Attack Down (Large)",
         "description": "Decreases attack power by 20."
       }
     }
   },
   {
     "id": 2,
-    "name": "Defense",
+    "slug": "defense",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Defense +20",
         "description": "Adds 20 points to defense."
       },
       "15": {
-        "name": "Defense +30",
         "description": "Adds 30 points to defense."
       },
       "20": {
-        "name": "Defense +40",
         "description": "Adds 40 points to defense."
       },
       "-10": {
-        "name": "Defense -20",
         "description": "Subtracts 20 points from your defense."
       },
       "-15": {
-        "name": "Defense -30",
         "description": "Subtracts 30 points from your defense."
       },
       "-20": {
-        "name": "Defense -40",
         "description": "Subtracts 40 points from your defense."
       }
     }
   },
   {
     "id": 3,
-    "name": "Health",
+    "slug": "health",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Health +20",
         "description": "Adds 20 points to maximum health."
       },
       "15": {
-        "name": "Health +30",
         "description": "Adds 30 points to maximum health."
       },
       "20": {
-        "name": "Health +50",
         "description": "Adds 50 points to maximum health."
       },
       "-10": {
-        "name": "Health -10",
         "description": "Subtracts 10 points from your maximum health."
       },
       "-15": {
-        "name": "Health -20",
         "description": "Subtracts 20 points from your maximum health."
       },
       "-20": {
-        "name": "Health -30",
         "description": "Subtracts 30 points from your maximum health."
       }
     }
   },
   {
     "id": 4,
-    "name": "All Res",
+    "slug": "all-res",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "All Res +3",
         "description": "Adds 3 points to all element resistances."
       },
       "15": {
-        "name": "All Res +5",
         "description": "Adds 5 points to all element resistances."
       },
       "20": {
-        "name": "All Res +10",
         "description": "Adds 10 points to all element resistances."
       },
       "-10": {
-        "name": "All Res -3",
         "description": "Subtracts 3 points from all element resistances."
       },
       "-15": {
-        "name": "All Res -5",
         "description": "Subtracts 5 points from all element resistances."
       },
       "-20": {
-        "name": "All Res -10",
         "description": "Subtracts 10 points from all element resistances."
       }
     }
   },
   {
     "id": 5,
-    "name": "Ice Res",
+    "slug": "ice-res",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Ice Res +3",
         "description": "Adds 3 points to ice resistance."
       },
       "15": {
-        "name": "Ice Res +5",
         "description": "Adds 5 points to ice resistance."
       },
       "20": {
-        "name": "Ice Res +10",
         "description": "Adds 10 points to ice resistance."
       },
       "-10": {
-        "name": "Ice Res -3",
         "description": "Subtracts 3 points from ice resistance."
       },
       "-15": {
-        "name": "Ice Res -5",
         "description": "Subtracts 5 points from ice resistance."
       },
       "-20": {
-        "name": "Ice Res -10",
         "description": "Subtracts 10 points from ice resistance."
       }
     }
   },
   {
     "id": 6,
-    "name": "Water Res",
+    "slug": "water-res",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Water Res +3",
         "description": "Adds 3 points to water resistance."
       },
       "15": {
-        "name": "Water Res +5",
         "description": "Adds 5 points to water resistance."
       },
       "20": {
-        "name": "Water Res +10",
         "description": "Adds 10 points to water resistance."
       },
       "-10": {
-        "name": "Water Res -3",
         "description": "Subtracts 3 points from water resistance."
       },
       "-15": {
-        "name": "Water Res -5",
         "description": "Subtracts 5 points from water resistance."
       },
       "-20": {
-        "name": "Water Res -10",
         "description": "Subtracts 10 points from water resistance."
       }
     }
   },
   {
     "id": 7,
-    "name": "Thunder Res",
+    "slug": "thunder-res",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Thunder Res +3",
         "description": "Adds 3 points to thunder resistance."
       },
       "15": {
-        "name": "Thunder Res +5",
         "description": "Adds 5 points to thunder resistance."
       },
       "20": {
-        "name": "Thunder Res +10",
         "description": "Adds 10 points to thunder resistance."
       },
       "-10": {
-        "name": "Thunder Res -3",
         "description": "Subtracts 3 points from thunder resistance."
       },
       "-15": {
-        "name": "Thunder Res -5",
         "description": "Subtracts 5 points from thunder resistance."
       },
       "-20": {
-        "name": "Thunder Res -10",
         "description": "Subtracts 10 points from thunder resistance."
       }
     }
   },
   {
     "id": 8,
-    "name": "Dragon Res",
+    "slug": "dragon-res",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Dragon Res +3",
         "description": "Adds 3 points to dragon resistance."
       },
       "15": {
-        "name": "Dragon Res +5",
         "description": "Adds 5 points to dragon resistance."
       },
       "20": {
-        "name": "Dragon Res +10",
         "description": "Adds 10 points to dragon resistance."
       },
       "-10": {
-        "name": "Dragon Res -3",
         "description": "Subtracts 3 points from dragon resistance."
       },
       "-15": {
-        "name": "Dragon Res -5",
         "description": "Subtracts 5 points from dragon resistance."
       },
       "-20": {
-        "name": "Dragon Res -10",
         "description": "Subtracts 10 points from dragon resistance."
       }
     }
   },
   {
     "id": 9,
-    "name": "Fire Res",
+    "slug": "fire-res",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Fire Res +3",
         "description": "Adds 3 points to fire resistance."
       },
       "15": {
-        "name": "Fire Res +5",
         "description": "Adds 5 points to fire resistance."
       },
       "20": {
-        "name": "Fire Res +10",
         "description": "Adds 10 points to fire resistance."
       },
       "-10": {
-        "name": "Fire Res -3",
         "description": "Subtracts 3 points from fire resistance."
       },
       "-15": {
-        "name": "Fire Res -5",
         "description": "Subtracts 5 points from fire resistance."
       },
       "-20": {
-        "name": "Fire Res -10",
         "description": "Subtracts 10 points from fire resistance."
       }
     }
   },
   {
     "id": 10,
-    "name": "Faint",
+    "slug": "faint",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Faint Prob Halved",
         "description": "Faint duration halved."
       },
       "15": {
-        "name": "Faint Negated",
         "description": "Faint negated."
       },
       "-10": {
-        "name": "Faint Duration[x2]",
         "description": "Faint duration doubled."
       }
     }
   },
   {
     "id": 11,
-    "name": "Poison",
+    "slug": "poison",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Poison Dur Halved",
         "description": "Poison duration halved."
       },
       "15": {
-        "name": "Poison Negated",
         "description": "Poison negated."
       },
       "-10": {
-        "name": "Poison Dur[x2]",
         "description": "Poison duration doubled."
       }
     }
   },
   {
     "id": 12,
-    "name": "Paralysis",
+    "slug": "paralysis",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Para Duration Halved",
         "description": "Paralysis duration halved."
       },
       "15": {
-        "name": "Paralysis Negated",
         "description": "Paralysis negated."
       },
       "-10": {
-        "name": "Para Duration[x2]",
         "description": "Paralysis duration doubled."
       }
     }
   },
   {
     "id": 13,
-    "name": "Sleep",
+    "slug": "sleep",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Sleep Dur Halved",
         "description": "Sleep duration halved."
       },
       "15": {
-        "name": "Sleep Negated",
         "description": "Sleep negated."
       },
       "-10": {
-        "name": "Sleep Dur[x2]",
         "description": "Sleep duration doubled."
       }
     }
   },
   {
     "id": 14,
-    "name": "Antiseptic",
+    "slug": "antiseptic",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Antiseptic",
         "description": "Provides immunity to Soiled status."
       }
     }
   },
   {
     "id": 15,
-    "name": "Fatigue",
+    "slug": "fatigue",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Fatigue Cancellation",
         "description": "Fatigue negated."
       }
     }
   },
   {
     "id": 16,
-    "name": "Snow Res",
+    "slug": "snow-res",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Snow Resistance",
         "description": "Provides immunity to Snowman status."
       }
     }
   },
   {
     "id": 17,
-    "name": "Quake Res",
+    "slug": "quake-res",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Quake Resistance",
         "description": "Provides immunity to Quake status."
       }
     }
   },
   {
     "id": 18,
-    "name": "HearProtct",
+    "slug": "hear-protct",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Earplug",
         "description": "Immunity to small roars."
       },
       "15": {
-        "name": "High Grade Earplug",
         "description": "Immunity to all roars."
       }
     }
   },
   {
     "id": 19,
-    "name": "WindPress",
+    "slug": "wind-press",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Low Wind Res",
         "description": "Immunity to small Wind Press."
       },
       "15": {
-        "name": "High Wind Res",
         "description": "Immunity to large Wind Press."
       },
       "20": {
-        "name": "Dragon Wind Breaker",
         "description": "Immunity to all Wind Press."
       }
     }
   },
   {
     "id": 20,
-    "name": "Anti-Theft",
+    "slug": "anti-theft",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Steal No Effect",
         "description": "Provides immunity to stealing."
       }
     }
   },
   {
     "id": 21,
-    "name": "ResistSts",
+    "slug": "resist-sts",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Self-Defense",
         "description": "Provides immunity to all abnormal status effects.",
         "combines": [
           "Paralysis Negated",
@@ -504,13 +427,12 @@
   },
   {
     "id": 22,
-    "name": "AntiFireDrg",
+    "slug": "anti-fire-drg",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Metallic Protection",
         "description": "Provides higher resistance to fire-based elemental damage and cancels damage from lava or Teostra/Lunastra's aura.",
         "combines": [
           "Fire Res +10",
@@ -521,13 +443,12 @@
   },
   {
     "id": 23,
-    "name": "AntiDaora",
+    "slug": "anti-daora",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Frosty Protection",
         "description": "Provides immunity to Snowman and Wind Press status.",
         "combines": [
           "Snow Resistance",
@@ -538,13 +459,12 @@
   },
   {
     "id": 24,
-    "name": "AntiChamel",
+    "slug": "anti-chamel",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Fiery Protection",
         "description": "Provides immunity to all status ailments given by Chameleos, including poison, stealing, and fatigue.",
         "combines": [
           "Poison Negated",
@@ -556,123 +476,111 @@
   },
   {
     "id": 25,
-    "name": "Artisan",
+    "slug": "artisan",
     "categories": [
-      "Offensive",
-      "Blademaster"
+      "offensive",
+      "blademaster"
     ],
     "effects": {
       "10": {
-        "name": "Sharpness +1",
         "description": "Increases maximum sharpness by one level."
       }
     }
   },
   {
     "id": 26,
-    "name": "Sharpness",
+    "slug": "sharpness",
     "categories": [
-      "Blademaster"
+      "blademaster"
     ],
     "effects": {
       "10": {
-        "name": "Sharp Sword",
         "description": "Decreases sharpness lost on weapon by half."
       },
       "-10": {
-        "name": "Blunt",
         "description": "Increases sharpness lost on weapon by x2."
       }
     }
   },
   {
     "id": 27,
-    "name": "Fencing",
+    "slug": "fencing",
     "categories": [
-      "Blademaster"
+      "blademaster"
     ],
     "effects": {
       "10": {
-        "name": "ESP",
         "description": "Prevents attacks from being deflected."
       }
     }
   },
   {
     "id": 28,
-    "name": "SwdShrpner",
+    "slug": "swd-shrpner",
     "categories": [
-      "Blademaster"
+      "blademaster"
     ],
     "effects": {
       "10": {
-        "name": "Sharpening Skl Inc",
         "description": "Whetstone usage speed increases."
       },
       "-10": {
-        "name": "Sharpening Skl Half",
         "description": "Whetstones restore half sharpness."
       }
     }
   },
   {
     "id": 29,
-    "name": "Guard",
+    "slug": "guard",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Guard +1",
         "description": "Block requires less stamina, and hunter receives less damage and push back."
       },
       "20": {
-        "name": "Guard +2",
         "description": "Block requires even less stamina, and hunter receives even less damage and push back."
       },
       "-10": {
-        "name": "Guard -1",
         "description": "Block requires more stamina, and hunter receives more damage and push back."
       }
     }
   },
   {
     "id": 30,
-    "name": "Auto-Guard",
+    "slug": "auto-guard",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Auto-Guard",
         "description": "Automatically blocks attacks if the weapon permits."
       }
     }
   },
   {
     "id": 31,
-    "name": "Sword Draw",
+    "slug": "sword-draw",
     "categories": [
-      "Blademaster",
-      "Offensive"
+      "blademaster",
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "Art of Unsheathing",
         "description": "Unsheathing attacks have a 100% chance to be critical hits."
       }
     }
   },
   {
     "id": 32,
-    "name": "EdgeMaster",
+    "slug": "edge-master",
     "categories": [
-      "Blademaster",
-      "Offensive"
+      "blademaster",
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "Stellar Hunter",
         "description": "Grants Sharpness +1 and Attack Up (Large).",
         "combines": [
           "Sharpness +1",
@@ -683,296 +591,265 @@
   },
   {
     "id": 33,
-    "name": "NormalS Up",
+    "slug": "normal-s-up",
     "categories": [
-      "Bowgun",
-      "Bow",
-      "Offensive"
+      "bowgun",
+      "bow",
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "NormalS/RapidBow Up",
         "description": "Increases damage of Normal S shots and Rapid bow shots by 10%."
       }
     }
   },
   {
     "id": 34,
-    "name": "PierceS Up",
+    "slug": "pierce-s-up",
     "categories": [
-      "Bowgun",
-      "Bow",
-      "Offensive"
+      "bowgun",
+      "bow",
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "PierceS/PierceBow Up",
         "description": "Increases damage of Pierce S shots and Pierce bow shots by 10%."
       }
     }
   },
   {
     "id": 35,
-    "name": "PelletS Up",
+    "slug": "pellet-s-up",
     "categories": [
-      "Bowgun",
-      "Bow",
-      "Offensive"
+      "bowgun",
+      "bow",
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "PelletS/ScattrBow Up",
         "description": "Increases damage of Pellet S shots and Scatter bow shots by 10%."
       }
     }
   },
   {
     "id": 36,
-    "name": "NormalSAdd",
+    "slug": "normal-s-add",
     "categories": [
-      "Bowgun"
+      "bowgun"
     ],
     "effects": {
       "15": {
-        "name": "Normal S LV1 Add",
         "description": "Normal LV1 is enabled."
       },
       "20": {
-        "name": "Normal S All LV Add",
         "description": "Normal LV1, LV2, and LV3 are enabled."
       }
     }
   },
   {
     "id": 37,
-    "name": "PierceSAdd",
+    "slug": "pierce-s-add",
     "categories": [
-      "Bowgun"
+      "bowgun"
     ],
     "effects": {
       "10": {
-        "name": "Pierce S LV1 Add",
         "description": "Pierce LV1 is enabled."
       },
       "15": {
-        "name": "Pierce S All LV Add",
         "description": "Pierce LV1, LV2, and LV3 are enabled."
       }
     }
   },
   {
     "id": 38,
-    "name": "PelletSAdd",
+    "slug": "pellet-s-add",
     "categories": [
-      "Bowgun"
+      "bowgun"
     ],
     "effects": {
       "10": {
-        "name": "Pellet S LV1 Add",
         "description": "Pellet LV1 is enabled."
       },
       "15": {
-        "name": "Pellet S All LV Add",
         "description": "Pellet LV1, LV2, and LV3 are enabled."
       }
     }
   },
   {
     "id": 39,
-    "name": "CragS Add",
+    "slug": "crag-s-add",
     "categories": [
-      "Bowgun"
+      "bowgun"
     ],
     "effects": {
       "10": {
-        "name": "Crag S LV1 Add",
         "description": "Crag LV1 is enabled."
       },
       "15": {
-        "name": "Crag S All LV Add",
         "description": "Crag LV1, LV2, and LV3 are enabled."
       }
     }
   },
   {
     "id": 40,
-    "name": "ClustS Add",
+    "slug": "clust-s-add",
     "categories": [
-      "Bowgun"
+      "bowgun"
     ],
     "effects": {
       "10": {
-        "name": "Clust S LV1 Add",
         "description": "Clust LV1 is enabled."
       },
       "15": {
-        "name": "Clust S All LV Add",
         "description": "Clust LV1, LV2, and LV3 are enabled."
       }
     }
   },
   {
     "id": 41,
-    "name": "Reload",
+    "slug": "reload",
     "categories": [
-      "Bowgun",
-      "Bow"
+      "bowgun",
+      "bow"
     ],
     "effects": {
       "10": {
-        "name": "Reloading Speed +1",
         "description": "Reload speed increases by 1."
       },
       "15": {
-        "name": "Reloading Speed +2",
         "description": "Reload speed increases by 2."
       },
       "20": {
-        "name": "Reloading Speed +3",
         "description": "Reload speed increases by 3."
       },
       "-10": {
-        "name": "Reloading Speed -1",
         "description": "Reload speed decreases by 1."
       },
       "-15": {
-        "name": "Reloading Speed -2",
         "description": "Reload speed decreases by 2."
       }
     }
   },
   {
     "id": 42,
-    "name": "AutoReload",
+    "slug": "auto-reload",
     "categories": [
-      "Bowgun",
-      "Bow"
+      "bowgun",
+      "bow"
     ],
     "effects": {
       "10": {
-        "name": "Auto-Reload",
         "description": "Current ammo fires without reloading, except rapid-fire ammo; bow coatings apply automatically."
       }
     }
   },
   {
     "id": 43,
-    "name": "Recoil",
+    "slug": "recoil",
     "categories": [
-      "Bowgun"
+      "bowgun"
     ],
     "effects": {
       "10": {
-        "name": "Recoil Reduction +1",
         "description": "Recoil from bowgun decreases by 2."
       },
       "20": {
-        "name": "Recoil Reduction +2",
         "description": "Recoil from bowgun decreases by 4."
       },
       "-10": {
-        "name": "Recoil Increase +1",
         "description": "Recoil from bowgun increases by 1."
       },
       "-15": {
-        "name": "Recoil Increase +2",
         "description": "Recoil from bowgun increases by 2."
       }
     }
   },
   {
     "id": 44,
-    "name": "Precision",
+    "slug": "precision",
     "categories": [
-      "Bowgun"
+      "bowgun"
     ],
     "effects": {
       "10": {
-        "name": "Shell Deviation Down",
         "description": "Being off-center decreases."
       },
       "-10": {
-        "name": "Shell Deviation Up",
         "description": "Being off-center increases."
       }
     }
   },
   {
     "id": 45,
-    "name": "PoisonCAdd",
+    "slug": "poison-c-add",
     "categories": [
-      "Bow"
+      "bow"
     ],
     "effects": {
       "15": {
-        "name": "Poison Coating Add",
         "description": "Poison Coating is enabled."
       }
     }
   },
   {
     "id": 46,
-    "name": "ParalyCAdd",
+    "slug": "paraly-c-add",
     "categories": [
-      "Bow"
+      "bow"
     ],
     "effects": {
       "15": {
-        "name": "Paralysis Coat Add",
         "description": "Paralysis Coating is enabled."
       }
     }
   },
   {
     "id": 47,
-    "name": "SleepCAdd",
+    "slug": "sleep-c-add",
     "categories": [
-      "Bow"
+      "bow"
     ],
     "effects": {
       "15": {
-        "name": "Sleep Coating Add",
         "description": "Sleep Coating is enabled."
       }
     }
   },
   {
     "id": 48,
-    "name": "PowerCAdd",
+    "slug": "power-c-add",
     "categories": [
-      "Bow"
+      "bow"
     ],
     "effects": {
       "15": {
-        "name": "Power Coating Add",
         "description": "Power Coating is enabled."
       }
     }
   },
   {
     "id": 49,
-    "name": "ClsRngCAdd",
+    "slug": "cls-rng-c-add",
     "categories": [
-      "Bow"
+      "bow"
     ],
     "effects": {
       "15": {
-        "name": "ClsRngCAdd",
         "description": "Close-range Coating is enabled."
       }
     }
   },
   {
     "id": 50,
-    "name": "SteadyHand",
+    "slug": "steady-hand",
     "categories": [
-      "Bowgun",
-      "Bow",
-      "Offensive"
+      "bowgun",
+      "bow",
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "Straight & True",
         "description": "Grants shot-type damage boosts for normal/rapid, pierce, and pellet/scatter shots.",
         "combines": [
           "NormalS/RapidBow Up",
@@ -984,231 +861,206 @@
   },
   {
     "id": 51,
-    "name": "Expert",
+    "slug": "expert",
     "categories": [
-      "Offensive"
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "Reckless Abandon+1",
         "description": "Increases affinity by 10%."
       },
       "15": {
-        "name": "Reckless Abandon+2",
         "description": "Increases affinity by 20%."
       },
       "20": {
-        "name": "Reckless Abandon+3",
         "description": "Increases affinity by 30%."
       },
       "-10": {
-        "name": "Reckless Abandon-1",
         "description": "Decreases affinity by 10%."
       }
     }
   },
   {
     "id": 52,
-    "name": "Spc Attack",
+    "slug": "spc-attack",
     "categories": [
-      "Offensive"
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "Abnormal Sts Atk Up",
         "description": "Increases weapon poison, paralysis, and sleep values by x1.125."
       }
     }
   },
   {
     "id": 53,
-    "name": "ElementAtk",
+    "slug": "element-atk",
     "categories": [
-      "Offensive"
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "Element Attack Up",
         "description": "Increases fire, water, ice, thunder, and dragon elemental damage by x1.2."
       }
     }
   },
   {
     "id": 54,
-    "name": "Rec Speed",
+    "slug": "rec-speed",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Damage Rec Speed +1",
         "description": "Red portion of health recovers 2x faster."
       },
       "20": {
-        "name": "Damage Rec Speed +2",
         "description": "Red portion of health recovers 4x faster."
       },
       "-10": {
-        "name": "Damage Rec Speed -1",
         "description": "Red portion of health recovers 2x slower."
       }
     }
   },
   {
     "id": 55,
-    "name": "Protection",
+    "slug": "protection",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Divine Protection",
         "description": "20% chance of receiving 30% less damage when taking damage."
       },
       "-10": {
-        "name": "Demonic Protection",
         "description": "20% chance of receiving 30% more damage when taking damage."
       }
     }
   },
   {
     "id": 56,
-    "name": "Guard Up",
+    "slug": "guard-up",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Guard Inc",
         "description": "Enables blocking attacks that normally cannot be blocked."
       }
     }
   },
   {
     "id": 57,
-    "name": "Evade",
+    "slug": "evade",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Evade +1",
         "description": "Slightly increases invincibility time during rolling and diving."
       },
       "15": {
-        "name": "Evade +2",
         "description": "Greatly increases invincibility time during rolling and diving."
       }
     }
   },
   {
     "id": 58,
-    "name": "Evade Dist",
+    "slug": "evade-dist",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Evade Distance Up",
         "description": "Increases covered distance when dodge rolling and diving."
       }
     }
   },
   {
     "id": 59,
-    "name": "Potential",
+    "slug": "potential",
     "categories": [
-      "Offensive"
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "Adrenaline +1",
         "description": "+90 defense when health is below 40%."
       },
       "15": {
-        "name": "Adrenaline +2",
         "description": "+90 defense and +30% attack when health is below 40%."
       },
       "-10": {
-        "name": "Worry",
         "description": "Increases defense but cuts attack by 30% when health is below 40%."
       }
     }
   },
   {
     "id": 60,
-    "name": "Gunnery",
+    "slug": "gunnery",
     "categories": [
-      "Offensive"
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "Gunnery Master",
         "description": "Increases damage of Ballista S and Cannon S."
       },
       "15": {
-        "name": "Gunnery King",
         "description": "Increases damage of Ballista S, Cannon S, Gunlance shells, Wyvern's Fire, and Crag S."
       }
     }
   },
   {
     "id": 61,
-    "name": "Capacity",
+    "slug": "capacity",
     "categories": [
-      "Offensive",
-      "Bowgun",
-      "Bow",
-      "Blademaster"
+      "offensive",
+      "bowgun",
+      "bow",
+      "blademaster"
     ],
     "effects": {
       "10": {
-        "name": "Capacity Up",
         "description": "Adds a Gunlance shell, adds ammo capacity to bowgun ammo types, or adds one bow charge level up to level 4."
       }
     }
   },
   {
     "id": 62,
-    "name": "ShortCharg",
+    "slug": "short-charg",
     "categories": [
-      "Bow",
-      "Blademaster"
+      "bow",
+      "blademaster"
     ],
     "effects": {
       "10": {
-        "name": "Focus",
         "description": "Decreases charging time and increases Long Sword spirit gauge gain."
       },
       "-10": {
-        "name": "Distracted",
         "description": "Increases charging time and decreases Long Sword spirit gauge gain."
       }
     }
   },
   {
     "id": 63,
-    "name": "Guts",
+    "slug": "guts",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Guts",
         "description": "Saves the hunter from an instant-death hit when health is above 65."
       }
     }
   },
   {
     "id": 64,
-    "name": "Fury",
+    "slug": "fury",
     "categories": [
-      "Offensive",
-      "Defensive"
+      "offensive",
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Emboldened",
         "description": "Saves the hunter from deadly hits and increases damage during low health.",
         "combines": [
           "Guts",
@@ -1219,563 +1071,493 @@
   },
   {
     "id": 65,
-    "name": "Map",
+    "slug": "map",
     "categories": [],
     "effects": {
       "10": {
-        "name": "FarSight",
         "description": "See the entire map without the map item."
       },
       "-10": {
-        "name": "Map Unavailable",
         "description": "Cannot see the map even with the map item."
       }
     }
   },
   {
     "id": 66,
-    "name": "PsychicVis",
+    "slug": "psychic-vis",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Detect",
         "description": "Provides detailed information on painted monsters, including calm or angry state."
       },
       "15": {
-        "name": "Autotracker",
         "description": "Constantly shows large monster locations and activity state on the map."
       }
     }
   },
   {
     "id": 67,
-    "name": "Gathering",
+    "slug": "gathering",
     "categories": [
-      "Treasure Hunting"
+      "treasure-hunting"
     ],
     "effects": {
       "10": {
-        "name": "Gathering +1",
         "description": "Increases extra gathering by 1 time."
       },
       "15": {
-        "name": "Gathering +2",
         "description": "Increases extra gathering by 2 times."
       },
       "-10": {
-        "name": "Gathering -1",
         "description": "Decreases possible gathering by 1 time."
       },
       "-15": {
-        "name": "Gathering -2",
         "description": "Decreases possible gathering by 2 times."
       }
     }
   },
   {
     "id": 68,
-    "name": "Carving",
+    "slug": "carving",
     "categories": [
-      "Farming",
-      "Treasure Hunting"
+      "farming",
+      "treasure-hunting"
     ],
     "effects": {
       "10": {
-        "name": "Carving Iron Man",
         "description": "Carving won't be interrupted by small attacks."
       },
       "20": {
-        "name": "Carving Celebrity",
         "description": "Can carve one extra time off any carving."
       }
     }
   },
   {
     "id": 69,
-    "name": "HiSpdGathr",
+    "slug": "hi-spd-gathr",
     "categories": [
-      "Treasure Hunting"
+      "treasure-hunting"
     ],
     "effects": {
       "10": {
-        "name": "High Speed Gathering",
         "description": "Increases the speed of carving, mining, gathering, and bugnetting."
       }
     }
   },
   {
     "id": 70,
-    "name": "Backpackng",
+    "slug": "backpackng",
     "categories": [
-      "Treasure Hunting"
+      "treasure-hunting"
     ],
     "effects": {
       "10": {
-        "name": "Backpacking Expert",
         "description": "Increases movement speed when carrying eggs and lets you fall farther without breaking them."
       }
     }
   },
   {
     "id": 71,
-    "name": "Whim",
+    "slug": "whim",
     "categories": [
-      "Treasure Hunting"
+      "treasure-hunting"
     ],
     "effects": {
       "15": {
-        "name": "Spirit's Whim",
         "description": "Prevents Pickaxes, Bugnets, and Flutes from breaking 25% of the time."
       },
       "20": {
-        "name": "Divine Whim",
         "description": "Prevents Pickaxes, Bugnets, and Flutes from breaking 50% of the time."
       },
       "-10": {
-        "name": "Spectre's Whim",
         "description": "Doubles chance of Pickaxes, Bugnets, and Flutes breaking 25% of the time."
       },
       "-15": {
-        "name": "Devil's Whim",
         "description": "Doubles chance of Pickaxes, Bugnets, and Flutes breaking 50% of the time."
       }
     }
   },
   {
     "id": 72,
-    "name": "Fishing",
+    "slug": "fishing",
     "categories": [
-      "Treasure Hunting"
+      "treasure-hunting"
     ],
     "effects": {
       "10": {
-        "name": "Fishing Expert",
         "description": "Increases the time to hook fish when the bait is eaten."
       }
     }
   },
   {
     "id": 73,
-    "name": "Heat Res",
+    "slug": "heat-res",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Heat Cancel [Lo]",
         "description": "Immunity to heat at specific areas."
       },
       "15": {
-        "name": "Heat Cancel [Hi]",
         "description": "Immunity to heat anyplace."
       },
       "-10": {
-        "name": "Heat Inc [Lo]",
         "description": "Health decreases x1.5 faster in hot areas."
       }
     }
   },
   {
     "id": 74,
-    "name": "Cold Res",
+    "slug": "cold-res",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "Cold Elimination[Lo]",
         "description": "Immunity to cold at specific areas."
       },
       "15": {
-        "name": "Cold Elimination[Hi]",
         "description": "Immunity to cold anyplace."
       },
       "-10": {
-        "name": "Cold Increase [Lo]",
         "description": "Stamina bar decreases x1.5 faster in cold areas."
       }
     }
   },
   {
     "id": 75,
-    "name": "Terrain",
+    "slug": "terrain",
     "categories": [
-      "Resistance"
+      "resistance"
     ],
     "effects": {
       "10": {
-        "name": "TerrainDamageHalf",
         "description": "Terrain damage is halved."
       },
       "15": {
-        "name": "TerrainDamageNegate",
         "description": "No terrain damage received."
       },
       "-10": {
-        "name": "TerrainDamageInc[Lo]",
         "description": "Terrain damage increases by x1.5."
       },
       "-15": {
-        "name": "TerrainDamageInc[Hi]",
         "description": "Terrain damage increases by x2."
       }
     }
   },
   {
     "id": 76,
-    "name": "Stamina",
+    "slug": "stamina",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Runner",
         "description": "Stamina usage is greatly decreased."
       },
       "-10": {
-        "name": "Flat Footed",
         "description": "Stamina usage is increased."
       }
     }
   },
   {
     "id": 77,
-    "name": "Constitutn",
+    "slug": "constitutn",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "Constitution +1",
         "description": "Stamina used to roll or dive is halved."
       },
       "15": {
-        "name": "Constitution +2",
         "description": "Stamina used to roll or dive is greatly reduced."
       }
     }
   },
   {
     "id": 78,
-    "name": "Hunger",
+    "slug": "hunger",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Hunger Halved",
         "description": "Stamina bar decreases x0.5 slower."
       },
       "15": {
-        "name": "Hunger Negated",
         "description": "Stamina bar does not decrease."
       },
       "-10": {
-        "name": "Hunger Increase[Lo]",
         "description": "Stamina bar decreases x1.5 faster."
       },
       "-15": {
-        "name": "Hunger Increase[Hi]",
         "description": "Stamina bar decreases x2.0 faster."
       }
     }
   },
   {
     "id": 79,
-    "name": "Sneak",
+    "slug": "sneak",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Stealth",
         "description": "Monsters target the hunter less often than teammates."
       },
       "-10": {
-        "name": "Taunt",
         "description": "Monsters target the hunter more often than teammates."
       }
     }
   },
   {
     "id": 80,
-    "name": "Fate",
+    "slug": "fate",
     "categories": [
-      "Farming"
+      "farming"
     ],
     "effects": {
       "10": {
-        "name": "Good Luck",
         "description": "Chance for increasing rewards."
       },
       "15": {
-        "name": "Luck Booster",
         "description": "Greater chance for increasing rewards."
       },
       "-10": {
-        "name": "Bad Luck",
         "description": "Chance for decreasing rewards."
       },
       "-20": {
-        "name": "Calamity",
         "description": "Greater chance for decreasing rewards."
       }
     }
   },
   {
     "id": 81,
-    "name": "SpeedSetup",
+    "slug": "speed-setup",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Trap Master",
         "description": "Guarantees trap combinations succeed, and speeds up trap and bomb-setting time."
       }
     }
   },
   {
     "id": 82,
-    "name": "Tranquilzr",
+    "slug": "tranquilzr",
     "categories": [
-      "Farming"
+      "farming"
     ],
     "effects": {
       "10": {
-        "name": "Tranquilizing Whiz",
         "description": "Sometimes increases the chance of more capture rewards."
       },
       "15": {
-        "name": "Tranquilizing Celeb",
         "description": "Often increases the chance of more capture rewards."
       }
     }
   },
   {
     "id": 83,
-    "name": "Perceive",
+    "slug": "perceive",
     "categories": [
-      "Farming"
+      "farming"
     ],
     "effects": {
       "10": {
-        "name": "Tranquilizing Guru",
         "description": "Painted or auto-tracked capture targets turn yellow when they are ready to be captured."
       }
     }
   },
   {
     "id": 84,
-    "name": "Recovery",
+    "slug": "recovery",
     "categories": [
-      "Defensive"
+      "defensive"
     ],
     "effects": {
       "10": {
-        "name": "HealthRecItemsImprvd",
         "description": "Healing item effectiveness increases by 25%."
       },
       "-10": {
-        "name": "HealthRecItemsWeaknd",
         "description": "Healing item effectiveness drops by 25%."
       }
     }
   },
   {
     "id": 85,
-    "name": "Everlastng",
+    "slug": "everlastng",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Item Usage Improved",
         "description": "Item effects last 50% longer."
       },
       "-10": {
-        "name": "Item Usage Decline",
         "description": "Item effect duration is cut by 40%."
       }
     }
   },
   {
     "id": 86,
-    "name": "Wide Area",
+    "slug": "wide-area",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Wide Area +1",
         "description": "Item effects are spread 50%."
       },
       "20": {
-        "name": "Wide Area +2",
         "description": "Item effects are spread 100%."
       }
     }
   },
   {
     "id": 87,
-    "name": "Throw",
+    "slug": "throw",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Throwing Skill Up",
         "description": "Increases thrown item distance and reduces the chance of boomerangs breaking."
       }
     }
   },
   {
     "id": 88,
-    "name": "BombStrUp",
+    "slug": "bomb-str-up",
     "categories": [
-      "Offensive"
+      "offensive"
     ],
     "effects": {
       "10": {
-        "name": "Bomber",
         "description": "Guarantees bomb combinations succeed and increases bomb damage by x1.5."
       }
     }
   },
   {
     "id": 89,
-    "name": "Gluttony",
+    "slug": "gluttony",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Filled Up",
         "description": "Can get a stamina increase from fish steaks."
       },
       "15": {
-        "name": "Scavenger",
         "description": "Can get a stamina increase from healing items."
       }
     }
   },
   {
     "id": 90,
-    "name": "Cooking",
+    "slug": "cooking",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Quick Eating",
         "description": "Increases eating speed."
       },
       "-10": {
-        "name": "Slow Life",
         "description": "Decreases eating speed."
       }
     }
   },
   {
     "id": 91,
-    "name": "BBQ",
+    "slug": "bbq",
     "categories": [],
     "effects": {
       "10": {
-        "name": "BBQ Celebrity",
         "description": "Makes it easier to cook Well-Done Steaks and possible to cook Gourmet Steaks."
       },
       "-10": {
-        "name": "So-called BBQ King",
         "description": "Makes it hard to cook steaks."
       }
     }
   },
   {
     "id": 92,
-    "name": "Horn",
+    "slug": "horn",
     "categories": [
-      "Blademaster"
+      "blademaster"
     ],
     "effects": {
       "10": {
-        "name": "Flute Expert",
         "description": "Halves the chance for flute items to break and extends Hunting Horn song duration by 1 minute."
       }
     }
   },
   {
     "id": 93,
-    "name": "MixSucRate",
+    "slug": "mix-suc-rate",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Combine Success +15%",
         "description": "Increases combination success rate by 15%."
       },
       "15": {
-        "name": "Combine Success +25%",
         "description": "Increases combination success rate by 25%."
       },
       "20": {
-        "name": "Combine Success +45%",
         "description": "Increases combination success rate by 45%."
       },
       "-10": {
-        "name": "Combine Success -10%",
         "description": "Decreases combination success rate by 10%."
       }
     }
   },
   {
     "id": 94,
-    "name": "Shot Mix",
+    "slug": "shot-mix",
     "categories": [
-      "Bowgun",
-      "Bow"
+      "bowgun",
+      "bow"
     ],
     "effects": {
       "10": {
-        "name": "Bullet Limit",
         "description": "Maxes out the amount of ammo or coatings made by each combination."
       }
     }
   },
   {
     "id": 95,
-    "name": "Alchemy",
+    "slug": "alchemy",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Alchemy",
         "description": "Enables combinations for items that require Alchemy."
       }
     }
   },
   {
     "id": 96,
-    "name": "ComrdGuide",
+    "slug": "comrd-guide",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Comrade Guidance",
         "description": "Increases Felyne Comrade experience after clearing quests."
       },
       "15": {
-        "name": "Comrade Guidance&Trade",
         "description": "Increases Felyne Comrade experience and skill points after clearing quests."
       }
     }
   },
   {
     "id": 97,
-    "name": "ComradeAtk",
+    "slug": "comrade-atk",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Comrade Attack Up",
         "description": "Increases Felyne Comrade attack."
       }
     }
   },
   {
     "id": 98,
-    "name": "ComradeDef",
+    "slug": "comrade-def",
     "categories": [],
     "effects": {
       "10": {
-        "name": "Comrade Defense Up",
         "description": "Increases Felyne Comrade defense."
       }
     }
   },
   {
     "id": 99,
-    "name": "Torso Inc",
+    "slug": "torso-inc",
     "categories": [],
     "effects": {}
   }

@@ -1,11 +1,14 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 import Fieldset from '~/components/Fieldset.vue';
 import Field from '~/components/Field.vue';
 import Select from '~/components/Select.vue';
 import Toggle from '~/components/Toggle.vue';
 import { useGame } from '~/composables/useGame';
+import { useHistory } from '~/composables/useHistory';
 import { useQuery } from '~/composables/useQuery';
+import { useSearch } from '~/composables/useSearch';
 import { useTranslation } from '~/composables/useTranslation';
 import { formatSkillPoints } from '~/skills';
 import {
@@ -19,6 +22,9 @@ import SkillPill from '~/components/SkillPill.vue';
 import Radioboxes from '~/components/Radioboxes.vue';
 
 const { data, game } = useGame();
+const router = useRouter();
+const history = useHistory();
+const search = useSearch();
 const { translate } = useTranslation();
 const {
   query,
@@ -85,6 +91,17 @@ const selectedSkills = computed(() => {
     points,
   }));
 });
+const canSearch = computed(
+  () => data.value !== undefined && game.value !== undefined && selectedSkills.value.length > 0,
+);
+
+function submit() {
+  if (!data.value || !game.value || selectedSkills.value.length === 0) return;
+
+  search.start(game.value.slug, query.value, data.value);
+  history.add(query.value);
+  void router.push(resultsPath.value);
+}
 </script>
 
 <template>
@@ -179,10 +196,12 @@ const selectedSkills = computed(() => {
       />
     </Label>
   </Fieldset>
-  <NuxtLink
-    :to="resultsPath"
-    class="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-700 px-4 py-3 font-semibold text-white shadow-sm hover:bg-emerald-800 dark:bg-emerald-500 dark:text-stone-950 dark:hover:bg-emerald-400"
+  <button
+    type="button"
+    :disabled="!canSearch"
+    class="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-700 px-4 py-3 font-semibold text-white shadow-sm hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-emerald-500 dark:text-stone-950 dark:hover:bg-emerald-400"
+    @click="submit"
   >
     {{ translate('search-submit') }}
-  </NuxtLink>
+  </button>
 </template>

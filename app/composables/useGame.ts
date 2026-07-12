@@ -3,8 +3,10 @@ import { computed, watch } from "vue";
 import { useRoute } from "vue-router";
 
 import { range } from "~/utility";
+import { type LocaleSlug, type Translations } from '~/translation';
 
-import { type Game, type GameData, ARMOUR_SLOTS, type ArmourPiece, type ArmourSlot, type SkillDefinition, type Decoration, type GameTranslations } from "~/game/types";
+import { type Game, type GameData, ARMOUR_SLOTS, type ArmourPiece, type ArmourSlot, type SkillDefinition, type Decoration } from "~/game/types";
+import { usePreferences } from './usePreferences';
 
 
 type GameDataLoading = {
@@ -56,7 +58,9 @@ let currentLoad = 0;
 
 export function useGame() {
   const route = useRoute();
+  const { locale } = usePreferences();
   const loadedSlug = useState<string | undefined>("game-data-slug", () => undefined);
+  const loadedLocale = useState<LocaleSlug | undefined>('game-data-locale', () => undefined);
   const rawData = useState<GameData | undefined>("game-data", () => undefined);
   const loadingState = useState<GameDataLoading>("game-data-loading", () => ({
     done: 0,
@@ -77,7 +81,7 @@ export function useGame() {
   });
 
   const data = computed(() => {
-    if (!game.value || loadedSlug.value !== game.value.slug)
+    if (!game.value || loadedSlug.value !== game.value.slug || loadedLocale.value !== locale.value)
       return;
 
     return rawData.value;
@@ -97,7 +101,9 @@ export function useGame() {
     if (!currentGame)
       return;
 
-    if (loadedSlug.value === currentGame.slug && rawData.value)
+    const currentLocale = locale.value;
+
+    if (loadedSlug.value === currentGame.slug && loadedLocale.value === currentLocale && rawData.value)
       return rawData.value;
 
     const load = ++currentLoad;
@@ -140,22 +146,21 @@ export function useGame() {
 
         return {
           ...skill,
-          categories: ["Uncategorised"],
+          categories: ["uncategorized"],
         };
       }),
-      translations: await track(
-        fetchJson<GameTranslations>(`${basePath}/translation.json`),
-      ),
+      translations: await track(fetchJson<Translations>(`${basePath}/translations/${encodeURIComponent(currentLocale)}.json`)),
     };
 
     if (load === currentLoad) {
       loadedSlug.value = currentGame.slug;
+      loadedLocale.value = currentLocale;
       rawData.value = nextData;
     }
   }
 
   watch(
-    () => game.value?.slug,
+    () => [game.value?.slug, locale.value] as const,
     () => {
       void loadData();
     },

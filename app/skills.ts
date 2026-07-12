@@ -16,6 +16,12 @@ export function formatSkillPoints(points: number) {
   return points > 0 ? `+${points}` : String(points);
 }
 
+export function getSkillEffectKey(skill: string, points: number) {
+  const threshold = points < 0 ? `minus-${Math.abs(points)}` : String(points);
+
+  return `skill-${skill}-effect-${threshold}`;
+}
+
 export function getSkillOptions(
   skill: SkillDefinition,
   showNegativeSkills: boolean,
@@ -27,10 +33,10 @@ export function getSkillOptions(
       if (effect === undefined) return;
 
       return {
-        label: effect.name,
+        label: skill.slug,
         points: value,
         requirement: {
-          skill: skill.name,
+          skill: skill.slug,
           points: value,
         },
       };
@@ -48,10 +54,10 @@ export function getSkillOptions(
 
 export function getEffect(
   skills: SkillDefinition[],
-  name: string,
+  slug: string,
   points: number,
 ) {
-  const skill = skills.find((s) => s.name === name);
+  const skill = skills.find((s) => s.slug === slug);
   if (!skill) return null;
 
   const thresholds = Object.keys(skill.effects)
@@ -60,13 +66,13 @@ export function getEffect(
   for (const threshold of thresholds) {
     if (threshold < 0 && points <= threshold)
       return {
-        skill: skill.name,
+        skill: skill.slug,
         effect: skill.effects[threshold]!,
         points: threshold,
       };
     else if (threshold > 0 && points >= threshold)
       return {
-        skill: skill.name,
+        skill: skill.slug,
         effect: skill.effects[threshold]!,
         points: threshold,
       };
@@ -76,23 +82,23 @@ export function getEffect(
 
 export function getSkillCategoryIcon(category: string) {
   switch (category) {
-    case 'Uncategorised':
+    case 'uncategorized':
       return 'lucide:circle-help';
-    case 'Offensive':
+    case 'offensive':
       return 'lucide:swords';
-    case 'Defensive':
+    case 'defensive':
       return 'lucide:shield';
-    case 'Resistance':
+    case 'resistance':
       return 'lucide:component';
-    case 'Bowgun':
+    case 'bowgun':
       return 'lucide:bow-arrow';
-    case 'Bow':
+    case 'bow':
       return 'lucide:bow-arrow';
-    case 'Blademaster':
+    case 'blademaster':
       return 'lucide:sword';
-    case 'Treasure Hunting':
+    case 'treasure-hunting':
       return 'lucide:shovel';
-    case 'Farming':
+    case 'farming':
       return 'lucide:tractor';
     default:
       return 'lucide:tag';

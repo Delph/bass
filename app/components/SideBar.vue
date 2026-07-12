@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { useRoute } from "vue-router";
+import { useRoute } from 'vue-router';
 
-import type { Game } from "~/game/types";
+import type { Game } from '~/game/types';
 
-import { useTranslation } from "~/composables/useTranslation";
-import LanguageSelector from "~/components/LanguageSelector.vue";
-import Toggle from "~/components/Toggle.vue";
-import { useTheme } from "~/composables/useTheme";
+import { useTranslation } from '~/composables/useTranslation';
+import LanguageSelector from '~/components/LanguageSelector.vue';
+import Toggle from '~/components/Toggle.vue';
+import { useTheme } from '~/composables/useTheme';
 
 const { translate } = useTranslation();
 const { theme, set } = useTheme();
@@ -17,20 +17,33 @@ const props = defineProps<{
   open: boolean;
 }>();
 
-const emit = defineEmits<{ (e: "close"): void }>();
+const emit = defineEmits<{ (e: 'close'): void }>();
 
-const tabs = ["home", "search", "sets", "history"] as const;
+const tabs = ['home', 'search', 'sets', 'history'] as const;
 type Tab = (typeof tabs)[number];
 
 function path(tab: Tab) {
-  if (tab === "home")
-    return `/${props.game.slug}`;
+  if (tab === 'home') return `/${props.game.slug}`;
 
   return `/${props.game.slug}/${tab}`;
 }
 
-function setDarkMode(value: boolean) {
-  set(value ? 'dark' : 'light');
+function resultsPath() {
+  return `/${props.game.slug}/search/results`;
+}
+
+function active(tab: Tab) {
+  if (tab === 'search')
+    return (
+      route.path === path('search') ||
+      route.path === `/${props.game.slug}/search/skills`
+    );
+
+  return route.path === path(tab);
+}
+
+function label(tab: Tab) {
+  return translate(`navigation-tab-${tab}`);
 }
 </script>
 
@@ -53,61 +66,74 @@ function setDarkMode(value: boolean) {
         </button>
       </div>
       <nav class="flex flex-col gap-2">
-        <NuxtLink
-          v-for="tab in tabs"
-          :key="tab"
-          class="rounded px-3 py-2 font-semibold"
-          :class="route.path === path(tab) ? 'bg-emerald-700 text-white dark:bg-emerald-500 dark:text-stone-950' : 'text-stone-700 hover:bg-stone-200 dark:text-stone-200 dark:hover:bg-stone-800'"
-          :to="path(tab)"
-          @click="emit('close')"
-        >
-          {{ translate(`navigation-tab-${tab}`) }}
-        </NuxtLink>
+        <template v-for="tab in tabs" :key="tab">
+          <NuxtLink
+            class="rounded px-3 py-2 font-semibold"
+            :class="
+              active(tab)
+                ? 'bg-emerald-700 text-white dark:bg-emerald-500 dark:text-stone-950'
+                : 'text-stone-700 hover:bg-stone-200 dark:text-stone-200 dark:hover:bg-stone-800'
+            "
+            :to="path(tab)"
+          >
+            {{ label(tab) }}
+          </NuxtLink>
+          <NuxtLink
+            v-if="tab === 'search'"
+            class="ml-4 rounded px-3 py-1.5 text-sm font-semibold"
+            :class="
+              route.path === resultsPath()
+                ? 'bg-emerald-700 text-white dark:bg-emerald-500 dark:text-stone-950'
+                : 'text-stone-600 hover:bg-stone-200 dark:text-stone-300 dark:hover:bg-stone-800'
+            "
+            :to="resultsPath()"
+          >
+            {{ translate('navigation-tab-results') }}
+          </NuxtLink>
+        </template>
       </nav>
     </div>
-    <div class="flex flex-col gap-3 border-t border-stone-200 pt-4 dark:border-stone-800">
-      <div class="flex items-center justify-between gap-3 rounded-lg bg-stone-200 px-3 py-2 text-sm font-semibold text-stone-800 dark:bg-stone-800 dark:text-stone-100">
+    <div
+      class="flex flex-col gap-3 border-t border-stone-200 pt-4 dark:border-stone-800"
+    >
+      <div
+        class="flex items-center justify-between gap-3 rounded-lg bg-stone-200 px-3 py-2 text-sm font-semibold text-stone-800 dark:bg-stone-800 dark:text-stone-100"
+      >
         <button
           @click="() => set('system')"
           class="w-8 h-8 rounded-xl flex items-center justify-center text-xl"
           :class="{
             'bg-emerald-100': theme === 'system',
-            'dark:bg-emerald-700': theme === 'system'
+            'dark:bg-emerald-700': theme === 'system',
           }"
         >
-          <Icon
-            name="lucide:computer"
-            class="size-4"
-          />
+          <Icon name="lucide:computer" />
         </button>
         <button
           @click="() => set('dark')"
           class="w-8 h-8 rounded-xl flex items-center justify-center text-xl"
           :class="{
             'bg-emerald-100': theme === 'dark',
-            'dark:bg-emerald-700': theme === 'dark'
+            'dark:bg-emerald-700': theme === 'dark',
           }"
         >
-          <Icon
-            name="lucide:moon"
-            class="size-4"
-          />
+          <Icon name="lucide:moon" />
         </button>
         <button
           @click="() => set('light')"
           class="w-8 h-8 rounded-xl flex items-center justify-center text-xl"
           :class="{
             'bg-emerald-100': theme === 'light',
-            'dark:bg-emerald-700': theme === 'light'
+            'dark:bg-emerald-700': theme === 'light',
           }"
         >
-          <Icon
-            name="lucide:sun"
-            class="size-4"
-          />
+          <Icon name="lucide:sun" />
         </button>
       </div>
       <LanguageSelector class="self-center" />
+      <NuxtLink to="/settings">
+        {{ translate('settings') }}
+      </NuxtLink>
     </div>
   </aside>
 </template>

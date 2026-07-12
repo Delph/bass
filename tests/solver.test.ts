@@ -12,7 +12,7 @@ import waist from '../public/data/games/mhfu/waist.json';
 import legs from '../public/data/games/mhfu/legs.json';
 import decorations from '../public/data/games/mhfu/decorations.json';
 import skills from '../public/data/games/mhfu/skills.json';
-import translations from '../public/data/games/mhfu/translation.json';
+import translations from '../public/data/games/mhfu/translations/en-US.json';
 import { omit } from '~/utility';
 import { query } from '~/query/types';
 
@@ -33,8 +33,26 @@ export function hasNoBadSkill(build: BuildResult) {
   return Object.values(build.skills).every((p) => p > -10);
 }
 
-export function hasDecoration(build: BuildResult, name: string) {
-  return build.decorations.armour.find((d) => d.name === name) !== undefined;
+export function hasDecoration(build: BuildResult, slug: string) {
+  return build.decorations.armour.find((d) => d.slug === slug) !== undefined;
+}
+
+function findBySlug<T extends { slug: string }>(items: T[], slug: string) {
+  const item = items.find((item) => item.slug === slug);
+
+  if (!item) throw new Error(`Missing fixture: ${slug}`);
+
+  return item;
+}
+
+function reloadPenaltyFixtureGear() {
+  return {
+    head: [findBySlug(head, 'ucamulbas-fangs')],
+    body: [findBySlug(body, 'ucamulbas-plate')],
+    arms: [findBySlug(arms, 'kirin-gloves-x')],
+    waist: [findBySlug(waist, 'blango-coat-x')],
+    legs: [findBySlug(legs, 'ucamulbas-boots')],
+  };
 }
 
 test('solver/prepare', () => {
@@ -52,20 +70,20 @@ test('solver/prepare', () => {
   expect(pieces.every((piece) => (piece.class & q.weapon.class) !== 0)).toBe(
     true,
   );
-  expect(pieces.every((piece) => !piece.name.includes('dummy'))).toBe(true);
+  expect(pieces.every((piece) => !piece.slug.includes('dummy'))).toBe(true);
 });
 
 test('solver/solver:decorationsForSkill', () => {
-  const attack = decorationsForSkill(omit(data, 'armour'), 'Attack');
+  const attack = decorationsForSkill(omit(data, 'armour'), 'attack');
   expect(attack.length).toBe(3);
   expect(attack.map((d) => d.slots)).toStrictEqual([3, 2, 1]);
 
-  const heat = decorationsForSkill(omit(data, 'armour'), 'Heat Res');
+  const heat = decorationsForSkill(omit(data, 'armour'), 'heat-res');
   expect(heat.map((d) => d.skill.points)).toStrictEqual([3, 2, 1]);
-  expect(heat.map((d) => d.name)).toStrictEqual([
-    'Cold Wind Jewel',
-    'Icy Gale Jewel',
-    'CoolBreeze Jewel',
+  expect(heat.map((d) => d.slug)).toStrictEqual([
+    'cold-wind-jewel',
+    'icy-gale-jewel',
+    'cool-breeze-jewel',
   ]);
 });
 
@@ -111,10 +129,10 @@ test('solver/solver:solve - KAS meta', () => {
       allowBad: false,
     },
     skills: {
-      ShortCharg: 10,
-      'Sword Draw': 10,
-      Artisan: 10,
-      'Dragon Res': 15,
+      'short-charg': 10,
+      'sword-draw': 10,
+      artisan: 10,
+      'dragon-res': 15,
     },
   });
 
@@ -131,20 +149,60 @@ test('solver/solver:solve - KAS meta', () => {
 
   assert(!done);
 
-  expect(hasSkill(value, 'ShortCharg', 10)).toBe(true);
-  expect(hasSkill(value, 'Sword Draw', 10)).toBe(true);
-  expect(hasSkill(value, 'Artisan', 10)).toBe(true);
-  expect(hasSkill(value, 'Dragon Res', 15)).toBe(true);
+  expect(hasSkill(value, 'short-charg', 10)).toBe(true);
+  expect(hasSkill(value, 'sword-draw', 10)).toBe(true);
+  expect(hasSkill(value, 'artisan', 10)).toBe(true);
+  expect(hasSkill(value, 'dragon-res', 15)).toBe(true);
   expect(hasNoBadSkill(value)).toBe(true);
+});
+
+test('solver/solver: rejects builds when decoration penalties break required skills', () => {
+  const q = query({
+    weapon: { class: WEAPON_CLASS.Gunner, slots: 0 },
+    skills: {
+      reload: 10,
+      capacity: 10,
+      'element-atk': 10,
+      'shot-mix': 10,
+    },
+  });
+
+  expect([
+    ...solve(q, reloadPenaltyFixtureGear(), omit(data, 'armour')),
+  ]).toHaveLength(0);
+});
+
+test('solver/solver: repairs required skills after decoration penalties when possible', () => {
+  const q = query({
+    weapon: { class: WEAPON_CLASS.Gunner, slots: 3 },
+    skills: {
+      reload: 10,
+      capacity: 10,
+      'element-atk': 10,
+      'shot-mix': 10,
+    },
+  });
+
+  const results = [...solve(q, reloadPenaltyFixtureGear(), omit(data, 'armour'))];
+
+  expect(results).toHaveLength(1);
+  const build = results[0];
+  assert(build);
+  expect(hasSkill(build, 'reload', 10)).toBe(true);
+  expect(
+    build.decorations.armour.some(
+      (decoration) => decoration.skill.skill === 'reload',
+    ),
+  ).toBe(true);
 });
 
 test('solver/solver:solve - AR, Evd Dist Up, EAU, 1 slot', () => {
   const q = query({
     weapon: { class: WEAPON_CLASS.Gunner, slots: 1 },
     skills: {
-      'Element Atk Up': 10,
-      'Evade Dist Up': 10,
-      AutoReload: 10,
+      'element-atk': 10,
+      'evade-dist': 10,
+      'auto-reload': 10,
     },
   });
 

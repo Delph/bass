@@ -19,7 +19,7 @@ import {
   setSkills,
 } from '~/set';
 import Field from '~/components/Field.vue';
-import { getEffect } from '~/skills';
+import { getEffect, getSkillEffectKey } from '~/skills';
 import { formatDateTime, formatNumber } from '~/format';
 import Textarea from '~/components/Textarea.vue';
 import ConfirmDialog from '~/components/ConfirmDialog.vue';
@@ -219,10 +219,7 @@ async function copyLink() {
           :class="dirty ? 'text-amber-700 dark:text-amber-300' : ''"
           @click="save"
         >
-          <Icon
-            class="w-4 h-4"
-            :name="saved ? 'lucide:save' : 'lucide:bookmark-plus'"
-          />
+          <Icon :name="saved ? 'lucide:save' : 'lucide:bookmark-plus'" />
           <span>{{ translate('set-save') }}</span>
         </button>
         <button
@@ -232,7 +229,6 @@ async function copyLink() {
           @click="copyLink"
         >
           <Icon
-            class="w-4 h-4"
             :name="copied ? 'lucide:check' : 'lucide:copy'"
             :class="copied ? 'text-emerald-700 dark:text-emerald-300' : ''"
           />
@@ -245,7 +241,7 @@ async function copyLink() {
           :title="translate('set-delete')"
           @click="confirmDelete = true"
         >
-          <Icon class="w-4 h-4" name="lucide:trash" />
+          <Icon name="lucide:trash" />
           <span>{{ translate('set-delete') }}</span>
         </button>
       </div>
@@ -270,7 +266,7 @@ async function copyLink() {
         v-for="(piece, slot) in resolved.armour"
         class="flex items-center gap-2 w-full rounded-xl bg-stone-200 dark:bg-stone-800 p-2"
       >
-        <img class="h-6 w-6" :src="icons.armour(slot)" /> {{ piece.name }}
+        <img class="h-6 w-6" :src="icons.armour(slot)" /> {{ translate(`armour-${slot}-${piece.slug}`) }}
       </div>
     </div>
 
@@ -284,7 +280,7 @@ async function copyLink() {
         )"
         class="bg-stone-200 dark:bg-stone-800 p-2 rounded-xl"
       >
-        {{ quantity }}x {{ decoration.name }}: {{ decoration.skill.skill }}
+        {{ quantity }}x {{ translate(`decoration-${decoration.slug}`) }}: {{ translate(`skill-${decoration.skill.skill}`) }}
       </div>
     </div>
 
@@ -367,9 +363,11 @@ async function copyLink() {
               : 'text-emerald-700 dark:text-emerald-300'
           "
         >
-          {{ effect.effect.name }}
+          {{ translate(`skill-${effect.skill}`) }}
         </div>
-        <div class="pl-4">{{ effect.effect.description }}</div>
+        <div class="pl-4">
+          {{ translate(getSkillEffectKey(effect.skill, effect.points)) }}
+        </div>
       </div>
     </div>
 

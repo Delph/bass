@@ -6,9 +6,11 @@ import { useGame } from "~/composables/useGame";
 import { useTheme } from "~/composables/useTheme";
 import { useTranslation } from "~/composables/useTranslation";
 import { useToasts } from '~/composables/useToasts';
+import '~/persistence/register';
 
 import SideBar from "~/components/SideBar.vue";
 import Progress from "~/components/Progress.vue";
+import SearchStatus from '~/components/SearchStatus.vue';
 import Toast from '~/components/Toast.vue';
 
 const {
@@ -18,9 +20,7 @@ const {
 const {
   data,
   game,
-  games,
   loading,
-  slug,
 } = useGame();
 const route = useRoute();
 const router = useRouter();
@@ -28,35 +28,36 @@ const { toasts } = useToasts();
 
 useTheme();
 
-watch(
-  () => slug.value,
-  (currentSlug) => {
-    if (currentSlug || games.length !== 1)
-      return;
-
-    void router.replace(`/${games[0]!.slug}`);
-  },
-  { immediate: true },
-);
-
 const menu = ref(false);
 
-const backPath = computed(() => {
+watch(
+  () => route.fullPath,
+  () => {
+    menu.value = false;
+  },
+);
+
+const hasBack = computed(() => {
   const currentGame = game.value;
   const parts = route.path.split('/').filter(Boolean);
 
-  if (!currentGame || parts[0] !== currentGame.slug || parts.length <= 2)
-    return '';
+  if (parts.length === 0) return false;
 
-  return `/${parts.slice(0, -1).join('/')}`;
+  if (!currentGame || parts[0] !== currentGame.slug) return true;
+
+  return parts.length > 2;
 });
+
+function back() {
+  router.back();
+}
 
 const scroll = computed(() => route.meta.scroll !== false);
 </script>
 
 <template>
   <div
-    v-if="ready"
+    v-show="ready"
     class="flex h-dvh flex-col bg-stone-50 text-stone-950 dark:bg-stone-950 dark:text-stone-100"
   >
     <header class="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2 bg-emerald-700 px-4 py-2 text-center text-white dark:bg-emerald-900">
@@ -70,19 +71,22 @@ const scroll = computed(() => route.meta.scroll !== false);
         >
           <Icon name="lucide:menu" />
         </button>
-        <NuxtLink
-          v-if="backPath"
-          :to="backPath"
+        <button
+          v-if="hasBack"
+          type="button"
           class="rounded p-1 hover:bg-emerald-800 dark:hover:bg-emerald-800"
           :aria-label="translate('navigation-back')"
+          @click="back"
         >
           <Icon name="lucide:arrow-left" />
-        </NuxtLink>
+        </button>
       </div>
       <NuxtLink to="/">
         <h1>{{ translate("bass-title-full") }}</h1>
       </NuxtLink>
-      <div />
+      <div class="justify-self-end">
+        <SearchStatus />
+      </div>
     </header>
     <div
       class="flex min-h-0 flex-1"
@@ -99,13 +103,17 @@ const scroll = computed(() => route.meta.scroll !== false);
         :class="scroll ? 'overflow-y-auto' : 'overflow-hidden'"
       >
         <div
-          v-if="!game || data"
           class="flex flex-col gap-4"
         >
-          <NuxtPage />
+          <NuxtPage v-slot="{ Component }">
+            <component
+              :is="Component"
+              v-if="ready && (!game || data)"
+            />
+          </NuxtPage>
         </div>
         <div
-          v-else
+          v-if="ready && game && !data"
           class="flex flex-col gap-2 text-center"
         >
           <p>Loading</p>

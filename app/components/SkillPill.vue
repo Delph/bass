@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { formatSkillPoints, getEffect } from '~/skills';
+import { formatSkillPoints, getEffect, getSkillEffectKey } from '~/skills';
 
 import { useGame } from '~/composables/useGame';
+import { useTranslation } from '~/composables/useTranslation';
 import type { EffectDefinition } from '~/game/types';
 
 const { data } = useGame();
+const { translate } = useTranslation();
 
 const props = defineProps<{
   skill: string;
@@ -34,7 +36,7 @@ const activated = computed((): SkillEffect | null => {
         : 'bg-emerald-100 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-100'
     "
   >
-    <span>{{ activated.effect.name }}</span>
+    <span>{{ translate(getSkillEffectKey(activated.skill, activated.points)) }}</span>
     <span
       :class="
         activated.points < 0

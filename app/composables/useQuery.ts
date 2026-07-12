@@ -1,7 +1,7 @@
-import { useState } from '#app';
 import { computed } from 'vue';
 import { useGame } from '~/composables/useGame';
-import { defineBucket } from '~/persistence/storage';
+import { bucket } from '~/persistence/buckets/query';
+import { current } from '~/persistence/storage';
 import {
   WEAPON_CLASS,
   HUNTER_GENDER,
@@ -9,32 +9,22 @@ import {
   type SkillRequirement,
   type HunterGender,
   type QueryState,
-  query,
+  query as createQuery,
 } from '~/query/types';
-
-const bucket = defineBucket<Record<string, QueryState>>({
-  key: 'bass:query',
-  version: 0,
-  initial: {
-    mhf: query({
-      hunter: { rank: 5, village: 6 },
-    }),
-    mhfu: query(),
-  },
-  migrate: function (
-    version: number,
-    stored: unknown,
-  ): Record<string, QueryState> {
-    return stored as Record<string, QueryState>;
-  },
-});
 
 export function useQuery() {
   const game = useGame();
 
-  const queries = useState<Record<string, QueryState>>('query', bucket.load);
+  const queries = bucket.state('query');
 
-  const query = computed(() => queries.value[game.slug.value ?? 'mhfu']!);
+  const query = computed(() =>
+    current(game.slug.value ?? 'mhfu', queries.value, () => createQuery()),
+  );
+
+  function setQuery(value: QueryState) {
+    queries.value[game.slug.value ?? 'mhfu'] = createQuery(value);
+    bucket.save(queries.value);
+  }
 
   function setGuildRank(value: number) {
     query.value.hunter.rank = value;
@@ -80,6 +70,7 @@ export function useQuery() {
     hasSkill,
     query,
     removeSkill,
+    setQuery,
     setGuildRank,
     setHunterGender,
     setVillageRank,

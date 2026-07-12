@@ -1,14 +1,18 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import type { BuildResult } from '~/solver/solver';
+import type { ArmourSet, BuildResult } from '~/solver/solver';
 import { useSets } from '~/composables/useSets';
 import { formatNumber } from '~/format';
 import SkillPill from '~/components/SkillPill.vue';
 import { useIcons } from '~/composables/useIcons';
-import { defence, effective, resistances } from '~/set';
+import { useTranslation } from '~/composables/useTranslation';
+import { useGame } from '~/composables/useGame';
+import { defence, effective, resistances, setSharePath } from '~/set';
 
 const { addSet } = useSets();
+const { slug } = useGame();
 const icons = useIcons();
+const { translate } = useTranslation();
 
 const props = defineProps<{
   set: BuildResult;
@@ -17,16 +21,33 @@ const saved = ref(false);
 
 const def = computed(() => defence(Object.values(props.set.armour)));
 const res = computed(() => resistances(Object.values(props.set.armour)));
+const armourSet = computed<ArmourSet>(() => ({
+  armour: {
+    head: props.set.armour.head.id,
+    body: props.set.armour.body.id,
+    arms: props.set.armour.arms.id,
+    waist: props.set.armour.waist.id,
+    legs: props.set.armour.legs.id,
+  },
+  decorations: {
+    armour: props.set.decorations.armour.map((d) => d.id),
+    torso: props.set.decorations.torso.map((d) => d.id),
+    weapon: props.set.decorations.weapon.map((d) => d.id),
+  },
+}));
+const setPath = computed(() =>
+  slug.value ? setSharePath(slug.value, armourSet.value) : '/',
+);
 
 const decorations = computed(() => {
-  const grouped = new Map<string, { name: string; count: number }>();
+  const grouped = new Map<string, { slug: string; count: number }>();
 
   for (const collection of Object.values(props.set.decorations)) {
     for (const decoration of collection) {
-      const group = grouped.get(decoration.name);
+      const group = grouped.get(decoration.slug);
 
       if (group) ++group.count;
-      else grouped.set(decoration.name, { name: decoration.name, count: 1 });
+      else grouped.set(decoration.slug, { slug: decoration.slug, count: 1 });
     }
   }
 
@@ -34,20 +55,7 @@ const decorations = computed(() => {
 });
 
 function save() {
-  addSet({
-    armour: {
-      head: props.set.armour.head.id,
-      body: props.set.armour.body.id,
-      arms: props.set.armour.arms.id,
-      waist: props.set.armour.waist.id,
-      legs: props.set.armour.legs.id,
-    },
-    decorations: {
-      armour: props.set.decorations.armour.map((d) => d.id),
-      torso: props.set.decorations.torso.map((d) => d.id),
-      weapon: props.set.decorations.weapon.map((d) => d.id),
-    },
-  });
+  addSet(armourSet.value);
   saved.value = true;
 }
 </script>
@@ -59,7 +67,7 @@ function save() {
     <div class="min-w-0 flex-1">
       <div v-for="(piece, slot) in set.armour" class="flex gap-2 items-center">
         <img :src="icons.armour(slot)" class="w-4 shrink-0" />
-        <span class="truncate">{{ piece.name }}</span>
+        <span class="truncate">{{ translate(`armour-${slot}-${piece.slug}`) }}</span>
       </div>
     </div>
     <div class="shrink-0">
@@ -80,6 +88,14 @@ function save() {
         </div>
       </template>
     </div>
+    <NuxtLink
+      class="flex size-8 shrink-0 items-center justify-center rounded-lg border border-stone-300 text-stone-700 dark:border-stone-700 dark:text-stone-200"
+      :to="setPath"
+      title="Open set view"
+      aria-label="Open set view"
+    >
+      <Icon name="lucide:view" />
+    </NuxtLink>
     <button
       type="button"
       class="flex size-8 shrink-0 items-center justify-center rounded-lg border text-stone-700 dark:text-stone-200"
@@ -102,10 +118,10 @@ function save() {
     <div v-if="decorations.length > 0" class="flex w-full flex-wrap gap-1">
       <div
         v-for="decoration in decorations"
-        :key="decoration.name"
+        :key="decoration.slug"
         class="rounded-full bg-stone-200 px-2 py-0.5 text-sm text-stone-800 dark:bg-stone-700 dark:text-stone-100"
       >
-        {{ decoration.name }}
+        {{ translate(`decoration-${decoration.slug}`) }}
         <span
           v-if="decoration.count > 1"
           class="text-xs text-stone-600 dark:text-stone-300"

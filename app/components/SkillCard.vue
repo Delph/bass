@@ -4,7 +4,11 @@ import type { SkillCardDefinition, SkillOption } from "~/skills";
 
 import { useQuery } from "~/composables/useQuery";
 import { useTranslation } from "~/composables/useTranslation";
-import { formatSkillPoints, getSkillCategoryIcon } from "~/skills";
+import {
+  formatSkillPoints,
+  getSkillCategoryIcon,
+  getSkillEffectKey,
+} from "~/skills";
 
 const { query, hasSkill, addSkill, removeSkill } = useQuery();
 const { translate } = useTranslation();
@@ -14,7 +18,7 @@ defineProps<{
 }>();
 
 function hasSelectedSkillGroup(skill: SkillDefinition) {
-  return query.value.skills[skill.name] !== undefined;
+  return query.value.skills[skill.slug] !== undefined;
 }
 
 function optionClass(option: SkillOption) {
@@ -69,8 +73,10 @@ function pointsClass(option: SkillOption) {
         @click="toggleSkill(option)"
       >
         <span class="min-w-0 flex-1">
-          <span class="block truncate font-semibold">{{ option.label }}</span>
-          <span class="block truncate text-xs opacity-75">{{ card.skill.name }}</span>
+          <span class="block truncate font-semibold">
+            {{ translate(getSkillEffectKey(option.requirement.skill, option.points)) }}
+          </span>
+          <span class="block truncate text-xs opacity-75">{{ translate(`skill-${card.skill.slug}`) }}</span>
         </span>
         <span
           class="rounded-full px-2 py-1 text-xs font-medium"
@@ -83,7 +89,7 @@ function pointsClass(option: SkillOption) {
             v-for="category in card.skill.categories"
             :key="category"
             :name="getSkillCategoryIcon(category)"
-            :title="translate(category)"
+            :title="translate(`category-${category}`)"
           />
         </span>
       </button>
@@ -93,7 +99,7 @@ function pointsClass(option: SkillOption) {
       <div class="mb-2 flex items-center justify-between gap-3 px-1">
         <div class="min-w-0">
           <p class="truncate font-semibold text-stone-900 dark:text-stone-100">
-            {{ card.skill.name }}
+            {{ translate(`skill-${card.skill.slug}`) }}
           </p>
           <p class="text-xs text-stone-500 dark:text-stone-400">
             {{ translate("search-skill-levels-count", { count: card.options.length }) }}
@@ -104,7 +110,7 @@ function pointsClass(option: SkillOption) {
             v-for="category in card.skill.categories"
             :key="category"
             :name="getSkillCategoryIcon(category)"
-            :title="translate(category)"
+            :title="translate(`category-${category}`)"
           />
         </div>
       </div>
@@ -118,7 +124,9 @@ function pointsClass(option: SkillOption) {
           :class="optionClass(option)"
           @click="toggleSkill(option)"
         >
-          <span class="min-w-0 truncate font-medium">{{ option.label }}</span>
+          <span class="min-w-0 truncate font-medium">
+            {{ translate(getSkillEffectKey(option.requirement.skill, option.points)) }}
+          </span>
           <span
             class="shrink-0 rounded-full px-2 py-1 text-xs font-medium"
             :class="pointsClass(option)"

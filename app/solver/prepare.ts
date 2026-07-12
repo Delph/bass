@@ -27,7 +27,7 @@ function filter(query: QueryState, data: GameData): PreparedGear {
       if ((piece.class & query.weapon.class) === 0)
         continue;
 
-      if (!query.options.allowDummy && piece.name.includes("dummy"))
+      if (!query.options.allowDummy && piece.slug.includes("dummy"))
         continue;
 
       // filter out equipment that don't provide at least one skill

@@ -56,7 +56,7 @@ function deleteSet() {
 }
 
 const groupedDecorations = computed(() => {
-  const grouped = new Map<string, { name: string; count: number }>();
+  const grouped = new Map<string, { slug: string; count: number }>();
 
   for (const collection of Object.values(props.set.decorations)) {
     for (const id of collection) {
@@ -64,10 +64,10 @@ const groupedDecorations = computed(() => {
 
       if (!decoration) continue;
 
-      const group = grouped.get(decoration.name);
+      const group = grouped.get(decoration.slug);
 
       if (group) ++group.count;
-      else grouped.set(decoration.name, { name: decoration.name, count: 1 });
+      else grouped.set(decoration.slug, { slug: decoration.slug, count: 1 });
     }
   }
 
@@ -124,11 +124,9 @@ const groupedDecorations = computed(() => {
       />
     </div>
     <div class="min-w-0 flex-1">
-      <div v-for="(piece, slot) in set.armour" class="flex gap-2 items-center">
+      <div v-for="(piece, slot) in armour" class="flex gap-2 items-center">
         <img :src="icons.armour(slot)" class="w-4 shrink-0" />
-        <span class="truncate">{{
-          data?.armour[slot].find((p) => p.id === piece)?.name
-        }}</span>
+        <span class="truncate">{{ translate(`armour-${slot}-${piece.slug}`) }}</span>
       </div>
     </div>
     <div
@@ -137,10 +135,10 @@ const groupedDecorations = computed(() => {
     >
       <div
         v-for="decoration in groupedDecorations"
-        :key="decoration.name"
+        :key="decoration.slug"
         class="rounded-full bg-stone-200 px-2 py-0.5 text-sm text-stone-800 dark:bg-stone-700 dark:text-stone-100"
       >
-        {{ decoration.name }}
+        {{ translate(`decoration-${decoration.slug}`) }}
         <span
           v-if="decoration.count > 1"
           class="text-xs text-stone-600 dark:text-stone-300"

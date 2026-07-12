@@ -19,7 +19,7 @@ const open = ref(true);
         {{ legend }}
         <Icon
           name="lucide:chevron-down"
-          class="size-4 transition-transform"
+          class="transition-transform"
           :class="{ '-rotate-90': !open }"
         />
       </button>

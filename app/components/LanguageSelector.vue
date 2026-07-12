@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { useTranslation } from '~/composables/useTranslation';
-import { languages, type LanguageSlug } from '~/translation';
+import { locales, type LocaleSlug } from '~/translation';
 import Select from "~/components/Select.vue";
 
-const { language, pending, set, translate } = useTranslation();
+const { locale, pending, set, translate } = useTranslation();
 </script>
 
 <template>
@@ -11,11 +11,11 @@ const { language, pending, set, translate } = useTranslation();
     <span class="sr-only">Language</span>
     <Select
       :name="translate('language')"
-      :value="language"
+      :value="locale"
       :disabled="pending"
-      :options="Object.keys(languages).map(slug => ({value: slug, label: languages[slug as LanguageSlug].name}))"
+      :options="Object.keys(locales).map(slug => ({value: slug, label: locales[slug as LocaleSlug].name}))"
       @change="
-        (value) => set(value as LanguageSlug)
+        (value) => set(value as LocaleSlug)
       "
     />
   </label>

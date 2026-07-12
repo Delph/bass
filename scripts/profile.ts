@@ -11,7 +11,7 @@ import waist from '../public/data/games/mhfu/waist.json';
 import legs from '../public/data/games/mhfu/legs.json';
 import decorations from '../public/data/games/mhfu/decorations.json';
 import skills from '../public/data/games/mhfu/skills.json';
-import translations from '../public/data/games/mhfu/translation.json';
+import translations from '../public/data/games/mhfu/translations/en-US.json';
 
 type ProfileCase = {
   filterGear?: (gear: PreparedGear) => void;

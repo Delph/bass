@@ -112,7 +112,7 @@ export function groupDecorations(decorations: Decoration[]) {
     else grouped.set(decoration.id, { decoration, quantity: 1 });
   }
   return [...grouped.values()].toSorted((a, b) =>
-    a.decoration.name.localeCompare(b.decoration.name),
+    a.decoration.slug.localeCompare(b.decoration.slug),
   );
 }
 

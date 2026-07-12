@@ -1,9 +1,12 @@
 <script lang="ts" setup>
+import { navigateTo } from '#app';
 import GameCard from "~/components/GameCard.vue";
 import LanguageSelector from "~/components/LanguageSelector.vue";
 import { useGame } from "~/composables/useGame";
 
 const { games } = useGame();
+
+if (games.length === 1) await navigateTo(`/${games[0]!.slug}`, { replace: true });
 </script>
 
 <template>
