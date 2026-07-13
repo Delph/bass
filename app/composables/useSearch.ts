@@ -8,20 +8,20 @@ import {
   SearchClient,
   type SearchSession,
 } from '~/solver/client';
-import { getWorkerPoolSize } from '~/workers/pool';
+import { usePreferences } from './usePreferences';
 
 export type SearchSortCriteria = 'defence' | DamageType;
 
 let client: SearchClient | null = null;
 let subscribed = false;
 
-function getClient(session: Ref<SearchSession>) {
+function getClient(session: Ref<SearchSession>, workers: Ref<number>) {
   client ??= new SearchClient({
     createWorker: () =>
       new Worker(new URL('~/workers/worker.ts', import.meta.url), {
         type: 'module',
       }),
-    maxWorkers: getWorkerPoolSize,
+    maxWorkers: () => workers.value,
   });
 
   if (!subscribed) {
@@ -43,7 +43,8 @@ export function useSearch() {
     createEmptySearchSession(),
   );
   const sort = useState<SearchSortCriteria | null>('search-sort', () => null);
-  const search = getClient(session);
+  const { workers } = usePreferences();
+  const search = getClient(session, workers);
 
   const attempted = computed(() => sum(session.value.attempts));
   const combinations = computed(() => sum(session.value.combinationCounts));

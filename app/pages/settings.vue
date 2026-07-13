@@ -3,11 +3,14 @@ import { ref } from 'vue';
 import ConfirmDialog from '~/components/ConfirmDialog.vue';
 import LanguageSelector from '~/components/LanguageSelector.vue';
 import Textarea from '~/components/Textarea.vue';
+import { usePreferences } from '~/composables/usePreferences';
 import { useTheme } from '~/composables/useTheme';
 import { useTranslation } from '~/composables/useTranslation';
 import { exportText, importText, reset } from '~/persistence/storage';
+import { maxWorkers } from '~/workers/pool';
 
 const { translate } = useTranslation();
+const { workers, setWorkers } = usePreferences();
 const { theme, set } = useTheme();
 const confirmDelete = ref(false);
 const confirmImport = ref(false);
@@ -28,6 +31,10 @@ async function importData() {
   confirmImport.value = false;
   window.location.reload();
 }
+
+function setWorkersFromInput(event: Event) {
+  setWorkers(Number((event.target as HTMLInputElement).value));
+}
 </script>
 
 <template>
@@ -46,6 +53,43 @@ async function importData() {
           {{ translate('language') }}
         </h4>
         <LanguageSelector class="sm:w-64" />
+      </div>
+
+      <div class="border-t border-stone-200 dark:border-stone-700" />
+
+      <div
+        class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3"
+      >
+        <div>
+          <h4 class="font-semibold">
+            {{ translate('settings-workers') }}
+          </h4>
+        </div>
+        <div class="flex min-w-0 flex-col gap-2 sm:w-64">
+          <div
+            class="flex items-center justify-between text-sm text-stone-600 dark:text-stone-400"
+          >
+            <span>
+              {{ translate('settings-workers-count', { count: workers }) }}
+            </span>
+            <span>
+              {{ translate('settings-workers-max', { count: maxWorkers }) }}
+            </span>
+          </div>
+          <input
+            type="range"
+            name="workers"
+            :value="workers"
+            :min="1"
+            :max="maxWorkers"
+            :step="1"
+            class="accent-emerald-700 dark:accent-emerald-500"
+            @input="setWorkersFromInput"
+          />
+          <p class="text-sm text-stone-600 dark:text-stone-400">
+            {{ translate('settings-workers-message') }}
+          </p>
+        </div>
       </div>
 
       <div class="border-t border-stone-200 dark:border-stone-700" />

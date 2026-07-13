@@ -79,6 +79,13 @@
   "settings-import-data": "Import data",
   "settings-import-data-confirm": "This will replace saved sets, search history, preferences, and current query data on this device.",
   "settings-import-data-title": "Import data?",
+  "settings-workers": "Solver workers",
+  "settings-workers-count": {
+    "one": "{count} worker",
+    "other": "{count} workers"
+  },
+  "settings-workers-max": "Max {count}",
+  "settings-workers-message": "Higher values may make searches faster, but can make the browser less responsive while the solver is running.",
 
   "theme-system": "System",
   "theme-dark": "Dark",

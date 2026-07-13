@@ -1,5 +1,11 @@
 import { bound } from '~/utility';
 
+export const maxWorkers = globalThis.navigator?.hardwareConcurrency ?? 2;
+
+export function boundWorkers(workers: number) {
+  return bound(workers, 1, maxWorkers);
+}
+
 export type WorkerPoolJob<TPayload> = {
   id: number;
   payload: TPayload;
@@ -26,28 +32,21 @@ type PooledWorker<TPayload, TResult> = {
   worker: Worker;
 };
 
-export function getWorkerPoolSize() {
-  const threads = navigator.hardwareConcurrency ?? 2;
-
-  return bound(Math.floor(threads / 2), 1, 4);
-}
-
 export function createWorkerPool<TPayload, TResult>(
   createWorker: () => Worker,
-  size = getWorkerPoolSize(),
+  size: number,
 ) {
+  const workerCount = boundWorkers(size);
   const queue: QueuedJob<TPayload, TResult>[] = [];
   const workers: PooledWorker<TPayload, TResult>[] = [];
   let nextId = 1;
 
   function drain() {
     for (const pooled of workers) {
-      if (pooled.active)
-        continue;
+      if (pooled.active) continue;
 
       const job = queue.shift();
-      if (!job)
-        return;
+      if (!job) return;
 
       pooled.active = {
         ...job,
@@ -65,21 +64,21 @@ export function createWorkerPool<TPayload, TResult>(
       worker: createWorker(),
     };
 
-    pooled.worker.addEventListener('message', (event: MessageEvent<WorkerPoolResult<TResult>>) => {
-      const active = pooled.active;
+    pooled.worker.addEventListener(
+      'message',
+      (event: MessageEvent<WorkerPoolResult<TResult>>) => {
+        const active = pooled.active;
 
-      if (!active || active.id !== event.data.id)
-        return;
+        if (!active || active.id !== event.data.id) return;
 
-      pooled.active = undefined;
+        pooled.active = undefined;
 
-      if ('error' in event.data)
-        active.reject(new Error(event.data.error));
-      else
-        active.resolve(event.data.result);
+        if ('error' in event.data) active.reject(new Error(event.data.error));
+        else active.resolve(event.data.result);
 
-      drain();
-    });
+        drain();
+      },
+    );
 
     pooled.worker.addEventListener('error', (event) => {
       pooled.active?.reject(event.error ?? new Error(event.message));
@@ -90,8 +89,7 @@ export function createWorkerPool<TPayload, TResult>(
     workers.push(pooled);
   }
 
-  for (let i = 0; i < size; ++i)
-    addWorker();
+  for (let i = 0; i < workerCount; ++i) addWorker();
 
   return {
     run(payload: TPayload) {
