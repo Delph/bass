@@ -267,9 +267,16 @@ export type SolveBatch = {
   results: BuildResult[];
 };
 
+type GlobalScheduler = {
+  yield(): Promise<void>;
+};
+
 async function surrender(): Promise<void> {
-  if (scheduler?.yield) return await scheduler.yield();
-  return await new Promise((resolve) => setTimeout(resolve, 0));
+  const scheduler = (
+    globalThis as typeof globalThis & { scheduler?: GlobalScheduler }
+  ).scheduler;
+  if (scheduler?.yield) return scheduler.yield();
+  return new Promise((resolve) => setTimeout(resolve, 0));
 }
 
 /// for asynchronous workloads (e.g., the main application)
