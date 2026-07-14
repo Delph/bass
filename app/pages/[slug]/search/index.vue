@@ -10,7 +10,7 @@ import { useHistory } from '~/composables/useHistory';
 import { useQuery } from '~/composables/useQuery';
 import { useSearch } from '~/composables/useSearch';
 import { useTranslation } from '~/composables/useTranslation';
-import { formatSkillPoints } from '~/skills';
+import { formatNumber } from '~/format';
 import {
   HUNTER_GENDER,
   type HunterGender,
@@ -35,12 +35,21 @@ const {
   setWeaponSlots,
 } = useQuery();
 
+function rankLabel(rank: { rank: number; group?: string }) {
+  const gRank = rank.group === 'g-rank';
+  const value = gRank ? rank.rank - 6 : rank.rank;
+
+  return translate(gRank ? 'rank-label-g' : 'rank-label-stars', {
+    rank: formatNumber(value),
+  });
+}
+
 const guildRankOptions = computed(() => {
   return (
     game.value?.guild.map((rank) => ({
       value: rank.rank,
-      label: rank.label,
-      group: rank.group,
+      label: rankLabel(rank),
+      group: rank.group ? translate(`rank-group-${rank.group}`) : undefined,
     })) ?? []
   );
 });
@@ -49,8 +58,8 @@ const villageRankOptions = computed(() => {
   return (
     game.value?.village.map((rank) => ({
       value: rank.rank,
-      label: rank.label,
-      group: rank.group,
+      label: rankLabel(rank),
+      group: rank.group ? translate(`rank-group-${rank.group}`) : undefined,
     })) ?? []
   );
 });
@@ -112,7 +121,7 @@ function submit() {
     <Label>
       {{ translate('search-hunter-rank-guild') }}
       <Select
-        :name="translate('search-hunter-rank-guild')"
+        name="guild-rank"
         :value="query.hunter.rank"
         :options="guildRankOptions"
         @change="(v) => setGuildRank(v as number)"
@@ -121,7 +130,7 @@ function submit() {
     <Label>
       {{ translate('search-hunter-rank-village') }}
       <Select
-        :name="translate('search-hunter-rank-village')"
+        name="village-rank"
         :value="query.hunter.village"
         :options="villageRankOptions"
         @change="(v) => setVillageRank(v as number)"
@@ -130,7 +139,7 @@ function submit() {
     <Label>
       {{ translate('search-hunter-gender') }}
       <Radioboxes
-        :name="translate('search-hunter-gender')"
+        name="hunter-gender"
         :value="query.hunter.gender"
         :options="genderOptions"
         @change="
@@ -143,7 +152,7 @@ function submit() {
     <Label>
       {{ translate('search-weapon-class') }}
       <Select
-        :name="translate('search-weapon-class')"
+        name="weapon-class"
         :value="query.weapon.class"
         :options="weaponClassOptions"
         @change="(v) => setWeaponClass(v as (typeof WEAPON_CLASS)[WeaponClass])"
@@ -152,7 +161,7 @@ function submit() {
     <Label v-if="game?.features.decorations">
       {{ translate('search-weapon-slots') }}
       <Radioboxes
-        :name="translate('search-weapon-slots')"
+        name="weapon-slots"
         :value="query.weapon.slots"
         :options="slotOptions"
         @change="(v) => setWeaponSlots(v as number)"
@@ -185,14 +194,12 @@ function submit() {
       {{ translate('search-options-allow-bad') }}
       <Toggle
         v-model="query.options.allowBad"
-        :name="translate('search-options-allow-bad')"
       />
     </Label>
     <Label>
       {{ translate('search-options-allow-dummy') }}
       <Toggle
         v-model="query.options.allowDummy"
-        :name="translate('search-options-allow-dummy')"
       />
     </Label>
   </Fieldset>

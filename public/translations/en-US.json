@@ -40,19 +40,19 @@
   "search-skills": "Skills",
   "search-skill-filter": "Filter",
   "search-skill-levels-count": {
-    "one": "{count} level",
-    "other": "{count} levels"
+    "one": "{formatted} level",
+    "other": "{formatted} levels"
   },
   "search-skills-empty": "No skills selected",
   "search-skills-matching-count": {
-    "one": "{count} skill",
-    "other": "{count} skills"
+    "one": "{formatted} skill",
+    "other": "{formatted} skills"
   },
   "search-skills-no-results": "No skills match the current filters.",
   "search-skills-continue": "Continue",
   "search-skills-selected": {
-    "one": "Selected {count} skill — Click to remove",
-    "other": "Selected {count} skills — Click to remove"
+    "one": "Selected {formatted} skill — Click to remove",
+    "other": "Selected {formatted} skills — Click to remove"
   },
   "search-skills-show-negative": "Show negative skills",
 
@@ -63,6 +63,15 @@
   "navigation-tab-sets": "Sets",
   "navigation-tab-history": "History",
   "common-cancel": "Cancel",
+  "common-loading": "Loading",
+
+  "rank-group-elder": "Elder",
+  "rank-group-nekoht": "Nekhot",
+  "rank-group-low-rank": "Low Rank",
+  "rank-group-high-rank": "High Rank",
+  "rank-group-g-rank": "G Rank",
+  "rank-label-stars": "{rank}★",
+  "rank-label-g": "G{rank}★",
 
   "settings": "Settings",
   "settings-data": "Data",
@@ -74,17 +83,19 @@
   "settings-delete-data-message": "Remove all locally stored BASS data from this device.",
   "settings-delete-data-title": "Delete all data?",
   "settings-export-data": "Export data",
+  "settings-export-data-error": "Could not export data.",
   "settings-import-export-data": "Import / export data",
   "settings-import-export-data-message": "Copy data out for backup, or paste exported data here to restore it on this device.",
   "settings-import-data": "Import data",
   "settings-import-data-confirm": "This will replace saved sets, search history, preferences, and current query data on this device.",
+  "settings-import-data-error": "Could not import data.",
   "settings-import-data-title": "Import data?",
   "settings-workers": "Solver workers",
   "settings-workers-count": {
-    "one": "{count} worker",
-    "other": "{count} workers"
+    "one": "{formatted} worker",
+    "other": "{formatted} workers"
   },
-  "settings-workers-max": "Max {count}",
+  "settings-workers-max": "Max {formatted}",
   "settings-workers-message": "Higher values may make searches faster, but can make the browser less responsive while the solver is running.",
 
   "theme-system": "System",
@@ -113,6 +124,7 @@
   "search-status-completed": "completed",
   "search-status-stopped": "stopped",
   "search-status-error": "failed",
+  "search-error": "Search failed.",
   "result-sort-default": "Default sorting",
   "result-sort-defence": "Defense",
   "result-sort-fire": "Effective Fire Defense",
@@ -123,13 +135,17 @@
 
   "sets-no-sets": "No saved sets yet.",
   "set-copy-link": "Copy link",
+  "set-copy-link-error": "Could not copy link.",
   "set-delete": "Delete",
+  "set-decoration-quantity": "x{formatted}",
+  "set-decoration-skill": "{formatted}x {decoration}: {skill}",
   "set-delete-message": "This saved set will be removed from your local saved sets.",
   "set-delete-title": "Delete saved set?",
   "set-invalid": "This set link is invalid.",
   "set-link-copied": "Copied link",
   "set-name": "Set name",
   "set-notes": "Notes",
+  "set-open": "Open set view",
   "set-save": "Save",
   "set-saved": "Set saved",
   "set-section-armour": "Armor",

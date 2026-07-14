@@ -2,7 +2,6 @@ import type { Translations } from '~/translation';
 
 type QuestRank = {
   rank: number;
-  label: string;
   group?: string;
 };
 

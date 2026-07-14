@@ -4,6 +4,7 @@ import type { SkillCardDefinition, SkillOption } from "~/skills";
 
 import { useQuery } from "~/composables/useQuery";
 import { useTranslation } from "~/composables/useTranslation";
+import { formatNumber } from '~/format';
 import {
   formatSkillPoints,
   getSkillCategoryIcon,
@@ -102,7 +103,7 @@ function pointsClass(option: SkillOption) {
             {{ translate(`skill-${card.skill.slug}`) }}
           </p>
           <p class="text-xs text-stone-500 dark:text-stone-400">
-            {{ translate("search-skill-levels-count", { count: card.options.length }) }}
+            {{ translate("search-skill-levels-count", { count: card.options.length, formatted: formatNumber(card.options.length) }) }}
           </p>
         </div>
         <div class="flex shrink-0 gap-1 text-stone-500 dark:text-stone-400">

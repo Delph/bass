@@ -17,10 +17,10 @@ type GameDataLoading = {
 const games: Game[] = [
   // {
   //   slug: "mhf",
-  //   village: [...range(1, 7).map(r => ({rank: r, label: `${r}★`}))],
+  //   village: [...range(1, 7).map(r => ({rank: r}))],
   //   guild: [
-  //     ...range(1, 4).map(r => ({rank: r, label: `${r}★`, group: 'low-rank'})),
-  //     ...range(4, 6).map(r => ({rank: r, label: `${r}★`, group: 'high-rank'}))
+  //     ...range(1, 4).map(r => ({rank: r, group: 'low-rank'})),
+  //     ...range(4, 6).map(r => ({rank: r, group: 'high-rank'}))
   //   ],
     // elements: ['fire', 'water', 'thunder', 'dragon'],
   //   features: {
@@ -30,13 +30,13 @@ const games: Game[] = [
   {
     slug: "mhfu",
     village: [
-      ...range(1, 7).map(r => ({rank: r, label: `${r}★`, group: "elder"})),
-      ...range(7, 10).map(r => ({rank: r, label: `${r}★`, group: "nekoht"}))
+      ...range(1, 7).map(r => ({rank: r, group: "elder"})),
+      ...range(7, 10).map(r => ({rank: r, group: "nekoht"}))
     ],
     guild: [
-      ...range(1, 4).map(r => ({rank: r, label: `${r}★`, group: 'low-rank'})),
-      ...range(4, 7).map(r => ({rank: r, label: `${r}★`, group: 'high-rank'})),
-      ...range(7, 10).map(r => ({rank: r, label: `G${r - 6}★`, group: 'g-rank'}))
+      ...range(1, 4).map(r => ({rank: r, group: 'low-rank'})),
+      ...range(4, 7).map(r => ({rank: r, group: 'high-rank'})),
+      ...range(7, 10).map(r => ({rank: r, group: 'g-rank'}))
     ],
     elements: ['fire', 'water', 'thunder', 'ice', 'dragon'],
     features: {

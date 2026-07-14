@@ -4,6 +4,7 @@ import { computed, ref, watch } from 'vue';
 import { useGame } from '~/composables/useGame';
 import { useQuery } from '~/composables/useQuery';
 import { useTranslation } from '~/composables/useTranslation';
+import { formatNumber } from '~/format';
 import {
   getSkillCategoryIcon,
   getSkillEffectKey,
@@ -110,7 +111,7 @@ const filteredSkillCards = computed(() => {
     <section class="shrink-0 space-y-2">
       <Field
         type="text"
-        :name="translate('search-skill-filter')"
+        name="skill-filter"
         :placeholder="translate('search-skill-filter')"
         :value="filter.search"
         @change="(value: string) => (filter.search = value)"
@@ -123,6 +124,7 @@ const filteredSkillCards = computed(() => {
           {{
             translate('search-skills-matching-count', {
               count: filteredSkillCards.length,
+              formatted: formatNumber(filteredSkillCards.length),
             })
           }}
         </p>
@@ -162,6 +164,7 @@ const filteredSkillCards = computed(() => {
           {{
             translate('search-skills-selected', {
               count: selectedSkills.length,
+              formatted: formatNumber(selectedSkills.length),
             })
           }}
         </p>

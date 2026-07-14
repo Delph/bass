@@ -116,7 +116,7 @@ const scroll = computed(() => route.meta.scroll !== false);
           v-if="ready && game && !data"
           class="flex flex-col gap-2 text-center"
         >
-          <p>Loading</p>
+          <p>{{ translate('common-loading') }}</p>
           <Progress
             :value="loading.done"
             :max="loading.total"

@@ -6,7 +6,7 @@ import { useGame } from '~/composables/useGame';
 import { useHistory, type HistoryEntry } from '~/composables/useHistory';
 import { useQuery } from '~/composables/useQuery';
 import { useTranslation } from '~/composables/useTranslation';
-import { formatDateTime } from '~/format';
+import { formatDateTime, formatNumber } from '~/format';
 import { HUNTER_GENDER, WEAPON_CLASS } from '~/query/types';
 
 const { translate } = useTranslation();
@@ -22,6 +22,15 @@ function skillEntries(entry: HistoryEntry) {
     skill,
     points,
   }));
+}
+
+function rankLabel(rank: { rank: number; group?: string } | undefined, fallback: number) {
+  const value = rank?.rank ?? fallback;
+  const gRank = rank?.group === 'g-rank';
+
+  return translate(gRank ? 'rank-label-g' : 'rank-label-stars', {
+    rank: formatNumber(gRank ? value - 6 : value),
+  });
 }
 
 function repeat(entry: HistoryEntry) {
@@ -52,17 +61,23 @@ function repeat(entry: HistoryEntry) {
             <span>
               {{
                 translate('history-rank-guild', {
-                  rank: game!.guild.find(
-                    (r) => r.rank === entry.query.hunter.rank,
-                  )?.label,
+                  rank: rankLabel(
+                    game!.guild.find(
+                      (r) => r.rank === entry.query.hunter.rank,
+                    ),
+                    entry.query.hunter.rank,
+                  ),
                 })
               }}
 
               {{
                 translate('history-rank-village', {
-                  rank: game!.village.find(
-                    (r) => r.rank === entry.query.hunter.village,
-                  )?.label,
+                  rank: rankLabel(
+                    game!.village.find(
+                      (r) => r.rank === entry.query.hunter.village,
+                    ),
+                    entry.query.hunter.village,
+                  ),
                 })
               }}
             </span>

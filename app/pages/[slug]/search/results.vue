@@ -104,7 +104,7 @@ function setSort(value: SearchSortCriteria | null) {
                 })
               }}
             </p>
-            <p class="capitalize">{{ session.status }}</p>
+            <p>{{ translate(`search-status-${session.status}`) }}</p>
           </div>
           <div class="flex shrink-0 items-center gap-2">
             <span class="font-mono text-sm text-stone-600 dark:text-stone-400">
@@ -127,7 +127,7 @@ function setSort(value: SearchSortCriteria | null) {
         v-if="session.error"
         class="rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-100"
       >
-        {{ session.error }}
+        {{ translate('search-error') }}
       </div>
 
       {{

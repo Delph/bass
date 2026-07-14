@@ -114,7 +114,7 @@ function loadSet() {
     resolved.value = resolveSet();
   } catch (error) {
     resolved.value = null;
-    toasts.error(error);
+    toasts.error(translate('set-invalid'));
 
     if (game.slug.value)
       void router.replace(`/${encodeURIComponent(game.slug.value)}/sets`);
@@ -176,7 +176,7 @@ async function copyLink() {
     toasts.success(translate('set-link-copied'));
     setTimeout(() => (copied.value = false), 1500);
   } catch (error) {
-    toasts.error(error);
+    toasts.error(translate('set-copy-link-error'));
   }
 }
 </script>
@@ -190,7 +190,7 @@ async function copyLink() {
         </h2>
         <Field
           v-else
-          :name="translate('set-name')"
+          name="set-name"
           :value="name"
           :placeholder="translate('set-unnamed')"
           @change="(s) => (name = s)"
@@ -280,7 +280,13 @@ async function copyLink() {
         )"
         class="bg-stone-200 dark:bg-stone-800 p-2 rounded-xl"
       >
-        {{ quantity }}x {{ translate(`decoration-${decoration.slug}`) }}: {{ translate(`skill-${decoration.skill.skill}`) }}
+        {{
+          translate('set-decoration-skill', {
+            formatted: formatNumber(quantity),
+            decoration: translate(`decoration-${decoration.slug}`),
+            skill: translate(`skill-${decoration.skill.skill}`),
+          })
+        }}
       </div>
     </div>
 
@@ -375,7 +381,7 @@ async function copyLink() {
       {{ translate('set-section-notes') }}
     </h3>
     <Textarea
-      :name="translate('set-notes')"
+      name="set-notes"
       :value="notes"
       :placeholder="translate('set-notes')"
       @change="(s) => (notes = s)"

@@ -5,13 +5,16 @@ import LanguageSelector from '~/components/LanguageSelector.vue';
 import Textarea from '~/components/Textarea.vue';
 import { usePreferences } from '~/composables/usePreferences';
 import { useTheme } from '~/composables/useTheme';
+import { useToasts } from '~/composables/useToasts';
 import { useTranslation } from '~/composables/useTranslation';
+import { formatNumber } from '~/format';
 import { exportText, importText, reset } from '~/persistence/storage';
 import { maxWorkers } from '~/workers/pool';
 
 const { translate } = useTranslation();
 const { workers, setWorkers } = usePreferences();
 const { theme, set } = useTheme();
+const toasts = useToasts();
 const confirmDelete = ref(false);
 const confirmImport = ref(false);
 const dataText = ref('');
@@ -23,13 +26,21 @@ function deleteAllData() {
 }
 
 async function exportData() {
-  dataText.value = await exportText();
+  try {
+    dataText.value = await exportText();
+  } catch {
+    toasts.error(translate('settings-export-data-error'));
+  }
 }
 
 async function importData() {
-  await importText(dataText.value);
-  confirmImport.value = false;
-  window.location.reload();
+  try {
+    await importText(dataText.value);
+    confirmImport.value = false;
+    window.location.reload();
+  } catch {
+    toasts.error(translate('settings-import-data-error'));
+  }
 }
 
 function setWorkersFromInput(event: Event) {
@@ -70,10 +81,10 @@ function setWorkersFromInput(event: Event) {
             class="flex items-center justify-between text-sm text-stone-600 dark:text-stone-400"
           >
             <span>
-              {{ translate('settings-workers-count', { count: workers }) }}
+              {{ translate('settings-workers-count', { count: workers, formatted: formatNumber(workers) }) }}
             </span>
             <span>
-              {{ translate('settings-workers-max', { count: maxWorkers }) }}
+              {{ translate('settings-workers-max', { formatted: formatNumber(maxWorkers) }) }}
             </span>
           </div>
           <input
@@ -154,7 +165,7 @@ function setWorkersFromInput(event: Event) {
       {{ translate('settings-import-export-data-message') }}
     </p>
     <Textarea
-      :name="translate('settings-data')"
+      name="settings-data"
       :value="dataText"
       :placeholder="translate('settings-data-placeholder')"
       class="mt-3 h-48 font-mono text-xs"

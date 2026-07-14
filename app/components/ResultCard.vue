@@ -91,9 +91,9 @@ function save() {
     <NuxtLink
       class="flex size-8 shrink-0 items-center justify-center rounded-lg border border-stone-300 text-stone-700 dark:border-stone-700 dark:text-stone-200"
       :to="setPath"
-      title="Open set view"
-      aria-label="Open set view"
+      :title="translate('set-open')"
     >
+      <span class="sr-only">{{ translate('set-open') }}</span>
       <Icon name="lucide:view" />
     </NuxtLink>
     <button
@@ -126,7 +126,7 @@ function save() {
           v-if="decoration.count > 1"
           class="text-xs text-stone-600 dark:text-stone-300"
         >
-          x{{ decoration.count }}
+          {{ translate('set-decoration-quantity', { formatted: formatNumber(decoration.count) }) }}
         </span>
       </div>
     </div>

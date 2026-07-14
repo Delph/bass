@@ -8,9 +8,9 @@ const { locale, pending, set, translate } = useTranslation();
 
 <template>
   <label>
-    <span class="sr-only">Language</span>
+    <span class="sr-only">{{ translate('language') }}</span>
     <Select
-      :name="translate('language')"
+      name="language"
       :value="locale"
       :disabled="pending"
       :options="Object.keys(locales).map(slug => ({value: slug, label: locales[slug as LocaleSlug].name}))"

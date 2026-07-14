@@ -8,7 +8,7 @@ import { useHistory, type HistoryEntry } from '~/composables/useHistory';
 import { useQuery } from '~/composables/useQuery';
 import { useSets } from '~/composables/useSets';
 import { useTranslation } from '~/composables/useTranslation';
-import { formatDateTime } from '~/format';
+import { formatDateTime, formatNumber } from '~/format';
 import { HUNTER_GENDER, WEAPON_CLASS } from '~/query/types';
 
 const { translate } = useTranslation();
@@ -43,17 +43,26 @@ function skillEntries(entry: HistoryEntry) {
   }));
 }
 
+function rankLabel(rank: { rank: number; group?: string } | undefined, fallback: number) {
+  const value = rank?.rank ?? fallback;
+  const gRank = rank?.group === 'g-rank';
+
+  return translate(gRank ? 'rank-label-g' : 'rank-label-stars', {
+    rank: formatNumber(gRank ? value - 6 : value),
+  });
+}
+
 function guildRank(entry: HistoryEntry) {
-  return (
-    game.value?.guild.find((rank) => rank.rank === entry.query.hunter.rank)
-      ?.label ?? entry.query.hunter.rank
+  return rankLabel(
+    game.value?.guild.find((rank) => rank.rank === entry.query.hunter.rank),
+    entry.query.hunter.rank,
   );
 }
 
 function villageRank(entry: HistoryEntry) {
-  return (
-    game.value?.village.find((rank) => rank.rank === entry.query.hunter.village)
-      ?.label ?? entry.query.hunter.village
+  return rankLabel(
+    game.value?.village.find((rank) => rank.rank === entry.query.hunter.village),
+    entry.query.hunter.village,
   );
 }
 

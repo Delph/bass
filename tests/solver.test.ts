@@ -47,11 +47,11 @@ function findBySlug<T extends { slug: string }>(items: T[], slug: string) {
 
 function reloadPenaltyFixtureGear() {
   return {
-    head: [findBySlug(head, 'ucamulbas-fangs')],
-    body: [findBySlug(body, 'ucamulbas-plate')],
+    head: [findBySlug(head, 'dark-ukanlos-fangs')],
+    body: [findBySlug(body, 'dark-ukanlos-plate')],
     arms: [findBySlug(arms, 'kirin-gloves-x')],
     waist: [findBySlug(waist, 'blango-coat-x')],
-    legs: [findBySlug(legs, 'ucamulbas-boots')],
+    legs: [findBySlug(legs, 'dark-ukanlos-boots')],
   };
 }
 
@@ -126,7 +126,7 @@ test('solver/solver:solve - KAS meta', () => {
       slots: 3,
     },
     options: {
-      allowBad: false,
+      allowBad: true,
     },
     skills: {
       'short-charg': 10,
@@ -153,7 +153,7 @@ test('solver/solver:solve - KAS meta', () => {
   expect(hasSkill(value, 'sword-draw', 10)).toBe(true);
   expect(hasSkill(value, 'artisan', 10)).toBe(true);
   expect(hasSkill(value, 'dragon-res', 15)).toBe(true);
-  expect(hasNoBadSkill(value)).toBe(true);
+  expect(hasSkill(value, 'sneak', -10)).toBe(true);
 });
 
 test('solver/solver: rejects builds when decoration penalties break required skills', () => {

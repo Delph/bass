@@ -7,6 +7,7 @@ import { useSets, type SavedSet } from '~/composables/useSets';
 import SkillPill from '~/components/SkillPill.vue';
 import ConfirmDialog from '~/components/ConfirmDialog.vue';
 import { computed, ref } from 'vue';
+import { formatNumber } from '~/format';
 import {
   resolveArmour,
   resolveDecorations,
@@ -46,7 +47,7 @@ async function copyLink() {
     toasts.success(translate('set-link-copied'));
     setTimeout(() => (copied.value = false), 1500);
   } catch (error) {
-    toasts.error(error);
+    toasts.error(translate('set-copy-link-error'));
   }
 }
 
@@ -80,7 +81,7 @@ const groupedDecorations = computed(() => {
     class="bg-stone-100 dark:bg-stone-800 rounded-xl p-2 flex flex-wrap gap-2"
   >
     <div class="w-full flex justify-between items-center gap-3">
-      <span class="min-w-0 flex-1 truncate">{{ set.name || 'Unnamed set' }}</span>
+      <span class="min-w-0 flex-1 truncate">{{ set.name || translate('set-unnamed') }}</span>
       <div class="flex shrink-0 justify-between items-center gap-3">
         <NuxtLink
           class="size-10 bg-stone-200 dark:bg-stone-700 rounded-xl flex items-center justify-center"
@@ -143,7 +144,7 @@ const groupedDecorations = computed(() => {
           v-if="decoration.count > 1"
           class="text-xs text-stone-600 dark:text-stone-300"
         >
-          x{{ decoration.count }}
+          {{ translate('set-decoration-quantity', { formatted: formatNumber(decoration.count) }) }}
         </span>
       </div>
     </div>
