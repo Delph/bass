@@ -145,7 +145,7 @@
   },
   {
     "id": 4,
-    "slug": "hunter-s-helm",
+    "slug": "hunters-helm",
     "materials": [
       {
         "item": "Iron Ore",
@@ -197,19 +197,15 @@
   },
   {
     "id": 5,
-    "slug": "hunter-s-cap",
+    "slug": "hunters-cap",
     "materials": [
       {
-        "item": "Iron Ore",
-        "quantity": 2
-      },
-      {
-        "item": "Bullfango Pelt",
+        "item": "Unknown Skull",
         "quantity": 1
       },
       {
-        "item": "Kelbi Hide",
-        "quantity": 2
+        "item": "Blango Pelt",
+        "quantity": 1
       }
     ],
     "skills": [
@@ -311,7 +307,7 @@
       },
       {
         "skill": "map",
-        "points": -2
+        "points": -1
       },
       {
         "skill": "psychic-vis",
@@ -670,7 +666,7 @@
     "resistances": {
       "fire": 1,
       "thunder": 1,
-      "dragon": 1,
+      "dragon": -1,
       "water": 1,
       "ice": 0
     }
@@ -849,7 +845,7 @@
       },
       {
         "item": "Earth Crystal",
-        "quantity": 2
+        "quantity": 1
       }
     ],
     "skills": [
@@ -884,7 +880,7 @@
       "thunder": 3,
       "dragon": 0,
       "water": -2,
-      "ice": 1
+      "ice": -1
     }
   },
   {
@@ -901,7 +897,7 @@
       },
       {
         "item": "Earth Crystal",
-        "quantity": 2
+        "quantity": 1
       }
     ],
     "skills": [
@@ -941,7 +937,7 @@
   },
   {
     "id": 19,
-    "slug": "hornetaur-helm",
+    "slug": "hornet-helm",
     "materials": [
       {
         "item": "Hornetaur Head",
@@ -993,7 +989,7 @@
   },
   {
     "id": 20,
-    "slug": "hornetaur-cap",
+    "slug": "hornet-cap",
     "materials": [
       {
         "item": "Hornetaur Head",
@@ -1034,7 +1030,7 @@
     "rarity": 3,
     "hr": 1,
     "elder": 2,
-    "slots": 1,
+    "slots": 2,
     "resistances": {
       "fire": -5,
       "thunder": -3,
@@ -1570,7 +1566,7 @@
         "points": 2
       },
       {
-        "skill": "bomb-str-up",
+        "skill": "normal-s-up",
         "points": 2
       },
       {
@@ -2635,7 +2631,7 @@
       },
       {
         "skill": "faint",
-        "points": -2
+        "points": -1
       },
       {
         "skill": "defense",
@@ -3413,7 +3409,7 @@
       },
       {
         "item": "Dragonite Ore",
-        "quantity": 3
+        "quantity": 2
       }
     ],
     "skills": [
@@ -3465,7 +3461,7 @@
       },
       {
         "item": "Dragonite Ore",
-        "quantity": 3
+        "quantity": 2
       }
     ],
     "skills": [
@@ -3728,7 +3724,7 @@
     "slug": "diablo-helm-d",
     "materials": [
       {
-        "item": "TwstBlkBlosHorn",
+        "item": "TwstBlkBlosHrn",
         "quantity": 2
       },
       {
@@ -3776,7 +3772,7 @@
       "thunder": 1,
       "dragon": 0,
       "water": -1,
-      "ice": -1
+      "ice": -2
     }
   },
   {
@@ -3784,7 +3780,7 @@
     "slug": "diablo-cap-d",
     "materials": [
       {
-        "item": "TwstBlkBlosHorn",
+        "item": "TwstBlkBlosHrn",
         "quantity": 2
       },
       {
@@ -3941,10 +3937,10 @@
   },
   {
     "id": 73,
-    "slug": "chaos-shroom",
+    "slug": "chaoshroom",
     "materials": [
       {
-        "item": "Chaoshroom",
+        "item": "Chaos Mushroom",
         "quantity": 5
       },
       {
@@ -4481,7 +4477,7 @@
   },
   {
     "id": 84,
-    "slug": "felyne-piercing-flyn-meal-pass-plus",
+    "slug": "comrade-piercing-flyn-meal-pass-plus",
     "materials": [
       {
         "item": "Commendation G",
@@ -4492,7 +4488,7 @@
         "quantity": 2
       },
       {
-        "item": "Emperor Locust",
+        "item": "Emperor Cricket",
         "quantity": 10
       },
       {
@@ -4525,10 +4521,10 @@
   },
   {
     "id": 85,
-    "slug": "felyne-piercing-flyn-fighter-pass",
+    "slug": "comrade-piercing-comrade-ticket",
     "materials": [
       {
-        "item": "FlynFighterPass",
+        "item": "Comrade Ticket",
         "quantity": 8
       }
     ],
@@ -4572,7 +4568,7 @@
         "quantity": 4
       },
       {
-        "item": "Fire Stone",
+        "item": "Firestone",
         "quantity": 1
       }
     ],
@@ -5080,7 +5076,7 @@
   },
   {
     "id": 96,
-    "slug": "maiden-s-hat",
+    "slug": "maidens-hat",
     "materials": [
       {
         "item": "Commendation",
@@ -5371,7 +5367,7 @@
         "quantity": 2
       },
       {
-        "item": "Lifecrystals",
+        "item": "Lightcrystal",
         "quantity": 2
       }
     ],
@@ -5648,18 +5644,18 @@
   },
   {
     "id": 106,
-    "slug": "hypnoc-helm",
+    "slug": "hypno-helm",
     "materials": [
       {
-        "item": "Hypnoc Ticket",
+        "item": "Hypno Ticket",
         "quantity": 1
       },
       {
-        "item": "Hypnoc Feather+",
+        "item": "OrangeHypnoPelt+",
         "quantity": 3
       },
       {
-        "item": "HypncFangedBeak",
+        "item": "Hypno Fang",
         "quantity": 1
       },
       {
@@ -5704,18 +5700,18 @@
   },
   {
     "id": 107,
-    "slug": "hypnoc-cap",
+    "slug": "hypno-cap",
     "materials": [
       {
-        "item": "Hypnoc Ticket",
+        "item": "Hypno Ticket",
         "quantity": 1
       },
       {
-        "item": "Hypnoc Feather+",
+        "item": "OrangeHypnoPelt+",
         "quantity": 3
       },
       {
-        "item": "Hypnoc StrngClaw",
+        "item": "Hypno Claw+",
         "quantity": 2
       },
       {
@@ -6077,7 +6073,7 @@
         "quantity": 3
       },
       {
-        "item": "Elder Drgn Bone",
+        "item": "Eldr Dragon Bone",
         "quantity": 1
       }
     ],
@@ -6129,7 +6125,7 @@
         "quantity": 3
       },
       {
-        "item": "Elder Drgn Bone",
+        "item": "Eldr Dragon Bone",
         "quantity": 1
       }
     ],
@@ -6166,18 +6162,18 @@
   },
   {
     "id": 116,
-    "slug": "volganos-helm",
+    "slug": "lava-helm",
     "materials": [
       {
-        "item": "Lava Ticket",
+        "item": "Lavasioth Ticket",
         "quantity": 1
       },
       {
-        "item": "Volganos Thk Scl",
+        "item": "ThckLavasiothScl",
         "quantity": 3
       },
       {
-        "item": "Volganos Fin+",
+        "item": "SpecLavasioFin+",
         "quantity": 1
       },
       {
@@ -6222,18 +6218,18 @@
   },
   {
     "id": 117,
-    "slug": "volganos-cap",
+    "slug": "lava-cap",
     "materials": [
       {
-        "item": "Lava Ticket",
+        "item": "Lavasioth Ticket",
         "quantity": 1
       },
       {
-        "item": "Volganos Thk Scl",
+        "item": "ThckLavasiothScl",
         "quantity": 3
       },
       {
-        "item": "Volganos Fin+",
+        "item": "SpecLavasioFin+",
         "quantity": 1
       },
       {
@@ -6933,15 +6929,15 @@
         "quantity": 2
       },
       {
-        "item": "Fire Drgn Wbng",
+        "item": "Fire Drgn Webbng",
         "quantity": 2
       },
       {
         "item": "ElderDragonBlood",
-        "quantity": 2
+        "quantity": 1
       },
       {
-        "item": "Fire Stone",
+        "item": "Firestone",
         "quantity": 3
       }
     ],
@@ -6989,7 +6985,7 @@
         "quantity": 2
       },
       {
-        "item": "Fire Drgn Wbng",
+        "item": "Fire Drgn Webbng",
         "quantity": 2
       },
       {
@@ -6997,7 +6993,7 @@
         "quantity": 1
       },
       {
-        "item": "Fire Stone",
+        "item": "Firestone",
         "quantity": 3
       }
     ],
@@ -7242,11 +7238,11 @@
   },
   {
     "id": 136,
-    "slug": "red-lobster-helm",
+    "slug": "amezari-head",
     "dummy": true,
     "materials": [
       {
-        "item": "King Lobster Shl",
+        "item": "Amezari Shell",
         "quantity": 1
       },
       {
@@ -7295,11 +7291,11 @@
   },
   {
     "id": 137,
-    "slug": "red-lobster-cap",
+    "slug": "amezari-cap",
     "dummy": true,
     "materials": [
       {
-        "item": "King Lobster Shl",
+        "item": "Amezari Shell",
         "quantity": 1
       },
       {
@@ -7363,7 +7359,7 @@
         "quantity": 4
       },
       {
-        "item": "Fire Stone",
+        "item": "Firestone",
         "quantity": 1
       }
     ],
@@ -7419,7 +7415,7 @@
         "quantity": 4
       },
       {
-        "item": "Fire Stone",
+        "item": "Firestone",
         "quantity": 1
       }
     ],
@@ -7575,15 +7571,15 @@
     "slug": "rathalos-soul-helm",
     "materials": [
       {
-        "item": "Azur Rathlos Wng",
+        "item": "Azur Rthlos Wing",
         "quantity": 1
       },
       {
-        "item": "Azr Rathlos Scl",
+        "item": "Azure Rthlos Scl",
         "quantity": 3
       },
       {
-        "item": "Azre Rathlos Shl",
+        "item": "Azure Rthlos Shl",
         "quantity": 2
       },
       {
@@ -7631,15 +7627,15 @@
     "slug": "rathalos-soul-cap",
     "materials": [
       {
-        "item": "Azur Rathlos Wng",
+        "item": "Azur Rthlos Wing",
         "quantity": 1
       },
       {
-        "item": "Azr Rathlos Scl",
+        "item": "Azure Rthlos Scl",
         "quantity": 3
       },
       {
-        "item": "Azre Rathlos Shl",
+        "item": "Azure Rthlos Shl",
         "quantity": 2
       },
       {
@@ -7687,7 +7683,7 @@
     "slug": "mafumofu-hood-s",
     "materials": [
       {
-        "item": "High Quality Pelt",
+        "item": "High Qualty Pelt",
         "quantity": 2
       },
       {
@@ -7751,7 +7747,7 @@
         "quantity": 2
       },
       {
-        "item": "High Quality Pelt",
+        "item": "High Qualty Pelt",
         "quantity": 1
       }
     ],
@@ -7832,7 +7828,7 @@
   },
   {
     "id": 147,
-    "slug": "hunter-s-helm-s",
+    "slug": "hunters-helm-s",
     "materials": [
       {
         "item": "Carbalite Ore",
@@ -7847,7 +7843,7 @@
         "quantity": 3
       },
       {
-        "item": "High Quality Pelt",
+        "item": "High Qualty Pelt",
         "quantity": 2
       }
     ],
@@ -7888,7 +7884,7 @@
   },
   {
     "id": 148,
-    "slug": "hunter-s-cap-s",
+    "slug": "hunters-cap-s",
     "materials": [
       {
         "item": "Carbalite Ore",
@@ -7903,7 +7899,7 @@
         "quantity": 3
       },
       {
-        "item": "High Quality Pelt",
+        "item": "High Qualty Pelt",
         "quantity": 2
       }
     ],
@@ -8171,7 +8167,7 @@
     "slug": "velociprey-helm-s",
     "materials": [
       {
-        "item": "Velociprey Scl+",
+        "item": "Velociprey Scle+",
         "quantity": 2
       },
       {
@@ -8219,7 +8215,7 @@
     "slug": "velociprey-cap-s",
     "materials": [
       {
-        "item": "Velociprey Scl+",
+        "item": "Velociprey Scle+",
         "quantity": 2
       },
       {
@@ -8327,8 +8323,8 @@
         "quantity": 4
       },
       {
-        "item": "Vespoid Shell",
-        "quantity": 5
+        "item": "Vespoid Wing",
+        "quantity": 2
       },
       {
         "item": "Monster Broth",
@@ -8371,7 +8367,7 @@
     "slug": "hi-metal-helm-s",
     "materials": [
       {
-        "item": "Nova Crystal",
+        "item": "Novacrystal",
         "quantity": 1
       },
       {
@@ -8423,7 +8419,7 @@
     "slug": "hi-metal-cap-s",
     "materials": [
       {
-        "item": "Nova Crystal",
+        "item": "Novacrystal",
         "quantity": 1
       },
       {
@@ -8472,14 +8468,14 @@
   },
   {
     "id": 159,
-    "slug": "hornetaur-helm-s",
+    "slug": "hornet-helm-s",
     "materials": [
       {
         "item": "HornetaurInnrWng",
         "quantity": 1
       },
       {
-        "item": "Hornetaur Carpce",
+        "item": "Hornetaur Crapce",
         "quantity": 4
       },
       {
@@ -8524,14 +8520,14 @@
   },
   {
     "id": 160,
-    "slug": "hornetaur-cap-s",
+    "slug": "hornet-cap-s",
     "materials": [
       {
         "item": "HornetaurInnrWng",
         "quantity": 1
       },
       {
-        "item": "Hornetaur Carpce",
+        "item": "Hornetaur Crapce",
         "quantity": 4
       },
       {
@@ -9424,18 +9420,18 @@
   },
   {
     "id": 177,
-    "slug": "hypnoc-helm-s",
+    "slug": "hypno-helm-s",
     "materials": [
       {
-        "item": "Hypnoc Feather",
+        "item": "OrangeHypnoPelt",
         "quantity": 2
       },
       {
-        "item": "Rainbow Down",
+        "item": "RainbowTailFeath",
         "quantity": 3
       },
       {
-        "item": "Hypnoc Beak",
+        "item": "Hypno Beak",
         "quantity": 3
       },
       {
@@ -9476,18 +9472,18 @@
   },
   {
     "id": 178,
-    "slug": "hypnoc-cap-s",
+    "slug": "hypno-cap-s",
     "materials": [
       {
-        "item": "Hypnoc Feather",
+        "item": "OrangeHypnoPelt",
         "quantity": 2
       },
       {
-        "item": "Rainbow Down",
+        "item": "RainbowTailFeath",
         "quantity": 3
       },
       {
-        "item": "Hypnoc Beak",
+        "item": "Hypno Beak",
         "quantity": 3
       },
       {
@@ -9595,7 +9591,7 @@
         "quantity": 3
       },
       {
-        "item": "Blue Kut-Ku Scl+",
+        "item": "Kut-Ku Scale+",
         "quantity": 2
       },
       {
@@ -9755,15 +9751,15 @@
     "slug": "monoblos-helm-s",
     "materials": [
       {
-        "item": "Monoblos Thrcic",
+        "item": "MonoblosThoracic",
         "quantity": 2
       },
       {
-        "item": "Majestic Red Hrn",
+        "item": "Top-GrdRedHorn",
         "quantity": 1
       },
       {
-        "item": "Monoblos Carpce",
+        "item": "MonoblosCarapace",
         "quantity": 4
       },
       {
@@ -9807,15 +9803,15 @@
     "slug": "monoblos-cap-s",
     "materials": [
       {
-        "item": "Monoblos Thrcic",
+        "item": "MonoblosThoracic",
         "quantity": 2
       },
       {
-        "item": "Majestic Red Hrn",
+        "item": "Top-GrdRedHorn",
         "quantity": 1
       },
       {
-        "item": "Monoblos Carpce",
+        "item": "MonoblosCarapace",
         "quantity": 4
       },
       {
@@ -9859,11 +9855,11 @@
     "slug": "garuga-helm-s",
     "materials": [
       {
-        "item": "Garuga Devil Ear",
+        "item": "Long Garuga Ear",
         "quantity": 2
       },
       {
-        "item": "Sharpened Beak+",
+        "item": "Rejuvenated Beak",
         "quantity": 2
       },
       {
@@ -9915,11 +9911,11 @@
     "slug": "garuga-cap-s",
     "materials": [
       {
-        "item": "Garuga Devil Ear",
+        "item": "Long Garuga Ear",
         "quantity": 2
       },
       {
-        "item": "Sharpened Beak+",
+        "item": "Rejuvenated Beak",
         "quantity": 2
       },
       {
@@ -10144,7 +10140,7 @@
       },
       {
         "item": "Ceanataur Claw+",
-        "quantity": 2
+        "quantity": 3
       },
       {
         "item": "Ceanataur Shell",
@@ -10292,18 +10288,18 @@
   },
   {
     "id": 193,
-    "slug": "naruga-helm-s",
+    "slug": "narga-helm-s",
     "materials": [
       {
-        "item": "Naruga Spike",
+        "item": "Narga Tail Spike",
         "quantity": 5
       },
       {
-        "item": "Naruga Scale+",
+        "item": "Narga Scale+",
         "quantity": 4
       },
       {
-        "item": "Naruga Marrow",
+        "item": "Narga Brain Stem",
         "quantity": 1
       },
       {
@@ -10344,18 +10340,18 @@
   },
   {
     "id": 194,
-    "slug": "naruga-cap-s",
+    "slug": "narga-cap-s",
     "materials": [
       {
-        "item": "Naruga Spike",
+        "item": "Narga Tail Spike",
         "quantity": 5
       },
       {
-        "item": "Naruga Scale+",
+        "item": "Narga Scale+",
         "quantity": 4
       },
       {
-        "item": "Naruga Marrow",
+        "item": "Narga Brain Stem",
         "quantity": 1
       },
       {
@@ -10421,10 +10417,6 @@
         "points": -2
       },
       {
-        "skill": "protection",
-        "points": -2
-      },
-      {
         "skill": "hear-protct",
         "points": 1
       },
@@ -10483,10 +10475,6 @@
       {
         "skill": "hear-protct",
         "points": 3
-      },
-      {
-        "skill": "psychic-vis",
-        "points": 1
       },
       {
         "skill": "psychic-vis",
@@ -10928,7 +10916,7 @@
   },
   {
     "id": 205,
-    "slug": "hunter-s-helm-u",
+    "slug": "hunters-helm-u",
     "materials": [
       {
         "item": "King Scarab",
@@ -10939,7 +10927,7 @@
         "quantity": 1
       },
       {
-        "item": "High Quality Pelt",
+        "item": "High Qualty Pelt",
         "quantity": 1
       },
       {
@@ -10980,7 +10968,7 @@
   },
   {
     "id": 206,
-    "slug": "hunter-s-cap-u",
+    "slug": "hunters-cap-u",
     "materials": [
       {
         "item": "King Scarab",
@@ -10991,7 +10979,7 @@
         "quantity": 1
       },
       {
-        "item": "High Quality Pelt",
+        "item": "High Qualty Pelt",
         "quantity": 1
       },
       {
@@ -11199,7 +11187,7 @@
         "quantity": 2
       },
       {
-        "item": "Genprey Hide+",
+        "item": "Ioprey Hide+",
         "quantity": 3
       },
       {
@@ -11548,14 +11536,14 @@
   },
   {
     "id": 217,
-    "slug": "hornetaur-helm-u",
+    "slug": "hornet-helm-u",
     "materials": [
       {
         "item": "HornetaurInnrWng",
         "quantity": 1
       },
       {
-        "item": "Hornetaur Carpce",
+        "item": "Hornetaur Crapce",
         "quantity": 4
       },
       {
@@ -11600,14 +11588,14 @@
   },
   {
     "id": 218,
-    "slug": "hornetaur-cap-u",
+    "slug": "hornet-cap-u",
     "materials": [
       {
         "item": "HornetaurInnrWng",
         "quantity": 1
       },
       {
-        "item": "Hornetaur Carpce",
+        "item": "Hornetaur Crapce",
         "quantity": 4
       },
       {
@@ -12175,7 +12163,7 @@
     "slug": "gypceros-helm-u",
     "materials": [
       {
-        "item": "Pur GypcerosWng",
+        "item": "Pur Gypceros Wng",
         "quantity": 2
       },
       {
@@ -12227,7 +12215,7 @@
     "slug": "gypceros-cap-u",
     "materials": [
       {
-        "item": "Pur GypcerosWng",
+        "item": "Pur Gypceros Wng",
         "quantity": 2
       },
       {
@@ -12704,7 +12692,7 @@
       },
       {
         "item": "Brute Bone",
-        "quantity": 2
+        "quantity": 4
       },
       {
         "item": "Gendrome Tail",
@@ -12756,7 +12744,7 @@
       },
       {
         "item": "Brute Bone",
-        "quantity": 2
+        "quantity": 4
       },
       {
         "item": "Gendrome Tail",
@@ -12911,12 +12899,12 @@
         "quantity": 1
       },
       {
-        "item": "Nova Crystal",
-        "quantity": 1
+        "item": "Novacrystal",
+        "quantity": 2
       },
       {
         "item": "Rare Scarab",
-        "quantity": 2
+        "quantity": 3
       }
     ],
     "skills": [
@@ -12963,12 +12951,12 @@
         "quantity": 1
       },
       {
-        "item": "Nova Crystal",
-        "quantity": 1
+        "item": "Novacrystal",
+        "quantity": 2
       },
       {
         "item": "Rare Scarab",
-        "quantity": 2
+        "quantity": 3
       }
     ],
     "skills": [
@@ -13123,7 +13111,7 @@
         "quantity": 1
       },
       {
-        "item": "Nova Crystal",
+        "item": "Novacrystal",
         "quantity": 1
       }
     ],
@@ -13418,7 +13406,7 @@
     "slug": "bl-guild-guard-tricorne",
     "materials": [
       {
-        "item": "Nova Crystal",
+        "item": "Novacrystal",
         "quantity": 2
       },
       {
@@ -13470,7 +13458,7 @@
     "slug": "blue-guild-guard-mask",
     "materials": [
       {
-        "item": "Nova Crystal",
+        "item": "Novacrystal",
         "quantity": 2
       },
       {
@@ -13634,7 +13622,7 @@
     "slug": "blue-guild-guard-hat",
     "materials": [
       {
-        "item": "Nova Crystal",
+        "item": "Novacrystal",
         "quantity": 2
       },
       {
@@ -13686,7 +13674,7 @@
     "slug": "blu-guild-guard-piercng",
     "materials": [
       {
-        "item": "Nova Crystal",
+        "item": "Novacrystal",
         "quantity": 2
       },
       {
@@ -13735,11 +13723,11 @@
   },
   {
     "id": 259,
-    "slug": "devil-blos-helm",
+    "slug": "diasorte-helm",
     "dummy": true,
     "materials": [
       {
-        "item": "One-HornedTicket",
+        "item": "Dengeki Maoh Tkt",
         "quantity": 1
       },
       {
@@ -13788,11 +13776,11 @@
   },
   {
     "id": 260,
-    "slug": "devil-blos-cap",
+    "slug": "diasorte-cap",
     "dummy": true,
     "materials": [
       {
-        "item": "One-HornedTicket",
+        "item": "Dengeki Maoh Tkt",
         "quantity": 1
       },
       {
@@ -13845,7 +13833,7 @@
   },
   {
     "id": 261,
-    "slug": "jolly-roger-hat",
+    "slug": "pirate-j-hat",
     "dummy": true,
     "materials": [
       {
@@ -13898,7 +13886,7 @@
   },
   {
     "id": 262,
-    "slug": "jolly-roger-cap",
+    "slug": "pirate-j-roger",
     "dummy": true,
     "materials": [
       {
@@ -14286,7 +14274,7 @@
         "quantity": 3
       },
       {
-        "item": "Elder Drgn Bone",
+        "item": "Eldr Dragon Bone",
         "quantity": 2
       }
     ],
@@ -14338,7 +14326,7 @@
         "quantity": 3
       },
       {
-        "item": "Elder Drgn Bone",
+        "item": "Eldr Dragon Bone",
         "quantity": 2
       }
     ],
@@ -15107,7 +15095,7 @@
   },
   {
     "id": 285,
-    "slug": "dragon-head-s",
+    "slug": "dragonhead-s",
     "materials": [
       {
         "item": "Fatalis Eye",
@@ -15163,7 +15151,7 @@
   },
   {
     "id": 286,
-    "slug": "dragon-face-s",
+    "slug": "dragonface-s",
     "materials": [
       {
         "item": "Fatalis Eye",
@@ -15390,7 +15378,7 @@
         "quantity": 2
       },
       {
-        "item": "Slvr Rathlos Cpc",
+        "item": "Slvr Rthlos Cpc",
         "quantity": 2
       }
     ],
@@ -15442,7 +15430,7 @@
         "quantity": 2
       },
       {
-        "item": "Slvr Rathlos Cpc",
+        "item": "Slvr Rthlos Cpc",
         "quantity": 2
       }
     ],
@@ -15898,7 +15886,7 @@
     "slug": "monodevil-helm-u",
     "materials": [
       {
-        "item": "WhtMnoblosThrcic",
+        "item": "WhtMonoblosThora",
         "quantity": 2
       },
       {
@@ -15906,7 +15894,7 @@
         "quantity": 3
       },
       {
-        "item": "Majestic Wht Hrn",
+        "item": "Top-GrdPlatHorn",
         "quantity": 1
       },
       {
@@ -15954,7 +15942,7 @@
     "slug": "monodevil-cap-u",
     "materials": [
       {
-        "item": "WhtMnoblosThrcic",
+        "item": "WhtMonoblosThora",
         "quantity": 2
       },
       {
@@ -15962,7 +15950,7 @@
         "quantity": 3
       },
       {
-        "item": "Majestic Wht Hrn",
+        "item": "Top-GrdPlatHorn",
         "quantity": 1
       },
       {
@@ -16014,7 +16002,7 @@
         "quantity": 2
       },
       {
-        "item": "PnkRathian Scl+",
+        "item": "Pnk Rathian Scl+",
         "quantity": 3
       },
       {
@@ -16070,7 +16058,7 @@
         "quantity": 2
       },
       {
-        "item": "PnkRathian Scl+",
+        "item": "Pnk Rathian Scl+",
         "quantity": 3
       },
       {
@@ -16122,11 +16110,11 @@
     "slug": "rathalos-soul-helm-u",
     "materials": [
       {
-        "item": "Azre Rathlos Cpc",
+        "item": "Azure Rthlos Cpc",
         "quantity": 2
       },
       {
-        "item": "Azur Rathlos Wng",
+        "item": "Azur Rthlos Wing",
         "quantity": 1
       },
       {
@@ -16174,11 +16162,11 @@
     "slug": "rathalos-soul-cap-u",
     "materials": [
       {
-        "item": "Azre Rathlos Cpc",
+        "item": "Azure Rthlos Cpc",
         "quantity": 2
       },
       {
-        "item": "Azur Rathlos Wng",
+        "item": "Azur Rthlos Wing",
         "quantity": 1
       },
       {
@@ -16330,11 +16318,11 @@
     "slug": "silver-sol-helm",
     "materials": [
       {
-        "item": "Slvr Rathlos Cpc",
+        "item": "Slvr Rthlos Cpc",
         "quantity": 2
       },
       {
-        "item": "Slvr Rathlos Wng",
+        "item": "Slvr Rthlos Wing",
         "quantity": 1
       },
       {
@@ -16382,11 +16370,11 @@
     "slug": "silver-sol-cap",
     "materials": [
       {
-        "item": "Slvr Rathlos Cpc",
+        "item": "Slvr Rthlos Cpc",
         "quantity": 2
       },
       {
-        "item": "Slvr Rathlos Wng",
+        "item": "Slvr Rthlos Wing",
         "quantity": 1
       },
       {
@@ -16673,7 +16661,7 @@
       },
       {
         "skill": "protection",
-        "points": 3
+        "points": -3
       },
       {
         "skill": "stamina",
@@ -16766,7 +16754,7 @@
         "quantity": 1
       },
       {
-        "item": "White Ftalis Hrn",
+        "item": "Wht Fatalis Horn",
         "quantity": 2
       },
       {
@@ -16822,7 +16810,7 @@
         "quantity": 1
       },
       {
-        "item": "White Ftalis Hrn",
+        "item": "Wht Fatalis Horn",
         "quantity": 2
       },
       {
@@ -16870,15 +16858,15 @@
     "slug": "kut-ku-helm-x",
     "materials": [
       {
-        "item": "Lucky Kut-KuEar",
+        "item": "Lucky Kut-Ku Ear",
         "quantity": 1
       },
       {
-        "item": "Kut-Ku Hvy Cpc",
+        "item": "Hvy Kut-Ku Shell",
         "quantity": 2
       },
       {
-        "item": "Kut-Ku Hrd Wbbng",
+        "item": "Str Kut-Ku Wing",
         "quantity": 1
       },
       {
@@ -16922,15 +16910,15 @@
     "slug": "kut-ku-cap-x",
     "materials": [
       {
-        "item": "Lucky Kut-KuEar",
+        "item": "Lucky Kut-Ku Ear",
         "quantity": 1
       },
       {
-        "item": "Kut-Ku Hvy Cpc",
+        "item": "Hvy Kut-Ku Shell",
         "quantity": 2
       },
       {
-        "item": "Kut-Ku Hrd Wbbng",
+        "item": "Str Kut-Ku Wing",
         "quantity": 1
       },
       {
@@ -16974,7 +16962,7 @@
     "slug": "conga-helm-x",
     "materials": [
       {
-        "item": "Congalala Pelt G",
+        "item": "HrdCongalalaPlt+",
         "quantity": 2
       },
       {
@@ -16982,11 +16970,11 @@
         "quantity": 2
       },
       {
-        "item": "Congalala Claw G",
+        "item": "HrdCongalalaClw+",
         "quantity": 2
       },
       {
-        "item": "Emperor Locust",
+        "item": "Emperor Cricket",
         "quantity": 2
       }
     ],
@@ -17005,7 +16993,7 @@
       }
     ],
     "torso_inc": false,
-    "price": 1330,
+    "price": 13300,
     "defence": 80,
     "gender": 3,
     "class": 3,
@@ -17026,7 +17014,7 @@
     "slug": "conga-cap-x",
     "materials": [
       {
-        "item": "Congalala Pelt G",
+        "item": "HrdCongalalaPlt+",
         "quantity": 2
       },
       {
@@ -17034,11 +17022,11 @@
         "quantity": 2
       },
       {
-        "item": "Congalala Claw G",
+        "item": "HrdCongalalaClw+",
         "quantity": 2
       },
       {
-        "item": "Emperor Locust",
+        "item": "Emperor Cricket",
         "quantity": 2
       }
     ],
@@ -17057,7 +17045,7 @@
       }
     ],
     "torso_inc": false,
-    "price": 1330,
+    "price": 13300,
     "defence": 40,
     "gender": 3,
     "class": 3,
@@ -17078,15 +17066,15 @@
     "slug": "gypceros-helm-x",
     "materials": [
       {
-        "item": "Rubbery Hide G",
+        "item": "SpecRubberyHide+",
         "quantity": 4
       },
       {
-        "item": "Gypceros HrdHead",
+        "item": "HardGypcerosHead",
         "quantity": 1
       },
       {
-        "item": "Pure Crystal",
+        "item": "Purecrystal",
         "quantity": 1
       },
       {
@@ -17109,7 +17097,7 @@
       }
     ],
     "torso_inc": false,
-    "price": 1330,
+    "price": 13300,
     "defence": 80,
     "gender": 3,
     "class": 3,
@@ -17130,15 +17118,15 @@
     "slug": "gypceros-cap-x",
     "materials": [
       {
-        "item": "Rubbery Hide G",
+        "item": "SpecRubberyHide+",
         "quantity": 4
       },
       {
-        "item": "Gypceros HrdHead",
+        "item": "HardGypcerosHead",
         "quantity": 1
       },
       {
-        "item": "Pure Crystal",
+        "item": "Purecrystal",
         "quantity": 1
       },
       {
@@ -17161,7 +17149,7 @@
       }
     ],
     "torso_inc": false,
-    "price": 1330,
+    "price": 13300,
     "defence": 40,
     "gender": 3,
     "class": 3,
@@ -17182,7 +17170,7 @@
     "slug": "khezu-helm-x",
     "materials": [
       {
-        "item": "Khezu Hide-Gloss",
+        "item": "KhezuHide-Cream",
         "quantity": 2
       },
       {
@@ -17194,7 +17182,7 @@
         "quantity": 10
       },
       {
-        "item": "Monster Broth+",
+        "item": "Monster Essence",
         "quantity": 3
       }
     ],
@@ -17234,7 +17222,7 @@
     "slug": "khezu-cap-x",
     "materials": [
       {
-        "item": "Khezu Hide-Gloss",
+        "item": "KhezuHide-Cream",
         "quantity": 2
       },
       {
@@ -17246,7 +17234,7 @@
         "quantity": 10
       },
       {
-        "item": "Monster Broth+",
+        "item": "Monster Essence",
         "quantity": 3
       }
     ],
@@ -17286,11 +17274,11 @@
     "slug": "hermitaur-helm-x",
     "materials": [
       {
-        "item": "HermitaurClaw G",
+        "item": "HrdHermitaurClaw",
         "quantity": 1
       },
       {
-        "item": "Hermitaur HvyCpc",
+        "item": "HvyHermitaurShl",
         "quantity": 3
       },
       {
@@ -17342,11 +17330,11 @@
     "slug": "hermitaur-cap-x",
     "materials": [
       {
-        "item": "HermitaurClaw G",
+        "item": "HrdHermitaurClaw",
         "quantity": 1
       },
       {
-        "item": "Hermitaur HvyCpc",
+        "item": "HvyHermitaurShl",
         "quantity": 3
       },
       {
@@ -17395,22 +17383,22 @@
   },
   {
     "id": 328,
-    "slug": "hypnoc-helm-x",
+    "slug": "hypno-helm-x",
     "materials": [
       {
-        "item": "Hypnoc Feather+",
+        "item": "OrangeHypnoPelt+",
         "quantity": 2
       },
       {
-        "item": "Rainbow Down",
+        "item": "RainbowTailFeath",
         "quantity": 4
       },
       {
-        "item": "HypncGizzardStn+",
+        "item": "Hypno Bezoar+",
         "quantity": 1
       },
       {
-        "item": "Kut-Ku Thck Scl",
+        "item": "Thick Kut-Ku Scl",
         "quantity": 2
       }
     ],
@@ -17447,22 +17435,22 @@
   },
   {
     "id": 329,
-    "slug": "hypnoc-cap-x",
+    "slug": "hypno-cap-x",
     "materials": [
       {
-        "item": "Hypnoc Feather+",
+        "item": "OrangeHypnoPelt+",
         "quantity": 2
       },
       {
-        "item": "Rainbow Down",
+        "item": "RainbowTailFeath",
         "quantity": 4
       },
       {
-        "item": "HypncGizzardStn+",
+        "item": "Hypno Bezoar+",
         "quantity": 1
       },
       {
-        "item": "Kut-Ku Thck Scl",
+        "item": "Thick Kut-Ku Scl",
         "quantity": 2
       }
     ],
@@ -17502,11 +17490,11 @@
     "slug": "basarios-helm-x",
     "materials": [
       {
-        "item": "Basarios Hvy Cpc",
+        "item": "HvyBasariosShell",
         "quantity": 3
       },
       {
-        "item": "BasariosStrngWng",
+        "item": "StrBasariosWing",
         "quantity": 1
       },
       {
@@ -17514,7 +17502,7 @@
         "quantity": 3
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 4
       }
     ],
@@ -17558,11 +17546,11 @@
     "slug": "basarios-cap-x",
     "materials": [
       {
-        "item": "Basarios Hvy Cpc",
+        "item": "HvyBasariosShell",
         "quantity": 3
       },
       {
-        "item": "BasariosStrngWng",
+        "item": "StrBasariosWing",
         "quantity": 1
       },
       {
@@ -17570,7 +17558,7 @@
         "quantity": 3
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 4
       }
     ],
@@ -17610,15 +17598,15 @@
     "slug": "plesioth-helm-x",
     "materials": [
       {
-        "item": "Plsioth Thck Scl",
+        "item": "ThckPlesiothScl",
         "quantity": 3
       },
       {
-        "item": "Plesioth Fin G",
+        "item": "SpecPlesiothFin+",
         "quantity": 2
       },
       {
-        "item": "Piscine Fang+",
+        "item": "HvyPiscineFang",
         "quantity": 2
       },
       {
@@ -17662,15 +17650,15 @@
     "slug": "plesioth-cap-x",
     "materials": [
       {
-        "item": "Plsioth Thck Scl",
+        "item": "ThckPlesiothScl",
         "quantity": 3
       },
       {
-        "item": "Plesioth Fin G",
+        "item": "SpecPlesiothFin+",
         "quantity": 2
       },
       {
-        "item": "Piscine Fang+",
+        "item": "HvyPiscineFang",
         "quantity": 2
       },
       {
@@ -17718,15 +17706,15 @@
     "slug": "monoblos-helm-x",
     "materials": [
       {
-        "item": "Melange Ore",
+        "item": "Mellanje Ore",
         "quantity": 3
       },
       {
-        "item": "Majestic Red Hrn",
+        "item": "Top-GrdRedHorn",
         "quantity": 1
       },
       {
-        "item": "Monoblos Carpce",
+        "item": "MonoblosCarapace",
         "quantity": 5
       },
       {
@@ -17774,15 +17762,15 @@
     "slug": "monoblos-cap-x",
     "materials": [
       {
-        "item": "Melange Ore",
+        "item": "Mellanje Ore",
         "quantity": 3
       },
       {
-        "item": "Majestic Red Hrn",
+        "item": "Top-GrdRedHorn",
         "quantity": 1
       },
       {
-        "item": "Monoblos Carpce",
+        "item": "MonoblosCarapace",
         "quantity": 5
       },
       {
@@ -17827,22 +17815,22 @@
   },
   {
     "id": 336,
-    "slug": "yian-garuga-helm-x",
+    "slug": "garuga-helm-x",
     "materials": [
       {
-        "item": "Garuga Hvy Cpc",
+        "item": "ThickGarugaScale",
         "quantity": 3
       },
       {
-        "item": "Garuga Devil Ear",
+        "item": "Long Garuga Ear",
         "quantity": 4
       },
       {
-        "item": "Sharpened Beak+",
+        "item": "Rejuvenated Beak",
         "quantity": 4
       },
       {
-        "item": "Garuga Slvr Mane",
+        "item": "SilverGarugaPelt",
         "quantity": 3
       }
     ],
@@ -17883,22 +17871,22 @@
   },
   {
     "id": 337,
-    "slug": "yian-garuga-cap-x",
+    "slug": "garuga-cap-x",
     "materials": [
       {
-        "item": "Garuga Hvy Cpc",
+        "item": "ThickGarugaScale",
         "quantity": 3
       },
       {
-        "item": "Garuga Devil Ear",
+        "item": "Long Garuga Ear",
         "quantity": 4
       },
       {
-        "item": "Sharpened Beak+",
+        "item": "Rejuvenated Beak",
         "quantity": 4
       },
       {
-        "item": "Garuga Slvr Mane",
+        "item": "SilverGarugaPelt",
         "quantity": 3
       }
     ],
@@ -17942,11 +17930,11 @@
     "slug": "blango-helm-x",
     "materials": [
       {
-        "item": "Blangonga Pelt G",
+        "item": "HrdBlangongaPlt+",
         "quantity": 3
       },
       {
-        "item": "Blangnga HvyFang",
+        "item": "HvyBlangongaFang",
         "quantity": 1
       },
       {
@@ -17954,7 +17942,7 @@
         "quantity": 4
       },
       {
-        "item": "Razor Claw",
+        "item": "Piercing Claw",
         "quantity": 3
       }
     ],
@@ -17994,11 +17982,11 @@
     "slug": "blango-cap-x",
     "materials": [
       {
-        "item": "Blangonga Pelt G",
+        "item": "HrdBlangongaPlt+",
         "quantity": 3
       },
       {
-        "item": "Blangnga HvyFang",
+        "item": "HvyBlangongaFang",
         "quantity": 1
       },
       {
@@ -18006,7 +17994,7 @@
         "quantity": 4
       },
       {
-        "item": "Razor Claw",
+        "item": "Piercing Claw",
         "quantity": 3
       }
     ],
@@ -18046,20 +18034,16 @@
     "slug": "ceanataur-helm-x",
     "materials": [
       {
-        "item": "CeanataurHvyCpc",
+        "item": "HvyCeanataurShl",
         "quantity": 2
       },
       {
-        "item": "CeanataurClaw G",
+        "item": "HrdCeanataurClaw",
         "quantity": 2
       },
       {
         "item": "Ceanataur Carpce",
         "quantity": 5
-      },
-      {
-        "item": "King Scarab",
-        "quantity": 6
       }
     ],
     "skills": [
@@ -18098,20 +18082,16 @@
     "slug": "ceanataur-cap-x",
     "materials": [
       {
-        "item": "CeanataurHvyCpc",
+        "item": "HvyCeanataurShl",
         "quantity": 2
       },
       {
-        "item": "CeanataurClaw G",
+        "item": "HrdCeanataurClaw",
         "quantity": 2
       },
       {
         "item": "Ceanataur Carpce",
         "quantity": 5
-      },
-      {
-        "item": "King Scarab",
-        "quantity": 6
       }
     ],
     "skills": [
@@ -18150,11 +18130,11 @@
     "slug": "rathian-helm-x",
     "materials": [
       {
-        "item": "Rathian Thck Scl",
+        "item": "ThckRathianScl",
         "quantity": 3
       },
       {
-        "item": "Rathian Hvy Cpc",
+        "item": "HvyRathianShell",
         "quantity": 2
       },
       {
@@ -18162,7 +18142,7 @@
         "quantity": 3
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 4
       }
     ],
@@ -18206,11 +18186,11 @@
     "slug": "rathian-cap-x",
     "materials": [
       {
-        "item": "Rathian Thck Scl",
+        "item": "ThckRathianScl",
         "quantity": 3
       },
       {
-        "item": "Rathian Hvy Cpc",
+        "item": "HvyRathianShell",
         "quantity": 2
       },
       {
@@ -18218,7 +18198,7 @@
         "quantity": 3
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 4
       }
     ],
@@ -18259,22 +18239,22 @@
   },
   {
     "id": 344,
-    "slug": "naruga-helm-x",
+    "slug": "narga-helm-x",
     "materials": [
       {
-        "item": "Naruga Hvy Spike",
+        "item": "HvyNargaTailSpik",
         "quantity": 5
       },
       {
-        "item": "Naruga Thck Scl",
+        "item": "ThickNargaScale",
         "quantity": 4
       },
       {
-        "item": "NarugaDvinePlate",
+        "item": "HvnlyNargaScale",
         "quantity": 1
       },
       {
-        "item": "Monster Broth+",
+        "item": "Monster Essence",
         "quantity": 4
       }
     ],
@@ -18315,22 +18295,22 @@
   },
   {
     "id": 345,
-    "slug": "naruga-cap-x",
+    "slug": "narga-cap-x",
     "materials": [
       {
-        "item": "Naruga Hvy Spike",
+        "item": "HvyNargaTailSpik",
         "quantity": 5
       },
       {
-        "item": "Naruga Thck Scl",
+        "item": "ThickNargaScale",
         "quantity": 4
       },
       {
-        "item": "NarugaDvinePlate",
+        "item": "HvnlyNargaScale",
         "quantity": 1
       },
       {
-        "item": "Monster Broth+",
+        "item": "Monster Essence",
         "quantity": 4
       }
     ],
@@ -18367,22 +18347,22 @@
   },
   {
     "id": 346,
-    "slug": "volganos-helm-x",
+    "slug": "lava-helm-x",
     "materials": [
       {
-        "item": "Volganos Hvy Cpc",
+        "item": "HvyLavasiothShl",
         "quantity": 3
       },
       {
-        "item": "Volganos Fin+",
+        "item": "SpecLavasioFin+",
         "quantity": 1
       },
       {
-        "item": "Volganos Thk Scl",
+        "item": "ThckLavasiothScl",
         "quantity": 5
       },
       {
-        "item": "Remobra Skin G",
+        "item": "SpecRemobraSkin+",
         "quantity": 2
       }
     ],
@@ -18423,22 +18403,22 @@
   },
   {
     "id": 347,
-    "slug": "volganos-cap-x",
+    "slug": "lava-cap-x",
     "materials": [
       {
-        "item": "Volganos Hvy Cpc",
+        "item": "HvyLavasiothShl",
         "quantity": 3
       },
       {
-        "item": "Volganos Fin+",
+        "item": "SpecLavasioFin+",
         "quantity": 1
       },
       {
-        "item": "Volganos Thk Scl",
+        "item": "ThckLavasiothScl",
         "quantity": 5
       },
       {
-        "item": "Remobra Skin G",
+        "item": "SpecRemobraSkin+",
         "quantity": 2
       }
     ],
@@ -18482,7 +18462,7 @@
     "slug": "tigrex-helm-x",
     "materials": [
       {
-        "item": "Tigrex StrngClaw",
+        "item": "Hard Tigrex Claw",
         "quantity": 3
       },
       {
@@ -18490,7 +18470,7 @@
         "quantity": 1
       },
       {
-        "item": "TigrexDvinePlate",
+        "item": "HvnlyTigrexScale",
         "quantity": 1
       },
       {
@@ -18538,7 +18518,7 @@
     "slug": "tigrex-cap-x",
     "materials": [
       {
-        "item": "Tigrex StrngClaw",
+        "item": "Hard Tigrex Claw",
         "quantity": 3
       },
       {
@@ -18546,7 +18526,7 @@
         "quantity": 1
       },
       {
-        "item": "TigrexDvinePlate",
+        "item": "HvnlyTigrexScale",
         "quantity": 1
       },
       {
@@ -18590,19 +18570,19 @@
     "slug": "rathalos-helm-x",
     "materials": [
       {
-        "item": "Rathalos ThckScl",
+        "item": "Hrd Rathalos Scl",
         "quantity": 3
       },
       {
-        "item": "RathlosStrngWng",
+        "item": "StrRathalosWing",
         "quantity": 1
       },
       {
-        "item": "RathlosDvnePlate",
+        "item": "HvnlyRathalosScl",
         "quantity": 1
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 3
       }
     ],
@@ -18642,19 +18622,19 @@
     "slug": "rathalos-cap-x",
     "materials": [
       {
-        "item": "Rathalos ThckScl",
+        "item": "Hrd Rathalos Scl",
         "quantity": 3
       },
       {
-        "item": "RathlosStrngWng",
+        "item": "StrRathalosWing",
         "quantity": 1
       },
       {
-        "item": "RathlosDvnePlate",
+        "item": "HvnlyRathalosScl",
         "quantity": 1
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 3
       }
     ],
@@ -18694,11 +18674,11 @@
     "slug": "diablo-helm-x",
     "materials": [
       {
-        "item": "Diablos Hvy Cpc",
+        "item": "HvyDiablosShell",
         "quantity": 3
       },
       {
-        "item": "Glorious Horn",
+        "item": "StoutWarpedHorn",
         "quantity": 1
       },
       {
@@ -18746,11 +18726,11 @@
     "slug": "diablo-cap-x",
     "materials": [
       {
-        "item": "Diablos Hvy Cpc",
+        "item": "HvyDiablosShell",
         "quantity": 3
       },
       {
-        "item": "Glorious Horn",
+        "item": "StoutWarpedHorn",
         "quantity": 1
       },
       {
@@ -18798,7 +18778,7 @@
     "slug": "gravios-helm-x",
     "materials": [
       {
-        "item": "Gravios Hvy Cpc",
+        "item": "HvyGraviosShell",
         "quantity": 5
       },
       {
@@ -18854,7 +18834,7 @@
     "slug": "gravios-cap-x",
     "materials": [
       {
-        "item": "Gravios Hvy Cpc",
+        "item": "HvyGraviosShell",
         "quantity": 5
       },
       {
@@ -18910,15 +18890,15 @@
     "slug": "kut-ku-helm-z",
     "materials": [
       {
-        "item": "Lucky Kut-KuEar",
+        "item": "Lucky Kut-Ku Ear",
         "quantity": 1
       },
       {
-        "item": "BlueKut-KuHvyCpc",
+        "item": "HvyBlueKut-KuShl",
         "quantity": 2
       },
       {
-        "item": "Kut-Ku Hrd Wbbng",
+        "item": "Str Kut-Ku Wing",
         "quantity": 1
       },
       {
@@ -18962,15 +18942,15 @@
     "slug": "kut-ku-cap-z",
     "materials": [
       {
-        "item": "Lucky Kut-KuEar",
+        "item": "Lucky Kut-Ku Ear",
         "quantity": 1
       },
       {
-        "item": "BlueKut-KuHvyCpc",
+        "item": "HvyBlueKut-KuShl",
         "quantity": 2
       },
       {
-        "item": "Kut-Ku Hrd Wbbng",
+        "item": "Str Kut-Ku Wing",
         "quantity": 1
       },
       {
@@ -19014,19 +18994,19 @@
     "slug": "conga-helm-z",
     "materials": [
       {
-        "item": "GrnCongalalaPelt",
+        "item": "E.CongalalaPelt+",
         "quantity": 4
       },
       {
-        "item": "Vibrant Crown",
+        "item": "Vibrant Comb",
         "quantity": 1
       },
       {
-        "item": "GrnCongalalaClaw",
+        "item": "HrdE.CongaClaw",
         "quantity": 2
       },
       {
-        "item": "Pure Crystal",
+        "item": "Purecrystal",
         "quantity": 1
       }
     ],
@@ -19066,19 +19046,19 @@
     "slug": "conga-cap-z",
     "materials": [
       {
-        "item": "GrnCongalalaPelt",
+        "item": "E.CongalalaPelt+",
         "quantity": 4
       },
       {
-        "item": "Vibrant Crown",
+        "item": "Vibrant Comb",
         "quantity": 1
       },
       {
-        "item": "GrnCongalalaClaw",
+        "item": "HrdE.CongaClaw",
         "quantity": 2
       },
       {
-        "item": "Pure Crystal",
+        "item": "Purecrystal",
         "quantity": 1
       }
     ],
@@ -19118,11 +19098,11 @@
     "slug": "gypceros-helm-z",
     "materials": [
       {
-        "item": "Pur Gyp StrngWng",
+        "item": "HrdPuGypcerosWng",
         "quantity": 2
       },
       {
-        "item": "Monster Broth+",
+        "item": "Monster Essence",
         "quantity": 2
       },
       {
@@ -19130,7 +19110,7 @@
         "quantity": 8
       },
       {
-        "item": "Gypceros HrdHead",
+        "item": "HardGypcerosHead",
         "quantity": 1
       }
     ],
@@ -19170,11 +19150,11 @@
     "slug": "gypceros-cap-z",
     "materials": [
       {
-        "item": "Pur Gyp StrngWng",
+        "item": "HrdPuGypcerosWng",
         "quantity": 2
       },
       {
-        "item": "Monster Broth+",
+        "item": "Monster Essence",
         "quantity": 2
       },
       {
@@ -19182,7 +19162,7 @@
         "quantity": 8
       },
       {
-        "item": "Gypceros HrdHead",
+        "item": "HardGypcerosHead",
         "quantity": 1
       }
     ],
@@ -19222,15 +19202,15 @@
     "slug": "khezu-helm-z",
     "materials": [
       {
-        "item": "Alluring Wing",
+        "item": "StrAlluringWing",
         "quantity": 3
       },
       {
-        "item": "ChoiceKhezuSteak",
+        "item": "KhezuSpecialCut",
         "quantity": 1
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 4
       },
       {
@@ -19274,15 +19254,15 @@
     "slug": "khezu-cap-z",
     "materials": [
       {
-        "item": "Alluring Wing",
+        "item": "StrAlluringWing",
         "quantity": 3
       },
       {
-        "item": "ChoiceKhezuSteak",
+        "item": "KhezuSpecialCut",
         "quantity": 1
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 4
       },
       {
@@ -19326,11 +19306,11 @@
     "slug": "hermitaur-helm-z",
     "materials": [
       {
-        "item": "Pur HermitaurClw",
+        "item": "PlumD.HermitrClw",
         "quantity": 1
       },
       {
-        "item": "Pur HermitaurShl",
+        "item": "PlumD.HermitrShl",
         "quantity": 3
       },
       {
@@ -19338,7 +19318,7 @@
         "quantity": 1
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 3
       }
     ],
@@ -19382,11 +19362,11 @@
     "slug": "hermitaur-cap-z",
     "materials": [
       {
-        "item": "Pur HermitaurClw",
+        "item": "PlumD.HermitrClw",
         "quantity": 1
       },
       {
-        "item": "Pur HermitaurShl",
+        "item": "PlumD.HermitrShl",
         "quantity": 3
       },
       {
@@ -19394,7 +19374,7 @@
         "quantity": 1
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 3
       }
     ],
@@ -19438,15 +19418,15 @@
     "slug": "plesioth-helm-z",
     "materials": [
       {
-        "item": "GrnPlsiothThkScl",
+        "item": "ThckGrnPlesioScl",
         "quantity": 3
       },
       {
-        "item": "GrnPlsioth Fin G",
+        "item": "SpecGrnPlesioFn+",
         "quantity": 2
       },
       {
-        "item": "Piscine Fang+",
+        "item": "HvyPiscineFang",
         "quantity": 2
       },
       {
@@ -19490,15 +19470,15 @@
     "slug": "plesioth-cap-z",
     "materials": [
       {
-        "item": "GrnPlsiothThkScl",
+        "item": "ThckGrnPlesioScl",
         "quantity": 3
       },
       {
-        "item": "GrnPlsioth Fin G",
+        "item": "SpecGrnPlesioFn+",
         "quantity": 2
       },
       {
-        "item": "Piscine Fang+",
+        "item": "HvyPiscineFang",
         "quantity": 2
       },
       {
@@ -19546,19 +19526,19 @@
     "slug": "blango-helm-z",
     "materials": [
       {
-        "item": "Brwn BlngngaPelt",
+        "item": "C.BlangongaPelt+",
         "quantity": 3
       },
       {
-        "item": "Brwn BlngngaFang",
+        "item": "HvyC.BlangoFang",
         "quantity": 1
       },
       {
-        "item": "Majestic Wht Hrn",
+        "item": "Top-GrdPlatHorn",
         "quantity": 1
       },
       {
-        "item": "Razor Claw",
+        "item": "Piercing Claw",
         "quantity": 3
       }
     ],
@@ -19598,19 +19578,19 @@
     "slug": "blango-cap-z",
     "materials": [
       {
-        "item": "Brwn BlngngaPelt",
+        "item": "C.BlangongaPelt+",
         "quantity": 3
       },
       {
-        "item": "Brwn BlngngaFang",
+        "item": "HvyC.BlangoFang",
         "quantity": 1
       },
       {
-        "item": "Majestic Wht Hrn",
+        "item": "Top-GrdPlatHorn",
         "quantity": 1
       },
       {
-        "item": "Razor Claw",
+        "item": "Piercing Claw",
         "quantity": 3
       }
     ],
@@ -19650,11 +19630,11 @@
     "slug": "ceanataur-helm-z",
     "materials": [
       {
-        "item": "RedCeanataurShl",
+        "item": "TerraCeanatrShl",
         "quantity": 2
       },
       {
-        "item": "RedCeanataurClaw",
+        "item": "TerraCeanatrClaw",
         "quantity": 2
       },
       {
@@ -19662,7 +19642,7 @@
         "quantity": 2
       },
       {
-        "item": "Black Pearl+",
+        "item": "Giant Blk Pearl",
         "quantity": 1
       }
     ],
@@ -19702,11 +19682,11 @@
     "slug": "ceanataur-cap-z",
     "materials": [
       {
-        "item": "RedCeanataurShl",
+        "item": "TerraCeanatrShl",
         "quantity": 2
       },
       {
-        "item": "RedCeanataurClaw",
+        "item": "TerraCeanatrClaw",
         "quantity": 2
       },
       {
@@ -19714,7 +19694,7 @@
         "quantity": 2
       },
       {
-        "item": "Black Pearl+",
+        "item": "Giant Blk Pearl",
         "quantity": 1
       }
     ],
@@ -19754,19 +19734,19 @@
     "slug": "diablo-helm-z",
     "materials": [
       {
-        "item": "Blk Blos Hvy Cpc",
+        "item": "HvyBlkBlosShell",
         "quantity": 3
       },
       {
-        "item": "RobustBlkBlosHrn",
+        "item": "StoutBlkTwstdHrn",
         "quantity": 1
       },
       {
-        "item": "TwstBlkBlosHorn",
-        "quantity": 2
+        "item": "TwstBlkBlosHrn",
+        "quantity": 1
       },
       {
-        "item": "Lg Wyvern Stone",
+        "item": "Big Wyvern Stone",
         "quantity": 2
       }
     ],
@@ -19806,19 +19786,19 @@
     "slug": "diablo-cap-z",
     "materials": [
       {
-        "item": "Blk Blos Hvy Cpc",
+        "item": "HvyBlkBlosShell",
         "quantity": 3
       },
       {
-        "item": "RobustBlkBlosHrn",
+        "item": "StoutBlkTwstdHrn",
         "quantity": 1
       },
       {
-        "item": "TwstBlkBlosHorn",
-        "quantity": 2
+        "item": "TwstBlkBlosHrn",
+        "quantity": 1
       },
       {
-        "item": "Lg Wyvern Stone",
+        "item": "Big Wyvern Stone",
         "quantity": 2
       }
     ],
@@ -19858,7 +19838,7 @@
     "slug": "gravios-helm-z",
     "materials": [
       {
-        "item": "BlkGraviosHvyShl",
+        "item": "HvyBlkGraviosShl",
         "quantity": 5
       },
       {
@@ -19870,7 +19850,7 @@
         "quantity": 2
       },
       {
-        "item": "Lg Wyvern Stone",
+        "item": "Big Wyvern Stone",
         "quantity": 2
       }
     ],
@@ -19910,7 +19890,7 @@
     "slug": "gravios-cap-z",
     "materials": [
       {
-        "item": "BlkGraviosHvyShl",
+        "item": "HvyBlkGraviosShl",
         "quantity": 5
       },
       {
@@ -19922,7 +19902,7 @@
         "quantity": 2
       },
       {
-        "item": "Lg Wyvern Stone",
+        "item": "Big Wyvern Stone",
         "quantity": 2
       }
     ],
@@ -19959,18 +19939,18 @@
   },
   {
     "id": 376,
-    "slug": "crystal-piercing",
+    "slug": "chakra-piercing",
     "materials": [
       {
-        "item": "Pure Crystal",
+        "item": "Purecrystal",
         "quantity": 1
       },
       {
-        "item": "Black Pearl+",
+        "item": "Giant Blk Pearl",
         "quantity": 1
       },
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 3
       }
     ],
@@ -19994,10 +19974,10 @@
   },
   {
     "id": 377,
-    "slug": "true-golden-hair-tie",
+    "slug": "golden-hair-tie-shin",
     "materials": [
       {
-        "item": "Rajang Hard Horn",
+        "item": "Hard Rajang Horn",
         "quantity": 2
       },
       {
@@ -20005,11 +19985,11 @@
         "quantity": 3
       },
       {
-        "item": "BlkRajangThkPelt",
+        "item": "Blk Rajang Pelt+",
         "quantity": 2
       },
       {
-        "item": "DaoraDrgnThckScl",
+        "item": "ThckDaoraDrgnScl",
         "quantity": 2
       }
     ],
@@ -20046,14 +20026,14 @@
   },
   {
     "id": 378,
-    "slug": "true-puppet-master-mask",
+    "slug": "puppet-master-mask-shin",
     "materials": [
       {
-        "item": "ShiningRajangPlt",
+        "item": "GoldRajangPelt+",
         "quantity": 2
       },
       {
-        "item": "Rajang Hard Horn",
+        "item": "Hard Rajang Horn",
         "quantity": 2
       },
       {
@@ -20061,7 +20041,7 @@
         "quantity": 4
       },
       {
-        "item": "GldRathianThkScl",
+        "item": "ThckGldRathnScl",
         "quantity": 3
       }
     ],
@@ -20109,11 +20089,11 @@
         "quantity": 10
       },
       {
-        "item": "Fighter Coin G",
+        "item": "Warrior Coin G",
         "quantity": 10
       },
       {
-        "item": "Commendation G",
+        "item": "Commendation S",
         "quantity": 1
       }
     ],
@@ -20153,7 +20133,7 @@
     "slug": "black-belt-cap-x",
     "materials": [
       {
-        "item": "Kirin Hide G",
+        "item": "SpecialKirinHide",
         "quantity": 1
       },
       {
@@ -20161,7 +20141,7 @@
         "quantity": 8
       },
       {
-        "item": "Legendary Coin G",
+        "item": "Legend Coin G",
         "quantity": 3
       },
       {
@@ -20204,7 +20184,7 @@
         "quantity": 3
       },
       {
-        "item": "Blaze Sac",
+        "item": "Blazing Fire Sac",
         "quantity": 4
       }
     ],
@@ -20260,7 +20240,7 @@
         "quantity": 3
       },
       {
-        "item": "Blaze Sac",
+        "item": "Blazing Fire Sac",
         "quantity": 4
       }
     ],
@@ -20316,7 +20296,7 @@
         "quantity": 3
       },
       {
-        "item": "Blaze Sac",
+        "item": "Blazing Fire Sac",
         "quantity": 4
       }
     ],
@@ -20372,7 +20352,7 @@
         "quantity": 3
       },
       {
-        "item": "Blaze Sac",
+        "item": "Blazing Fire Sac",
         "quantity": 4
       }
     ],
@@ -20413,10 +20393,10 @@
   },
   {
     "id": 385,
-    "slug": "true-mizuha-cap",
+    "slug": "mizuha-cap-shin",
     "materials": [
       {
-        "item": "Chameleos Hide G",
+        "item": "SpecChameleHide+",
         "quantity": 3
       },
       {
@@ -20424,11 +20404,11 @@
         "quantity": 1
       },
       {
-        "item": "Ancient Potion",
+        "item": "BigEDragonBone",
         "quantity": 1
       },
       {
-        "item": "Elder Dragon Jwl",
+        "item": "BigEDragonJewel",
         "quantity": 1
       }
     ],
@@ -20469,10 +20449,10 @@
   },
   {
     "id": 386,
-    "slug": "true-extravagant-cap",
+    "slug": "extravagant-cap-shin",
     "materials": [
       {
-        "item": "Chameleos Hide G",
+        "item": "SpecChameleHide+",
         "quantity": 3
       },
       {
@@ -20528,19 +20508,19 @@
     "slug": "kushala-glare-x",
     "materials": [
       {
-        "item": "Daora Hvy Carpce",
+        "item": "Hvy Daora Shell",
         "quantity": 2
       },
       {
-        "item": "Daora Horn G",
+        "item": "Hard Daora Horn",
         "quantity": 3
       },
       {
-        "item": "Ancient DrgnBone",
+        "item": "BigEDragonBone",
         "quantity": 1
       },
       {
-        "item": "Elder Dragon Jwl",
+        "item": "BigEDragonJewel",
         "quantity": 1
       }
     ],
@@ -20581,22 +20561,22 @@
   },
   {
     "id": 388,
-    "slug": "kusha-snarl-x",
+    "slug": "kushala-snarl-x",
     "materials": [
       {
-        "item": "Daora Hvy Carpce",
+        "item": "Hvy Daora Shell",
         "quantity": 2
       },
       {
-        "item": "Daora Horn G",
+        "item": "Hard Daora Horn",
         "quantity": 3
       },
       {
-        "item": "Ancient DrgnBone",
+        "item": "BigEDragonBone",
         "quantity": 1
       },
       {
-        "item": "Elder Dragon Jwl",
+        "item": "BigEDragonJewel",
         "quantity": 1
       }
     ],
@@ -20640,11 +20620,11 @@
     "slug": "kirin-horn-x",
     "materials": [
       {
-        "item": "Kirin Hide G",
+        "item": "SpecialKirinHide",
         "quantity": 1
       },
       {
-        "item": "Kirin Slvr Mane",
+        "item": "Platinum Mane",
         "quantity": 3
       },
       {
@@ -20696,11 +20676,11 @@
     "slug": "kirin-crest-x",
     "materials": [
       {
-        "item": "Kirin Hide G",
+        "item": "SpecialKirinHide",
         "quantity": 1
       },
       {
-        "item": "Kirin Slvr Mane",
+        "item": "Platinum Mane",
         "quantity": 3
       },
       {
@@ -20719,7 +20699,7 @@
       },
       {
         "skill": "protection",
-        "points": -2
+        "points": 2
       },
       {
         "skill": "all-res",
@@ -20752,11 +20732,11 @@
     "slug": "empress-crown-x",
     "materials": [
       {
-        "item": "Fire Drgn HvyScl",
+        "item": "ThckFireDrgnScl",
         "quantity": 2
       },
       {
-        "item": "Lunastra Carpace",
+        "item": "LunastraCarapace",
         "quantity": 2
       },
       {
@@ -20764,7 +20744,7 @@
         "quantity": 4
       },
       {
-        "item": "Elder Dragon Jwl",
+        "item": "BigEDragonJewel",
         "quantity": 1
       }
     ],
@@ -20808,11 +20788,11 @@
     "slug": "empress-mask-x",
     "materials": [
       {
-        "item": "Fire Drgn HvyScl",
+        "item": "ThckFireDrgnScl",
         "quantity": 2
       },
       {
-        "item": "Lunastra Carpace",
+        "item": "LunastraCarapace",
         "quantity": 2
       },
       {
@@ -20820,7 +20800,7 @@
         "quantity": 4
       },
       {
-        "item": "Elder Dragon Jwl",
+        "item": "BigEDragonJewel",
         "quantity": 1
       }
     ],
@@ -20861,22 +20841,22 @@
   },
   {
     "id": 393,
-    "slug": "true-indra-helm",
+    "slug": "indra-helm-shin",
     "materials": [
       {
-        "item": "Gaoren Hvy Cpc",
+        "item": "HvyGaorenShell",
         "quantity": 2
       },
       {
-        "item": "Gaoren Hvy Spn",
+        "item": "Hvy Gaoren Spine",
         "quantity": 1
       },
       {
-        "item": "Chameleos Horn G",
+        "item": "HrdChameleosHorn",
         "quantity": 1
       },
       {
-        "item": "GaorenDvinePlate",
+        "item": "HvnlyGaorenShell",
         "quantity": 1
       }
     ],
@@ -20917,22 +20897,22 @@
   },
   {
     "id": 394,
-    "slug": "true-steadfast-helm",
+    "slug": "steadfast-helm-shin",
     "materials": [
       {
-        "item": "Gaoren Hvy Cpc",
+        "item": "HvyGaorenShell",
         "quantity": 2
       },
       {
-        "item": "Gaoren Hvy Spn",
+        "item": "Hvy Gaoren Spine",
         "quantity": 1
       },
       {
-        "item": "Chameleos Horn G",
+        "item": "HrdChameleosHorn",
         "quantity": 1
       },
       {
-        "item": "GaorenDvinePlate",
+        "item": "HvnlyGaorenShell",
         "quantity": 1
       }
     ],
@@ -20976,11 +20956,11 @@
     "slug": "kaiser-crown-x",
     "materials": [
       {
-        "item": "Teostra Horn G",
+        "item": "HardTeostraHorn",
         "quantity": 2
       },
       {
-        "item": "Fire Drgn HvyScl",
+        "item": "ThckFireDrgnScl",
         "quantity": 3
       },
       {
@@ -20988,7 +20968,7 @@
         "quantity": 3
       },
       {
-        "item": "Elder Dragon Jwl",
+        "item": "BigEDragonJewel",
         "quantity": 1
       }
     ],
@@ -21032,11 +21012,11 @@
     "slug": "kaiser-mask-x",
     "materials": [
       {
-        "item": "Teostra Horn G",
+        "item": "HardTeostraHorn",
         "quantity": 2
       },
       {
-        "item": "Fire Drgn HvyScl",
+        "item": "ThckFireDrgnScl",
         "quantity": 3
       },
       {
@@ -21044,7 +21024,7 @@
         "quantity": 3
       },
       {
-        "item": "Elder Dragon Jwl",
+        "item": "BigEDragonJewel",
         "quantity": 1
       }
     ],
@@ -21085,18 +21065,18 @@
   },
   {
     "id": 397,
-    "slug": "true-guardian-sprit-mask",
+    "slug": "guardian-sprt-mask-shin",
     "materials": [
       {
-        "item": "Dragonmoss G",
+        "item": "AncientDrgnmoss",
         "quantity": 3
       },
       {
-        "item": "Dragonwood G",
+        "item": "AncientDrgnwood",
         "quantity": 1
       },
       {
-        "item": "YamatsukamiFluid",
+        "item": "YamaTsukamiFluid",
         "quantity": 5
       },
       {
@@ -21137,18 +21117,18 @@
   },
   {
     "id": 398,
-    "slug": "true-carnage-mask",
+    "slug": "carnage-mask-shin",
     "materials": [
       {
-        "item": "Dragonmoss G",
+        "item": "AncientDrgnmoss",
         "quantity": 3
       },
       {
-        "item": "Dragonwood G",
+        "item": "AncientDrgnwood",
         "quantity": 1
       },
       {
-        "item": "YamatsukamiFluid",
+        "item": "YamaTsukamiFluid",
         "quantity": 5
       },
       {
@@ -21189,18 +21169,18 @@
   },
   {
     "id": 399,
-    "slug": "dragon-head-x",
+    "slug": "dragonhead-x",
     "materials": [
       {
         "item": "Fatalis Evil Eye",
         "quantity": 1
       },
       {
-        "item": "Fatalis Thck Scl",
+        "item": "ThckFatalisScale",
         "quantity": 3
       },
       {
-        "item": "Fatalis Hvy Horn",
+        "item": "HardFatalisHorn",
         "quantity": 2
       },
       {
@@ -21245,18 +21225,18 @@
   },
   {
     "id": 400,
-    "slug": "dragon-face-x",
+    "slug": "dragonface-x",
     "materials": [
       {
         "item": "Fatalis Evil Eye",
         "quantity": 1
       },
       {
-        "item": "Fatalis Thck Scl",
+        "item": "ThckFatalisScale",
         "quantity": 3
       },
       {
-        "item": "Fatalis Hvy Horn",
+        "item": "HardFatalisHorn",
         "quantity": 2
       },
       {
@@ -21301,22 +21281,22 @@
   },
   {
     "id": 401,
-    "slug": "ucamulbas-mask",
+    "slug": "dark-ukanlos-mask",
     "materials": [
       {
-        "item": "Ucamulbas Fin",
+        "item": "StrongUkanlosFin",
         "quantity": 2
       },
       {
-        "item": "Ucamulbas Shell",
+        "item": "HvyUkanlosShell",
         "quantity": 3
       },
       {
-        "item": "Lao-Shan Hvy Cpc",
+        "item": "Lao-Shan'sHvyShl",
         "quantity": 4
       },
       {
-        "item": "Ucamu Divine Jwl",
+        "item": "Ukanlos Stone",
         "quantity": 1
       }
     ],
@@ -21357,22 +21337,22 @@
   },
   {
     "id": 402,
-    "slug": "ucamulbas-fangs",
+    "slug": "dark-ukanlos-fangs",
     "materials": [
       {
-        "item": "Ucamulbas Fin",
+        "item": "StrongUkanlosFin",
         "quantity": 2
       },
       {
-        "item": "Ucamulbas Shell",
+        "item": "HvyUkanlosShell",
         "quantity": 3
       },
       {
-        "item": "Lao-Shan Hvy Cpc",
+        "item": "Lao-Shan'sHvyShl",
         "quantity": 4
       },
       {
-        "item": "Ucamu Divine Jwl",
+        "item": "Ukanlos Stone",
         "quantity": 1
       }
     ],
@@ -21412,7 +21392,7 @@
     "slug": "melahoa-flower-hat-z",
     "materials": [
       {
-        "item": "Emperor Locust",
+        "item": "Emperor Cricket",
         "quantity": 3
       },
       {
@@ -21424,7 +21404,7 @@
         "quantity": 2
       },
       {
-        "item": "Pure Crystal",
+        "item": "Purecrystal",
         "quantity": 1
       }
     ],
@@ -21464,7 +21444,7 @@
     "slug": "melahoa-bloom-z",
     "materials": [
       {
-        "item": "Emperor Locust",
+        "item": "Emperor Cricket",
         "quantity": 3
       },
       {
@@ -21476,7 +21456,7 @@
         "quantity": 2
       },
       {
-        "item": "Pure Crystal",
+        "item": "Purecrystal",
         "quantity": 1
       }
     ],
@@ -21520,11 +21500,11 @@
     "slug": "makluva-hood-z",
     "materials": [
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 4
       },
       {
-        "item": "GrnPlsioth Fin G",
+        "item": "SpecGrnPlesioFn+",
         "quantity": 4
       },
       {
@@ -21572,11 +21552,11 @@
     "slug": "makluva-gills-z",
     "materials": [
       {
-        "item": "Etherlite Ore",
+        "item": "Eltalite Ore",
         "quantity": 4
       },
       {
-        "item": "GrnPlsioth Fin G",
+        "item": "SpecGrnPlesioFn+",
         "quantity": 4
       },
       {
@@ -21624,11 +21604,11 @@
     "slug": "rathian-heart-helm-z",
     "materials": [
       {
-        "item": "PnkRathianHvyCpc",
-        "quantity": 2
+        "item": "HvyPnkRathianShl",
+        "quantity": 3
       },
       {
-        "item": "PnkRathianThkScl",
+        "item": "ThckPnkRathnScl",
         "quantity": 3
       },
       {
@@ -21636,7 +21616,7 @@
         "quantity": 2
       },
       {
-        "item": "Rathian Spike G",
+        "item": "Rathian Thorn",
         "quantity": 2
       }
     ],
@@ -21676,11 +21656,11 @@
     "slug": "rathian-heart-cap-z",
     "materials": [
       {
-        "item": "PnkRathianHvyCpc",
-        "quantity": 2
+        "item": "HvyPnkRathianShl",
+        "quantity": 3
       },
       {
-        "item": "PnkRathianThkScl",
+        "item": "ThckPnkRathnScl",
         "quantity": 3
       },
       {
@@ -21688,7 +21668,7 @@
         "quantity": 2
       },
       {
-        "item": "Rathian Spike G",
+        "item": "Rathian Thorn",
         "quantity": 2
       }
     ],
@@ -21728,19 +21708,19 @@
     "slug": "rathalos-soul-helm-z",
     "materials": [
       {
-        "item": "AzrRathlosHvyCpc",
+        "item": "HvyAzurRthlsShl",
         "quantity": 2
       },
       {
-        "item": "RathlosStrngWng",
+        "item": "StrRathalosWing",
         "quantity": 3
       },
       {
-        "item": "RathlosDvnePlate",
+        "item": "HvnlyRathalosScl",
         "quantity": 1
       },
       {
-        "item": "Emperor Locust",
+        "item": "Emperor Cricket",
         "quantity": 3
       }
     ],
@@ -21784,19 +21764,19 @@
     "slug": "rathalos-soul-cap-z",
     "materials": [
       {
-        "item": "AzrRathlosHvyCpc",
+        "item": "HvyAzurRthlsShl",
         "quantity": 2
       },
       {
-        "item": "RathlosStrngWng",
+        "item": "StrRathalosWing",
         "quantity": 3
       },
       {
-        "item": "RathlosDvnePlate",
+        "item": "HvnlyRathalosScl",
         "quantity": 1
       },
       {
-        "item": "Emperor Locust",
+        "item": "Emperor Cricket",
         "quantity": 3
       }
     ],
@@ -21836,19 +21816,19 @@
     "slug": "golden-moon-helm-z",
     "materials": [
       {
-        "item": "GldRathianHvyCpc",
+        "item": "HvyGldRathianShl",
         "quantity": 3
       },
       {
-        "item": "GldRathianThkScl",
+        "item": "ThckGldRathnScl",
         "quantity": 4
       },
       {
-        "item": "GldRathianSpike",
+        "item": "GoldRathianThorn",
         "quantity": 1
       },
       {
-        "item": "RathianDvnePlate",
+        "item": "HvnlyRathianScl",
         "quantity": 1
       }
     ],
@@ -21892,19 +21872,19 @@
     "slug": "golden-moon-cap-z",
     "materials": [
       {
-        "item": "GldRathianHvyCpc",
+        "item": "HvyGldRathianShl",
         "quantity": 3
       },
       {
-        "item": "GldRathianThkScl",
+        "item": "ThckGldRathnScl",
         "quantity": 4
       },
       {
-        "item": "GldRathianSpike",
+        "item": "GoldRathianThorn",
         "quantity": 1
       },
       {
-        "item": "RathianDvnePlate",
+        "item": "HvnlyRathianScl",
         "quantity": 1
       }
     ],
@@ -21948,19 +21928,19 @@
     "slug": "silver-sol-helm-z",
     "materials": [
       {
-        "item": "SlvrRthlosHvyCpc",
+        "item": "HvySlvrRthlsShl",
         "quantity": 2
       },
       {
-        "item": "RathlosStrngWng",
+        "item": "StrRathalosWing",
         "quantity": 3
       },
       {
-        "item": "RathlosDvnePlate",
+        "item": "HvnlyRathalosScl",
         "quantity": 1
       },
       {
-        "item": "Melange Ore",
+        "item": "Mellanje Ore",
         "quantity": 3
       }
     ],
@@ -22000,19 +21980,19 @@
     "slug": "silver-sol-cap-z",
     "materials": [
       {
-        "item": "SlvrRthlosHvyCpc",
+        "item": "HvySlvrRthlsShl",
         "quantity": 2
       },
       {
-        "item": "RathlosStrngWng",
+        "item": "StrRathalosWing",
         "quantity": 3
       },
       {
-        "item": "RathlosDvnePlate",
+        "item": "HvnlyRathalosScl",
         "quantity": 1
       },
       {
-        "item": "Melange Ore",
+        "item": "Mellanje Ore",
         "quantity": 3
       }
     ],
@@ -22049,10 +22029,10 @@
   },
   {
     "id": 415,
-    "slug": "auroros-helm-kyoku",
+    "slug": "auroros-helm-goku",
     "materials": [
       {
-        "item": "Lao-Shan Hvy Cpc",
+        "item": "Lao-Shan'sHvyShl",
         "quantity": 4
       },
       {
@@ -22060,7 +22040,7 @@
         "quantity": 1
       },
       {
-        "item": "LaoS Dvine Plate",
+        "item": "Lao-ShanHvnlyScl",
         "quantity": 1
       },
       {
@@ -22101,10 +22081,10 @@
   },
   {
     "id": 416,
-    "slug": "genesis-headpiece-kyoku",
+    "slug": "genesis-headpiece-goku",
     "materials": [
       {
-        "item": "Lao-Shan Hvy Cpc",
+        "item": "Lao-Shan'sHvyShl",
         "quantity": 4
       },
       {
@@ -22112,7 +22092,7 @@
         "quantity": 1
       },
       {
-        "item": "LaoS Dvine Plate",
+        "item": "Lao-ShanHvnlyScl",
         "quantity": 1
       },
       {
@@ -22153,10 +22133,10 @@
   },
   {
     "id": 417,
-    "slug": "borealis-crown-kyoku",
+    "slug": "borealis-crown-goku",
     "materials": [
       {
-        "item": "Lao-Shan Hvy Cpc",
+        "item": "Lao-Shan'sHvyShl",
         "quantity": 4
       },
       {
@@ -22164,7 +22144,7 @@
         "quantity": 1
       },
       {
-        "item": "LaoS Dvine Plate",
+        "item": "Lao-ShanHvnlyScl",
         "quantity": 1
       },
       {
@@ -22205,10 +22185,10 @@
   },
   {
     "id": 418,
-    "slug": "glyph-crown-kyoku",
+    "slug": "glyph-crown-goku",
     "materials": [
       {
-        "item": "Lao-Shan Hvy Cpc",
+        "item": "Lao-Shan'sHvyShl",
         "quantity": 4
       },
       {
@@ -22216,7 +22196,7 @@
         "quantity": 1
       },
       {
-        "item": "LaoS Dvine Plate",
+        "item": "Lao-ShanHvnlyScl",
         "quantity": 1
       },
       {
@@ -22260,7 +22240,7 @@
     "slug": "fatalis-head-z",
     "materials": [
       {
-        "item": "FataHvyCrmsnShl",
+        "item": "HvyFatalisCrmShl",
         "quantity": 3
       },
       {
@@ -22268,11 +22248,11 @@
         "quantity": 1
       },
       {
-        "item": "FataHvyCrmsnHrn",
+        "item": "HrdFatlisCrmHorn",
         "quantity": 2
       },
       {
-        "item": "RathlosDvnePlate",
+        "item": "HvnlyRathalosScl",
         "quantity": 1
       }
     ],
@@ -22316,7 +22296,7 @@
     "slug": "fatalis-face-z",
     "materials": [
       {
-        "item": "FataHvyCrmsnShl",
+        "item": "HvyFatalisCrmShl",
         "quantity": 3
       },
       {
@@ -22324,11 +22304,11 @@
         "quantity": 1
       },
       {
-        "item": "FataHvyCrmsnHrn",
+        "item": "HrdFatlisCrmHorn",
         "quantity": 2
       },
       {
-        "item": "RathlosDvnePlate",
+        "item": "HvnlyRathalosScl",
         "quantity": 1
       }
     ],
@@ -22372,7 +22352,7 @@
     "slug": "white-fatalis-head-z",
     "materials": [
       {
-        "item": "WhtFatalisThkScl",
+        "item": "ThckWhtFatlisScl",
         "quantity": 3
       },
       {
@@ -22380,11 +22360,11 @@
         "quantity": 1
       },
       {
-        "item": "WhtFatalisHvyHrn",
+        "item": "HrdWhtFatlisHorn",
         "quantity": 2
       },
       {
-        "item": "GaorenDvinePlate",
+        "item": "HvyGaorenShell",
         "quantity": 1
       }
     ],
@@ -22424,7 +22404,7 @@
     "slug": "white-fatalis-face-z",
     "materials": [
       {
-        "item": "WhtFatalisThkScl",
+        "item": "ThckWhtFatlisScl",
         "quantity": 3
       },
       {
@@ -22432,11 +22412,11 @@
         "quantity": 1
       },
       {
-        "item": "WhtFatalisHvyHrn",
+        "item": "HrdWhtFatlisHorn",
         "quantity": 2
       },
       {
-        "item": "GaorenDvinePlate",
+        "item": "HvyGaorenShell",
         "quantity": 1
       }
     ],
@@ -22473,7 +22453,7 @@
   },
   {
     "id": 423,
-    "slug": "aspire-piercing",
+    "slug": "ambitious-piercing",
     "materials": [],
     "skills": [
       {
@@ -22482,7 +22462,7 @@
       }
     ],
     "torso_inc": false,
-    "defence": 0,
+    "defence": 30,
     "gender": 3,
     "class": 3,
     "rarity": 10,
@@ -22508,7 +22488,7 @@
       }
     ],
     "torso_inc": false,
-    "defence": 0,
+    "defence": 20,
     "gender": 3,
     "class": 3,
     "rarity": 5,
@@ -22525,7 +22505,7 @@
   },
   {
     "id": 425,
-    "slug": "eagle-eye-piercing",
+    "slug": "hawkeye-piercing",
     "materials": [],
     "skills": [
       {
@@ -22534,7 +22514,7 @@
       }
     ],
     "torso_inc": false,
-    "defence": 0,
+    "defence": 30,
     "gender": 3,
     "class": 3,
     "rarity": 10,
@@ -22560,7 +22540,7 @@
       }
     ],
     "torso_inc": false,
-    "defence": 0,
+    "defence": 10,
     "gender": 3,
     "class": 3,
     "rarity": 5,
