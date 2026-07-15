@@ -42,7 +42,7 @@
         "quantity": 1
       },
       {
-        "item": "FireWyvern Claw",
+        "item": "Fire Wyvern Claw",
         "quantity": 1
       },
       {
@@ -57,8 +57,8 @@
   },
   {
     "id": 3,
-    "slug": "merciless-jewel",
-    "price": 200,
+    "slug": "strongest-jewel",
+    "price": 450,
     "slots": 3,
     "hr": 8,
     "elder": 1,
@@ -68,11 +68,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "FireWyvrnHrdClaw",
+        "item": "HrdFireWyvernClw",
         "quantity": 4
       },
       {
@@ -80,7 +80,7 @@
         "quantity": 3
       },
       {
-        "item": "Blngnga HrdWhskr",
+        "item": "Lthr Pelagus Plt",
         "quantity": 2
       }
     ],
@@ -124,14 +124,6 @@
     },
     "materials": [
       {
-        "item": "BattlefieldJewel",
-        "quantity": 1
-      },
-      {
-        "item": "HermitaurClaw G",
-        "quantity": 1
-      },
-      {
         "item": "Akito Jewel",
         "quantity": 1
       },
@@ -141,6 +133,14 @@
       },
       {
         "item": "Hermitaur Claw",
+        "quantity": 1
+      },
+      {
+        "item": "BattlefieldJewel",
+        "quantity": 1
+      },
+      {
+        "item": "HrdHermitaurClaw",
         "quantity": 1
       }
     ],
@@ -207,7 +207,7 @@
   },
   {
     "id": 8,
-    "slug": "vigilance-jewel",
+    "slug": "steadfast-jewel-plus",
     "price": 200,
     "slots": 1,
     "hr": 8,
@@ -222,11 +222,11 @@
         "quantity": 1
       },
       {
-        "item": "Brwn BlngngaTail",
+        "item": "LthrC.BlangoTail",
         "quantity": 1
       },
       {
-        "item": "Bullfango Pelt+",
+        "item": "ThkBullfangoPelt",
         "quantity": 2
       }
     ]
@@ -285,7 +285,7 @@
   },
   {
     "id": 11,
-    "slug": "petrification-jewel",
+    "slug": "paralysis-jewel-plus",
     "price": 200,
     "slots": 1,
     "hr": 7,
@@ -300,7 +300,7 @@
         "quantity": 1
       },
       {
-        "item": "QueenVespoidShl",
+        "item": "VespoidQn'sCrown",
         "quantity": 1
       },
       {
@@ -419,7 +419,7 @@
   },
   {
     "id": 16,
-    "slug": "anti-toxin-jewel",
+    "slug": "antidote-jewel-plus",
     "price": 200,
     "slots": 1,
     "hr": 7,
@@ -434,11 +434,11 @@
         "quantity": 1
       },
       {
-        "item": "Venom Sac",
+        "item": "DeadlyPoisonSac",
         "quantity": 1
       },
       {
-        "item": "Remobra Skin G",
+        "item": "SpecRemobraSkin+",
         "quantity": 2
       }
     ]
@@ -476,7 +476,7 @@
   {
     "id": 18,
     "slug": "antiviral-jewel",
-    "price": 375,
+    "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
@@ -502,7 +502,7 @@
         "quantity": 1
       },
       {
-        "item": "Congalala Pelt G",
+        "item": "HrdCongalalaPlt+",
         "quantity": 1
       }
     ]
@@ -520,28 +520,28 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Fire Drgn HvyScl",
-        "quantity": 2
-      },
-      {
-        "item": "Energy Drink",
-        "quantity": 1
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
       {
-        "item": "Fire Drgn Wbng",
+        "item": "Fire Drgn Webbng",
         "quantity": 1
       },
       {
         "item": "Sunset Herb",
         "quantity": 3
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "ThckFireDrgnScl",
+        "quantity": 2
+      },
+      {
+        "item": "Energy Drink",
+        "quantity": 1
       }
     ]
   },
@@ -588,14 +588,6 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "GaorenStrngClaw",
-        "quantity": 1
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
@@ -605,6 +597,14 @@
       },
       {
         "item": "Blangonga Tail",
+        "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Hard Gaoren Claw",
         "quantity": 1
       }
     ],
@@ -667,8 +667,8 @@
   },
   {
     "id": 24,
-    "slug": "defroster-jewel",
-    "price": 375,
+    "slug": "snowblower-jewel-plus",
+    "price": 200,
     "slots": 1,
     "hr": 8,
     "elder": 1,
@@ -682,7 +682,7 @@
         "quantity": 1
       },
       {
-        "item": "Blangonga Tail G",
+        "item": "LeathrBlangoTail",
         "quantity": 1
       },
       {
@@ -786,7 +786,7 @@
         "quantity": 1
       },
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -816,7 +816,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -858,7 +858,7 @@
         "quantity": 1
       },
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -866,7 +866,7 @@
         "quantity": 2
       },
       {
-        "item": "Slvr Ratlos Tail",
+        "item": "Slvr Rthlos Tail",
         "quantity": 1
       }
     ],
@@ -888,15 +888,15 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Slvr Rthlos Wing",
         "quantity": 1
       },
       {
         "item": "Fatalis Eye",
-        "quantity": 1
-      },
-      {
-        "item": "Slvr Rathlos Wng",
         "quantity": 1
       },
       {
@@ -952,7 +952,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -975,8 +975,8 @@
   },
   {
     "id": 34,
-    "slug": "draw-jewel",
-    "price": 450,
+    "slug": "sword-draw-jewel",
+    "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 8,
@@ -986,23 +986,23 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "RathlosStrngWng",
-        "quantity": 1
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
       {
-        "item": "Monoblos Carpce",
+        "item": "MonoblosCarapace",
         "quantity": 2
       },
       {
         "item": "Rathalos Wing",
+        "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "StrRathalosWing",
         "quantity": 1
       }
     ],
@@ -1013,8 +1013,8 @@
   },
   {
     "id": 35,
-    "slug": "unsheathe-jewel",
-    "price": 450,
+    "slug": "unsheathing-jewel",
+    "price": 375,
     "slots": 2,
     "hr": 8,
     "elder": 1,
@@ -1024,11 +1024,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "CeanataurClaw G",
+        "item": "HrdCeanataurClaw",
         "quantity": 3
       },
       {
@@ -1043,7 +1043,7 @@
   },
   {
     "id": 36,
-    "slug": "quick-charge-jewel",
+    "slug": "short-charge-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
@@ -1053,18 +1053,6 @@
       "points": 1
     },
     "materials": [
-      {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Rajang Horn",
-        "quantity": 1
-      },
-      {
-        "item": "DaoraDragonScal+",
-        "quantity": 1
-      },
       {
         "item": "BattlefieldJewel",
         "quantity": 1
@@ -1076,6 +1064,18 @@
       {
         "item": "ElderDragonBlood",
         "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Rajang Horn",
+        "quantity": 1
+      },
+      {
+        "item": "DaoraDragonScal+",
+        "quantity": 1
       }
     ],
     "penalty": {
@@ -1085,8 +1085,8 @@
   },
   {
     "id": 37,
-    "slug": "speed-charge-jewel",
-    "price": 200,
+    "slug": "rapid-charge-jewel",
+    "price": 450,
     "slots": 3,
     "hr": 9,
     "elder": 1,
@@ -1096,19 +1096,19 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "ShiningRajangPlt",
+        "item": "GoldRajangPelt+",
         "quantity": 2
       },
       {
-        "item": "DaoraDrgnThckScl",
+        "item": "ThckDaoraDrgnScl",
         "quantity": 3
       },
       {
-        "item": "Volganos HvyFang",
+        "item": "HvyLavasiothFang",
         "quantity": 4
       }
     ],
@@ -1160,14 +1160,6 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Teostra Horn+",
-        "quantity": 1
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
@@ -1177,6 +1169,14 @@
       },
       {
         "item": "Twisted Horn",
+        "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Teostra Horn+",
         "quantity": 1
       }
     ],
@@ -1198,7 +1198,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -1288,18 +1288,6 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Gravios Carapace",
-        "quantity": 1
-      },
-      {
-        "item": "Gaoren Claw",
-        "quantity": 1
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
@@ -1309,6 +1297,18 @@
       },
       {
         "item": "Gravios Skl Shl",
+        "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Gravios Carapace",
+        "quantity": 1
+      },
+      {
+        "item": "Gaoren Claw",
         "quantity": 1
       }
     ],
@@ -1356,7 +1356,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -1379,7 +1379,7 @@
   },
   {
     "id": 46,
-    "slug": "rigid-wall-jewel",
+    "slug": "wall-jewel",
     "price": 375,
     "slots": 2,
     "hr": 7,
@@ -1390,15 +1390,15 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Pur HermitaurClw",
+        "item": "PlumD.HermitrClw",
         "quantity": 2
       },
       {
-        "item": "Gravios Hvy Cpc",
+        "item": "HvyGraviosShell",
         "quantity": 1
       }
     ],
@@ -1502,18 +1502,6 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Azure LaoS Horn",
-        "quantity": 1
-      },
-      {
-        "item": "Black Blos Cpc",
-        "quantity": 1
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
@@ -1526,8 +1514,20 @@
         "quantity": 1
       },
       {
-        "item": "TwstBlkBlosHorn",
+        "item": "TwstBlkBlosHrn",
         "quantity": 2
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Azure LaoS Horn",
+        "quantity": 1
+      },
+      {
+        "item": "Black Blos Cpc",
+        "quantity": 1
       }
     ],
     "penalty": {
@@ -1537,7 +1537,7 @@
   },
   {
     "id": 51,
-    "slug": "speed-fire-jewel",
+    "slug": "cont-fire-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
@@ -1556,7 +1556,7 @@
         "quantity": 1
       },
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -1586,7 +1586,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -1632,11 +1632,11 @@
         "quantity": 1
       },
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Pur HermitaurClw",
+        "item": "PlumD.HermitrClw",
         "quantity": 1
       },
       {
@@ -1662,7 +1662,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -1715,7 +1715,7 @@
   },
   {
     "id": 56,
-    "slug": "mighty-shot-jewel",
+    "slug": "strong-shot-jewel-plus",
     "price": 450,
     "slots": 3,
     "hr": 9,
@@ -1726,15 +1726,15 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Brwn BlngngaFang",
+        "item": "HvyC.BlangoFang",
         "quantity": 3
       },
       {
-        "item": "BlkRajangThkPelt",
+        "item": "Blk Rajang Pelt+",
         "quantity": 4
       },
       {
@@ -1779,8 +1779,8 @@
   },
   {
     "id": 58,
-    "slug": "impale-jewel",
-    "price": 375,
+    "slug": "pierce-jewel-plus",
+    "price": 450,
     "slots": 3,
     "hr": 9,
     "elder": 1,
@@ -1790,15 +1790,15 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "RedCeanataurClaw",
+        "item": "TerraCeanatrClaw",
         "quantity": 3
       },
       {
-        "item": "SlvRthlosHrdTail",
+        "item": "LthrSlvrRthlsTal",
         "quantity": 2
       },
       {
@@ -1843,8 +1843,8 @@
   },
   {
     "id": 60,
-    "slug": "scatter-jewel",
-    "price": 375,
+    "slug": "pellet-jewel-plus",
+    "price": 450,
     "slots": 3,
     "hr": 7,
     "elder": 1,
@@ -1854,11 +1854,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "GrnCongalalaClaw",
+        "item": "HrdE.CongaClaw",
         "quantity": 3
       },
       {
@@ -1955,7 +1955,7 @@
   },
   {
     "id": 64,
-    "slug": "bomb-bonus-jewel",
+    "slug": "crag-bonus-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
@@ -1981,7 +1981,7 @@
   },
   {
     "id": 65,
-    "slug": "scatter-bonus-jewel",
+    "slug": "scattr-bonus-jewel",
     "price": 200,
     "slots": 1,
     "hr": 3,
@@ -2007,7 +2007,7 @@
   },
   {
     "id": 66,
-    "slug": "power-coating-jewel",
+    "slug": "power-coat-jewel",
     "price": 200,
     "slots": 1,
     "hr": 4,
@@ -2030,7 +2030,7 @@
         "quantity": 1
       },
       {
-        "item": "PowerCoating",
+        "item": "Power Coating",
         "quantity": 1
       }
     ],
@@ -2041,7 +2041,7 @@
   },
   {
     "id": 67,
-    "slug": "force-coating-jewel",
+    "slug": "power-cadd-jewel",
     "price": 375,
     "slots": 2,
     "hr": 7,
@@ -2052,11 +2052,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "GrnCongalalaPelt",
+        "item": "E.CongalalaPelt+",
         "quantity": 3
       },
       {
@@ -2064,7 +2064,7 @@
         "quantity": 2
       },
       {
-        "item": "PowerCoating",
+        "item": "Power Coating",
         "quantity": 50
       }
     ],
@@ -2075,7 +2075,7 @@
   },
   {
     "id": 68,
-    "slug": "razor-coating-jewel",
+    "slug": "combo-coat-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
@@ -2098,14 +2098,14 @@
         "quantity": 1
       },
       {
-        "item": "RazorCoating",
+        "item": "CloseRngCoating",
         "quantity": 1
       }
     ]
   },
   {
     "id": 69,
-    "slug": "poisn-coating-jewel",
+    "slug": "poison-coat-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
@@ -2128,14 +2128,14 @@
         "quantity": 1
       },
       {
-        "item": "PoisonCoatng",
+        "item": "Poison Coating",
         "quantity": 1
       }
     ]
   },
   {
     "id": 70,
-    "slug": "para-coating-jewel",
+    "slug": "paralys-coat-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
@@ -2158,7 +2158,7 @@
         "quantity": 1
       },
       {
-        "item": "Para Coating",
+        "item": "ParalysisCoating",
         "quantity": 1
       }
     ],
@@ -2169,8 +2169,8 @@
   },
   {
     "id": 71,
-    "slug": "petrify-coating-jewel",
-    "price": 450,
+    "slug": "paralysis-cadd-jwl",
+    "price": 375,
     "slots": 2,
     "hr": 4,
     "elder": 7,
@@ -2192,7 +2192,7 @@
         "quantity": 1
       },
       {
-        "item": "Para Coating",
+        "item": "ParalysisCoating",
         "quantity": 20
       }
     ],
@@ -2203,7 +2203,7 @@
   },
   {
     "id": 72,
-    "slug": "sleep-coating-jewel",
+    "slug": "sleep-coat-jewel",
     "price": 200,
     "slots": 1,
     "hr": 2,
@@ -2226,7 +2226,7 @@
         "quantity": 1
       },
       {
-        "item": "SleepCoating",
+        "item": "Sleep Coating",
         "quantity": 1
       }
     ]
@@ -2244,18 +2244,6 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Akantor Scale",
-        "quantity": 1
-      },
-      {
-        "item": "Dragonwood+",
-        "quantity": 1
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
@@ -2265,6 +2253,18 @@
       },
       {
         "item": "Remobra Skull",
+        "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Akantor Scale",
+        "quantity": 1
+      },
+      {
+        "item": "Dragonwood+",
         "quantity": 1
       }
     ],
@@ -2286,7 +2286,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -2388,7 +2388,7 @@
         "quantity": 1
       },
       {
-        "item": "Chaoshroom",
+        "item": "Chaos Mushroom",
         "quantity": 2
       }
     ],
@@ -2399,8 +2399,8 @@
   },
   {
     "id": 78,
-    "slug": "special-strike-jewel",
-    "price": 200,
+    "slug": "special-atk-jewel-plus",
+    "price": 375,
     "slots": 2,
     "hr": 8,
     "elder": 1,
@@ -2410,15 +2410,15 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "ConglalaStrngFng",
+        "item": "Lg Pelagus Fang",
         "quantity": 3
       },
       {
-        "item": "Garuga Tail+",
+        "item": "LethrGarugaTail",
         "quantity": 1
       }
     ],
@@ -2448,7 +2448,7 @@
         "quantity": 1
       },
       {
-        "item": "Fire Stone",
+        "item": "Firestone",
         "quantity": 1
       },
       {
@@ -2463,8 +2463,8 @@
   },
   {
     "id": 80,
-    "slug": "dire-element-jewel",
-    "price": 200,
+    "slug": "element-jewel-plus",
+    "price": 450,
     "slots": 3,
     "hr": 9,
     "elder": 1,
@@ -2474,19 +2474,19 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "KirinThndrTail G",
+        "item": "LthrKirinThndrTl",
         "quantity": 2
       },
       {
-        "item": "Blangnga HvyFang",
+        "item": "HvyBlangongaFang",
         "quantity": 4
       },
       {
-        "item": "Lg Wyvern Stone",
+        "item": "Big Wyvern Stone",
         "quantity": 1
       }
     ],
@@ -2524,7 +2524,7 @@
   {
     "id": 82,
     "slug": "trap-master-jewel",
-    "price": 450,
+    "price": 200,
     "slots": 1,
     "hr": 1,
     "elder": 1,
@@ -2613,8 +2613,8 @@
   },
   {
     "id": 85,
-    "slug": "anorexic-jewel",
-    "price": 450,
+    "slug": "no-food-jewel",
+    "price": 200,
     "slots": 1,
     "hr": 7,
     "elder": 1,
@@ -2624,11 +2624,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "GrnPlsiothThkScl",
+        "item": "ThckGrnPlesioScl",
         "quantity": 1
       },
       {
@@ -2710,7 +2710,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -2733,8 +2733,8 @@
   },
   {
     "id": 89,
-    "slug": "instant-meal-jewel",
-    "price": 200,
+    "slug": "scarfing-jewel",
+    "price": 450,
     "slots": 3,
     "hr": 9,
     "elder": 1,
@@ -2744,15 +2744,15 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Yamatsukami Skin",
+        "item": "YamaTsukamiHide",
         "quantity": 3
       },
       {
-        "item": "Vibrant Crown",
+        "item": "Vibrant Comb",
         "quantity": 2
       },
       {
@@ -2808,7 +2808,7 @@
         "quantity": 1
       },
       {
-        "item": "Fire Stone",
+        "item": "Firestone",
         "quantity": 1
       },
       {
@@ -2838,19 +2838,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Plesioth Fin G",
-        "quantity": 1
-      },
-      {
-        "item": "Gypceros HrdHead",
-        "quantity": 1
-      },
-      {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -2864,6 +2852,18 @@
       {
         "item": "Gypceros Head",
         "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "SpecPlesiothFin+",
+        "quantity": 1
+      },
+      {
+        "item": "HardGypcerosHead",
+        "quantity": 1
       }
     ],
     "penalty": {
@@ -2873,7 +2873,7 @@
   },
   {
     "id": 93,
-    "slug": "stamina-jewel",
+    "slug": "constitutn-jewel",
     "price": 200,
     "slots": 1,
     "hr": 1,
@@ -2903,8 +2903,8 @@
   },
   {
     "id": 94,
-    "slug": "body-arts-jewel",
-    "price": 450,
+    "slug": "health-jewel",
+    "price": 375,
     "slots": 2,
     "hr": 1,
     "elder": 9,
@@ -2914,31 +2914,31 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Naruga Blk Pelt",
-        "quantity": 1
-      },
-      {
-        "item": "HypncFangedBeak",
-        "quantity": 1
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
       {
-        "item": "Naruga Pelt",
+        "item": "Black Narga Pelt",
         "quantity": 3
       },
       {
-        "item": "Hypnoc Beak",
+        "item": "Hypno Beak",
         "quantity": 1
       },
       {
         "item": "Pawprint Stamp",
+        "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "BlackNargaPelt+",
+        "quantity": 1
+      },
+      {
+        "item": "Hypno Fang",
         "quantity": 1
       }
     ],
@@ -2975,8 +2975,8 @@
   },
   {
     "id": 96,
-    "slug": "divine-prtction-jewel",
-    "price": 450,
+    "slug": "divine-protect-jwl",
+    "price": 200,
     "slots": 1,
     "hr": 9,
     "elder": 1,
@@ -2986,11 +2986,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Ucamulbas Scale",
+        "item": "UkanlosUnderscl",
         "quantity": 1
       },
       {
@@ -3012,14 +3012,6 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Garuga Devil Ear",
-        "quantity": 1
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
@@ -3029,6 +3021,14 @@
       },
       {
         "item": "Hornetaur Head",
+        "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Long Garuga Ear",
         "quantity": 1
       }
     ],
@@ -3050,23 +3050,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "AzrRathlosHvyCpc",
-        "quantity": 1
-      },
-      {
-        "item": "Chameleos Tail G",
-        "quantity": 1
-      },
-      {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Azre Rathlos Cpc",
+        "item": "Azure Rthlos Cpc",
         "quantity": 1
       },
       {
@@ -3076,6 +3064,18 @@
       {
         "item": "Monster Broth",
         "quantity": 2
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "HvyAzurRthlsShl",
+        "quantity": 1
+      },
+      {
+        "item": "LthrChameleoTail",
+        "quantity": 1
       }
     ],
     "penalty": {
@@ -3126,7 +3126,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -3156,19 +3156,19 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Chameleos Hide G",
+        "item": "SpecChameleHide+",
         "quantity": 2
       },
       {
-        "item": "Diablos HvySpne",
+        "item": "HvyDiablosSpine",
         "quantity": 1
       },
       {
-        "item": "Pure Crystal",
+        "item": "Purecrystal",
         "quantity": 1
       }
     ],
@@ -3236,7 +3236,7 @@
         "quantity": 2
       },
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -3270,18 +3270,6 @@
     },
     "materials": [
       {
-        "item": "BattlefieldJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Naruga Scale+",
-        "quantity": 1
-      },
-      {
-        "item": "Great Hornfly",
-        "quantity": 1
-      },
-      {
         "item": "Akito Jewel",
         "quantity": 1
       },
@@ -3291,6 +3279,18 @@
       },
       {
         "item": "Hercudrome",
+        "quantity": 1
+      },
+      {
+        "item": "BattlefieldJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Narga Scale+",
+        "quantity": 1
+      },
+      {
+        "item": "Great Hornfly",
         "quantity": 1
       }
     ],
@@ -3312,7 +3312,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -3331,7 +3331,7 @@
   },
   {
     "id": 106,
-    "slug": "jump-jewel",
+    "slug": "jumping-jewel",
     "price": 200,
     "slots": 1,
     "hr": 8,
@@ -3342,28 +3342,28 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Naruga Strng Wng",
-        "quantity": 1
-      },
-      {
-        "item": "Emperor Locust",
-        "quantity": 5
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
       {
-        "item": "Naruga Wing",
+        "item": "NargaCuttingWing",
         "quantity": 1
       },
       {
-        "item": "Lunastra Horn G",
+        "item": "Lunastra Spike",
         "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "StrNargaCttngWng",
+        "quantity": 1
+      },
+      {
+        "item": "Emperor Cricket",
+        "quantity": 5
       }
     ],
     "penalty": {
@@ -3373,8 +3373,8 @@
   },
   {
     "id": 107,
-    "slug": "leap-jewel",
-    "price": 375,
+    "slug": "flying-jewel",
+    "price": 450,
     "slots": 3,
     "hr": 9,
     "elder": 1,
@@ -3384,19 +3384,19 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Fatalis Hrd Wbng",
+        "item": "Str Fatalis Wng",
         "quantity": 2
       },
       {
-        "item": "Naruga Marrow",
+        "item": "Narga Brain Stem",
         "quantity": 1
       },
       {
-        "item": "Garuga Slvr Mane",
+        "item": "SilverGarugaPelt",
         "quantity": 3
       }
     ],
@@ -3448,7 +3448,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -3482,7 +3482,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -3490,7 +3490,7 @@
         "quantity": 1
       },
       {
-        "item": "Majestic Red Hrn",
+        "item": "Top-GrdRedHorn",
         "quantity": 1
       },
       {
@@ -3505,8 +3505,8 @@
   },
   {
     "id": 111,
-    "slug": "survivor-jewel",
-    "price": 375,
+    "slug": "guts-jewel",
+    "price": 200,
     "slots": 1,
     "hr": 7,
     "elder": 1,
@@ -3520,11 +3520,11 @@
         "quantity": 1
       },
       {
-        "item": "Pur HermitaurShl",
+        "item": "PlumD.HermitrShl",
         "quantity": 1
       },
       {
-        "item": "BirdWyvnStoutBne",
+        "item": "RobustWyvernBone",
         "quantity": 2
       }
     ],
@@ -3535,8 +3535,8 @@
   },
   {
     "id": 112,
-    "slug": "immortal-jewel",
-    "price": 450,
+    "slug": "more-guts-jewel",
+    "price": 375,
     "slots": 2,
     "hr": 9,
     "elder": 1,
@@ -3546,19 +3546,19 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Volganos Hvy Cpc",
+        "item": "HvyLavasiothShl",
         "quantity": 3
       },
       {
-        "item": "Gaoren Hvy Spn",
+        "item": "Hvy Gaoren Spine",
         "quantity": 1
       },
       {
-        "item": "Big-Tailed Frog",
+        "item": "Tailed Frog",
         "quantity": 2
       }
     ],
@@ -3636,7 +3636,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -3656,7 +3656,7 @@
   {
     "id": 116,
     "slug": "eternal-jewel",
-    "price": 450,
+    "price": 375,
     "slots": 2,
     "hr": 7,
     "elder": 1,
@@ -3666,15 +3666,15 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "GrnPlsioth Fin G",
+        "item": "SpecGrnPlesioFn+",
         "quantity": 1
       },
       {
-        "item": "Vespoid RazrWng",
+        "item": "Vspoid Razorwing",
         "quantity": 1
       },
       {
@@ -3730,7 +3730,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -3753,8 +3753,8 @@
   },
   {
     "id": 119,
-    "slug": "true-love-jewel",
-    "price": 200,
+    "slug": "tenderness-jewel",
+    "price": 450,
     "slots": 3,
     "hr": 8,
     "elder": 1,
@@ -3764,15 +3764,15 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Alluring Wing",
+        "item": "StrAlluringWing",
         "quantity": 3
       },
       {
-        "item": "PnkRathianThkScl",
+        "item": "ThckPnkRathnScl",
         "quantity": 4
       },
       {
@@ -3850,7 +3850,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -3869,8 +3869,8 @@
   },
   {
     "id": 123,
-    "slug": "invulnerable-jewel",
-    "price": 200,
+    "slug": "true-resist-jewel",
+    "price": 450,
     "slots": 3,
     "hr": 9,
     "elder": 1,
@@ -3880,19 +3880,19 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Kirin Hide G",
+        "item": "SpecialKirinHide",
         "quantity": 2
       },
       {
-        "item": "Dragonmoss G",
+        "item": "AncientDrgnmoss",
         "quantity": 1
       },
       {
-        "item": "Blackbelt Coin G",
+        "item": "BlackBeltCoinG",
         "quantity": 3
       }
     ],
@@ -4102,7 +4102,7 @@
     "elder": 1,
     "skill": {
       "skill": "dragon-res",
-      "points": 2
+      "points": 1
     },
     "materials": [
       {
@@ -4155,7 +4155,7 @@
   },
   {
     "id": 134,
-    "slug": "dracocide-jewel",
+    "slug": "dragonslyr-jewel",
     "price": 200,
     "slots": 1,
     "hr": 7,
@@ -4166,11 +4166,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "HorneturRazrWng",
+        "item": "Hornet Razorwing",
         "quantity": 3
       },
       {
@@ -4237,8 +4237,8 @@
   },
   {
     "id": 137,
-    "slug": "icy-gale-jewel",
-    "price": 450,
+    "slug": "cold-breeze-jewel",
+    "price": 200,
     "slots": 1,
     "hr": 8,
     "elder": 1,
@@ -4248,11 +4248,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Blangonga Pelt G",
+        "item": "HrdBlangongaPlt+",
         "quantity": 2
       },
       {
@@ -4319,8 +4319,8 @@
   },
   {
     "id": 140,
-    "slug": "fiery-gale-jewel",
-    "price": 375,
+    "slug": "hot-breeze-jewel",
+    "price": 200,
     "slots": 1,
     "hr": 8,
     "elder": 1,
@@ -4330,11 +4330,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Brwn BlngngaPelt",
+        "item": "C.BlangongaPelt+",
         "quantity": 2
       },
       {
@@ -4494,18 +4494,6 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Rubbery Hide+",
-        "quantity": 1
-      },
-      {
-        "item": "ShakaInheritance",
-        "quantity": 1
-      },
-      {
         "item": "BattlefieldJewel",
         "quantity": 1
       },
@@ -4516,6 +4504,18 @@
       {
         "item": "ShakalakaTreasre",
         "quantity": 1
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Rubbery Hide+",
+        "quantity": 1
+      },
+      {
+        "item": "ShakaInheritance",
+        "quantity": 1
       }
     ],
     "penalty": {
@@ -4525,8 +4525,8 @@
   },
   {
     "id": 147,
-    "slug": "shell-cutter-jewel",
-    "price": 200,
+    "slug": "carving-jewel",
+    "price": 450,
     "slots": 3,
     "hr": 9,
     "elder": 1,
@@ -4536,19 +4536,19 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Ucamulbas Fang",
+        "item": "UkanlosDiggngClw",
         "quantity": 3
       },
       {
-        "item": "ShakalakaTrsure+",
+        "item": "ShakalakaTreasr+",
         "quantity": 1
       },
       {
-        "item": "Lg Wyvern Stone",
+        "item": "Big Wyvern Stone",
         "quantity": 1
       }
     ],
@@ -4559,7 +4559,7 @@
   },
   {
     "id": 148,
-    "slug": "bind-jewel",
+    "slug": "tranq-jewel",
     "price": 200,
     "slots": 1,
     "hr": 7,
@@ -4574,7 +4574,7 @@
         "quantity": 1
       },
       {
-        "item": "Hypnoc Feather",
+        "item": "OrangeHypnoPelt",
         "quantity": 1
       },
       {
@@ -4593,7 +4593,7 @@
   },
   {
     "id": 149,
-    "slug": "cage-jewel",
+    "slug": "knockout-jewel",
     "price": 375,
     "slots": 2,
     "hr": 7,
@@ -4604,15 +4604,15 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Hypnoc Feather+",
+        "item": "OrangeHypnoPelt+",
         "quantity": 3
       },
       {
-        "item": "Piscine Fang+",
+        "item": "HvyPiscineFang",
         "quantity": 3
       },
       {
@@ -4668,7 +4668,7 @@
         "quantity": 1
       },
       {
-        "item": "Gold Egg",
+        "item": "Golden Egg",
         "quantity": 1
       }
     ],
@@ -4731,7 +4731,7 @@
   },
   {
     "id": 154,
-    "slug": "observer-jewel",
+    "slug": "perceive-jewel",
     "price": 200,
     "slots": 1,
     "hr": 7,
@@ -4746,7 +4746,7 @@
         "quantity": 1
       },
       {
-        "item": "Rainbow Down",
+        "item": "RainbowTailFeath",
         "quantity": 1
       },
       {
@@ -4787,7 +4787,7 @@
   },
   {
     "id": 156,
-    "slug": "quick-fix-jewel",
+    "slug": "speedy-recvr-jewel",
     "price": 375,
     "slots": 2,
     "hr": 2,
@@ -4797,18 +4797,6 @@
       "points": 3
     },
     "materials": [
-      {
-        "item": "LapislazuliJewel",
-        "quantity": 1
-      },
-      {
-        "item": "Pale Khezu Steak",
-        "quantity": 1
-      },
-      {
-        "item": "Lifepowder",
-        "quantity": 2
-      },
       {
         "item": "BattlefieldJewel",
         "quantity": 1
@@ -4824,6 +4812,18 @@
       {
         "item": "Lifecrystals",
         "quantity": 10
+      },
+      {
+        "item": "LapisLazuliJewel",
+        "quantity": 1
+      },
+      {
+        "item": "Pale Khezu Steak",
+        "quantity": 1
+      },
+      {
+        "item": "Lifepowder",
+        "quantity": 2
       }
     ],
     "penalty": {
@@ -4874,7 +4874,7 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
@@ -4893,8 +4893,8 @@
   },
   {
     "id": 159,
-    "slug": "divine-cure-jewel",
-    "price": 200,
+    "slug": "cure-all-jewel-plus",
+    "price": 375,
     "slots": 2,
     "hr": 7,
     "elder": 8,
@@ -4904,15 +4904,15 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Khezu Hide-Gloss",
+        "item": "KhezuHide-Cream",
         "quantity": 3
       },
       {
-        "item": "Lunastra Carpace",
+        "item": "LunastraCarapace",
         "quantity": 2
       },
       {
@@ -5062,7 +5062,7 @@
         "quantity": 2
       },
       {
-        "item": "Fire Stone",
+        "item": "Firestone",
         "quantity": 1
       }
     ]
@@ -5095,7 +5095,7 @@
   },
   {
     "id": 166,
-    "slug": "flyn-master-jewel",
+    "slug": "cat-guide-jewel",
     "price": 200,
     "slots": 1,
     "hr": 8,
@@ -5110,7 +5110,7 @@
         "quantity": 1
       },
       {
-        "item": "FlynFighterPass",
+        "item": "Comrade Ticket",
         "quantity": 1
       },
       {
@@ -5133,7 +5133,7 @@
   },
   {
     "id": 167,
-    "slug": "flyn-attack-jewel",
+    "slug": "cat-attack-jewel",
     "price": 200,
     "slots": 1,
     "hr": 8,
@@ -5144,11 +5144,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Razor Claw",
+        "item": "Piercing Claw",
         "quantity": 1
       },
       {
@@ -5163,7 +5163,7 @@
   },
   {
     "id": 168,
-    "slug": "flyn-defense-jewel",
+    "slug": "cat-defense-jewel",
     "price": 200,
     "slots": 1,
     "hr": 7,
@@ -5174,11 +5174,11 @@
     },
     "materials": [
       {
-        "item": "LapislazuliJewel",
+        "item": "LapisLazuliJewel",
         "quantity": 1
       },
       {
-        "item": "Kut-Ku Hvy Cpc",
+        "item": "Hvy Kut-Ku Shell",
         "quantity": 1
       },
       {
