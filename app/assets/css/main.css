@@ -3,6 +3,12 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+  html,
+  body,
+  #__nuxt {
+    @apply h-full overflow-hidden;
+  }
+
   html {
     color-scheme: light;
   }

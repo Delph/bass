@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, nextTick, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useGame } from '~/composables/useGame';
 import {
   useSearch,
@@ -11,10 +11,14 @@ import ResultCard from '~/components/ResultCard.vue';
 import Progress from '~/components/Progress.vue';
 import Select from '~/components/Select.vue';
 import type { DamageType } from '~/game/types';
-import { useTranslation } from '#imports';
+import { definePageMeta, useTranslation } from '#imports';
 import { wireIDv1 } from '~/set';
 
 const PAGE_SIZE = 100;
+
+definePageMeta({
+  scroll: false,
+});
 
 const { translate } = useTranslation();
 const { game, slug } = useGame();
@@ -128,22 +132,21 @@ function resultId(result: BuildResult) {
   return id;
 }
 
-async function setPage(next: number) {
+function setPage(next: number) {
   page.value = next;
-  await nextTick();
-  resultsList.value?.scrollIntoView({ block: 'start' });
+  resultsList.value?.scrollTo({ top: 0 });
 }
 
 function previousPage() {
-  if (page.value > 1) void setPage(page.value - 1);
+  if (page.value > 1) setPage(page.value - 1);
 }
 
 function nextPage() {
-  if (page.value < pageCount.value) void setPage(page.value + 1);
+  if (page.value < pageCount.value) setPage(page.value + 1);
 }
 </script>
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex h-full min-h-0 flex-col gap-2">
     <template v-if="hasCurrentSession">
       <div
         class="rounded-xl border border-stone-200 bg-white p-2 dark:border-stone-700 dark:bg-stone-900"
@@ -192,7 +195,7 @@ function nextPage() {
           formatted: formatNumber(results.length),
         })
       }}
-      <span v-if="pageCount > 1" class="text-sm text-stone-600 dark:text-stone-400">
+      <span v-if="results.length > 0" class="text-sm text-stone-600 dark:text-stone-400">
         {{
           translate('results-page-range', {
             first: formatNumber(pageStart),
@@ -216,7 +219,10 @@ function nextPage() {
         @change="(s) => setSort(s as SortCriteria | null)"
         class="w-full"
       />
-      <div ref="resultsList" class="flex flex-col gap-2">
+      <div
+        ref="resultsList"
+        class="flex min-h-0 flex-col gap-2 overflow-y-auto pr-1"
+      >
         <ResultCard
           v-for="result in pagedResults"
           :key="resultId(result)"
@@ -224,8 +230,8 @@ function nextPage() {
         />
       </div>
       <nav
-        v-if="pageCount > 1"
-        class="flex items-center justify-center gap-3"
+        v-if="results.length > 0"
+        class="flex shrink-0 items-center justify-center gap-3"
         :aria-label="translate('results-pagination')"
       >
         <button

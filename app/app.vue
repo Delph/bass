@@ -58,9 +58,9 @@ const scroll = computed(() => route.meta.scroll !== false);
 <template>
   <div
     v-show="ready"
-    class="flex h-dvh flex-col bg-stone-50 text-stone-950 dark:bg-stone-950 dark:text-stone-100"
+    class="flex h-dvh flex-col overflow-hidden bg-stone-50 text-stone-950 dark:bg-stone-950 dark:text-stone-100"
   >
-    <header class="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2 bg-emerald-700 px-4 py-2 text-center text-white dark:bg-emerald-900">
+    <header class="grid w-full shrink-0 grid-cols-[1fr_auto_1fr] items-center gap-2 bg-emerald-700 px-4 py-2 text-center text-white dark:bg-emerald-900">
       <div class="flex items-center gap-1 justify-self-start">
         <button
           v-if="game"
@@ -89,7 +89,7 @@ const scroll = computed(() => route.meta.scroll !== false);
       </div>
     </header>
     <div
-      class="flex min-h-0 flex-1"
+      class="flex min-h-0 flex-1 overflow-hidden"
       :class="game ? 'md:grid md:grid-cols-[12rem_1fr]' : ''"
     >
       <SideBar
@@ -103,7 +103,7 @@ const scroll = computed(() => route.meta.scroll !== false);
         :class="scroll ? 'overflow-y-auto' : 'overflow-hidden'"
       >
         <div
-          class="flex flex-col gap-4"
+          class="flex min-h-0 flex-1 flex-col gap-4"
         >
           <NuxtPage v-slot="{ Component }">
             <component
