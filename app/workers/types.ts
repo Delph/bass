@@ -16,9 +16,6 @@ export type WorkerMessage =
       }
     }
   | {
-      type: 'stop';
-    }
-  | {
       type: 'pause';
     }
   | {

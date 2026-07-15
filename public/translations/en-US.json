@@ -97,6 +97,10 @@
   },
   "settings-workers-max": "Max {formatted}",
   "settings-workers-message": "Higher values may make searches faster, but can make the browser less responsive while the solver is running.",
+  "settings-cutoff": "Search cutoff",
+  "settings-cutoff-count": "{formatted} per slot",
+  "settings-cutoff-message": "Maximum armor pieces considered for each slot. Lower values make searches faster, but may exclude valid sets.",
+  "settings-cutoff-value": "Search cutoff value",
 
   "theme-system": "System",
   "theme-dark": "Dark",
@@ -115,6 +119,11 @@
     "one": "{formatted} result",
     "other": "{formatted} results"
   },
+  "results-pagination": "Result pages",
+  "results-page-range": "Showing {first}-{last} of {total}",
+  "results-page-count": "Page {page} of {pages}",
+  "results-previous-page": "Previous page",
+  "results-next-page": "Next page",
   "search-status-label": {
     "one": "Search {status}: {progress}, {formatted} result",
     "other": "Search {status}: {progress}, {formatted} results"
@@ -122,8 +131,9 @@
   "search-status-running": "running",
   "search-status-paused": "paused",
   "search-status-completed": "completed",
-  "search-status-stopped": "stopped",
   "search-status-error": "failed",
+  "search-pause": "Pause search",
+  "search-resume": "Resume search",
   "search-error": "Search failed.",
   "result-sort-default": "Default sorting",
   "result-sort-defence": "Defense",

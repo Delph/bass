@@ -58,6 +58,8 @@ export type ArmourPiece = {
   hr: number;
   elder: number;
   slots: number;
+  /// if true, this is a dummy piece which needs (normally) hidden items to obtain
+  dummy?: boolean;
 };
 
 export type Decoration = {
@@ -72,10 +74,7 @@ export type Decoration = {
   materials: Material[];
 };
 
-export type EffectDefinition = Record<
-  string,
-  { description: string }
->;
+export type EffectDefinition = Record<string, { description: string }>;
 
 export type SkillDefinition = {
   id: number;

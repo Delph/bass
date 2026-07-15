@@ -44,12 +44,13 @@ beforeEach(() => {
   FakeWorker.workers = [];
 });
 
-function createClient(maxWorkers = 2) {
+function createClient(maxWorkers = 2, cutoff = 20) {
   let now = 0;
 
   return new SearchClient({
     createWorker: () => new FakeWorker(),
     maxWorkers: () => maxWorkers,
+    cutoff: () => cutoff,
     now: () => ++now,
   });
 }
@@ -141,7 +142,7 @@ describe('SearchClient', () => {
     expect(FakeWorker.workers.every((worker) => worker.terminated)).toBe(true);
   });
 
-  test('pauses, resumes, and stops workers', () => {
+  test('pauses, resumes, and resets workers', () => {
     const client = createClient(1);
 
     client.start({ slug: 'mhfu', query: searchQuery(), data: gameData(1) });
@@ -155,8 +156,8 @@ describe('SearchClient', () => {
     expect(client.state.status).toBe('running');
     expect(worker.messages.at(-1)).toEqual({ type: 'resume' });
 
-    client.stop();
-    expect(client.state.status).toBe('stopped');
+    client.reset();
+    expect(client.state.status).toBe('idle');
     expect(worker.terminated).toBe(true);
     expect(worker.messages.at(-1)).toEqual({ type: 'terminate' });
   });
@@ -185,6 +186,19 @@ describe('SearchClient', () => {
     expect(FakeWorker.workers).toHaveLength(0);
     expect(client.state.status).toBe('completed');
     expect(client.state.combinationCounts).toEqual([0]);
+  });
+
+  test('applies the configured candidate cutoff before starting workers', () => {
+    const client = createClient(1, 2);
+
+    client.start({ slug: 'mhfu', query: searchQuery(), data: gameData(4) });
+
+    expect(client.state.combinationCounts).toEqual([2]);
+    const message = FakeWorker.workers[0]!.messages.find(
+      (message): message is Extract<WorkerMessage, { type: 'query' }> =>
+        message.type === 'query',
+    );
+    expect(message?.payload.gear.head).toHaveLength(2);
   });
 
   test('moves to error state on worker errors', () => {

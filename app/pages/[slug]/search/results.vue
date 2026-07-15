@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, nextTick, ref, watch } from 'vue';
 import { useGame } from '~/composables/useGame';
 import {
   useSearch,
@@ -12,6 +12,9 @@ import Progress from '~/components/Progress.vue';
 import Select from '~/components/Select.vue';
 import type { DamageType } from '~/game/types';
 import { useTranslation } from '#imports';
+import { wireIDv1 } from '~/set';
+
+const PAGE_SIZE = 100;
 
 const { translate } = useTranslation();
 const { game, slug } = useGame();
@@ -25,6 +28,9 @@ const {
   sort,
   togglePause,
 } = search;
+const page = ref(1);
+const resultsList = ref<HTMLElement | null>(null);
+const resultIds = new WeakMap<BuildResult, string>();
 
 const searchPath = computed(() =>
   slug.value ? `/${encodeURIComponent(slug.value)}/search` : '/',
@@ -50,6 +56,29 @@ const sortedResults = computed(() => {
       return a.index - b.index;
     })
     .map(({ result }) => result);
+});
+const pageCount = computed(() =>
+  Math.max(1, Math.ceil(sortedResults.value.length / PAGE_SIZE)),
+);
+const pagedResults = computed(() => {
+  const start = (page.value - 1) * PAGE_SIZE;
+
+  return sortedResults.value.slice(start, start + PAGE_SIZE);
+});
+const pageStart = computed(() =>
+  results.value.length === 0 ? 0 : (page.value - 1) * PAGE_SIZE + 1,
+);
+const pageEnd = computed(() =>
+  Math.min(page.value * PAGE_SIZE, results.value.length),
+);
+
+watch(
+  () => session.value.id,
+  () => (page.value = 1),
+);
+watch(sort, () => (page.value = 1));
+watch(pageCount, (count) => {
+  if (page.value > count) page.value = count;
 });
 
 function pieces(result: BuildResult) {
@@ -87,6 +116,31 @@ type SortCriteria = SearchSortCriteria;
 function setSort(value: SearchSortCriteria | null) {
   search.sort.value = value;
 }
+
+function resultId(result: BuildResult) {
+  let id = resultIds.get(result);
+
+  if (id === undefined) {
+    id = wireIDv1(result.armour, result.decorations);
+    resultIds.set(result, id);
+  }
+
+  return id;
+}
+
+async function setPage(next: number) {
+  page.value = next;
+  await nextTick();
+  resultsList.value?.scrollIntoView({ block: 'start' });
+}
+
+function previousPage() {
+  if (page.value > 1) void setPage(page.value - 1);
+}
+
+function nextPage() {
+  if (page.value < pageCount.value) void setPage(page.value + 1);
+}
 </script>
 <template>
   <div class="flex flex-col gap-2">
@@ -114,6 +168,8 @@ function setSort(value: SearchSortCriteria | null) {
               type="button"
               class="flex size-8 items-center justify-center rounded-lg border border-stone-300 text-stone-700 disabled:opacity-40 dark:border-stone-700 dark:text-stone-200"
               :disabled="!active"
+              :title="translate(session.status === 'paused' ? 'search-resume' : 'search-pause')"
+              :aria-label="translate(session.status === 'paused' ? 'search-resume' : 'search-pause')"
               @click="togglePause"
             >
               <Icon :name="session.status === 'paused' ? 'lucide:play' : 'lucide:pause'" />
@@ -136,6 +192,15 @@ function setSort(value: SearchSortCriteria | null) {
           formatted: formatNumber(results.length),
         })
       }}
+      <span v-if="pageCount > 1" class="text-sm text-stone-600 dark:text-stone-400">
+        {{
+          translate('results-page-range', {
+            first: formatNumber(pageStart),
+            last: formatNumber(pageEnd),
+            total: formatNumber(results.length),
+          })
+        }}
+      </span>
 
       <Select
         name="sort"
@@ -151,13 +216,47 @@ function setSort(value: SearchSortCriteria | null) {
         @change="(s) => setSort(s as SortCriteria | null)"
         class="w-full"
       />
-      <div class="flex flex-col gap-2">
+      <div ref="resultsList" class="flex flex-col gap-2">
         <ResultCard
-          v-for="(result, index) in sortedResults"
-          :key="index"
+          v-for="result in pagedResults"
+          :key="resultId(result)"
           :set="result"
         />
       </div>
+      <nav
+        v-if="pageCount > 1"
+        class="flex items-center justify-center gap-3"
+        :aria-label="translate('results-pagination')"
+      >
+        <button
+          type="button"
+          class="flex size-10 items-center justify-center rounded-xl border border-stone-300 text-stone-700 disabled:opacity-40 dark:border-stone-700 dark:text-stone-200"
+          :disabled="page === 1"
+          :title="translate('results-previous-page')"
+          :aria-label="translate('results-previous-page')"
+          @click="previousPage"
+        >
+          <Icon name="lucide:chevron-left" />
+        </button>
+        <span class="min-w-28 text-center text-sm">
+          {{
+            translate('results-page-count', {
+              page: formatNumber(page),
+              pages: formatNumber(pageCount),
+            })
+          }}
+        </span>
+        <button
+          type="button"
+          class="flex size-10 items-center justify-center rounded-xl border border-stone-300 text-stone-700 disabled:opacity-40 dark:border-stone-700 dark:text-stone-200"
+          :disabled="page === pageCount"
+          :title="translate('results-next-page')"
+          :aria-label="translate('results-next-page')"
+          @click="nextPage"
+        >
+          <Icon name="lucide:chevron-right" />
+        </button>
+      </nav>
     </template>
 
     <div

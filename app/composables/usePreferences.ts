@@ -1,9 +1,12 @@
 import { computed } from 'vue';
 import {
   bucket,
+  maxCutoff,
+  minCutoff,
   type Theme,
 } from '~/persistence/buckets/preferences';
 import type { LocaleSlug } from '~/translation';
+import { bound } from '~/utility';
 import { boundWorkers } from '~/workers/pool';
 
 export function usePreferences() {
@@ -12,6 +15,7 @@ export function usePreferences() {
   const theme = computed(() => preferences.value.theme);
   const locale = computed(() => preferences.value.locale);
   const workers = computed(() => preferences.value.workers);
+  const cutoff = computed(() => preferences.value.cutoff);
 
   function setTheme(theme: Theme) {
     preferences.value.theme = theme;
@@ -28,6 +32,11 @@ export function usePreferences() {
     bucket.save(preferences.value);
   }
 
+  function setCutoff(cutoff: number) {
+    preferences.value.cutoff = bound(cutoff, minCutoff, maxCutoff);
+    bucket.save(preferences.value);
+  }
+
   return {
     theme,
     setTheme,
@@ -35,5 +44,7 @@ export function usePreferences() {
     setLocale,
     workers,
     setWorkers,
+    cutoff,
+    setCutoff,
   };
 }

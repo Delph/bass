@@ -89,12 +89,6 @@ async function query(message: TypedWorkerMessage<'query'>) {
   }
 }
 
-function stop(_message: TypedWorkerMessage<'stop'>) {
-  aborter?.abort();
-  paused = false;
-  wake();
-}
-
 function pause(_message: TypedWorkerMessage<'pause'>) {
   if (aborter)
     paused = true;
@@ -119,9 +113,6 @@ function dispatchMessage(message: WorkerMessage) {
       return;
     case 'query':
       return query(message);
-    case 'stop':
-      stop(message);
-      return;
     case 'pause':
       pause(message);
       return;

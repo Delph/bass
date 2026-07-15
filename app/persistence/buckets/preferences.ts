@@ -9,6 +9,7 @@ export type Preferences = {
   theme: Theme;
   locale: LocaleSlug;
   workers: number;
+  cutoff: number;
 };
 
 export const defaultWorkers = bound(
@@ -17,6 +18,10 @@ export const defaultWorkers = bound(
   Math.min(maxWorkers, 4),
 );
 
+export const minCutoff = 5;
+export const maxCutoff = 30;
+export const defaultCutoff = 20;
+
 export const bucket = defineBucket<Preferences>({
   key: 'bass:preferences',
   version: 0,
@@ -24,6 +29,7 @@ export const bucket = defineBucket<Preferences>({
     theme: 'system',
     locale: defaultLocale,
     workers: defaultWorkers,
+    cutoff: defaultCutoff,
   },
   migrate: function (version: number, stored: unknown) {
     return stored as Preferences;

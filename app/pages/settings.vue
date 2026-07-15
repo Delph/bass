@@ -2,22 +2,31 @@
 import { ref } from 'vue';
 import ConfirmDialog from '~/components/ConfirmDialog.vue';
 import LanguageSelector from '~/components/LanguageSelector.vue';
+import NumberInput from '~/components/NumberInput.vue';
 import Textarea from '~/components/Textarea.vue';
 import { usePreferences } from '~/composables/usePreferences';
 import { useTheme } from '~/composables/useTheme';
 import { useToasts } from '~/composables/useToasts';
 import { useTranslation } from '~/composables/useTranslation';
 import { formatNumber } from '~/format';
+import {
+  maxCutoff,
+  minCutoff,
+} from '~/persistence/buckets/preferences';
 import { exportText, importText, reset } from '~/persistence/storage';
 import { maxWorkers } from '~/workers/pool';
 
 const { translate } = useTranslation();
-const { workers, setWorkers } = usePreferences();
+const { workers, setWorkers, cutoff, setCutoff } = usePreferences();
 const { theme, set } = useTheme();
 const toasts = useToasts();
 const confirmDelete = ref(false);
 const confirmImport = ref(false);
 const dataText = ref('');
+const cutoffTicks = Array.from(
+  { length: (maxCutoff - minCutoff) / 5 + 1 },
+  (_, index) => minCutoff + index * 5,
+);
 
 function deleteAllData() {
   reset();
@@ -45,6 +54,14 @@ async function importData() {
 
 function setWorkersFromInput(event: Event) {
   setWorkers(Number((event.target as HTMLInputElement).value));
+}
+
+function setCutoffFromInput(event: Event) {
+  setCutoff(Number((event.target as HTMLInputElement).value));
+}
+
+function setCutoffFromNumber(value: number | null) {
+  if (value !== null) setCutoff(Math.round(value));
 }
 </script>
 
@@ -99,6 +116,77 @@ function setWorkersFromInput(event: Event) {
           />
           <p class="text-sm text-stone-600 dark:text-stone-400">
             {{ translate('settings-workers-message') }}
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-stone-200 dark:border-stone-700" />
+
+      <div
+        class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3"
+      >
+        <div>
+          <h4 id="settings-cutoff-label" class="font-semibold">
+            {{ translate('settings-cutoff') }}
+          </h4>
+        </div>
+        <div class="flex min-w-0 flex-col gap-2 sm:w-80">
+          <div class="text-sm text-stone-600 dark:text-stone-400">
+            <span>
+              {{
+                translate('settings-cutoff-count', {
+                  formatted: formatNumber(cutoff),
+                })
+              }}
+            </span>
+          </div>
+          <div
+            class="grid grid-cols-[minmax(0,1fr)_5rem] items-center gap-x-3"
+          >
+            <input
+              type="range"
+              name="cutoff"
+              :value="cutoff"
+              :min="minCutoff"
+              :max="maxCutoff"
+              :step="1"
+              aria-labelledby="settings-cutoff-label"
+              class="col-start-1 row-start-1 m-0 block w-full accent-emerald-700 dark:accent-emerald-500"
+              @input="setCutoffFromInput"
+            />
+            <label class="col-start-2 row-start-1">
+              <span class="sr-only">
+                {{ translate('settings-cutoff-value') }}
+              </span>
+              <NumberInput
+                name="cutoff-value"
+                :value="cutoff"
+                :min="minCutoff"
+                :max="maxCutoff"
+                :step="1"
+                class="w-full py-1 text-right tabular-nums"
+                @change="setCutoffFromNumber"
+              />
+            </label>
+            <div
+              class="relative col-start-1 row-start-2 mx-2 mt-1 h-6 text-xs text-stone-500 dark:text-stone-400"
+              aria-hidden="true"
+            >
+              <span
+                v-for="tick of cutoffTicks"
+                :key="tick"
+                class="absolute top-0 flex -translate-x-1/2 flex-col items-center gap-0.5"
+                :style="{
+                  left: `${((tick - minCutoff) / (maxCutoff - minCutoff)) * 100}%`,
+                }"
+              >
+                <span class="h-1.5 w-px bg-stone-400 dark:bg-stone-500" />
+                <span>{{ formatNumber(tick) }}</span>
+              </span>
+            </div>
+          </div>
+          <p class="text-sm text-stone-600 dark:text-stone-400">
+            {{ translate('settings-cutoff-message') }}
           </p>
         </div>
       </div>

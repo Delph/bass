@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import type { ArmourSet, BuildResult } from '~/solver/solver';
 import { useSets } from '~/composables/useSets';
 import { formatNumber } from '~/format';
@@ -9,7 +9,7 @@ import { useTranslation } from '~/composables/useTranslation';
 import { useGame } from '~/composables/useGame';
 import { defence, effective, resistances, setSharePath } from '~/set';
 
-const { addSet } = useSets();
+const { addSet, hasSet } = useSets();
 const { slug } = useGame();
 const icons = useIcons();
 const { translate } = useTranslation();
@@ -17,8 +17,6 @@ const { translate } = useTranslation();
 const props = defineProps<{
   set: BuildResult;
 }>();
-const saved = ref(false);
-
 const def = computed(() => defence(Object.values(props.set.armour)));
 const res = computed(() => resistances(Object.values(props.set.armour)));
 const armourSet = computed<ArmourSet>(() => ({
@@ -35,6 +33,7 @@ const armourSet = computed<ArmourSet>(() => ({
     weapon: props.set.decorations.weapon.map((d) => d.id),
   },
 }));
+const saved = computed(() => hasSet(armourSet.value));
 const setPath = computed(() =>
   slug.value ? setSharePath(slug.value, armourSet.value) : '/',
 );
@@ -56,7 +55,6 @@ const decorations = computed(() => {
 
 function save() {
   addSet(armourSet.value);
-  saved.value = true;
 }
 </script>
 

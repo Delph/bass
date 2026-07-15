@@ -10,7 +10,6 @@ export type SearchStatus =
   | 'running'
   | 'paused'
   | 'completed'
-  | 'stopped'
   | 'error';
 
 export type SearchSession = {
@@ -38,6 +37,7 @@ export type SearchWorker = {
 export type SearchClientOptions = {
   createWorker: () => SearchWorker;
   maxWorkers: () => number;
+  cutoff: () => number;
   now?: () => number;
 };
 
@@ -133,7 +133,7 @@ export class SearchClient {
       if (Object.keys(query.skills).length === 0)
         throw new Error('No skills to search for');
 
-      const prepared = prepare(query, options.data);
+      const prepared = prepare(query, options.data, this.options.cutoff());
       const totalCombinations = combinations(prepared);
 
       if (totalCombinations === 0) {
@@ -205,16 +205,6 @@ export class SearchClient {
   togglePause() {
     if (this.session.status === 'paused') this.resume();
     else this.pause();
-  }
-
-  stop() {
-    if (!['running', 'paused'].includes(this.session.status)) return;
-
-    this.activeRun = 0;
-    this.session.status = 'stopped';
-    this.session.finishedAt = this.now();
-    this.terminateWorkers();
-    this.flushEmit();
   }
 
   reset() {
