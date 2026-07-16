@@ -2,7 +2,8 @@
 import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-import { useGame, useIcons, useTranslation } from '#imports';
+import { useGame, useIcons } from '#imports';
+import { useLanguage } from '~/composables/useLanguage';
 import { useSets } from '~/composables/useSets';
 import { useToasts } from '~/composables/useToasts';
 import {
@@ -17,10 +18,10 @@ import {
   setSharePath,
   setShareURL,
   setSkills,
+  validateArmourSet,
 } from '~/set';
 import Field from '~/components/Field.vue';
 import { getEffect, getSkillEffectKey } from '~/skills';
-import { formatDateTime, formatNumber } from '~/format';
 import Textarea from '~/components/Textarea.vue';
 import ConfirmDialog from '~/components/ConfirmDialog.vue';
 
@@ -29,7 +30,7 @@ const router = useRouter();
 
 const game = useGame();
 const icons = useIcons();
-const { translate } = useTranslation();
+const { formatDateTime, formatNumber, translate } = useLanguage();
 const { findSet, removeSet, saveSet } = useSets();
 const toasts = useToasts();
 
@@ -97,14 +98,8 @@ function resolveSet() {
   const armour = resolveArmour(set.armour, game.data.value);
   const decorations = resolveDecorations(set.decorations, game.data.value);
 
-  if (Object.values(armour).some((piece) => piece === undefined))
-    throw new Error('Invalid armour ID');
-  if (
-    Object.values(decorations)
-      .flat()
-      .some((decoration) => decoration === undefined)
-  )
-    throw new Error('Invalid decoration ID');
+  if (!validateArmourSet(armour, decorations))
+    throw new Error('Invalid armour set');
 
   return { set, armour, decorations };
 }

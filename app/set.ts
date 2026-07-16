@@ -21,6 +21,98 @@ export const DECORATION_GROUPS = [
   'weapon',
 ] as const satisfies readonly (keyof Decorations)[];
 
+function validSlots(slots: unknown, minimum: number): slots is number {
+  return (
+    typeof slots === 'number' &&
+    Number.isInteger(slots) &&
+    slots >= minimum &&
+    slots <= 3
+  );
+}
+
+function decorationsFit(capacities: number[], decorations: Decoration[]) {
+  if (decorations.some((decoration) => !validSlots(decoration?.slots, 1)))
+    return false;
+
+  const remaining = capacities.toSorted((a, b) => b - a);
+  const required = decorations
+    .map((decoration) => decoration.slots)
+    .toSorted((a, b) => b - a);
+
+  if (sum(required) > sum(remaining)) return false;
+
+  function place(index: number): boolean {
+    if (index === required.length) return true;
+
+    const slots = required[index]!;
+    let previous = -1;
+
+    for (let container = 0; container < remaining.length; ++container) {
+      const capacity = remaining[container]!;
+      if (capacity < slots || capacity === previous) continue;
+
+      remaining[container] = capacity - slots;
+      if (place(index + 1)) return true;
+      remaining[container] = capacity;
+      previous = capacity;
+    }
+
+    return false;
+  }
+
+  return place(0);
+}
+
+export function validateArmourSet(
+  armour: Record<ArmourSlot, ArmourPiece>,
+  decorations: Decorations,
+  weaponSlots = 3,
+) {
+  if (!validSlots(weaponSlots, 0)) return false;
+
+  const pieces = ARMOUR_SLOTS.map((slot) => armour?.[slot]);
+  if (
+    pieces.some(
+      (piece) =>
+        !piece ||
+        !validSlots(piece.slots, 0) ||
+        !Number.isInteger(piece.gender) ||
+        piece.gender < 1 ||
+        piece.gender > 3 ||
+        !Number.isInteger(piece.class) ||
+        piece.class < 1 ||
+        piece.class > 3,
+    )
+  )
+    return false;
+
+  const resolved = pieces as ArmourPiece[];
+  if (resolved.reduce((gender, piece) => gender & piece.gender, 3) === 0)
+    return false;
+  if (resolved.reduce((weaponClass, piece) => weaponClass & piece.class, 3) === 0)
+    return false;
+
+  if (
+    !decorations ||
+    DECORATION_GROUPS.some((group) => !Array.isArray(decorations[group]))
+  )
+    return false;
+
+  return (
+    decorationsFit(
+      [
+        armour.head.slots,
+        armour.arms.slots,
+        armour.waist.slots,
+        armour.legs.slots,
+      ],
+      decorations.armour,
+    ) &&
+    decorationsFit([armour.body.slots], decorations.torso) &&
+    decorationsFit([weaponSlots], decorations.weapon)
+  );
+}
+
 /**
  * @param pieces An armour set by ID
  * @param data The game data to search

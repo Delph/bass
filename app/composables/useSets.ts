@@ -3,14 +3,19 @@ import { computed } from 'vue';
 import { useGame } from '~/composables/useGame';
 import { bucket, type SavedSet } from '~/persistence/buckets/sets';
 import { current } from '~/persistence/storage';
-import { armourSetIDv1 } from '~/set';
+import {
+  armourSetIDv1,
+  resolveArmour,
+  resolveDecorations,
+  validateArmourSet,
+} from '~/set';
 import type { ArmourSet } from '~/solver/solver';
 import type { UUID } from '~/types';
 
 export type { SavedSet } from '~/persistence/buckets/sets';
 
 export function useSets() {
-  const { slug } = useGame();
+  const { data, slug } = useGame();
 
   const allSets = bucket.state('sets');
 
@@ -18,8 +23,21 @@ export function useSets() {
     current(slug.value ?? 'mhfu', allSets.value, () => []),
   );
 
+  function valid(set: ArmourSet) {
+    if (!data.value) return false;
+
+    try {
+      return validateArmourSet(
+        resolveArmour(set.armour, data.value),
+        resolveDecorations(set.decorations, data.value),
+      );
+    } catch {
+      return false;
+    }
+  }
+
   const active = computed(() =>
-    sets.value.filter((set) => set.deletedAt === null),
+    sets.value.filter((set) => set.deletedAt === null && valid(set)),
   );
 
   function findSet(set: ArmourSet) {
@@ -33,6 +51,8 @@ export function useSets() {
   }
 
   function addSet(set: ArmourSet, name: string = '', notes: string = '') {
+    if (!valid(set)) throw new Error('Invalid armour set');
+
     const existing = findSet(set);
 
     if (existing) return existing;

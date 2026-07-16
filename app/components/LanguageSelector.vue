@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { useTranslation } from '~/composables/useTranslation';
+import { useLanguage } from '~/composables/useLanguage';
 import { locales, type LocaleSlug } from '~/translation';
 import Select from "~/components/Select.vue";
 
-const { locale, pending, set, translate } = useTranslation();
+const { locale, pending, set, translate } = useLanguage();
 </script>
 
 <template>

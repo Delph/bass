@@ -4,12 +4,11 @@ import { useRouter } from 'vue-router';
 import SkillPill from '~/components/SkillPill.vue';
 import { useGame } from '~/composables/useGame';
 import { useHistory, type HistoryEntry } from '~/composables/useHistory';
+import { useLanguage } from '~/composables/useLanguage';
 import { useQuery } from '~/composables/useQuery';
-import { useTranslation } from '~/composables/useTranslation';
-import { formatDateTime, formatNumber } from '~/format';
 import { HUNTER_GENDER, WEAPON_CLASS } from '~/query/types';
 
-const { translate } = useTranslation();
+const { formatDateTime, formatNumber, translate } = useLanguage();
 const { game, slug } = useGame();
 const router = useRouter();
 const { setQuery } = useQuery();

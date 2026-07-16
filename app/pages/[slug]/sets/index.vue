@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { useSets } from '~/composables/useSets';
-import { useTranslation } from '~/composables/useTranslation';
+import { useLanguage } from '~/composables/useLanguage';
 import SetCard from '~/components/SetCard.vue';
 
-const { translate } = useTranslation();
+const { translate } = useLanguage();
 const { sets } = useSets();
 </script>
 

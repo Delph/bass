@@ -7,10 +7,9 @@ import Select from '~/components/Select.vue';
 import Toggle from '~/components/Toggle.vue';
 import { useGame } from '~/composables/useGame';
 import { useHistory } from '~/composables/useHistory';
+import { useLanguage } from '~/composables/useLanguage';
 import { useQuery } from '~/composables/useQuery';
 import { useSearch } from '~/composables/useSearch';
-import { useTranslation } from '~/composables/useTranslation';
-import { formatNumber } from '~/format';
 import {
   HUNTER_GENDER,
   type HunterGender,
@@ -25,7 +24,7 @@ const { data, game } = useGame();
 const router = useRouter();
 const history = useHistory();
 const search = useSearch();
-const { translate } = useTranslation();
+const { formatNumber, translate } = useLanguage();
 const {
   query,
   setGuildRank,

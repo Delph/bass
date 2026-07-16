@@ -3,8 +3,7 @@ import type { SkillDefinition } from "~/game/types";
 import type { SkillCardDefinition, SkillOption } from "~/skills";
 
 import { useQuery } from "~/composables/useQuery";
-import { useTranslation } from "~/composables/useTranslation";
-import { formatNumber } from '~/format';
+import { useLanguage } from '~/composables/useLanguage';
 import {
   formatSkillPoints,
   getSkillCategoryIcon,
@@ -12,7 +11,7 @@ import {
 } from "~/skills";
 
 const { query, hasSkill, addSkill, removeSkill } = useQuery();
-const { translate } = useTranslation();
+const { formatNumber, translate } = useLanguage();
 
 defineProps<{
   card: SkillCardDefinition;

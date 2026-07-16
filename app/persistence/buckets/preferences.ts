@@ -1,7 +1,7 @@
 import { defineBucket } from '~/persistence/storage';
-import { defaultLocale, type LocaleSlug } from '~/translation';
+import { detectLocale, type LocaleSlug } from '~/translation';
 import { bound } from '~/utility';
-import { boundWorkers, maxWorkers } from '~/workers/pool';
+import { maxWorkers } from '~/workers/pool';
 
 export type Theme = 'system' | 'light' | 'dark';
 
@@ -27,7 +27,7 @@ export const bucket = defineBucket<Preferences>({
   version: 0,
   initial: {
     theme: 'system',
-    locale: defaultLocale,
+    locale: detectLocale(),
     workers: defaultWorkers,
     cutoff: defaultCutoff,
   },

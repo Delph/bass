@@ -64,6 +64,9 @@
   "navigation-tab-history": "History",
   "common-cancel": "Cancel",
   "common-loading": "Loading",
+  "common-retry": "Retry",
+  "game-data-error-title": "Game data could not be loaded",
+  "game-data-error-message": "Check your connection and try again.",
 
   "rank-group-elder": "Elder",
   "rank-group-nekoht": "Nekhot",

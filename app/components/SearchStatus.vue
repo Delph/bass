@@ -1,10 +1,9 @@
 <script lang="ts" setup>
 import { useSearch } from '~/composables/useSearch';
-import { useTranslation } from '~/composables/useTranslation';
-import { formatNumber, formatPercent } from '~/format';
+import { useLanguage } from '~/composables/useLanguage';
 
 const search = useSearch();
-const { translate } = useTranslation();
+const { formatNumber, formatPercent, translate } = useLanguage();
 </script>
 
 <template>

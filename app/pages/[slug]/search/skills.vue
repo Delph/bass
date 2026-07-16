@@ -2,9 +2,8 @@
 import { definePageMeta } from '#imports';
 import { computed, ref, watch } from 'vue';
 import { useGame } from '~/composables/useGame';
+import { useLanguage } from '~/composables/useLanguage';
 import { useQuery } from '~/composables/useQuery';
-import { useTranslation } from '~/composables/useTranslation';
-import { formatNumber } from '~/format';
 import {
   getSkillCategoryIcon,
   getSkillEffectKey,
@@ -22,7 +21,7 @@ definePageMeta({
 
 const { data, game } = useGame();
 const { query, removeSkill } = useQuery();
-const { translate } = useTranslation();
+const { formatNumber, translate } = useLanguage();
 const showNegativeSkills = ref(false);
 
 const searchPath = computed(() =>

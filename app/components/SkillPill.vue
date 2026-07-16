@@ -3,11 +3,11 @@ import { computed } from 'vue';
 import { formatSkillPoints, getEffect, getSkillEffectKey } from '~/skills';
 
 import { useGame } from '~/composables/useGame';
-import { useTranslation } from '~/composables/useTranslation';
+import { useLanguage } from '~/composables/useLanguage';
 import type { EffectDefinition } from '~/game/types';
 
 const { data } = useGame();
-const { translate } = useTranslation();
+const { translate } = useLanguage();
 
 const props = defineProps<{
   skill: string;

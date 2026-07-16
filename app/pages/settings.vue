@@ -7,8 +7,7 @@ import Textarea from '~/components/Textarea.vue';
 import { usePreferences } from '~/composables/usePreferences';
 import { useTheme } from '~/composables/useTheme';
 import { useToasts } from '~/composables/useToasts';
-import { useTranslation } from '~/composables/useTranslation';
-import { formatNumber } from '~/format';
+import { useLanguage } from '~/composables/useLanguage';
 import {
   maxCutoff,
   minCutoff,
@@ -16,7 +15,7 @@ import {
 import { exportText, importText, reset } from '~/persistence/storage';
 import { maxWorkers } from '~/workers/pool';
 
-const { translate } = useTranslation();
+const { formatNumber, translate } = useLanguage();
 const { workers, setWorkers, cutoff, setCutoff } = usePreferences();
 const { theme, set } = useTheme();
 const toasts = useToasts();

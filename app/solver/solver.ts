@@ -7,6 +7,7 @@ import type {
 } from '~/game/types';
 import type { PreparedGear } from './prepare';
 import { createDecorationOptimizer } from './decorate';
+import { validateArmourSet } from '~/set';
 
 export { decorationsForSkill, satisfiesRequirement } from './decorate';
 
@@ -130,7 +131,11 @@ export function* solve(
 
   for (const set of generate(gear)) {
     const build = evaluate(set, decorate);
-    if (build !== null) yield build;
+    if (
+      build !== null &&
+      validateArmourSet(build.armour, build.decorations, query.weapon.slots)
+    )
+      yield build;
   }
 }
 
@@ -173,7 +178,11 @@ export async function* solveAsync(
     const build = evaluate(set, decorate);
     ++batch.attempted;
 
-    if (build !== null) batch.results.push(build);
+    if (
+      build !== null &&
+      validateArmourSet(build.armour, build.decorations, query.weapon.slots)
+    )
+      batch.results.push(build);
 
     if (performance.now() >= next) {
       yield batch;

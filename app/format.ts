@@ -1,9 +1,40 @@
-import { useTranslation } from '~/composables/useTranslation';
-
-type DateTimeFormatOptions = Intl.DateTimeFormatOptions & {
+export type DateTimeFormatOptions = Intl.DateTimeFormatOptions & {
   /// custom formatter option, either "locale", to format to whatever the locale says or "iso8601" which is not quite standard
   format?: 'locale' | 'iso8601';
 };
+
+const dateTimeFormats = new Map<string, Intl.DateTimeFormat>();
+const numberFormats = new Map<string, Intl.NumberFormat>();
+
+function formatKey(locale: string, options: object) {
+  return `${locale}:${JSON.stringify(
+    Object.entries(options).toSorted(([a], [b]) => a.localeCompare(b)),
+  )}`;
+}
+
+function dateTimeFormat(locale: string, options: Intl.DateTimeFormatOptions) {
+  const key = formatKey(locale, options);
+  let formatter = dateTimeFormats.get(key);
+
+  if (!formatter) {
+    formatter = new Intl.DateTimeFormat(locale, options);
+    dateTimeFormats.set(key, formatter);
+  }
+
+  return formatter;
+}
+
+function numberFormat(locale: string, options: Intl.NumberFormatOptions) {
+  const key = formatKey(locale, options);
+  let formatter = numberFormats.get(key);
+
+  if (!formatter) {
+    formatter = new Intl.NumberFormat(locale, options);
+    numberFormats.set(key, formatter);
+  }
+
+  return formatter;
+}
 
 /**
  * Formats a date into a readable date time string
@@ -11,12 +42,11 @@ type DateTimeFormatOptions = Intl.DateTimeFormatOptions & {
  * Format can be configured, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
  */
 export function formatDateTime(
+  locale: string,
   date: Date,
   options?: DateTimeFormatOptions,
-  locale?: string,
 ): string {
-  const translation = useTranslation();
-  options = {
+  const configured = {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
@@ -26,15 +56,15 @@ export function formatDateTime(
     // timeZone: config.config.timezone,
     format: 'locale',
     ...options,
-  };
-  locale ??= translation.locale.value;
+  } satisfies DateTimeFormatOptions;
+  const { format, ...intlOptions } = configured;
+  const formatter = dateTimeFormat(locale, intlOptions);
 
-  const format = new Intl.DateTimeFormat(locale, options);
-  switch (options.format) {
+  switch (format) {
     case 'locale':
-      return format.format(date);
+      return formatter.format(date);
     case 'iso8601': {
-      const parts = format.formatToParts(date);
+      const parts = formatter.formatToParts(date);
       const datestr = ['year', 'month', 'day']
         .map((f) => parts.find((p) => p.type === f)?.value)
         .join('-');
@@ -52,15 +82,11 @@ export function formatDateTime(
  * By default adds thousands separators
  */
 export function formatNumber(
+  locale: string,
   value: number,
   options?: Intl.NumberFormatOptions,
-  locale?: string,
 ): string {
-  const translation = useTranslation();
-  locale ??= translation.locale.value;
-
-  const format = new Intl.NumberFormat(locale, { ...options });
-  return format.format(value);
+  return numberFormat(locale, options ?? {}).format(value);
 }
 
 /**
@@ -68,11 +94,12 @@ export function formatNumber(
  * Essentially just a convenience function for formatNumber with the options of style: "percent" and setting the minimum and maximumFractionDigits.
  */
 export function formatPercent(
+  locale: string,
   value: number,
   dp: number = 0,
   options?: Intl.NumberFormatOptions,
 ): string {
-  return formatNumber(value, {
+  return formatNumber(locale, value, {
     style: 'percent',
     minimumFractionDigits: dp,
     maximumFractionDigits: dp,

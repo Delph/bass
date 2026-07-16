@@ -2,17 +2,16 @@
 import { computed } from 'vue';
 import type { ArmourSet, BuildResult } from '~/solver/solver';
 import { useSets } from '~/composables/useSets';
-import { formatNumber } from '~/format';
 import SkillPill from '~/components/SkillPill.vue';
 import { useIcons } from '~/composables/useIcons';
-import { useTranslation } from '~/composables/useTranslation';
+import { useLanguage } from '~/composables/useLanguage';
 import { useGame } from '~/composables/useGame';
 import { defence, effective, resistances, setSharePath } from '~/set';
 
 const { addSet, hasSet } = useSets();
 const { slug } = useGame();
 const icons = useIcons();
-const { translate } = useTranslation();
+const { formatNumber, translate } = useLanguage();
 
 const props = defineProps<{
   set: BuildResult;

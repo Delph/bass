@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import type { Game } from "~/game/types";
 
-import { useTranslation } from "~/composables/useTranslation";
+import { useLanguage } from '~/composables/useLanguage';
 
-const { translate } = useTranslation();
+const { translate } = useLanguage();
 
 const props = defineProps<{
   game: Game;

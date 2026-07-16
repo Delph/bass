@@ -5,13 +5,13 @@ import {
   useSearch,
   type SearchSortCriteria,
 } from '~/composables/useSearch';
+import { useLanguage } from '~/composables/useLanguage';
 import type { BuildResult } from '~/solver/solver';
-import { formatNumber, formatPercent } from '~/format';
 import ResultCard from '~/components/ResultCard.vue';
 import Progress from '~/components/Progress.vue';
 import Select from '~/components/Select.vue';
 import type { DamageType } from '~/game/types';
-import { definePageMeta, useTranslation } from '#imports';
+import { definePageMeta } from '#imports';
 import { wireIDv1 } from '~/set';
 
 const PAGE_SIZE = 100;
@@ -20,7 +20,7 @@ definePageMeta({
   scroll: false,
 });
 
-const { translate } = useTranslation();
+const { formatNumber, formatPercent, translate } = useLanguage();
 const { game, slug } = useGame();
 const search = useSearch();
 const {

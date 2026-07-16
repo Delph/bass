@@ -10,6 +10,9 @@ import { usePreferences } from './usePreferences';
 
 
 type GameDataLoading = {
+  slug?: string;
+  locale?: LocaleSlug;
+  status: 'idle' | 'loading' | 'ready' | 'error';
   done: number;
   total: number;
 };
@@ -55,6 +58,11 @@ async function fetchJson<T>(path: string): Promise<T> {
 }
 
 let currentLoad = 0;
+let pendingLoad: {
+  key: string;
+  load: number;
+  promise: Promise<GameData | undefined>;
+} | null = null;
 
 export function useGame() {
   const route = useRoute();
@@ -63,6 +71,7 @@ export function useGame() {
   const loadedLocale = useState<LocaleSlug | undefined>('game-data-locale', () => undefined);
   const rawData = useState<GameData | undefined>("game-data", () => undefined);
   const loadingState = useState<GameDataLoading>("game-data-loading", () => ({
+    status: 'idle',
     done: 0,
     total: 0,
   }));
@@ -87,30 +96,64 @@ export function useGame() {
     return rawData.value;
   });
 
-  const loading = computed(() => ({
-    done: loadingState.value.done,
-    progress: loadingState.value.total === 0
-      ? 0
-      : loadingState.value.done / loadingState.value.total,
-    total: loadingState.value.total,
-  }));
+  const status = computed(() => {
+    if (!game.value)
+      return 'idle';
+    if (data.value)
+      return 'ready';
+    if (
+      loadingState.value.slug === game.value.slug &&
+      loadingState.value.locale === locale.value
+    )
+      return loadingState.value.status;
 
-  async function loadData() {
+    return 'idle';
+  });
+
+  const loading = computed(() => {
+    const current =
+      loadingState.value.slug === game.value?.slug &&
+      loadingState.value.locale === locale.value;
+    const done = current ? loadingState.value.done : 0;
+    const total = current ? loadingState.value.total : 0;
+
+    return {
+      done,
+      progress: total === 0 ? 0 : done / total,
+      total,
+    };
+  });
+
+  async function loadData(force = false): Promise<GameData | undefined> {
     const currentGame = game.value;
 
     if (!currentGame)
       return;
 
     const currentLocale = locale.value;
+    const key = `${currentGame.slug}:${currentLocale}`;
 
-    if (loadedSlug.value === currentGame.slug && loadedLocale.value === currentLocale && rawData.value)
+    if (
+      !force &&
+      loadedSlug.value === currentGame.slug &&
+      loadedLocale.value === currentLocale &&
+      rawData.value
+    )
       return rawData.value;
+    if (!force && pendingLoad?.key === key)
+      return pendingLoad.promise;
 
     const load = ++currentLoad;
     const basePath = `/data/games/${encodeURIComponent(currentGame.slug)}`;
-    const total = ARMOUR_SLOTS.length + 2 + (currentGame.features.decorations ? 1 : 0);
+    const total =
+      ARMOUR_SLOTS.length +
+      2 +
+      (currentGame.features.decorations ? 1 : 0);
 
     loadingState.value = {
+      slug: currentGame.slug,
+      locale: currentLocale,
+      status: 'loading',
       done: 0,
       total,
     };
@@ -126,37 +169,72 @@ export function useGame() {
       return value;
     }
 
-    const nextData: GameData = {
-      armour: Object.fromEntries(
-        await Promise.all(
-          ARMOUR_SLOTS.map(async (slot) => {
-            return [
-              slot,
-              await track(fetchJson<ArmourPiece[]>(`${basePath}/${slot}.json`)),
-            ] as const;
+    const promise = (async () => {
+      try {
+        const nextData: GameData = {
+          armour: Object.fromEntries(
+            await Promise.all(
+              ARMOUR_SLOTS.map(async (slot) => {
+                return [
+                  slot,
+                  await track(
+                    fetchJson<ArmourPiece[]>(`${basePath}/${slot}.json`),
+                  ),
+                ] as const;
+              }),
+            ),
+          ) as Record<ArmourSlot, ArmourPiece[]>,
+          decorations: await (currentGame.features.decorations
+            ? track(fetchJson<Decoration[]>(`${basePath}/decorations.json`))
+            : Promise.resolve([])),
+          skills: (
+            await track(
+              fetchJson<SkillDefinition[]>(`${basePath}/skills.json`),
+            )
+          ).map((skill) => {
+            if (skill.categories.length > 0) return skill;
+
+            return {
+              ...skill,
+              categories: ["uncategorized"],
+            };
           }),
-        ),
-      ) as Record<ArmourSlot, ArmourPiece[]>,
-      decorations: await (currentGame.features.decorations
-        ? track(fetchJson<Decoration[]>(`${basePath}/decorations.json`))
-        : Promise.resolve([])),
-      skills: (await track(fetchJson<SkillDefinition[]>(`${basePath}/skills.json`))).map((skill) => {
-        if (skill.categories.length > 0)
-          return skill;
-
-        return {
-          ...skill,
-          categories: ["uncategorized"],
+          translations: await track(
+            fetchJson<Translations>(
+              `${basePath}/translations/${encodeURIComponent(currentLocale)}.json`,
+            ),
+          ),
         };
-      }),
-      translations: await track(fetchJson<Translations>(`${basePath}/translations/${encodeURIComponent(currentLocale)}.json`)),
-    };
 
-    if (load === currentLoad) {
-      loadedSlug.value = currentGame.slug;
-      loadedLocale.value = currentLocale;
-      rawData.value = nextData;
-    }
+        if (load === currentLoad) {
+          loadedSlug.value = currentGame.slug;
+          loadedLocale.value = currentLocale;
+          rawData.value = nextData;
+          loadingState.value = {
+            ...loadingState.value,
+            status: 'ready',
+            done: total,
+          };
+        }
+
+        return nextData;
+      } catch (error) {
+        if (load === currentLoad)
+          loadingState.value = {
+            ...loadingState.value,
+            status: 'error',
+          };
+
+        console.error(`Unable to load game data for ${key}`, error);
+        return undefined;
+      } finally {
+        if (pendingLoad?.load === load)
+          pendingLoad = null;
+      }
+    })();
+
+    pendingLoad = { key, load, promise };
+    return promise;
   }
 
   watch(
@@ -172,6 +250,8 @@ export function useGame() {
     game,
     games,
     loading,
+    retry: () => loadData(true),
     slug,
+    status,
   };
 }

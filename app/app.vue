@@ -4,7 +4,7 @@ import { useRoute, useRouter } from "vue-router";
 
 import { useGame } from "~/composables/useGame";
 import { useTheme } from "~/composables/useTheme";
-import { useTranslation } from "~/composables/useTranslation";
+import { useLanguage } from '~/composables/useLanguage';
 import { useToasts } from '~/composables/useToasts';
 import '~/persistence/register';
 
@@ -16,11 +16,13 @@ import Toast from '~/components/Toast.vue';
 const {
   ready,
   translate,
-} = useTranslation();
+} = useLanguage();
 const {
   data,
   game,
   loading,
+  retry,
+  status,
 } = useGame();
 const route = useRoute();
 const router = useRouter();
@@ -113,7 +115,7 @@ const scroll = computed(() => route.meta.scroll !== false);
           </NuxtPage>
         </div>
         <div
-          v-if="ready && game && !data"
+          v-if="ready && game && !data && status !== 'error'"
           class="flex flex-col gap-2 text-center"
         >
           <p>{{ translate('common-loading') }}</p>
@@ -124,6 +126,29 @@ const scroll = computed(() => route.meta.scroll !== false);
           <p class="text-sm text-stone-600 dark:text-stone-400">
             {{ loading.done }} / {{ loading.total }}
           </p>
+        </div>
+        <div
+          v-if="ready && game && status === 'error'"
+          class="m-auto flex max-w-lg flex-col items-center gap-4 rounded-2xl border border-rose-300 bg-rose-50 p-6 text-center dark:border-rose-900 dark:bg-rose-950"
+          role="alert"
+        >
+          <Icon name="lucide:cloud-off" class="text-4xl text-rose-700 dark:text-rose-300" />
+          <div class="flex flex-col gap-1">
+            <h2 class="text-xl font-bold">
+              {{ translate('game-data-error-title') }}
+            </h2>
+            <p class="text-stone-700 dark:text-stone-300">
+              {{ translate('game-data-error-message') }}
+            </p>
+          </div>
+          <button
+            type="button"
+            class="flex items-center gap-2 rounded-xl bg-emerald-700 px-4 py-2 font-semibold text-white hover:bg-emerald-800 dark:bg-emerald-500 dark:text-stone-950 dark:hover:bg-emerald-400"
+            @click="retry"
+          >
+            <Icon name="lucide:refresh-cw" />
+            {{ translate('common-retry') }}
+          </button>
         </div>
       </main>
     </div>

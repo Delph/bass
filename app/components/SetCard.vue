@@ -2,12 +2,11 @@
 import { useGame } from '~/composables/useGame';
 import { useIcons } from '~/composables/useIcons';
 import { useToasts } from '~/composables/useToasts';
-import { useTranslation } from '~/composables/useTranslation';
+import { useLanguage } from '~/composables/useLanguage';
 import { useSets, type SavedSet } from '~/composables/useSets';
 import SkillPill from '~/components/SkillPill.vue';
 import ConfirmDialog from '~/components/ConfirmDialog.vue';
 import { computed, ref } from 'vue';
-import { formatNumber } from '~/format';
 import {
   resolveArmour,
   resolveDecorations,
@@ -17,7 +16,7 @@ import {
 } from '~/set';
 
 const icons = useIcons();
-const { translate } = useTranslation();
+const { formatNumber, translate } = useLanguage();
 const toasts = useToasts();
 const { removeSet } = useSets();
 const { data, slug } = useGame();

@@ -3,12 +3,12 @@ import { useRoute } from 'vue-router';
 
 import type { Game } from '~/game/types';
 
-import { useTranslation } from '~/composables/useTranslation';
+import { useLanguage } from '~/composables/useLanguage';
 import LanguageSelector from '~/components/LanguageSelector.vue';
 import Toggle from '~/components/Toggle.vue';
 import { useTheme } from '~/composables/useTheme';
 
-const { translate } = useTranslation();
+const { translate } = useLanguage();
 const { theme, set } = useTheme();
 const route = useRoute();
 
