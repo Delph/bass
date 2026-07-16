@@ -113,15 +113,18 @@ export function defineBucket<T>(bucket: Bucket<T>) {
   }
 
   function load(): T {
-    const raw = localStorage.getItem(bucket.key);
+    try {
+      const raw = localStorage.getItem(bucket.key);
 
-    // if we have no data, return the initial value
-    if (raw === null) return initial();
+      if (raw === null) return initial();
 
-    const parsed = JSON.parse(raw);
-    if (!isPersistedBucket(parsed)) return initial();
+      const parsed = JSON.parse(raw);
+      if (!isPersistedBucket(parsed)) return initial();
 
-    return bucket.migrate(parsed.version, parsed.data);
+      return bucket.migrate(parsed.version, parsed.data);
+    } catch {
+      return initial();
+    }
   }
 
   function state(key: string) {
