@@ -12,7 +12,7 @@ import Progress from '~/components/Progress.vue';
 import Select from '~/components/Select.vue';
 import type { DamageType } from '~/game/types';
 import { definePageMeta } from '#imports';
-import { wireIDv1 } from '~/set';
+import { effective, wireIDv1 } from '~/set';
 
 const PAGE_SIZE = 100;
 
@@ -101,12 +101,7 @@ function resistance(result: BuildResult, element: DamageType) {
 }
 
 function effectiveDefence(result: BuildResult, element: DamageType) {
-  const rawDefence = defence(result);
-  const rawResistance = resistance(result, element);
-
-  return Math.floor(
-    (1 / ((160 * (1 - rawResistance / 100)) / (rawDefence + 160))) * rawDefence,
-  );
+  return effective(defence(result), resistance(result, element));
 }
 
 function sortValue(result: BuildResult, criterion: SortCriteria) {

@@ -60,24 +60,23 @@ export function getEffect(
   const skill = skills.find((s) => s.slug === slug);
   if (!skill) return null;
 
-  const thresholds = Object.keys(skill.effects)
-    .map((p) => Number(p))
-    .toSorted((a, b) => b - a);
-  for (const threshold of thresholds) {
-    if (threshold < 0 && points <= threshold)
-      return {
-        skill: skill.slug,
-        effect: skill.effects[threshold]!,
-        points: threshold,
-      };
-    else if (threshold > 0 && points >= threshold)
-      return {
-        skill: skill.slug,
-        effect: skill.effects[threshold]!,
-        points: threshold,
-      };
-  }
-  return null;
+  const thresholds = Object.keys(skill.effects).map((p) => Number(p));
+  const threshold =
+    points < 0
+      ? thresholds
+          .filter((threshold) => threshold < 0 && points <= threshold)
+          .toSorted((a, b) => a - b)[0]
+      : thresholds
+          .filter((threshold) => threshold > 0 && points >= threshold)
+          .toSorted((a, b) => b - a)[0];
+
+  if (threshold === undefined) return null;
+
+  return {
+    skill: skill.slug,
+    effect: skill.effects[threshold]!,
+    points: threshold,
+  };
 }
 
 export function getSkillCategoryIcon(category: string) {

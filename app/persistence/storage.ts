@@ -106,7 +106,7 @@ export function current<T>(
 }
 
 export function defineBucket<T>(bucket: Bucket<T>) {
-  const states = new Set<State<T>>();
+  let stateRef: State<T> | undefined;
 
   function initial() {
     return deepcopy(bucket.initial) as T;
@@ -127,20 +127,24 @@ export function defineBucket<T>(bucket: Bucket<T>) {
     }
   }
 
-  function state(key: string) {
-    const value = useState<T>(key, load);
-    states.add(value);
-    return value;
+  function state() {
+    stateRef ??= useState<T>(bucket.key, load);
+    return stateRef;
   }
 
   function save(data: T) {
-    return localStorage.setItem(
-      bucket.key,
-      JSON.stringify({
+    try {
+      const value = JSON.stringify({
         version: bucket.version,
         data,
-      } satisfies PersistedBucket<T>),
-    );
+      } satisfies PersistedBucket<T>);
+
+      localStorage.setItem(bucket.key, value);
+    } catch (error) {
+      if (stateRef) stateRef.value = load();
+
+      throw error;
+    }
   }
 
   function dump(): PersistedBucket<T> {
@@ -160,7 +164,7 @@ export function defineBucket<T>(bucket: Bucket<T>) {
   function restoreData(data: T) {
     save(data);
 
-    for (const state of states) state.value = data;
+    if (stateRef) stateRef.value = data;
 
     return data;
   }
@@ -173,7 +177,7 @@ export function defineBucket<T>(bucket: Bucket<T>) {
     localStorage.removeItem(bucket.key);
     const value = load();
 
-    for (const state of states) state.value = value;
+    if (stateRef) stateRef.value = value;
 
     return value;
   }
@@ -228,10 +232,25 @@ export function restore(data: unknown) {
     .filter((entry): entry is readonly [RegisteredBucket, unknown] =>
       entry !== undefined,
     );
+  const previous = [...buckets.values()].map(
+    (bucket) => [bucket, bucket.dump()] as const,
+  );
 
-  reset();
+  try {
+    reset();
 
-  for (const [bucket, value] of restored) bucket.restoreData(value);
+    for (const [bucket, value] of restored) bucket.restoreData(value);
+  } catch (error) {
+    try {
+      reset();
+
+      for (const [bucket, value] of previous) bucket.restore(value);
+    } catch {
+      throw new Error('Import failed and previous data could not be restored');
+    }
+
+    throw error;
+  }
 }
 
 export async function exportText() {

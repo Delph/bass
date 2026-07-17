@@ -10,7 +10,7 @@ import { bound } from '~/utility';
 import { boundWorkers } from '~/workers/pool';
 
 export function usePreferences() {
-  const preferences = bucket.state('preferences');
+  const preferences = bucket.state();
 
   const theme = computed(() => preferences.value.theme);
   const locale = computed(() => preferences.value.locale);

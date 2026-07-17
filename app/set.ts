@@ -89,7 +89,9 @@ export function validateArmourSet(
   const resolved = pieces as ArmourPiece[];
   if (resolved.reduce((gender, piece) => gender & piece.gender, 3) === 0)
     return false;
-  if (resolved.reduce((weaponClass, piece) => weaponClass & piece.class, 3) === 0)
+  if (
+    resolved.reduce((weaponClass, piece) => weaponClass & piece.class, 3) === 0
+  )
     return false;
 
   if (
@@ -123,10 +125,14 @@ export function resolveArmour(
   data: Pick<GameData, 'armour'>,
 ) {
   return Object.fromEntries(
-    Object.entries(pieces).map(([slot, id]) => [
-      slot,
-      data.armour[slot as ArmourSlot].find((p) => p.id === id),
-    ]),
+    ARMOUR_SLOTS.map((slot) => {
+      const id = pieces[slot];
+      const piece = data.armour[slot].find((piece) => piece.id === id);
+
+      if (!piece) throw new Error(`Unknown armour ID ${id} for ${slot}`);
+
+      return [slot, piece];
+    }),
   ) as Record<ArmourSlot, ArmourPiece>;
 }
 
@@ -140,9 +146,18 @@ export function resolveDecorations(
   data: Pick<GameData, 'decorations'>,
 ) {
   return Object.fromEntries(
-    Object.entries(decorations).map(([type, collection]) => [
+    DECORATION_GROUPS.map((type) => [
       type,
-      collection.map((id) => data.decorations.find((d) => d.id === id)),
+      decorations[type].map((id) => {
+        const decoration = data.decorations.find(
+          (decoration) => decoration.id === id,
+        );
+
+        if (!decoration)
+          throw new Error(`Unknown decoration ID ${id} for ${type}`);
+
+        return decoration;
+      }),
     ]),
   ) as Decorations;
 }
@@ -183,13 +198,15 @@ export function resistances(
 }
 
 /**
- * Calculates the "effective defence" value, which is the one that is actually used in calculations
+ * Scores raw defence and elemental resistance on a common scale by applying
+ * the inverse MHFU incoming-damage multiplier to the raw defence value.
+ * Formula source: https://gamefaqs.gamespot.com/psp/943356-monster-hunter-freedom-unite/faqs/57142
  * @param raw The raw defence value
- * @param modifier The elemental defence value
- * @returns The effective defence value used in damage calculations
+ * @param resistance The elemental resistance percentage
+ * @returns The effective defence score
  */
-export function effective(raw: number, modifier: number = 0) {
-  return Math.floor((1 / ((160 * (1 - modifier / 100)) / (raw + 160))) * raw);
+export function effective(raw: number, resistance: number = 0) {
+  return Math.floor(raw / ((160 * (1 - resistance / 100)) / (raw + 160)));
 }
 
 export function groupDecorations(decorations: Decoration[]) {

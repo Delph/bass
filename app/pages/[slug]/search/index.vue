@@ -27,6 +27,8 @@ const search = useSearch();
 const { formatNumber, translate } = useLanguage();
 const {
   query,
+  setAllowBad,
+  setAllowDummy,
   setGuildRank,
   setHunterGender,
   setVillageRank,
@@ -92,6 +94,9 @@ const slotOptions = [0, 1, 2, 3].map((slots) => ({
 
 const resultsPath = computed(() =>
   game.value ? `/${game.value.slug}/search/results` : '/',
+);
+const skillsPath = computed(() =>
+  game.value ? `/${game.value.slug}/search/skills` : '/',
 );
 const selectedSkills = computed(() => {
   return Object.entries(query.value.skills).map(([skill, points]) => ({
@@ -169,7 +174,7 @@ function submit() {
   </Fieldset>
   <Fieldset :legend="translate('search-skills')">
     <NuxtLink
-      to="search/skills"
+      :to="skillsPath"
       class="block rounded-xl border border-stone-200 bg-white p-3 text-sm shadow-sm dark:border-stone-700 dark:bg-stone-900"
     >
       <p
@@ -192,13 +197,15 @@ function submit() {
     <Label>
       {{ translate('search-options-allow-bad') }}
       <Toggle
-        v-model="query.options.allowBad"
+        :model-value="query.options.allowBad"
+        @change="setAllowBad"
       />
     </Label>
     <Label>
       {{ translate('search-options-allow-dummy') }}
       <Toggle
-        v-model="query.options.allowDummy"
+        :model-value="query.options.allowDummy"
+        @change="setAllowDummy"
       />
     </Label>
   </Fieldset>

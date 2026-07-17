@@ -17,7 +17,7 @@ export type { SavedSet } from '~/persistence/buckets/sets';
 export function useSets() {
   const { data, slug } = useGame();
 
-  const allSets = bucket.state('sets');
+  const allSets = bucket.state();
 
   const sets = computed(() =>
     current(slug.value ?? 'mhfu', allSets.value, () => []),

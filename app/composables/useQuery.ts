@@ -15,7 +15,7 @@ import {
 export function useQuery() {
   const game = useGame();
 
-  const queries = bucket.state('query');
+  const queries = bucket.state();
 
   const query = computed(() =>
     current(game.slug.value ?? 'mhfu', queries.value, () => createQuery()),
@@ -51,6 +51,16 @@ export function useQuery() {
     bucket.save(queries.value);
   }
 
+  function setAllowBad(value: boolean) {
+    query.value.options.allowBad = value;
+    bucket.save(queries.value);
+  }
+
+  function setAllowDummy(value: boolean) {
+    query.value.options.allowDummy = value;
+    bucket.save(queries.value);
+  }
+
   function hasSkill(skill: SkillRequirement) {
     return query.value.skills[skill.skill] === skill.points;
   }
@@ -71,6 +81,8 @@ export function useQuery() {
     query,
     removeSkill,
     setQuery,
+    setAllowBad,
+    setAllowDummy,
     setGuildRank,
     setHunterGender,
     setVillageRank,

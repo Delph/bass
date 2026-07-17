@@ -43,23 +43,25 @@ export type QueryState = {
   };
 };
 
-const defaultQuery: QueryState = {
-  hunter: {
-    rank: 9,
-    village: 9,
-    gender: HUNTER_GENDER.Male,
-  },
-  weapon: {
-    class: WEAPON_CLASS.Blademaster,
-    slots: 0,
-  },
-  options: {
-    allowBad: false,
-    allowDummy: false,
-  },
-  skills: {},
-};
+function defaultQuery(): QueryState {
+  return {
+    hunter: {
+      rank: 9,
+      village: 9,
+      gender: HUNTER_GENDER.Male,
+    },
+    weapon: {
+      class: WEAPON_CLASS.Blademaster,
+      slots: 0,
+    },
+    options: {
+      allowBad: false,
+      allowDummy: false,
+    },
+    skills: {},
+  };
+}
 
 export function query(overrides: DeepPartial<QueryState> = {}): QueryState {
-  return merge<QueryState>(defaultQuery, overrides);
+  return merge<QueryState>(defaultQuery(), overrides);
 }

@@ -17,7 +17,7 @@ type GameDataLoading = {
   total: number;
 };
 
-const games: Game[] = [
+export const games: Game[] = [
   // {
   //   slug: "mhf",
   //   village: [...range(1, 7).map(r => ({rank: r}))],

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { nextTick, onBeforeUnmount, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 import type { Game } from '~/game/types';
@@ -21,6 +22,71 @@ const emit = defineEmits<{ (e: 'close'): void }>();
 
 const tabs = ['home', 'search', 'sets', 'history'] as const;
 type Tab = (typeof tabs)[number];
+
+const sidebar = ref<HTMLElement | null>(null);
+const closeButton = ref<HTMLButtonElement | null>(null);
+let returnFocus: HTMLElement | null = null;
+
+function restoreFocus() {
+  if (returnFocus?.isConnected) returnFocus.focus();
+  returnFocus = null;
+}
+
+watch(
+  () => props.open,
+  async (open) => {
+    if (open) {
+      returnFocus =
+        document.activeElement instanceof HTMLElement
+          ? document.activeElement
+          : null;
+      await nextTick();
+      closeButton.value?.focus();
+    } else {
+      restoreFocus();
+    }
+  },
+);
+
+onBeforeUnmount(restoreFocus);
+
+function onKeydown(event: KeyboardEvent) {
+  if (!props.open) return;
+
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    emit('close');
+    return;
+  }
+
+  if (event.key !== 'Tab' || !sidebar.value) return;
+
+  const focusable = [
+    ...sidebar.value.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    ),
+  ].filter((element) => element.getClientRects().length > 0);
+
+  if (focusable.length === 0) {
+    event.preventDefault();
+    sidebar.value.focus();
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (!first || !last) return;
+
+  const active = document.activeElement;
+
+  if (event.shiftKey && (active === first || !sidebar.value.contains(active))) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && active === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
 
 function path(tab: Tab) {
   if (tab === 'home') return `/${props.game.slug}`;
@@ -49,15 +115,27 @@ function label(tab: Tab) {
 
 <template>
   <aside
-    class="fixed inset-y-0 left-0 z-50 flex w-64 flex-col justify-between border-r border-stone-200 bg-stone-100 p-4 text-stone-950 shadow-xl transition-transform dark:border-stone-800 dark:bg-stone-900 dark:text-stone-100 md:static md:z-auto md:w-auto md:translate-x-0 md:shadow-none"
-    :class="open ? 'translate-x-0' : '-translate-x-full'"
+    id="game-menu"
+    ref="sidebar"
+    tabindex="-1"
+    class="fixed inset-y-0 left-0 z-50 flex w-64 flex-col justify-between border-r border-stone-200 bg-stone-100 p-4 text-stone-950 shadow-xl transition-[transform,visibility] dark:border-stone-800 dark:bg-stone-900 dark:text-stone-100 md:static md:z-auto md:w-auto md:translate-x-0 md:shadow-none"
+    :class="
+      open
+        ? 'visible translate-x-0'
+        : 'invisible pointer-events-none -translate-x-full md:visible md:pointer-events-auto'
+    "
+    :role="open ? 'dialog' : undefined"
+    :aria-modal="open ? 'true' : undefined"
+    :aria-labelledby="open ? 'game-menu-title' : undefined"
+    @keydown="onKeydown"
   >
     <div>
       <div class="mb-4 flex items-center justify-between gap-4">
-        <h2 class="text-lg font-bold">
+        <h2 id="game-menu-title" class="text-lg font-bold">
           {{ translate(`game-${game.slug}-title-short`) }}
         </h2>
         <button
+          ref="closeButton"
           class="rounded px-2 py-1 text-2xl leading-none hover:bg-stone-200 dark:hover:bg-stone-800 md:hidden"
           type="button"
           @click="emit('close')"

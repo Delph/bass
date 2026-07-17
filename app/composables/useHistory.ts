@@ -10,7 +10,7 @@ export type { HistoryEntry } from '~/persistence/buckets/history';
 
 export function useHistory() {
   const { slug } = useGame();
-  const searches = bucket.state('history');
+  const searches = bucket.state();
 
   const allEntries = computed(() =>
     current(slug.value ?? 'mhfu', searches.value, () => []),

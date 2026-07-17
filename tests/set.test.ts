@@ -1,7 +1,10 @@
 import { expect, test } from 'vitest';
 import {
   armourSetIDv1,
+  effective,
   parseWireID,
+  resolveArmour,
+  resolveDecorations,
   setSharePath,
   setSkills,
   validateArmourSet,
@@ -67,6 +70,17 @@ function armour(
   ) as Record<ArmourSlot, ArmourPiece>;
 }
 
+test.each([
+  [160, 0, 320],
+  [160, 15, 376],
+  [160, -20, 266],
+])(
+  'effective(%i, %i) returns %i',
+  (defence, resistance, expected) => {
+    expect(effective(defence, resistance)).toBe(expected);
+  },
+);
+
 test('armourSetIDv1 canonicalizes decoration order', () => {
   const first: ArmourSet = {
     armour: {
@@ -107,6 +121,33 @@ test('armourSetIDv1 canonicalizes decoration order', () => {
 
   expect(armourSetIDv1(first)).toBe(armourSetIDv1(second));
   expect(parseWireID(armourSetIDv1(first))).toStrictEqual(canonical);
+});
+
+test('resolveArmour rejects unknown IDs', () => {
+  const pieces = armour();
+  const ids = Object.fromEntries(
+    ARMOUR_SLOTS.map((slot) => [slot, pieces[slot].id]),
+  ) as Record<ArmourSlot, number>;
+  const data = {
+    armour: Object.fromEntries(
+      ARMOUR_SLOTS.map((slot) => [slot, [pieces[slot]]]),
+    ) as Record<ArmourSlot, ArmourPiece[]>,
+  };
+
+  ids.head = 999;
+
+  expect(() => resolveArmour(ids, data)).toThrow(
+    'Unknown armour ID 999 for head',
+  );
+});
+
+test('resolveDecorations rejects unknown IDs', () => {
+  expect(() =>
+    resolveDecorations(
+      { armour: [999], torso: [], weapon: [] },
+      { decorations: [decoration(1, 1)] },
+    ),
+  ).toThrow('Unknown decoration ID 999 for armour');
 });
 
 test('setSkills returns skills in skill-slug order', () => {
@@ -169,10 +210,11 @@ test('validateArmourSet enforces physical decoration containers', () => {
     ),
   ).toBe(true);
   expect(
-    validateArmourSet(
-      armour({ head: { slots: 1 }, arms: { slots: 1 } }),
-      { armour: [twoSlot], torso: [], weapon: [] },
-    ),
+    validateArmourSet(armour({ head: { slots: 1 }, arms: { slots: 1 } }), {
+      armour: [twoSlot],
+      torso: [],
+      weapon: [],
+    }),
   ).toBe(false);
   expect(
     validateArmourSet(pieces, { armour: [], torso: [twoSlot], weapon: [] }),

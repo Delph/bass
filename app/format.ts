@@ -33,7 +33,7 @@ export function formatBytes(
 
   options = { ...defaults, ...options };
 
-  const units = ['K', 'M', 'G', 'T', 'P'];
+  const units = ['K', 'M', 'G', 'T', 'P'] as const;
   const [base, log, divider, suffix] = options.si
     ? [1000, Math.log10, 3, 'B']
     : [1024, Math.log2, 10, 'iB'];
@@ -187,7 +187,7 @@ export function formatSI(
     { name: 'giga', symbol: 'G' },
     { name: 'tera', symbol: 'T' },
     { name: 'peta', symbol: 'P' },
-  ];
+  ] as const;
   const offset = units.findIndex((u) => u.name === '');
   const exponent = bound(
     Math.floor(Math.log10(absolute) / 3), // compute the exponent
@@ -197,7 +197,7 @@ export function formatSI(
   const prefix =
     absolute === Infinity || absolute === 0.0
       ? '' // no prefix for inf or 0 value
-      : units[exponent + offset][opts.prefix];
+      : units[exponent + offset]![opts.prefix];
 
   let formatted = '';
   if (value < 0) formatted += '-';

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref, watch } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import { useGame } from "~/composables/useGame";
@@ -31,6 +31,20 @@ const { toasts } = useToasts();
 useTheme();
 
 const menu = ref(false);
+let desktopMedia: MediaQueryList | null = null;
+
+function closeMenuAtDesktop(event: MediaQueryListEvent) {
+  if (event.matches) menu.value = false;
+}
+
+onMounted(() => {
+  desktopMedia = window.matchMedia('(min-width: 48rem)');
+  desktopMedia.addEventListener('change', closeMenuAtDesktop);
+});
+
+onBeforeUnmount(() => {
+  desktopMedia?.removeEventListener('change', closeMenuAtDesktop);
+});
 
 watch(
   () => route.fullPath,
@@ -62,13 +76,18 @@ const scroll = computed(() => route.meta.scroll !== false);
     v-show="ready"
     class="flex h-dvh flex-col overflow-hidden bg-stone-50 text-stone-950 dark:bg-stone-950 dark:text-stone-100"
   >
-    <header class="grid w-full shrink-0 grid-cols-[1fr_auto_1fr] items-center gap-2 bg-emerald-700 px-4 py-2 text-center text-white dark:bg-emerald-900">
+    <header
+      class="grid w-full shrink-0 grid-cols-[1fr_auto_1fr] items-center gap-2 bg-emerald-700 px-4 py-2 text-center text-white dark:bg-emerald-900"
+      :inert="menu"
+    >
       <div class="flex items-center gap-1 justify-self-start">
         <button
           v-if="game"
-          class="rounded p-1 hover:bg-emerald-800 dark:hover:bg-emerald-800"
+          class="rounded p-1 hover:bg-emerald-800 dark:hover:bg-emerald-800 md:hidden"
           type="button"
           :aria-label="translate('game-menu-open')"
+          :aria-expanded="menu"
+          aria-controls="game-menu"
           @click="menu = true"
         >
           <Icon name="lucide:menu" />
@@ -94,6 +113,12 @@ const scroll = computed(() => route.meta.scroll !== false);
       class="flex min-h-0 flex-1 overflow-hidden"
       :class="game ? 'md:grid md:grid-cols-[12rem_1fr]' : ''"
     >
+      <div
+        v-if="menu"
+        class="fixed inset-0 z-40 bg-stone-950/60 md:hidden"
+        aria-hidden="true"
+        @click="menu = false"
+      ></div>
       <SideBar
         v-if="game"
         :game="game"
@@ -103,6 +128,7 @@ const scroll = computed(() => route.meta.scroll !== false);
       <main
         class="flex min-h-0 flex-1 flex-col p-4 md:pt-4"
         :class="scroll ? 'overflow-y-auto' : 'overflow-hidden'"
+        :inert="menu"
       >
         <div
           class="flex min-h-0 flex-1 flex-col gap-4"
@@ -155,6 +181,7 @@ const scroll = computed(() => route.meta.scroll !== false);
     <Teleport to="body">
       <div
         class="pointer-events-none fixed inset-x-4 bottom-4 z-50 sm:bottom-6"
+        :inert="menu"
         aria-live="polite"
         aria-relevant="additions"
       >

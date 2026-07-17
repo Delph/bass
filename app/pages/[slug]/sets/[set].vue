@@ -116,7 +116,18 @@ function loadSet() {
   }
 }
 
-loadSet();
+watch(
+  [wireId, () => game.data.value],
+  ([, data]) => {
+    if (!data) {
+      resolved.value = null;
+      return;
+    }
+
+    loadSet();
+  },
+  { immediate: true },
+);
 
 watch(
   [wireId, () => saved.value?.id],
@@ -323,10 +334,11 @@ async function copyLink() {
             {{ formatNumber(stats?.rawDefence ?? 0) }}
           </td>
           <td
-            v-for="(resistance, _) of stats?.resistances ?? {}"
+            v-for="element of game.game.value?.elements"
+            :key="element"
             class="border-r border-stone-300 p-1 text-right last:border-r-0 dark:border-stone-700"
           >
-            {{ formatNumber(resistance ?? 0) }}
+            {{ formatNumber(stats?.resistances[element] ?? 0) }}
           </td>
         </tr>
         <tr>
