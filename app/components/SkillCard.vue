@@ -115,7 +115,10 @@ function pointsClass(option: SkillOption) {
         </div>
       </div>
 
-      <div class="grid gap-2 sm:grid-cols-2">
+      <div
+        class="grid gap-2 sm:grid-cols-2"
+        :class="card.options.length === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'"
+      >
         <button
           v-for="option in card.options"
           :key="option.points"
