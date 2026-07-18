@@ -197,11 +197,8 @@ function submit() {
         </div>
       </NuxtLink>
     </Fieldset>
-    <Fieldset
-      :legend="translate('search-options')"
-      class="lg:col-span-2"
-    >
-      <div class="lg:grid lg:grid-cols-2 lg:gap-4">
+    <Fieldset :legend="translate('search-options')">
+      <div class="grid gap-2 lg:grid-cols-2 lg:gap-4">
         <Label>
           {{ translate('search-options-allow-bad') }}
           <Toggle
@@ -218,13 +215,13 @@ function submit() {
         </Label>
       </div>
     </Fieldset>
+    <button
+      type="button"
+      :disabled="!canSearch"
+      class="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-700 px-4 py-3 font-semibold text-white shadow-sm hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-emerald-500 dark:text-stone-950 dark:hover:bg-emerald-400 lg:ml-auto lg:w-auto lg:min-w-64 lg:self-end"
+      @click="submit"
+    >
+      {{ translate('search-submit') }}
+    </button>
   </div>
-  <button
-    type="button"
-    :disabled="!canSearch"
-    class="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-700 px-4 py-3 font-semibold text-white shadow-sm hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-emerald-500 dark:text-stone-950 dark:hover:bg-emerald-400 lg:ml-auto lg:w-auto lg:min-w-64"
-    @click="submit"
-  >
-    {{ translate('search-submit') }}
-  </button>
 </template>

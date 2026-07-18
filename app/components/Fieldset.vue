@@ -26,7 +26,7 @@ const open = ref(true);
     </legend>
     <div
       v-show="open"
-      class="mt-2"
+      class="mt-2 flex flex-col gap-2"
     >
       <slot />
     </div>
