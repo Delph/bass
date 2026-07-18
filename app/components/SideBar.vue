@@ -191,6 +191,26 @@ function label(tab: Tab) {
     <div
       class="flex flex-col gap-3 border-t border-stone-200 pt-4 dark:border-stone-800"
     >
+      <div class="flex flex-col gap-1">
+        <a
+          class="flex items-center gap-2 rounded px-3 py-2 text-sm font-semibold text-stone-700 hover:bg-stone-200 dark:text-stone-200 dark:hover:bg-stone-800"
+          href="https://github.com/Delph/bass"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <Icon name="lucide:github" />
+          GitHub
+        </a>
+        <a
+          class="flex items-center gap-2 rounded px-3 py-2 text-sm font-semibold text-stone-700 hover:bg-stone-200 dark:text-stone-200 dark:hover:bg-stone-800"
+          href="https://buymeacoffee.com/delph.dev"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <Icon name="lucide:coffee" />
+          Buy me a coffee
+        </a>
+      </div>
       <div
         class="flex items-center justify-between gap-3 rounded-lg bg-stone-200 px-3 py-2 text-sm font-semibold text-stone-800 dark:bg-stone-800 dark:text-stone-100"
       >

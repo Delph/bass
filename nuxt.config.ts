@@ -52,28 +52,16 @@ export default defineNuxtConfig({
   modules: ['@nuxt/icon'],
   icon: {
     provider: 'none',
+    fallbackToApi: false,
     clientBundle: {
-      scan: true,
-      icons: [
-        'lucide:bookmark-check',
-        'lucide:bookmark-plus',
-        'lucide:bow-arrow',
-        'lucide:check',
-        'lucide:circle-help',
-        'lucide:component',
-        'lucide:copy',
-        'lucide:pause',
-        'lucide:play',
-        'lucide:save',
-        'lucide:search',
-        'lucide:shield',
-        'lucide:shovel',
-        'lucide:sword',
-        'lucide:swords',
-        'lucide:tag',
-        'lucide:tractor',
-        'lucide:triangle-alert',
-      ],
+      scan: {
+        globInclude: ['app/**/*.{ts,vue}'],
+      },
+    },
+  },
+  $development: {
+    icon: {
+      provider: 'server',
     },
   },
   css: ['~/assets/css/main.css'],
