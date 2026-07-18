@@ -1,27 +1,51 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import ConfirmDialog from '~/components/ConfirmDialog.vue';
 import LanguageSelector from '~/components/LanguageSelector.vue';
 import NumberInput from '~/components/NumberInput.vue';
 import Textarea from '~/components/Textarea.vue';
+import { usePersistence } from '~/composables/usePersistence';
 import { usePreferences } from '~/composables/usePreferences';
 import { useTheme } from '~/composables/useTheme';
 import { useToasts } from '~/composables/useToasts';
 import { useLanguage } from '~/composables/useLanguage';
-import {
-  maxCutoff,
-  minCutoff,
-} from '~/persistence/buckets/preferences';
-import { exportText, importText, reset } from '~/persistence/storage';
+import { maxCutoff, minCutoff } from '~/persistence/buckets/preferences';
+import { exportText, importText, prune, reset } from '~/persistence/storage';
 import { maxWorkers } from '~/workers/pool';
 
 const { formatNumber, translate } = useLanguage();
 const { workers, setWorkers, cutoff, setCutoff } = usePreferences();
 const { theme, set } = useTheme();
 const toasts = useToasts();
+const {
+  check: checkPersistence,
+  dismiss: dismissPersistenceReminder,
+  pending: persistencePending,
+  persistent,
+  reminder: persistenceReminder,
+  request: requestPersistence,
+  supported: persistenceSupported,
+} = usePersistence();
 const confirmDelete = ref(false);
 const confirmImport = ref(false);
 const dataText = ref('');
+const persistenceMessage = computed(() => {
+  const status = !persistenceSupported.value
+    ? 'unsupported'
+    : persistent.value === undefined
+      ? 'checking'
+      : persistent.value
+        ? 'persistent'
+        : 'best-effort';
+
+  return translate(`settings-storage-status-${status}`);
+});
+const persistenceRecommended = computed(
+  () =>
+    persistenceSupported.value &&
+    persistent.value === false &&
+    persistenceReminder.value,
+);
 const cutoffTicks = Array.from(
   { length: (maxCutoff - minCutoff) / 5 + 1 },
   (_, index) => minCutoff + index * 5,
@@ -31,6 +55,58 @@ function deleteAllData() {
   reset();
   confirmDelete.value = false;
   window.location.reload();
+}
+
+function dismissReminder() {
+  try {
+    dismissPersistenceReminder();
+  } catch (err) {
+    toasts.error(translate('settings-storage-dismiss-error'));
+    console.error(err);
+  }
+}
+
+async function protectLocalData() {
+  try {
+    const granted = await requestPersistence();
+
+    if (granted)
+      toasts.success(translate('settings-storage-protect-success'));
+    else {
+      dismissReminder();
+      toasts.add({
+        type: 'warning',
+        text: translate('settings-storage-protect-denied'),
+      });
+    }
+  } catch (err) {
+    dismissReminder();
+    toasts.error(translate('settings-storage-protect-error'));
+    console.error(err);
+  }
+}
+
+function pruneDeletedData() {
+  try {
+    const removed = prune();
+
+    if (removed === 0) {
+      toasts.add({
+        type: 'information',
+        text: translate('settings-prune-data-empty'),
+      });
+      return;
+    }
+
+    toasts.success(
+      translate('settings-prune-data-success', {
+        count: removed,
+        formatted: formatNumber(removed),
+      }),
+    );
+  } catch {
+    toasts.error(translate('settings-prune-data-error'));
+  }
 }
 
 async function exportData() {
@@ -62,6 +138,8 @@ function setCutoffFromInput(event: Event) {
 function setCutoffFromNumber(value: number | null) {
   if (value !== null) setCutoff(Math.round(value));
 }
+
+onMounted(checkPersistence);
 </script>
 
 <template>
@@ -97,10 +175,19 @@ function setCutoffFromNumber(value: number | null) {
             class="flex items-center justify-between text-sm text-stone-600 dark:text-stone-400"
           >
             <span>
-              {{ translate('settings-workers-count', { count: workers, formatted: formatNumber(workers) }) }}
+              {{
+                translate('settings-workers-count', {
+                  count: workers,
+                  formatted: formatNumber(workers),
+                })
+              }}
             </span>
             <span>
-              {{ translate('settings-workers-max', { formatted: formatNumber(maxWorkers) }) }}
+              {{
+                translate('settings-workers-max', {
+                  formatted: formatNumber(maxWorkers),
+                })
+              }}
             </span>
           </div>
           <input
@@ -139,9 +226,7 @@ function setCutoffFromNumber(value: number | null) {
               }}
             </span>
           </div>
-          <div
-            class="grid grid-cols-[minmax(0,1fr)_5rem] items-center gap-x-3"
-          >
+          <div class="grid grid-cols-[minmax(0,1fr)_5rem] items-center gap-x-3">
             <input
               type="range"
               name="cutoff"
@@ -244,6 +329,57 @@ function setCutoffFromNumber(value: number | null) {
     {{ translate('settings-data') }}
   </h3>
 
+  <section
+    class="rounded-xl bg-stone-100 p-2 dark:bg-stone-800"
+    :class="{
+      'ring-2 ring-amber-400 dark:ring-amber-500': persistenceRecommended,
+    }"
+  >
+    <div class="flex items-center justify-between gap-3">
+      <h4 class="font-semibold">
+        {{ translate('settings-storage-protection') }}
+      </h4>
+      <span
+        v-if="persistenceRecommended"
+        class="rounded-full bg-amber-200 px-2 py-0.5 text-xs font-semibold text-amber-950 dark:bg-amber-700 dark:text-amber-50"
+      >
+        {{ translate('settings-storage-recommended') }}
+      </span>
+    </div>
+    <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">
+      {{ translate('settings-storage-protection-message') }}
+    </p>
+    <p class="mt-3 text-sm" aria-live="polite">
+      {{ persistenceMessage }}
+    </p>
+    <div
+      v-if="persistenceSupported && persistent !== true"
+      class="mt-3 flex flex-wrap gap-2"
+    >
+      <button
+        type="button"
+        class="rounded-xl bg-stone-200 px-3 py-2 font-semibold disabled:opacity-50 dark:bg-stone-700"
+        :disabled="persistencePending || persistent === undefined"
+        @click="protectLocalData"
+      >
+        {{
+          translate(
+            persistencePending ? 'common-loading' : 'settings-storage-protect',
+          )
+        }}
+      </button>
+      <button
+        v-if="persistenceRecommended"
+        type="button"
+        class="rounded-xl px-3 py-2 font-semibold text-stone-600 disabled:opacity-50 dark:text-stone-300"
+        :disabled="persistencePending"
+        @click="dismissReminder"
+      >
+        {{ translate('settings-storage-dismiss') }}
+      </button>
+    </div>
+  </section>
+
   <section class="rounded-xl bg-stone-100 p-2 dark:bg-stone-800">
     <h4 class="font-semibold">
       {{ translate('settings-import-export-data') }}
@@ -278,6 +414,22 @@ function setCutoffFromNumber(value: number | null) {
   </section>
 
   <section class="rounded-xl bg-stone-100 p-2 dark:bg-stone-800">
+    <h4 class="font-semibold">
+      {{ translate('settings-prune-data') }}
+    </h4>
+    <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">
+      {{ translate('settings-prune-data-message') }}
+    </p>
+    <button
+      type="button"
+      class="mt-3 rounded-xl bg-stone-200 px-3 py-2 font-semibold dark:bg-stone-700"
+      @click="pruneDeletedData"
+    >
+      {{ translate('settings-prune-data') }}
+    </button>
+
+    <div class="my-3 border-t border-stone-200 dark:border-stone-700" />
+
     <h4 class="font-semibold">
       {{ translate('settings-delete-data') }}
     </h4>

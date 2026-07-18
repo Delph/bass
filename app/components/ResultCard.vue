@@ -67,22 +67,31 @@ function save() {
         <span class="truncate">{{ translate(`armour-${slot}-${piece.slug}`) }}</span>
       </div>
     </div>
-    <div class="shrink-0">
-      <div
-        class="flex gap-2 items-center font-mono justify-between"
-        :title="formatNumber(effective(def))"
+    <div
+      class="grid shrink-0 grid-cols-[1rem_auto_auto] items-center gap-x-2 font-mono"
+    >
+      <span></span>
+      <span
+        class="text-right text-[0.65rem] uppercase text-stone-500 dark:text-stone-400"
       >
-        <img :src="icons.defence()" class="w-4" /> {{ formatNumber(def) }}
-      </div>
-      <template v-for="(resistance, element) in res">
-        <div
-          v-if="resistance !== undefined"
-          class="flex gap-2 items-center font-mono justify-between"
-          :title="formatNumber(effective(def, resistance))"
-        >
+        {{ translate('set-stat-raw') }}
+      </span>
+      <span
+        class="text-right text-[0.65rem] uppercase text-stone-500 dark:text-stone-400"
+      >
+        {{ translate('set-stat-effective') }}
+      </span>
+      <img :src="icons.defence()" class="w-4" />
+      <span class="text-right">{{ formatNumber(def) }}</span>
+      <span class="text-right">{{ formatNumber(effective(def)) }}</span>
+      <template v-for="(resistance, element) in res" :key="element">
+        <template v-if="resistance !== undefined">
           <img :src="icons.element(element)" class="w-4" />
-          {{ formatNumber(resistance) }}
-        </div>
+          <span class="text-right">{{ formatNumber(resistance) }}</span>
+          <span class="text-right">
+            {{ formatNumber(effective(def, resistance)) }}
+          </span>
+        </template>
       </template>
     </div>
     <NuxtLink

@@ -32,7 +32,7 @@ const emit = defineEmits<{
       :value="String(option.value)"
       :checked="String(value) === String(option.value)"
       @change="emit('change', option.value)"
-      :disabled="option.disabled"
+      :disabled="disabled || option.disabled"
     />
     {{ option.label }}
   </label>

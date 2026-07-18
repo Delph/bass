@@ -1,11 +1,28 @@
 <script lang="ts" setup>
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { useHead, useSeoMeta } from '#imports';
+import {
+  computed,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  watch,
+} from 'vue';
 import { useRoute, useRouter } from "vue-router";
 
 import { useGame } from "~/composables/useGame";
-import { useTheme } from "~/composables/useTheme";
+import { useHistory } from '~/composables/useHistory';
+import { usePersistence } from '~/composables/usePersistence';
+import { useSets } from '~/composables/useSets';
+import { useThemeSync } from "~/composables/useTheme";
 import { useLanguage } from '~/composables/useLanguage';
 import { useToasts } from '~/composables/useToasts';
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from '~/metadata';
 import '~/persistence/register';
 
 import SideBar from "~/components/SideBar.vue";
@@ -14,6 +31,7 @@ import SearchStatus from '~/components/SearchStatus.vue';
 import Toast from '~/components/Toast.vue';
 
 const {
+  locale,
   ready,
   translate,
 } = useLanguage();
@@ -27,10 +45,78 @@ const {
 const route = useRoute();
 const router = useRouter();
 const { toasts } = useToasts();
+const { entries } = useHistory();
+const { sets } = useSets();
+const {
+  check: checkPersistence,
+  persistent,
+  reminder: persistenceReminder,
+  supported: persistenceSupported,
+} = usePersistence();
 
-useTheme();
+useThemeSync();
+
+const documentTitle = computed(() => {
+  if (!ready.value) return SITE_TITLE;
+
+  if (route.path === '/settings')
+    return `${translate('settings')} | ${SITE_NAME}`;
+
+  const currentGame = game.value;
+  if (!currentGame)
+    return `${translate('bass-title-full')} | ${SITE_NAME}`;
+
+  const [, section, child] = route.path.split('/').filter(Boolean);
+  if (!section)
+    return `${translate(`game-${currentGame.slug}-title-full`)} | ${SITE_NAME}`;
+
+  let pageTitle: string;
+  if (section === 'search') {
+    const key =
+      child === 'skills'
+        ? 'search-skills'
+        : child === 'results'
+          ? 'navigation-tab-results'
+          : 'navigation-tab-search';
+    pageTitle = translate(key);
+  } else if (section === 'history') {
+    pageTitle = translate('navigation-tab-history');
+  } else if (section === 'sets') {
+    const name = route.query.name;
+    pageTitle =
+      child && typeof name === 'string' && name.trim()
+        ? name.trim()
+        : translate('navigation-tab-sets');
+  } else {
+    pageTitle = translate('navigation-tab-home');
+  }
+
+  const gameTitle = translate(`game-${currentGame.slug}-title-short`);
+  return `${pageTitle} | ${gameTitle} | ${SITE_NAME}`;
+});
+const canonicalUrl = computed(() => new URL(route.path, SITE_URL).href);
+
+useHead(() => ({
+  htmlAttrs: { lang: locale.value },
+  link: [{ rel: 'canonical', href: canonicalUrl.value }],
+}));
+useSeoMeta({
+  title: () => documentTitle.value,
+  description: SITE_DESCRIPTION,
+  robots: 'noindex, nofollow',
+  ogType: 'website',
+  ogSiteName: SITE_NAME,
+  ogTitle: () => documentTitle.value,
+  ogDescription: SITE_DESCRIPTION,
+  ogUrl: () => canonicalUrl.value,
+  ogLocale: () => locale.value.replace('-', '_'),
+  twitterCard: 'summary',
+  twitterTitle: () => documentTitle.value,
+  twitterDescription: SITE_DESCRIPTION,
+});
 
 const menu = ref(false);
+const main = ref<HTMLElement | null>(null);
 let desktopMedia: MediaQueryList | null = null;
 
 function closeMenuAtDesktop(event: MediaQueryListEvent) {
@@ -38,6 +124,7 @@ function closeMenuAtDesktop(event: MediaQueryListEvent) {
 }
 
 onMounted(() => {
+  void checkPersistence();
   desktopMedia = window.matchMedia('(min-width: 48rem)');
   desktopMedia.addEventListener('change', closeMenuAtDesktop);
 });
@@ -47,9 +134,14 @@ onBeforeUnmount(() => {
 });
 
 watch(
-  () => route.fullPath,
-  () => {
+  () => route.path,
+  async () => {
     menu.value = false;
+    await nextTick();
+    if (!main.value) return;
+
+    main.value.scrollTop = 0;
+    main.value.focus({ preventScroll: true });
   },
 );
 
@@ -69,6 +161,13 @@ function back() {
 }
 
 const scroll = computed(() => route.meta.scroll !== false);
+const showPersistenceNotice = computed(
+  () =>
+    persistenceSupported.value &&
+    persistent.value === false &&
+    persistenceReminder.value &&
+    (entries.value.length > 0 || sets.value.length > 0),
+);
 </script>
 
 <template>
@@ -83,7 +182,7 @@ const scroll = computed(() => route.meta.scroll !== false);
       <div class="flex items-center gap-1 justify-self-start">
         <button
           v-if="game"
-          class="rounded p-1 hover:bg-emerald-800 dark:hover:bg-emerald-800 md:hidden"
+          class="relative rounded p-1 hover:bg-emerald-800 dark:hover:bg-emerald-800 md:hidden"
           type="button"
           :aria-label="translate('game-menu-open')"
           :aria-expanded="menu"
@@ -91,6 +190,11 @@ const scroll = computed(() => route.meta.scroll !== false);
           @click="menu = true"
         >
           <Icon name="lucide:menu" />
+          <span
+            v-if="showPersistenceNotice"
+            class="absolute right-0 top-0 size-2 rounded-full bg-amber-500"
+            aria-hidden="true"
+          />
         </button>
         <button
           v-if="hasBack"
@@ -122,16 +226,20 @@ const scroll = computed(() => route.meta.scroll !== false);
       <SideBar
         v-if="game"
         :game="game"
+        :notice="showPersistenceNotice"
         :open="menu"
         @close="menu = false"
       />
       <main
+        ref="main"
+        tabindex="-1"
         class="flex min-h-0 flex-1 flex-col p-4 md:pt-4"
         :class="scroll ? 'overflow-y-auto' : 'overflow-hidden'"
         :inert="menu"
       >
         <div
-          class="flex min-h-0 flex-1 flex-col gap-4"
+          class="flex flex-col gap-4"
+          :class="scroll ? 'shrink-0' : 'min-h-0 flex-1'"
         >
           <NuxtPage v-slot="{ Component }">
             <component

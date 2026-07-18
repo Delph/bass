@@ -74,13 +74,12 @@ export type Decoration = {
   materials: Material[];
 };
 
-export type EffectDefinition = Record<string, { description: string }>;
-
 export type SkillDefinition = {
   id: number;
   slug: string;
   categories: string[];
-  effects: Partial<EffectDefinition>;
+  effects: number[];
+  combines?: SkillPoints[];
 };
 
 export type GameData = {

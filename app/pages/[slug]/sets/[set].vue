@@ -272,7 +272,8 @@ async function copyLink() {
         v-for="(piece, slot) in resolved.armour"
         class="flex items-center gap-2 w-full rounded-xl bg-stone-200 dark:bg-stone-800 p-2"
       >
-        <img class="h-6 w-6" :src="icons.armour(slot)" /> {{ translate(`armour-${slot}-${piece.slug}`) }}
+        <img class="h-6 w-6" :src="icons.armour(slot)" />
+        {{ translate(`armour-${slot}-${piece.slug}`) }}
       </div>
     </div>
 
@@ -376,10 +377,10 @@ async function copyLink() {
               : 'text-emerald-700 dark:text-emerald-300'
           "
         >
-          {{ translate(`skill-${effect.skill}`) }}
+          {{ translate(getSkillEffectKey(effect.skill, effect.points)) }}
         </div>
         <div class="pl-4">
-          {{ translate(getSkillEffectKey(effect.skill, effect.points)) }}
+          {{ translate(`skill-${effect.skill}`) }}
         </div>
       </div>
     </div>

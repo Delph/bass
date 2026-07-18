@@ -3,8 +3,8 @@ import {
   bucket,
   maxCutoff,
   minCutoff,
-  type Theme,
 } from '~/persistence/buckets/preferences';
+import type { Theme } from '~/theme';
 import type { LocaleSlug } from '~/translation';
 import { bound } from '~/utility';
 import { boundWorkers } from '~/workers/pool';
@@ -16,6 +16,9 @@ export function usePreferences() {
   const locale = computed(() => preferences.value.locale);
   const workers = computed(() => preferences.value.workers);
   const cutoff = computed(() => preferences.value.cutoff);
+  const persistenceReminder = computed(
+    () => preferences.value.persistenceReminder,
+  );
 
   function setTheme(theme: Theme) {
     preferences.value.theme = theme;
@@ -37,6 +40,11 @@ export function usePreferences() {
     bucket.save(preferences.value);
   }
 
+  function setPersistenceReminder(reminder: boolean) {
+    preferences.value.persistenceReminder = reminder;
+    bucket.save(preferences.value);
+  }
+
   return {
     theme,
     setTheme,
@@ -46,5 +54,7 @@ export function usePreferences() {
     setWorkers,
     cutoff,
     setCutoff,
+    persistenceReminder,
+    setPersistenceReminder,
   };
 }

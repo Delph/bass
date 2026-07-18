@@ -7,14 +7,7 @@ const skill: SkillDefinition = {
   id: 1,
   slug: 'attack',
   categories: [],
-  effects: {
-    '-20': { description: 'large penalty' },
-    '-15': { description: 'medium penalty' },
-    '-10': { description: 'small penalty' },
-    '10': { description: 'small bonus' },
-    '15': { description: 'medium bonus' },
-    '20': { description: 'large bonus' },
-  },
+  effects: [-20, -15, -10, 10, 15, 20],
 };
 
 test.each([

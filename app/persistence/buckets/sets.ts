@@ -1,4 +1,4 @@
-import { defineBucket } from '~/persistence/storage';
+import { defineBucket, pruneDeleted } from '~/persistence/storage';
 import type { ArmourSet } from '~/solver/solver';
 import type { AuditFields, UUID } from '~/types';
 
@@ -26,4 +26,9 @@ export const bucket = defineBucket<Record<string, SavedSet[]>>({
   ): Record<string, SavedSet[]> {
     return stored as Record<string, SavedSet[]>;
   },
+  prune: (data) =>
+    Object.values(data).reduce(
+      (removed, records) => removed + pruneDeleted(records),
+      0,
+    ),
 });

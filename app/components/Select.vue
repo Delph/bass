@@ -68,6 +68,7 @@ function change(event: Event) {
             v-for="option in group.options"
             :key="String(option.value)"
             :value="String(option.value)"
+            :disabled="option.disabled"
           >
             {{ option.label }}
           </option>

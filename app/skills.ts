@@ -26,22 +26,17 @@ export function getSkillOptions(
   skill: SkillDefinition,
   showNegativeSkills: boolean,
 ): SkillOption[] {
-  return Object.entries(skill.effects)
-    .map(([points, effect]) => {
-      const value = Number(points);
-
-      if (effect === undefined) return;
-
+  return skill.effects
+    .map((points) => {
       return {
         label: skill.slug,
-        points: value,
+        points,
         requirement: {
           skill: skill.slug,
-          points: value,
+          points,
         },
       };
     })
-    .filter((option): option is SkillOption => option !== undefined)
     .filter((option) => option.points > 0 || showNegativeSkills)
     .toSorted((a, b) => {
       if (a.points > 0 && b.points < 0) return -1;
@@ -60,7 +55,7 @@ export function getEffect(
   const skill = skills.find((s) => s.slug === slug);
   if (!skill) return null;
 
-  const thresholds = Object.keys(skill.effects).map((p) => Number(p));
+  const thresholds = skill.effects;
   const threshold =
     points < 0
       ? thresholds
@@ -74,7 +69,6 @@ export function getEffect(
 
   return {
     skill: skill.slug,
-    effect: skill.effects[threshold]!,
     points: threshold,
   };
 }

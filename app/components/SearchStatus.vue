@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useSearch } from '~/composables/useSearch';
 import { useLanguage } from '~/composables/useLanguage';
+import ProgressRing from '~/components/ProgressRing.vue';
 
 const search = useSearch();
 const { formatNumber, formatPercent, translate } = useLanguage();
@@ -32,8 +33,9 @@ const { formatNumber, formatPercent, translate } = useLanguage();
     "
     class="flex items-center justify-end gap-2 rounded-full px-1 py-0.5 text-white hover:bg-emerald-800 dark:hover:bg-emerald-800"
   >
-    <span
-      class="search-dial relative flex size-8 shrink-0 items-center justify-center rounded-full"
+    <ProgressRing
+      :value="search.progress.value"
+      class="size-8 rounded-full"
       :class="{
         'text-emerald-300': search.session.value.status === 'completed',
         'text-red-300': search.session.value.status === 'error',
@@ -41,12 +43,9 @@ const { formatNumber, formatPercent, translate } = useLanguage();
           search.session.value.status,
         ),
       }"
-      :style="{
-        '--search-progress': `${Math.floor(search.progress.value * 100)}%`,
-      }"
     >
       <span
-        class="absolute inset-1 flex items-center justify-center rounded-full bg-emerald-700 text-sm dark:bg-emerald-900"
+        class="flex size-6 items-center justify-center rounded-full bg-emerald-700 text-sm dark:bg-emerald-900"
       >
         <Icon
           :name="
@@ -58,19 +57,10 @@ const { formatNumber, formatPercent, translate } = useLanguage();
           "
         />
       </span>
-    </span>
+    </ProgressRing>
     <span class="hidden text-xs font-semibold sm:block">
       {{ formatPercent(search.progress.value, 0, { roundingMode: 'floor' }) }} /
       {{ formatNumber(search.results.value.length) }}
     </span>
   </NuxtLink>
 </template>
-
-<style scoped>
-.search-dial {
-  background: conic-gradient(
-    currentColor var(--search-progress),
-    rgb(128 128 128) 0
-  );
-}
-</style>

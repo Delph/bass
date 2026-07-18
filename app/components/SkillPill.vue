@@ -4,7 +4,6 @@ import { formatSkillPoints, getEffect, getSkillEffectKey } from '~/skills';
 
 import { useGame } from '~/composables/useGame';
 import { useLanguage } from '~/composables/useLanguage';
-import type { EffectDefinition } from '~/game/types';
 
 const { data } = useGame();
 const { translate } = useLanguage();
@@ -16,7 +15,6 @@ const props = defineProps<{
 
 type SkillEffect = {
   skill: string;
-  effect: EffectDefinition[string];
   points: number;
 };
 

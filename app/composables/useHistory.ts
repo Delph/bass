@@ -1,5 +1,6 @@
 import { computed } from 'vue';
 import { useGame } from '~/composables/useGame';
+import { appendHistory } from '~/history';
 import { bucket, type HistoryEntry } from '~/persistence/buckets/history';
 import { current } from '~/persistence/storage';
 import type { QueryState } from '~/query/types';
@@ -22,7 +23,7 @@ export function useHistory() {
   function add(value: QueryState) {
     if (Object.keys(value.skills).length === 0) return;
 
-    allEntries.value.push({
+    appendHistory(allEntries.value, {
       id: crypto.randomUUID(),
       query: deepcopy(value),
       createdAt: Date.now(),

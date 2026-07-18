@@ -1,5 +1,5 @@
 import type { QueryState } from '~/query/types';
-import { defineBucket } from '~/persistence/storage';
+import { defineBucket, pruneDeleted } from '~/persistence/storage';
 import type { AuditFields, UUID } from '~/types';
 
 export type HistoryEntry = {
@@ -17,4 +17,9 @@ export const bucket = defineBucket<Record<string, HistoryEntry[]>>({
   ): Record<string, HistoryEntry[]> {
     return stored as Record<string, HistoryEntry[]>;
   },
+  prune: (data) =>
+    Object.values(data).reduce(
+      (removed, records) => removed + pruneDeleted(records),
+      0,
+    ),
 });

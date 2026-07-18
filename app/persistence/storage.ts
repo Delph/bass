@@ -1,4 +1,5 @@
 import { useState } from '#app';
+import type { AuditFields } from '~/types';
 import { deepcopy } from '~/utility';
 
 export type PersistedBucket<T> = {
@@ -19,6 +20,7 @@ export type Bucket<T> = {
   version: number;
   initial: T;
   migrate: (version: number, stored: unknown) => T;
+  prune?: (data: T) => number;
 };
 
 type State<T> = {
@@ -29,6 +31,7 @@ type RegisteredBucket = {
   key: string;
   dump: () => PersistedBucket<unknown>;
   parse: (stored: unknown) => unknown;
+  prune: () => number;
   reset: () => unknown;
   restore: (stored: unknown) => unknown;
   restoreData: (data: unknown) => unknown;
@@ -48,6 +51,17 @@ function isPersistedBucket(value: unknown): value is PersistedBucket<unknown> {
     'data' in value &&
     typeof value.version === 'number'
   );
+}
+
+export function pruneDeleted<T extends Pick<AuditFields, 'deletedAt'>>(
+  records: T[],
+) {
+  const active = records.filter((record) => record.deletedAt === null);
+  const removed = records.length - active.length;
+
+  records.splice(0, records.length, ...active);
+
+  return removed;
 }
 
 function bytesToBase64Url(bytes: Uint8Array) {
@@ -147,6 +161,20 @@ export function defineBucket<T>(bucket: Bucket<T>) {
     }
   }
 
+  function prune() {
+    if (!bucket.prune) return 0;
+
+    const data = deepcopy(stateRef?.value ?? load()) as T;
+    const removed = bucket.prune(data);
+
+    if (removed === 0) return 0;
+
+    save(data);
+    if (stateRef) stateRef.value = data;
+
+    return removed;
+  }
+
   function dump(): PersistedBucket<T> {
     return {
       version: bucket.version,
@@ -186,6 +214,7 @@ export function defineBucket<T>(bucket: Bucket<T>) {
     key: bucket.key,
     dump,
     parse,
+    prune,
     reset,
     restore,
     restoreData: (data: unknown) => restoreData(data as T),
@@ -196,6 +225,7 @@ export function defineBucket<T>(bucket: Bucket<T>) {
     key: bucket.key,
     load,
     parse,
+    prune,
     reset,
     restore,
     restoreData,
@@ -216,6 +246,13 @@ export function dump(): PersistenceDump {
 
 export function reset() {
   for (const bucket of buckets.values()) bucket.reset();
+}
+
+export function prune() {
+  return [...buckets.values()].reduce(
+    (removed, bucket) => removed + bucket.prune(),
+    0,
+  );
 }
 
 export function restore(data: unknown) {
