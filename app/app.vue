@@ -238,7 +238,7 @@ const showPersistenceNotice = computed(
         :inert="menu"
       >
         <div
-          class="flex flex-col gap-4"
+          class="flex flex-col gap-4 md:mx-auto md:w-full md:max-w-[60rem]"
           :class="scroll ? 'shrink-0' : 'min-h-0 flex-1'"
         >
           <NuxtPage v-slot="{ Component }">
