@@ -179,7 +179,7 @@ const showPersistenceNotice = computed(
       class="grid w-full shrink-0 grid-cols-[1fr_auto_1fr] items-center gap-2 bg-emerald-700 px-4 py-2 text-center text-white dark:bg-emerald-900"
       :inert="menu"
     >
-      <div class="flex items-center gap-1 justify-self-start">
+      <div class="flex h-8 items-center gap-1 justify-self-start">
         <button
           v-if="game"
           class="relative rounded p-1 hover:bg-emerald-800 dark:hover:bg-emerald-800 md:hidden"
