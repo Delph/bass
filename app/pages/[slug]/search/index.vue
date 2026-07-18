@@ -121,98 +121,108 @@ function submit() {
   <h2 class="text-2xl font-bold">
     {{ translate('navigation-tab-search') }}
   </h2>
-  <Fieldset :legend="translate('search-hunter')">
-    <Label>
-      {{ translate('search-hunter-rank-guild') }}
-      <Select
-        name="guild-rank"
-        :value="query.hunter.rank"
-        :options="guildRankOptions"
-        @change="(v) => setGuildRank(v as number)"
-      />
-    </Label>
-    <Label>
-      {{ translate('search-hunter-rank-village') }}
-      <Select
-        name="village-rank"
-        :value="query.hunter.village"
-        :options="villageRankOptions"
-        @change="(v) => setVillageRank(v as number)"
-      />
-    </Label>
-    <Label>
-      {{ translate('search-hunter-gender') }}
-      <Radioboxes
-        name="hunter-gender"
-        :value="query.hunter.gender"
-        :options="genderOptions"
-        @change="
-          (v) => setHunterGender(v as (typeof HUNTER_GENDER)[HunterGender])
-        "
-      />
-    </Label>
-  </Fieldset>
-  <Fieldset :legend="translate('search-weapon')">
-    <Label>
-      {{ translate('search-weapon-class') }}
-      <Select
-        name="weapon-class"
-        :value="query.weapon.class"
-        :options="weaponClassOptions"
-        @change="(v) => setWeaponClass(v as (typeof WEAPON_CLASS)[WeaponClass])"
-      />
-    </Label>
-    <Label v-if="game?.features.decorations">
-      {{ translate('search-weapon-slots') }}
-      <Radioboxes
-        name="weapon-slots"
-        :value="query.weapon.slots"
-        :options="slotOptions"
-        @change="(v) => setWeaponSlots(v as number)"
-      />
-    </Label>
-  </Fieldset>
-  <Fieldset :legend="translate('search-skills')">
-    <NuxtLink
-      :to="skillsPath"
-      class="block rounded-xl border border-stone-200 bg-white p-3 text-sm shadow-sm dark:border-stone-700 dark:bg-stone-900"
-    >
-      <p
-        v-if="selectedSkills.length === 0"
-        class="text-stone-500 dark:text-stone-400"
-      >
-        {{ translate('search-skills-empty') }}
-      </p>
-      <div v-else class="flex flex-wrap gap-2">
-        <SkillPill
-          v-for="skill in selectedSkills"
-          :key="`${skill.skill}:${skill.points}`"
-          :skill="skill.skill"
-          :points="skill.points"
+  <div class="flex flex-col gap-4 lg:grid lg:grid-cols-2">
+    <Fieldset :legend="translate('search-hunter')">
+      <Label>
+        {{ translate('search-hunter-rank-guild') }}
+        <Select
+          name="guild-rank"
+          :value="query.hunter.rank"
+          :options="guildRankOptions"
+          @change="(v) => setGuildRank(v as number)"
         />
+      </Label>
+      <Label>
+        {{ translate('search-hunter-rank-village') }}
+        <Select
+          name="village-rank"
+          :value="query.hunter.village"
+          :options="villageRankOptions"
+          @change="(v) => setVillageRank(v as number)"
+        />
+      </Label>
+      <Label>
+        {{ translate('search-hunter-gender') }}
+        <Radioboxes
+          name="hunter-gender"
+          :value="query.hunter.gender"
+          :options="genderOptions"
+          @change="
+            (v) => setHunterGender(v as (typeof HUNTER_GENDER)[HunterGender])
+          "
+        />
+      </Label>
+    </Fieldset>
+    <Fieldset :legend="translate('search-weapon')">
+      <Label>
+        {{ translate('search-weapon-class') }}
+        <Select
+          name="weapon-class"
+          :value="query.weapon.class"
+          :options="weaponClassOptions"
+          @change="(v) => setWeaponClass(v as (typeof WEAPON_CLASS)[WeaponClass])"
+        />
+      </Label>
+      <Label v-if="game?.features.decorations">
+        {{ translate('search-weapon-slots') }}
+        <Radioboxes
+          name="weapon-slots"
+          :value="query.weapon.slots"
+          :options="slotOptions"
+          @change="(v) => setWeaponSlots(v as number)"
+        />
+      </Label>
+    </Fieldset>
+    <Fieldset
+      :legend="translate('search-skills')"
+      class="lg:col-span-2"
+    >
+      <NuxtLink
+        :to="skillsPath"
+        class="block rounded-xl border border-stone-200 bg-white p-3 text-sm shadow-sm dark:border-stone-700 dark:bg-stone-900"
+      >
+        <p
+          v-if="selectedSkills.length === 0"
+          class="text-stone-500 dark:text-stone-400"
+        >
+          {{ translate('search-skills-empty') }}
+        </p>
+        <div v-else class="flex flex-wrap gap-2">
+          <SkillPill
+            v-for="skill in selectedSkills"
+            :key="`${skill.skill}:${skill.points}`"
+            :skill="skill.skill"
+            :points="skill.points"
+          />
+        </div>
+      </NuxtLink>
+    </Fieldset>
+    <Fieldset
+      :legend="translate('search-options')"
+      class="lg:col-span-2"
+    >
+      <div class="lg:grid lg:grid-cols-2 lg:gap-4">
+        <Label>
+          {{ translate('search-options-allow-bad') }}
+          <Toggle
+            :model-value="query.options.allowBad"
+            @change="setAllowBad"
+          />
+        </Label>
+        <Label>
+          {{ translate('search-options-allow-dummy') }}
+          <Toggle
+            :model-value="query.options.allowDummy"
+            @change="setAllowDummy"
+          />
+        </Label>
       </div>
-    </NuxtLink>
-  </Fieldset>
-  <Fieldset :legend="translate('search-options')">
-    <Label>
-      {{ translate('search-options-allow-bad') }}
-      <Toggle
-        :model-value="query.options.allowBad"
-        @change="setAllowBad"
-      />
-    </Label>
-    <Label>
-      {{ translate('search-options-allow-dummy') }}
-      <Toggle
-        :model-value="query.options.allowDummy"
-        @change="setAllowDummy"
-      />
-    </Label>
-  </Fieldset>
+    </Fieldset>
+  </div>
   <button
     type="button"
     :disabled="!canSearch"
-    class="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-700 px-4 py-3 font-semibold text-white shadow-sm hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-emerald-500 dark:text-stone-950 dark:hover:bg-emerald-400"
+    class="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-700 px-4 py-3 font-semibold text-white shadow-sm hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-emerald-500 dark:text-stone-950 dark:hover:bg-emerald-400 lg:ml-auto lg:w-auto lg:min-w-64"
     @click="submit"
   >
     {{ translate('search-submit') }}
