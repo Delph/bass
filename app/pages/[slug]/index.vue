@@ -186,7 +186,10 @@ function repeat(entry: HistoryEntry) {
       </NuxtLink>
     </div>
 
-    <div v-if="recentSets.length" class="flex flex-col gap-2">
+    <div
+      v-if="recentSets.length"
+      class="flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:items-start"
+    >
       <SetCard
         v-for="set in recentSets"
         :key="set.id"
