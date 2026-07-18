@@ -148,38 +148,22 @@ test('solver/solver: requirement satisfaction follows the requested direction', 
   expect(satisfiesRequirement(undefined, -10)).toBe(false);
 });
 
-// test('solver/solver:solve - basic', () => {
-//   const query: QueryState = {
-//     hunter: {
-//       rank: 1,
-//       village: 1,
-//       gender: HUNTER_GENDER.Male,
-//     },
-//     weapon: {
-//       class: WEAPON_CLASS.Blademaster,
-//       slots: 0,
-//     },
-//     options: {
-//       allowBad: false,
-//       allowDummy: false,
-//     },
-//     skills: {
-//       'Cold Res': 10,
-//     },
-//   };
+test('solver/solver:solve - basic', () => {
+  const q = query({ skills: { 'cold-res': 10 } });
+  const gear = selectGear(data.armour, {
+    head: 'mafumofu-hood',
+    body: 'mafumofu-jacket',
+    arms: 'mafumofu-mittens',
+    waist: 'mafumofu-coat',
+    legs: 'green-pants',
+  });
 
-//   const {done, value} = solve(query, prepare(query, data), omit(data, 'armour')).next();
+  const { done, value } = solve(q, gear, omit(data, 'armour')).next();
 
-//   assert(!done);
-
-//   expect(value.skills['Cold Res']).toBe(16);
-//   expect(value.skills['Heat Res']).toBe(-8);
-//   expect(value.armour.head.piece.name).toBe("Mafumofu Hood");
-//   expect(value.armour.body.piece.name).toBe("Mafumofu Jacket");
-//   expect(value.armour.arms.piece.name).toBe("Mafumofu Mittens");
-//   expect(value.armour.waist.piece.name).toBe("Mafumofu Coat");
-//   expect(value.armour.legs.piece.name).toBe("Green Pants");
-// });
+  assert(!done);
+  expect(value.skills['cold-res']).toBe(16);
+  expect(value.skills['heat-res']).toBe(-8);
+});
 
 test('solver/solver:solve - KAS meta', () => {
   const q = query({
@@ -451,9 +435,21 @@ test('solver/solver:solve - AR, Evd Dist Up, EAU, 1 slot', () => {
       'auto-reload': 10,
     },
   });
+  const expectedGear = {
+    head: 'blango-cap-z',
+    body: 'gravios-vest-z',
+    arms: 'kirin-gloves-x',
+    waist: 'kirin-shorts-x',
+    legs: 'narga-leggings-x',
+  } satisfies GearSlugs;
+  const gear = selectGear(data.armour, expectedGear);
+  const results = [...solve(q, gear, omit(data, 'armour'))];
 
-  expect(true).toBe(true);
-
-  // armour: blango cap z, gravious vest z, kirin gloves x, kirin shorts x, narga leggings x
-  // decorations: 1 Element jwl, 3 Cont. Fire jwl, 3 Jumping jwl, 1 Barrage jwl, 1 flying jwl
+  expect(results).toHaveLength(1);
+  const build = results[0];
+  assert(build);
+  expect(matchesGear(build.armour, expectedGear)).toBe(true);
+  expect(hasSkill(build, 'element-atk', 10)).toBe(true);
+  expect(hasSkill(build, 'evade-dist', 10)).toBe(true);
+  expect(hasSkill(build, 'auto-reload', 10)).toBe(true);
 });
