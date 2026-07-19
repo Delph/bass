@@ -21,7 +21,8 @@ import {
   validateArmourSet,
 } from '~/set';
 import Field from '~/components/Field.vue';
-import { getEffect, getSkillEffectKey } from '~/skills';
+import { getEffect } from '~/skills';
+import SkillPill from '~/components/SkillPill.vue';
 import Textarea from '~/components/Textarea.vue';
 import ConfirmDialog from '~/components/ConfirmDialog.vue';
 
@@ -189,8 +190,8 @@ async function copyLink() {
 
 <template>
   <template v-if="resolved">
-    <div class="flex flex-col gap-2">
-      <div class="flex items-center gap-3">
+    <div class="flex flex-col gap-2 xl:flex-row xl:items-center">
+      <div class="flex min-w-0 items-center gap-3 xl:flex-1">
         <h2 v-if="!rename" class="min-w-0 flex-1 truncate text-2xl font-bold">
           {{ displayName }}
         </h2>
@@ -218,19 +219,20 @@ async function copyLink() {
           <Icon name="lucide:check" />
         </button>
       </div>
-      <div class="grid grid-cols-3 gap-3">
+      <div class="grid grid-cols-3 gap-3 xl:flex xl:shrink-0 xl:gap-2">
         <button
           type="button"
-          class="flex h-10 items-center justify-center gap-2 rounded-xl bg-stone-200 px-2 text-sm dark:bg-stone-800"
+          class="flex h-10 items-center justify-center gap-2 rounded-xl bg-stone-200 px-2 text-sm dark:bg-stone-800 xl:w-10 xl:px-0"
           :class="dirty ? 'text-amber-700 dark:text-amber-300' : ''"
+          :title="translate('set-save')"
           @click="save"
         >
           <Icon :name="saved ? 'lucide:save' : 'lucide:bookmark-plus'" />
-          <span>{{ translate('set-save') }}</span>
+          <span class="xl:sr-only">{{ translate('set-save') }}</span>
         </button>
         <button
           type="button"
-          class="flex h-10 items-center justify-center gap-2 rounded-xl bg-stone-200 px-2 text-sm dark:bg-stone-800"
+          class="flex h-10 items-center justify-center gap-2 rounded-xl bg-stone-200 px-2 text-sm dark:bg-stone-800 xl:w-10 xl:px-0"
           :title="translate(copied ? 'set-link-copied' : 'set-copy-link')"
           @click="copyLink"
         >
@@ -238,17 +240,17 @@ async function copyLink() {
             :name="copied ? 'lucide:check' : 'lucide:copy'"
             :class="copied ? 'text-emerald-700 dark:text-emerald-300' : ''"
           />
-          <span>{{ translate('set-copy-link') }}</span>
+          <span class="xl:sr-only">{{ translate('set-copy-link') }}</span>
         </button>
         <button
           v-if="saved"
           type="button"
-          class="flex h-10 items-center justify-center gap-2 rounded-xl bg-stone-200 px-2 text-sm dark:bg-stone-800"
+          class="flex h-10 items-center justify-center gap-2 rounded-xl bg-stone-200 px-2 text-sm dark:bg-stone-800 xl:w-10 xl:px-0"
           :title="translate('set-delete')"
           @click="confirmDelete = true"
         >
           <Icon name="lucide:trash" />
-          <span>{{ translate('set-delete') }}</span>
+          <span class="xl:sr-only">{{ translate('set-delete') }}</span>
         </button>
       </div>
     </div>
@@ -375,22 +377,13 @@ async function copyLink() {
     <h3 class="font-semibold text-stone-900 dark:text-stone-100">
       {{ translate('set-section-skills') }}
     </h3>
-    <div class="flex flex-wrap gap-1">
-      <div v-for="effect in skillEffects">
-        <div
-          class="text-lg"
-          :class="
-            effect.points < 0
-              ? 'text-rose-700 dark:text-rose-300'
-              : 'text-emerald-700 dark:text-emerald-300'
-          "
-        >
-          {{ translate(getSkillEffectKey(effect.skill, effect.points)) }}
-        </div>
-        <div class="pl-4">
-          {{ translate(`skill-${effect.skill}`) }}
-        </div>
-      </div>
+    <div class="flex flex-wrap gap-2">
+      <SkillPill
+        v-for="effect in skillEffects"
+        :key="effect.skill"
+        :skill="effect.skill"
+        :points="effect.points"
+      />
     </div>
 
     <h3 class="font-semibold text-stone-900 dark:text-stone-100">
