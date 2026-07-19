@@ -11,9 +11,12 @@ const { sets } = useSets();
   <h2 class="text-2xl font-bold">
     {{ translate('navigation-tab-sets') }}
   </h2>
-  <template v-if="sets.length">
+  <div
+    v-if="sets.length"
+    class="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:items-start"
+  >
     <SetCard v-for="set in sets" :key="set.id" :set="set" />
-  </template>
+  </div>
   <div v-else>
     {{ translate('sets-no-sets') }}
   </div>
