@@ -68,51 +68,51 @@ function pointsClass(option: SkillOption) {
       <div
         v-for="option in card.options"
         :key="option.points"
-        class="flex items-center gap-1"
+        role="button"
+        tabindex="0"
+        class="flex w-full cursor-pointer items-center gap-3 rounded-xl border px-3 py-2 text-left transition"
+        :class="optionClass(option)"
+        @click="toggleSkill(option)"
+        @keydown.enter.prevent="toggleSkill(option)"
+        @keydown.space.prevent="toggleSkill(option)"
       >
-        <button
-          type="button"
-          class="flex min-w-0 flex-1 items-center gap-3 rounded-xl border px-3 py-2 text-left transition"
-          :class="optionClass(option)"
-          @click="toggleSkill(option)"
-        >
-          <span class="min-w-0 flex-1">
-            <span class="block truncate font-semibold">
+        <span class="min-w-0 flex-1">
+          <span class="flex min-w-0 items-center gap-1">
+            <span class="truncate font-semibold">
               {{ translate(getSkillEffectKey(option.requirement.skill, option.points)) }}
             </span>
-            <span class="block truncate text-xs opacity-75">{{ translate(`skill-${card.skill.slug}`) }}</span>
-            <span class="mt-1 hidden whitespace-normal text-xs opacity-75 xl:block">
-              {{
+            <InfoTooltip
+              class="xl:hidden"
+              :text="
                 translate(
                   `${getSkillEffectKey(option.requirement.skill, option.points)}-description`,
                 )
-              }}
-            </span>
-          </span>
-          <span
-            class="rounded-full px-2 py-1 text-xs font-medium"
-            :class="pointsClass(option)"
-          >
-            {{ formatSkillPoints(option.points) }}
-          </span>
-          <span class="flex shrink-0 gap-1 opacity-60">
-            <Icon
-              v-for="category in card.skill.categories"
-              :key="category"
-              :name="getSkillCategoryIcon(category)"
-              :title="translate(`category-${category}`)"
+              "
             />
           </span>
-        </button>
-        <InfoTooltip
-          class="xl:hidden"
-          :label="translate(getSkillEffectKey(option.requirement.skill, option.points))"
-          :text="
-            translate(
-              `${getSkillEffectKey(option.requirement.skill, option.points)}-description`,
-            )
-          "
-        />
+          <span class="block truncate text-xs opacity-75">{{ translate(`skill-${card.skill.slug}`) }}</span>
+          <span class="mt-1 hidden whitespace-normal text-xs opacity-75 xl:block">
+            {{
+              translate(
+                `${getSkillEffectKey(option.requirement.skill, option.points)}-description`,
+              )
+            }}
+          </span>
+        </span>
+        <span
+          class="rounded-full px-2 py-1 text-xs font-medium"
+          :class="pointsClass(option)"
+        >
+          {{ formatSkillPoints(option.points) }}
+        </span>
+        <span class="flex shrink-0 gap-1 opacity-60">
+          <Icon
+            v-for="category in card.skill.categories"
+            :key="category"
+            :name="getSkillCategoryIcon(category)"
+            :title="translate(`category-${category}`)"
+          />
+        </span>
       </div>
     </template>
 
@@ -143,42 +143,42 @@ function pointsClass(option: SkillOption) {
         <div
           v-for="option in card.options"
           :key="option.points"
-          class="flex min-w-0 items-center gap-1"
+          role="button"
+          tabindex="0"
+          class="flex min-w-0 cursor-pointer items-center justify-between gap-3 rounded-xl border px-3 py-2 text-left text-sm transition"
+          :class="optionClass(option)"
+          @click="toggleSkill(option)"
+          @keydown.enter.prevent="toggleSkill(option)"
+          @keydown.space.prevent="toggleSkill(option)"
         >
-          <button
-            type="button"
-            class="flex min-w-0 flex-1 items-center justify-between gap-3 self-stretch rounded-xl border px-3 py-2 text-left text-sm transition"
-            :class="optionClass(option)"
-            @click="toggleSkill(option)"
-          >
-            <span class="min-w-0 flex-1">
-              <span class="block truncate font-medium">
+          <span class="min-w-0 flex-1">
+            <span class="flex min-w-0 items-center gap-1">
+              <span class="truncate font-medium">
                 {{ translate(getSkillEffectKey(option.requirement.skill, option.points)) }}
               </span>
-              <span class="mt-1 hidden whitespace-normal text-xs opacity-75 xl:block">
-                {{
+              <InfoTooltip
+                class="xl:hidden"
+                :text="
                   translate(
                     `${getSkillEffectKey(option.requirement.skill, option.points)}-description`,
                   )
-                }}
-              </span>
+                "
+              />
             </span>
-            <span
-              class="shrink-0 rounded-full px-2 py-1 text-xs font-medium"
-              :class="pointsClass(option)"
-            >
-              {{ formatSkillPoints(option.points) }}
+            <span class="mt-1 hidden whitespace-normal text-xs opacity-75 xl:block">
+              {{
+                translate(
+                  `${getSkillEffectKey(option.requirement.skill, option.points)}-description`,
+                )
+              }}
             </span>
-          </button>
-          <InfoTooltip
-            class="xl:hidden"
-            :label="translate(getSkillEffectKey(option.requirement.skill, option.points))"
-            :text="
-              translate(
-                `${getSkillEffectKey(option.requirement.skill, option.points)}-description`,
-              )
-            "
-          />
+          </span>
+          <span
+            class="shrink-0 rounded-full px-2 py-1 text-xs font-medium"
+            :class="pointsClass(option)"
+          >
+            {{ formatSkillPoints(option.points) }}
+          </span>
         </div>
       </div>
     </template>

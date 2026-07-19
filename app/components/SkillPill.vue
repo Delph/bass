@@ -40,6 +40,12 @@ const activated = computed((): SkillEffect | null => {
     "
   >
     <span>{{ translate(getSkillEffectKey(activated.skill, activated.points)) }}</span>
+    <InfoTooltip
+      v-if="tooltip"
+      :text="
+        translate(`${getSkillEffectKey(activated.skill, activated.points)}-description`)
+      "
+    />
     <span
       :class="
         activated.points < 0
@@ -48,12 +54,5 @@ const activated = computed((): SkillEffect | null => {
       "
       >{{ formatSkillPoints(activated.points) }}</span
     >
-    <InfoTooltip
-      v-if="tooltip"
-      :label="translate(getSkillEffectKey(activated.skill, activated.points))"
-      :text="
-        translate(`${getSkillEffectKey(activated.skill, activated.points)}-description`)
-      "
-    />
   </span>
 </template>

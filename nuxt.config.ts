@@ -68,7 +68,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   vite: {
     build: {
-      target: ['chrome111', 'firefox128', 'safari16.4'],
+      target: ['chrome114', 'firefox128', 'safari17'],
     },
     plugins: [tailwindcss()],
   },
