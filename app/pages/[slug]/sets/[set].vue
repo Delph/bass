@@ -264,37 +264,45 @@ async function copyLink() {
       @confirm="deleteSet"
     />
 
-    <h3 class="font-semibold text-stone-900 dark:text-stone-100">
-      {{ translate('set-section-armour') }}
-    </h3>
-    <div class="flex flex-col gap-2">
-      <div
-        v-for="(piece, slot) in resolved.armour"
-        class="flex items-center gap-2 w-full rounded-xl bg-stone-200 dark:bg-stone-800 p-2"
-      >
-        <img class="h-6 w-6" :src="icons.armour(slot)" />
-        {{ translate(`armour-${slot}-${piece.slug}`) }}
-      </div>
-    </div>
+    <div class="grid gap-4 xl:grid-cols-2 xl:items-start">
+      <section class="flex flex-col gap-4">
+        <h3 class="font-semibold text-stone-900 dark:text-stone-100">
+          {{ translate('set-section-armour') }}
+        </h3>
+        <div class="flex flex-col gap-2">
+          <div
+            v-for="(piece, slot) in resolved.armour"
+            :key="slot"
+            class="flex w-full items-center gap-2 rounded-xl bg-stone-200 p-2 dark:bg-stone-800"
+          >
+            <img class="h-6 w-6" :src="icons.armour(slot)" />
+            {{ translate(`armour-${slot}-${piece.slug}`) }}
+          </div>
+        </div>
+      </section>
 
-    <h3 class="font-semibold text-stone-900 dark:text-stone-100">
-      {{ translate('set-section-decorations') }}
-    </h3>
-    <div class="flex flex-col gap-2">
-      <div
-        v-for="{ decoration, quantity } in groupDecorations(
-          Object.values(resolved.decorations).flat(),
-        )"
-        class="bg-stone-200 dark:bg-stone-800 p-2 rounded-xl"
-      >
-        {{
-          translate('set-decoration-skill', {
-            formatted: formatNumber(quantity),
-            decoration: translate(`decoration-${decoration.slug}`),
-            skill: translate(`skill-${decoration.skill.skill}`),
-          })
-        }}
-      </div>
+      <section class="flex flex-col gap-4">
+        <h3 class="font-semibold text-stone-900 dark:text-stone-100">
+          {{ translate('set-section-decorations') }}
+        </h3>
+        <div class="flex flex-col gap-2">
+          <div
+            v-for="{ decoration, quantity } in groupDecorations(
+              Object.values(resolved.decorations).flat(),
+            )"
+            :key="decoration.slug"
+            class="rounded-xl bg-stone-200 p-2 dark:bg-stone-800"
+          >
+            {{
+              translate('set-decoration-skill', {
+                formatted: formatNumber(quantity),
+                decoration: translate(`decoration-${decoration.slug}`),
+                skill: translate(`skill-${decoration.skill.skill}`),
+              })
+            }}
+          </div>
+        </div>
+      </section>
     </div>
 
     <h3 class="font-semibold text-stone-900 dark:text-stone-100">
