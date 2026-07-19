@@ -59,9 +59,6 @@ useThemeSync();
 const documentTitle = computed(() => {
   if (!ready.value) return SITE_TITLE;
 
-  if (route.path === '/settings')
-    return `${translate('settings')} | ${SITE_NAME}`;
-
   const currentGame = game.value;
   if (!currentGame)
     return `${translate('bass-title-full')} | ${SITE_NAME}`;
@@ -87,6 +84,8 @@ const documentTitle = computed(() => {
       child && typeof name === 'string' && name.trim()
         ? name.trim()
         : translate('navigation-tab-sets');
+  } else if (section === 'settings') {
+    pageTitle = translate('settings');
   } else {
     pageTitle = translate('navigation-tab-home');
   }

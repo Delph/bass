@@ -99,6 +99,10 @@ function resultsPath() {
   return `/${props.game.slug}/search/results`;
 }
 
+function settingsPath() {
+  return `/${props.game.slug}/settings`;
+}
+
 function active(tab: Tab) {
   if (tab === 'search')
     return (
@@ -173,11 +177,11 @@ function label(tab: Tab) {
           <NuxtLink
             class="flex items-center gap-2 rounded px-3 py-2 font-semibold"
             :class="
-              route.path === '/settings'
+              route.path === settingsPath()
                 ? 'bg-emerald-700 text-white dark:bg-emerald-500 dark:text-stone-950'
                 : 'text-stone-700 hover:bg-stone-200 dark:text-stone-200 dark:hover:bg-stone-800'
             "
-            to="/settings"
+            :to="settingsPath()"
           >
             {{ translate('settings') }}
             <span
