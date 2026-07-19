@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useGame } from '~/composables/useGame';
 import {
   useSearch,
@@ -8,6 +8,7 @@ import {
 import { useLanguage } from '~/composables/useLanguage';
 import type { BuildResult } from '~/solver/solver';
 import ResultCard from '~/components/ResultCard.vue';
+import ResultTable from '~/components/ResultTable.vue';
 import Progress from '~/components/Progress.vue';
 import Select from '~/components/Select.vue';
 import type { DamageType } from '~/game/types';
@@ -34,6 +35,8 @@ const {
 } = search;
 const page = ref(1);
 const resultsList = ref<HTMLElement | null>(null);
+const tableMedia = window.matchMedia('(min-width: 80rem)');
+const tableView = ref(tableMedia.matches);
 const resultIds = new WeakMap<BuildResult, string>();
 
 const searchPath = computed(() =>
@@ -83,6 +86,18 @@ watch(
 watch(sort, () => (page.value = 1));
 watch(pageCount, (count) => {
   if (page.value > count) page.value = count;
+});
+
+function syncTableView(event: MediaQueryList | MediaQueryListEvent) {
+  tableView.value = event.matches;
+}
+
+onMounted(() => {
+  tableMedia.addEventListener('change', syncTableView);
+});
+
+onBeforeUnmount(() => {
+  tableMedia.removeEventListener('change', syncTableView);
 });
 
 function pieces(result: BuildResult) {
@@ -216,13 +231,16 @@ function nextPage() {
       />
       <div
         ref="resultsList"
-        class="flex min-h-0 flex-col gap-2 overflow-y-auto pr-1"
+        class="min-h-0 overflow-y-auto pr-1"
       >
-        <ResultCard
-          v-for="result in pagedResults"
-          :key="resultId(result)"
-          :set="result"
-        />
+        <ResultTable v-if="tableView" :sets="pagedResults" />
+        <div v-else class="flex flex-col gap-2">
+          <ResultCard
+            v-for="result in pagedResults"
+            :key="resultId(result)"
+            :set="result"
+          />
+        </div>
       </div>
       <nav
         v-if="results.length > 0"
