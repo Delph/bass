@@ -4,14 +4,19 @@ import { formatSkillPoints, getEffect, getSkillEffectKey } from '~/skills';
 
 import { useGame } from '~/composables/useGame';
 import { useLanguage } from '~/composables/useLanguage';
+import InfoTooltip from '~/components/InfoTooltip.vue';
 
 const { data } = useGame();
 const { translate } = useLanguage();
 
-const props = defineProps<{
-  skill: string;
-  points: number;
-}>();
+const props = withDefaults(
+  defineProps<{
+    skill: string;
+    points: number;
+    tooltip?: boolean;
+  }>(),
+  { tooltip: true },
+);
 
 type SkillEffect = {
   skill: string;
@@ -27,7 +32,7 @@ const activated = computed((): SkillEffect | null => {
 <template>
   <span
     v-if="activated"
-    class="inline-flex gap-2 whitespace-nowrap rounded-full px-3 py-1"
+    class="inline-flex items-center gap-2 whitespace-nowrap rounded-full px-3 py-1"
     :class="
       activated.points < 0
         ? 'bg-rose-100 text-rose-900 dark:bg-rose-950 dark:text-rose-100'
@@ -43,5 +48,12 @@ const activated = computed((): SkillEffect | null => {
       "
       >{{ formatSkillPoints(activated.points) }}</span
     >
+    <InfoTooltip
+      v-if="tooltip"
+      :label="translate(getSkillEffectKey(activated.skill, activated.points))"
+      :text="
+        translate(`${getSkillEffectKey(activated.skill, activated.points)}-description`)
+      "
+    />
   </span>
 </template>

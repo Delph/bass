@@ -184,6 +184,7 @@ const filteredSkillCards = computed(() => {
             <SkillPill
               :skill="selectedSkill.skill"
               :points="selectedSkill.points"
+              :tooltip="false"
             />
           </button>
         </div>

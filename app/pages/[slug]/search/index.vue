@@ -193,6 +193,7 @@ function submit() {
             :key="`${skill.skill}:${skill.points}`"
             :skill="skill.skill"
             :points="skill.points"
+            :tooltip="false"
           />
         </div>
       </NuxtLink>

@@ -9,6 +9,7 @@ import {
   getSkillCategoryIcon,
   getSkillEffectKey,
 } from "~/skills";
+import InfoTooltip from '~/components/InfoTooltip.vue';
 
 const { query, hasSkill, addSkill, removeSkill } = useQuery();
 const { formatNumber, translate } = useLanguage();
@@ -64,35 +65,55 @@ function pointsClass(option: SkillOption) {
     :class="hasSelectedSkillGroup(card.skill) ? 'border-emerald-300 ring-2 ring-emerald-100 dark:border-emerald-700 dark:ring-emerald-950' : 'border-stone-200 dark:border-stone-700'"
   >
     <template v-if="card.options.length === 1">
-      <button
+      <div
         v-for="option in card.options"
         :key="option.points"
-        type="button"
-        class="flex w-full items-center gap-3 rounded-xl border px-3 py-2 text-left transition"
-        :class="optionClass(option)"
-        @click="toggleSkill(option)"
+        class="flex items-center gap-1"
       >
-        <span class="min-w-0 flex-1">
-          <span class="block truncate font-semibold">
-            {{ translate(getSkillEffectKey(option.requirement.skill, option.points)) }}
-          </span>
-          <span class="block truncate text-xs opacity-75">{{ translate(`skill-${card.skill.slug}`) }}</span>
-        </span>
-        <span
-          class="rounded-full px-2 py-1 text-xs font-medium"
-          :class="pointsClass(option)"
+        <button
+          type="button"
+          class="flex min-w-0 flex-1 items-center gap-3 rounded-xl border px-3 py-2 text-left transition"
+          :class="optionClass(option)"
+          @click="toggleSkill(option)"
         >
-          {{ formatSkillPoints(option.points) }}
-        </span>
-        <span class="flex shrink-0 gap-1 opacity-60">
-          <Icon
-            v-for="category in card.skill.categories"
-            :key="category"
-            :name="getSkillCategoryIcon(category)"
-            :title="translate(`category-${category}`)"
-          />
-        </span>
-      </button>
+          <span class="min-w-0 flex-1">
+            <span class="block truncate font-semibold">
+              {{ translate(getSkillEffectKey(option.requirement.skill, option.points)) }}
+            </span>
+            <span class="block truncate text-xs opacity-75">{{ translate(`skill-${card.skill.slug}`) }}</span>
+            <span class="mt-1 hidden whitespace-normal text-xs opacity-75 xl:block">
+              {{
+                translate(
+                  `${getSkillEffectKey(option.requirement.skill, option.points)}-description`,
+                )
+              }}
+            </span>
+          </span>
+          <span
+            class="rounded-full px-2 py-1 text-xs font-medium"
+            :class="pointsClass(option)"
+          >
+            {{ formatSkillPoints(option.points) }}
+          </span>
+          <span class="flex shrink-0 gap-1 opacity-60">
+            <Icon
+              v-for="category in card.skill.categories"
+              :key="category"
+              :name="getSkillCategoryIcon(category)"
+              :title="translate(`category-${category}`)"
+            />
+          </span>
+        </button>
+        <InfoTooltip
+          class="xl:hidden"
+          :label="translate(getSkillEffectKey(option.requirement.skill, option.points))"
+          :text="
+            translate(
+              `${getSkillEffectKey(option.requirement.skill, option.points)}-description`,
+            )
+          "
+        />
+      </div>
     </template>
 
     <template v-else>
@@ -119,24 +140,46 @@ function pointsClass(option: SkillOption) {
         class="grid gap-2 sm:grid-cols-2"
         :class="card.options.length === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'"
       >
-        <button
+        <div
           v-for="option in card.options"
           :key="option.points"
-          type="button"
-          class="flex items-center justify-between gap-3 rounded-xl border px-3 py-2 text-left text-sm transition"
-          :class="optionClass(option)"
-          @click="toggleSkill(option)"
+          class="flex min-w-0 items-center gap-1"
         >
-          <span class="min-w-0 truncate font-medium">
-            {{ translate(getSkillEffectKey(option.requirement.skill, option.points)) }}
-          </span>
-          <span
-            class="shrink-0 rounded-full px-2 py-1 text-xs font-medium"
-            :class="pointsClass(option)"
+          <button
+            type="button"
+            class="flex min-w-0 flex-1 items-center justify-between gap-3 self-stretch rounded-xl border px-3 py-2 text-left text-sm transition"
+            :class="optionClass(option)"
+            @click="toggleSkill(option)"
           >
+            <span class="min-w-0 flex-1">
+              <span class="block truncate font-medium">
+                {{ translate(getSkillEffectKey(option.requirement.skill, option.points)) }}
+              </span>
+              <span class="mt-1 hidden whitespace-normal text-xs opacity-75 xl:block">
+                {{
+                  translate(
+                    `${getSkillEffectKey(option.requirement.skill, option.points)}-description`,
+                  )
+                }}
+              </span>
+            </span>
+            <span
+              class="shrink-0 rounded-full px-2 py-1 text-xs font-medium"
+              :class="pointsClass(option)"
+            >
               {{ formatSkillPoints(option.points) }}
-          </span>
-        </button>
+            </span>
+          </button>
+          <InfoTooltip
+            class="xl:hidden"
+            :label="translate(getSkillEffectKey(option.requirement.skill, option.points))"
+            :text="
+              translate(
+                `${getSkillEffectKey(option.requirement.skill, option.points)}-description`,
+              )
+            "
+          />
+        </div>
       </div>
     </template>
   </article>
