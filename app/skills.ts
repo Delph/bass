@@ -81,6 +81,8 @@ export function getSkillCategoryIcon(category: string) {
       return 'lucide:swords';
     case 'defensive':
       return 'lucide:shield';
+    case 'combination':
+      return 'lucide:combine';
     case 'resistance':
       return 'lucide:component';
     case 'bowgun':
