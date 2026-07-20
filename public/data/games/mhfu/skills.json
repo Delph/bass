@@ -2,268 +2,128 @@
   {
     "id": 1,
     "slug": "attack",
-    "categories": [
-      "offensive"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10,
-      -15,
-      -20
-    ]
+    "categories": ["offensive"],
+    "effects": [10, 15, 20, -10, -15, -20]
   },
   {
     "id": 2,
     "slug": "defense",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10,
-      -15,
-      -20
-    ]
+    "categories": ["defensive"],
+    "effects": [10, 15, 20, -10, -15, -20]
   },
   {
     "id": 3,
     "slug": "health",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10,
-      -15,
-      -20
-    ]
+    "categories": ["defensive"],
+    "effects": [10, 15, 20, -10, -15, -20]
   },
   {
     "id": 4,
     "slug": "all-res",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10,
-      -15,
-      -20
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, 20, -10, -15, -20]
   },
   {
     "id": 5,
     "slug": "ice-res",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10,
-      -15,
-      -20
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, 20, -10, -15, -20]
   },
   {
     "id": 6,
     "slug": "water-res",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10,
-      -15,
-      -20
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, 20, -10, -15, -20]
   },
   {
     "id": 7,
     "slug": "thunder-res",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10,
-      -15,
-      -20
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, 20, -10, -15, -20]
   },
   {
     "id": 8,
     "slug": "dragon-res",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10,
-      -15,
-      -20
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, 20, -10, -15, -20]
   },
   {
     "id": 9,
     "slug": "fire-res",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10,
-      -15,
-      -20
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, 20, -10, -15, -20]
   },
   {
     "id": 10,
     "slug": "faint",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      -10
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, -10]
   },
   {
     "id": 11,
     "slug": "poison",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      -10
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, -10]
   },
   {
     "id": 12,
     "slug": "paralysis",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      -10
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, -10]
   },
   {
     "id": 13,
     "slug": "sleep",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      -10
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, -10]
   },
   {
     "id": 14,
     "slug": "antiseptic",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["resistance"],
+    "effects": [10]
   },
   {
     "id": 15,
     "slug": "fatigue",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["resistance"],
+    "effects": [10]
   },
   {
     "id": 16,
     "slug": "snow-res",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["resistance"],
+    "effects": [10]
   },
   {
     "id": 17,
     "slug": "quake-res",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["resistance"],
+    "effects": [10]
   },
   {
     "id": 18,
     "slug": "hear-protct",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      15
-    ]
+    "categories": ["defensive"],
+    "effects": [10, 15]
   },
   {
     "id": 19,
     "slug": "wind-press",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      15,
-      20
-    ]
+    "categories": ["defensive"],
+    "effects": [10, 15, 20]
   },
   {
     "id": 20,
     "slug": "anti-theft",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["resistance"],
+    "effects": [10]
   },
   {
     "id": 21,
     "slug": "resist-sts",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10
-    ],
+    "categories": ["resistance", "combination"],
+    "effects": [10],
     "combines": [
       {
         "skill": "faint",
@@ -286,12 +146,8 @@
   {
     "id": 22,
     "slug": "anti-fire-drg",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10
-    ],
+    "categories": ["resistance", "combination"],
+    "effects": [10],
     "combines": [
       {
         "skill": "terrain",
@@ -306,12 +162,8 @@
   {
     "id": 23,
     "slug": "anti-daora",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10
-    ],
+    "categories": ["resistance", "combination"],
+    "effects": [10],
     "combines": [
       {
         "skill": "snow-res",
@@ -326,12 +178,8 @@
   {
     "id": 24,
     "slug": "anti-chamel",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10
-    ],
+    "categories": ["resistance", "combination"],
+    "effects": [10],
     "combines": [
       {
         "skill": "anti-theft",
@@ -350,89 +198,50 @@
   {
     "id": 25,
     "slug": "artisan",
-    "categories": [
-      "offensive",
-      "blademaster"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["offensive", "blademaster"],
+    "effects": [10]
   },
   {
     "id": 26,
     "slug": "sharpness",
-    "categories": [
-      "blademaster"
-    ],
-    "effects": [
-      10,
-      -10
-    ]
+    "categories": ["blademaster"],
+    "effects": [10, -10]
   },
   {
     "id": 27,
     "slug": "fencing",
-    "categories": [
-      "blademaster"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["blademaster"],
+    "effects": [10]
   },
   {
     "id": 28,
     "slug": "swd-shrpner",
-    "categories": [
-      "blademaster"
-    ],
-    "effects": [
-      10,
-      -10
-    ]
+    "categories": ["blademaster"],
+    "effects": [10, -10]
   },
   {
     "id": 29,
     "slug": "guard",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      20,
-      -10
-    ]
+    "categories": ["defensive"],
+    "effects": [10, 20, -10]
   },
   {
     "id": 30,
     "slug": "auto-guard",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["defensive"],
+    "effects": [10]
   },
   {
     "id": 31,
     "slug": "sword-draw",
-    "categories": [
-      "blademaster",
-      "offensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["blademaster", "offensive"],
+    "effects": [10]
   },
   {
     "id": 32,
     "slug": "edge-master",
-    "categories": [
-      "blademaster",
-      "offensive"
-    ],
-    "effects": [
-      10
-    ],
+    "categories": ["blademaster", "offensive", "combination"],
+    "effects": [10],
     "combines": [
       {
         "skill": "artisan",
@@ -447,205 +256,110 @@
   {
     "id": 33,
     "slug": "normal-s-up",
-    "categories": [
-      "bowgun",
-      "bow",
-      "offensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["bowgun", "bow", "offensive"],
+    "effects": [10]
   },
   {
     "id": 34,
     "slug": "pierce-s-up",
-    "categories": [
-      "bowgun",
-      "bow",
-      "offensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["bowgun", "bow", "offensive"],
+    "effects": [10]
   },
   {
     "id": 35,
     "slug": "pellet-s-up",
-    "categories": [
-      "bowgun",
-      "bow",
-      "offensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["bowgun", "bow", "offensive"],
+    "effects": [10]
   },
   {
     "id": 36,
     "slug": "normal-s-add",
-    "categories": [
-      "bowgun"
-    ],
-    "effects": [
-      15,
-      20
-    ]
+    "categories": ["bowgun"],
+    "effects": [15, 20]
   },
   {
     "id": 37,
     "slug": "pierce-s-add",
-    "categories": [
-      "bowgun"
-    ],
-    "effects": [
-      10,
-      15
-    ]
+    "categories": ["bowgun"],
+    "effects": [10, 15]
   },
   {
     "id": 38,
     "slug": "pellet-s-add",
-    "categories": [
-      "bowgun"
-    ],
-    "effects": [
-      10,
-      15
-    ]
+    "categories": ["bowgun"],
+    "effects": [10, 15]
   },
   {
     "id": 39,
     "slug": "crag-s-add",
-    "categories": [
-      "bowgun"
-    ],
-    "effects": [
-      10,
-      15
-    ]
+    "categories": ["bowgun"],
+    "effects": [10, 15]
   },
   {
     "id": 40,
     "slug": "clust-s-add",
-    "categories": [
-      "bowgun"
-    ],
-    "effects": [
-      10,
-      15
-    ]
+    "categories": ["bowgun"],
+    "effects": [10, 15]
   },
   {
     "id": 41,
     "slug": "reload",
-    "categories": [
-      "bowgun",
-      "bow"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10,
-      -15
-    ]
+    "categories": ["bowgun", "bow"],
+    "effects": [10, 15, 20, -10, -15]
   },
   {
     "id": 42,
     "slug": "auto-reload",
-    "categories": [
-      "bowgun",
-      "bow"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["bowgun", "bow"],
+    "effects": [10]
   },
   {
     "id": 43,
     "slug": "recoil",
-    "categories": [
-      "bowgun"
-    ],
-    "effects": [
-      10,
-      20,
-      -10,
-      -15
-    ]
+    "categories": ["bowgun"],
+    "effects": [10, 20, -10, -15]
   },
   {
     "id": 44,
     "slug": "precision",
-    "categories": [
-      "bowgun"
-    ],
-    "effects": [
-      10,
-      -10
-    ]
+    "categories": ["bowgun"],
+    "effects": [10, -10]
   },
   {
     "id": 45,
     "slug": "poison-c-add",
-    "categories": [
-      "bow"
-    ],
-    "effects": [
-      15
-    ]
+    "categories": ["bow"],
+    "effects": [15]
   },
   {
     "id": 46,
     "slug": "paraly-c-add",
-    "categories": [
-      "bow"
-    ],
-    "effects": [
-      15
-    ]
+    "categories": ["bow"],
+    "effects": [15]
   },
   {
     "id": 47,
     "slug": "sleep-c-add",
-    "categories": [
-      "bow"
-    ],
-    "effects": [
-      15
-    ]
+    "categories": ["bow"],
+    "effects": [15]
   },
   {
     "id": 48,
     "slug": "power-c-add",
-    "categories": [
-      "bow"
-    ],
-    "effects": [
-      15
-    ]
+    "categories": ["bow"],
+    "effects": [15]
   },
   {
     "id": 49,
     "slug": "cls-rng-c-add",
-    "categories": [
-      "bow"
-    ],
-    "effects": [
-      15
-    ]
+    "categories": ["bow"],
+    "effects": [15]
   },
   {
     "id": 50,
     "slug": "steady-hand",
-    "categories": [
-      "bowgun",
-      "bow",
-      "offensive"
-    ],
-    "effects": [
-      10
-    ],
+    "categories": ["bowgun", "bow", "offensive", "combination"],
+    "effects": [10],
     "combines": [
       {
         "skill": "normal-s-up",
@@ -664,158 +378,86 @@
   {
     "id": 51,
     "slug": "expert",
-    "categories": [
-      "offensive"
-    ],
-    "effects": [
-      10,
-      15,
-      20,
-      -10
-    ]
+    "categories": ["offensive"],
+    "effects": [10, 15, 20, -10]
   },
   {
     "id": 52,
     "slug": "spc-attack",
-    "categories": [
-      "offensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["offensive"],
+    "effects": [10]
   },
   {
     "id": 53,
     "slug": "element-atk",
-    "categories": [
-      "offensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["offensive"],
+    "effects": [10]
   },
   {
     "id": 54,
     "slug": "rec-speed",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      20,
-      -10
-    ]
+    "categories": ["defensive"],
+    "effects": [10, 20, -10]
   },
   {
     "id": 55,
     "slug": "protection",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      -10
-    ]
+    "categories": ["defensive"],
+    "effects": [10, -10]
   },
   {
     "id": 56,
     "slug": "guard-up",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["defensive"],
+    "effects": [10]
   },
   {
     "id": 57,
     "slug": "evade",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      15
-    ]
+    "categories": ["defensive"],
+    "effects": [10, 15]
   },
   {
     "id": 58,
     "slug": "evade-dist",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["defensive"],
+    "effects": [10]
   },
   {
     "id": 59,
     "slug": "potential",
-    "categories": [
-      "offensive"
-    ],
-    "effects": [
-      10,
-      15,
-      -10
-    ]
+    "categories": ["offensive"],
+    "effects": [10, 15, -10]
   },
   {
     "id": 60,
     "slug": "gunnery",
-    "categories": [
-      "offensive"
-    ],
-    "effects": [
-      10,
-      15
-    ]
+    "categories": ["offensive"],
+    "effects": [10, 15]
   },
   {
     "id": 61,
     "slug": "capacity",
-    "categories": [
-      "offensive",
-      "bowgun",
-      "bow",
-      "blademaster"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["offensive", "bowgun", "bow", "blademaster"],
+    "effects": [10]
   },
   {
     "id": 62,
     "slug": "short-charg",
-    "categories": [
-      "bow",
-      "blademaster"
-    ],
-    "effects": [
-      10,
-      -10
-    ]
+    "categories": ["bow", "blademaster"],
+    "effects": [10, -10]
   },
   {
     "id": 63,
     "slug": "guts",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["defensive"],
+    "effects": [10]
   },
   {
     "id": 64,
     "slug": "fury",
-    "categories": [
-      "offensive",
-      "defensive"
-    ],
-    "effects": [
-      10
-    ],
+    "categories": ["offensive", "defensive", "combination"],
+    "effects": [10],
     "combines": [
       {
         "skill": "guts",
@@ -831,347 +473,205 @@
     "id": 65,
     "slug": "map",
     "categories": [],
-    "effects": [
-      10,
-      -10
-    ]
+    "effects": [10, -10]
   },
   {
     "id": 66,
     "slug": "psychic-vis",
     "categories": [],
-    "effects": [
-      10,
-      15
-    ]
+    "effects": [10, 15]
   },
   {
     "id": 67,
     "slug": "gathering",
-    "categories": [
-      "treasure-hunting"
-    ],
-    "effects": [
-      10,
-      15,
-      -10,
-      -15
-    ]
+    "categories": ["treasure-hunting"],
+    "effects": [10, 15, -10, -15]
   },
   {
     "id": 68,
     "slug": "carving",
-    "categories": [
-      "farming",
-      "treasure-hunting"
-    ],
-    "effects": [
-      10,
-      20
-    ]
+    "categories": ["farming", "treasure-hunting"],
+    "effects": [10, 20]
   },
   {
     "id": 69,
     "slug": "hi-spd-gathr",
-    "categories": [
-      "treasure-hunting"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["treasure-hunting"],
+    "effects": [10]
   },
   {
     "id": 70,
     "slug": "backpackng",
-    "categories": [
-      "treasure-hunting"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["treasure-hunting"],
+    "effects": [10]
   },
   {
     "id": 71,
     "slug": "whim",
-    "categories": [
-      "treasure-hunting"
-    ],
-    "effects": [
-      15,
-      20,
-      -10,
-      -15
-    ]
+    "categories": ["treasure-hunting"],
+    "effects": [15, 20, -10, -15]
   },
   {
     "id": 72,
     "slug": "fishing",
-    "categories": [
-      "treasure-hunting"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["treasure-hunting"],
+    "effects": [10]
   },
   {
     "id": 73,
     "slug": "heat-res",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      -10
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, -10]
   },
   {
     "id": 74,
     "slug": "cold-res",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      -10
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, -10]
   },
   {
     "id": 75,
     "slug": "terrain",
-    "categories": [
-      "resistance"
-    ],
-    "effects": [
-      10,
-      15,
-      -10,
-      -15
-    ]
+    "categories": ["resistance"],
+    "effects": [10, 15, -10, -15]
   },
   {
     "id": 76,
     "slug": "stamina",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      -10
-    ]
+    "categories": ["defensive"],
+    "effects": [10, -10]
   },
   {
     "id": 77,
     "slug": "constitutn",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      15
-    ]
+    "categories": ["defensive"],
+    "effects": [10, 15]
   },
   {
     "id": 78,
     "slug": "hunger",
     "categories": [],
-    "effects": [
-      10,
-      15,
-      -10,
-      -15
-    ]
+    "effects": [10, 15, -10, -15]
   },
   {
     "id": 79,
     "slug": "sneak",
     "categories": [],
-    "effects": [
-      10,
-      -10
-    ]
+    "effects": [10, -10]
   },
   {
     "id": 80,
     "slug": "fate",
-    "categories": [
-      "farming"
-    ],
-    "effects": [
-      10,
-      15,
-      -10,
-      -20
-    ]
+    "categories": ["farming"],
+    "effects": [10, 15, -10, -20]
   },
   {
     "id": 81,
     "slug": "speed-setup",
     "categories": [],
-    "effects": [
-      10
-    ]
+    "effects": [10]
   },
   {
     "id": 82,
     "slug": "tranquilzr",
-    "categories": [
-      "farming"
-    ],
-    "effects": [
-      10,
-      15
-    ]
+    "categories": ["farming"],
+    "effects": [10, 15]
   },
   {
     "id": 83,
     "slug": "perceive",
-    "categories": [
-      "farming"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["farming"],
+    "effects": [10]
   },
   {
     "id": 84,
     "slug": "recovery",
-    "categories": [
-      "defensive"
-    ],
-    "effects": [
-      10,
-      -10
-    ]
+    "categories": ["defensive"],
+    "effects": [10, -10]
   },
   {
     "id": 85,
     "slug": "everlastng",
     "categories": [],
-    "effects": [
-      10,
-      -10
-    ]
+    "effects": [10, -10]
   },
   {
     "id": 86,
     "slug": "wide-area",
     "categories": [],
-    "effects": [
-      10,
-      20
-    ]
+    "effects": [10, 20]
   },
   {
     "id": 87,
     "slug": "throw",
     "categories": [],
-    "effects": [
-      10
-    ]
+    "effects": [10]
   },
   {
     "id": 88,
     "slug": "bomb-str-up",
-    "categories": [
-      "offensive"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["offensive"],
+    "effects": [10]
   },
   {
     "id": 89,
     "slug": "gluttony",
     "categories": [],
-    "effects": [
-      10,
-      15
-    ]
+    "effects": [10, 15]
   },
   {
     "id": 90,
     "slug": "cooking",
     "categories": [],
-    "effects": [
-      10,
-      -10
-    ]
+    "effects": [10, -10]
   },
   {
     "id": 91,
     "slug": "bbq",
     "categories": [],
-    "effects": [
-      10,
-      -10
-    ]
+    "effects": [10, -10]
   },
   {
     "id": 92,
     "slug": "horn",
-    "categories": [
-      "blademaster"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["blademaster"],
+    "effects": [10]
   },
   {
     "id": 93,
     "slug": "mix-suc-rate",
     "categories": [],
-    "effects": [
-      10,
-      15,
-      20,
-      -10
-    ]
+    "effects": [10, 15, 20, -10]
   },
   {
     "id": 94,
     "slug": "shot-mix",
-    "categories": [
-      "bowgun",
-      "bow"
-    ],
-    "effects": [
-      10
-    ]
+    "categories": ["bowgun", "bow"],
+    "effects": [10]
   },
   {
     "id": 95,
     "slug": "alchemy",
     "categories": [],
-    "effects": [
-      10
-    ]
+    "effects": [10]
   },
   {
     "id": 96,
     "slug": "comrd-guide",
     "categories": [],
-    "effects": [
-      10,
-      15
-    ]
+    "effects": [10, 15]
   },
   {
     "id": 97,
     "slug": "comrade-atk",
     "categories": [],
-    "effects": [
-      10
-    ]
+    "effects": [10]
   },
   {
     "id": 98,
     "slug": "comrade-def",
     "categories": [],
-    "effects": [
-      10
-    ]
+    "effects": [10]
   },
   {
     "id": 99,
