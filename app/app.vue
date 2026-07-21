@@ -8,40 +8,25 @@ import {
   ref,
   watch,
 } from 'vue';
-import { useRoute, useRouter } from "vue-router";
+import { useRoute, useRouter } from 'vue-router';
 
-import { useGame } from "~/composables/useGame";
+import { useGame } from '~/composables/useGame';
 import { useHistory } from '~/composables/useHistory';
 import { usePersistence } from '~/composables/usePersistence';
 import { useSets } from '~/composables/useSets';
-import { useThemeSync } from "~/composables/useTheme";
+import { useThemeSync } from '~/composables/useTheme';
 import { useLanguage } from '~/composables/useLanguage';
 import { useToasts } from '~/composables/useToasts';
-import {
-  SITE_DESCRIPTION,
-  SITE_NAME,
-  SITE_TITLE,
-  SITE_URL,
-} from '~/metadata';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '~/metadata';
 import '~/persistence/register';
 
-import SideBar from "~/components/SideBar.vue";
-import Progress from "~/components/Progress.vue";
+import SideBar from '~/components/SideBar.vue';
+import Progress from '~/components/Progress.vue';
 import SearchStatus from '~/components/SearchStatus.vue';
 import Toast from '~/components/Toast.vue';
 
-const {
-  locale,
-  ready,
-  translate,
-} = useLanguage();
-const {
-  data,
-  game,
-  loading,
-  retry,
-  status,
-} = useGame();
+const { locale, ready, translate } = useLanguage();
+const { data, game, loading, retry, status } = useGame();
 const route = useRoute();
 const router = useRouter();
 const { toasts } = useToasts();
@@ -60,8 +45,7 @@ const documentTitle = computed(() => {
   if (!ready.value) return SITE_TITLE;
 
   const currentGame = game.value;
-  if (!currentGame)
-    return `${translate('bass-title-full')} | ${SITE_NAME}`;
+  if (!currentGame) return `${translate('bass-title-full')} | ${SITE_NAME}`;
 
   const [, section, child] = route.path.split('/').filter(Boolean);
   if (!section)
@@ -206,7 +190,7 @@ const showPersistenceNotice = computed(
         </button>
       </div>
       <NuxtLink to="/">
-        <h1>{{ translate("bass-title-full") }}</h1>
+        <h1>{{ translate('bass-title-full') }}</h1>
       </NuxtLink>
       <div class="justify-self-end">
         <SearchStatus />
@@ -237,25 +221,17 @@ const showPersistenceNotice = computed(
         :inert="menu"
       >
         <div
-          class="flex flex-col gap-4 md:mx-auto md:w-full md:max-w-[60rem]"
+          class="flex flex-col gap-4 md:mx-auto md:w-full md:max-w-240"
           :class="scroll ? 'shrink-0' : 'min-h-0 flex-1'"
         >
-          <NuxtPage v-slot="{ Component }">
-            <component
-              :is="Component"
-              v-if="ready && (!game || data)"
-            />
-          </NuxtPage>
+          <NuxtPage v-if="ready && (!game || data)" />
         </div>
         <div
           v-if="ready && game && !data && status !== 'error'"
           class="flex flex-col gap-2 text-center"
         >
           <p>{{ translate('common-loading') }}</p>
-          <Progress
-            :value="loading.done"
-            :max="loading.total"
-          />
+          <Progress :value="loading.done" :max="loading.total" />
           <p class="text-sm text-stone-600 dark:text-stone-400">
             {{ loading.done }} / {{ loading.total }}
           </p>
@@ -265,7 +241,10 @@ const showPersistenceNotice = computed(
           class="m-auto flex max-w-lg flex-col items-center gap-4 rounded-2xl border border-rose-300 bg-rose-50 p-6 text-center dark:border-rose-900 dark:bg-rose-950"
           role="alert"
         >
-          <Icon name="lucide:cloud-off" class="text-4xl text-rose-700 dark:text-rose-300" />
+          <Icon
+            name="lucide:cloud-off"
+            class="text-4xl text-rose-700 dark:text-rose-300"
+          />
           <div class="flex flex-col gap-1">
             <h2 class="text-xl font-bold">
               {{ translate('game-data-error-title') }}
