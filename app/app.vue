@@ -124,7 +124,6 @@ watch(
     if (!main.value) return;
 
     main.value.scrollTop = 0;
-    main.value.focus({ preventScroll: true });
   },
 );
 
@@ -215,7 +214,6 @@ const showPersistenceNotice = computed(
       />
       <main
         ref="main"
-        tabindex="-1"
         class="flex min-h-0 flex-1 flex-col p-4 md:pt-4"
         :class="scroll ? 'overflow-y-auto' : 'overflow-hidden'"
         :inert="menu"
