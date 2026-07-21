@@ -1,5 +1,8 @@
 {
-  "name": "bass-v3",
+  "name": "bass",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/Delph/bass",
   "type": "module",
   "private": true,
   "scripts": {
@@ -25,6 +28,7 @@
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.118",
     "prettier": "^3.8.4",
+    "rollup-plugin-license": "3.7.0",
     "vitest": "^4.1.8"
   }
 }

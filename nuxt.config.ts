@@ -1,13 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import tailwindcss from '@tailwindcss/vite';
+import lucidePackage from '@iconify-json/lucide/package.json';
+import licensePlugin from 'rollup-plugin-license';
 import colors from 'tailwindcss/colors';
+import lucideNotice from './licenses/lucide.json';
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_TITLE,
   SITE_URL,
 } from './app/metadata';
+
+if (lucideNotice.version !== lucidePackage.version) {
+  throw new Error(
+    `Lucide license notice targets ${lucideNotice.version}, but ${lucidePackage.version} is installed`,
+  );
+}
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -16,7 +25,10 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { lang: 'en-US' },
       title: SITE_TITLE,
-      link: [{ rel: 'canonical', href: SITE_URL }],
+      link: [
+        { rel: 'canonical', href: SITE_URL },
+        { rel: 'license', href: '/licenses.json', type: 'application/json' },
+      ],
       meta: [
         { name: 'description', content: SITE_DESCRIPTION },
         { name: 'application-name', content: SITE_NAME },
@@ -50,6 +62,70 @@ export default defineNuxtConfig({
     dirs: [],
   },
   modules: ['@nuxt/icon'],
+  hooks: {
+    'vite:extendConfig'(config, { isClient }) {
+      if (!isClient) return;
+
+      config.plugins ??= [];
+      config.plugins.push(
+        licensePlugin({
+          thirdParty: {
+            includeSelf: true,
+            multipleVersions: true,
+            allow: {
+              test: (dependency) =>
+                Boolean(dependency.licenseText) &&
+                !dependency.license?.toUpperCase().includes('GPL'),
+              failOnUnlicensed: true,
+              failOnViolation: true,
+            },
+            output: {
+              file: 'public/licenses.json',
+              template: (dependencies) => {
+                if (
+                  dependencies.some(
+                    (dependency) => dependency.name === lucideNotice.name,
+                  )
+                ) {
+                  throw new Error(
+                    'Lucide is now detected automatically; remove its explicit license notice',
+                  );
+                }
+
+                return JSON.stringify(
+                  [
+                    ...dependencies.map((dependency) => ({
+                      name: dependency.name,
+                      version: dependency.version,
+                      license: dependency.license,
+                      licenseText: dependency.licenseText,
+                      noticeText: dependency.noticeText,
+                      author: dependency.author?.text() ?? null,
+                      source:
+                        typeof dependency.repository === 'string'
+                          ? dependency.repository
+                          : (dependency.repository?.url ?? dependency.homepage),
+                    })),
+                    {
+                      ...lucideNotice,
+                      licenseText: lucideNotice.licenseText.join('\n'),
+                      noticeText: null,
+                    },
+                  ].sort((a, b) =>
+                    `${a.name}@${a.version}`.localeCompare(
+                      `${b.name}@${b.version}`,
+                    ),
+                  ),
+                  null,
+                  2,
+                );
+              },
+            },
+          },
+        }),
+      );
+    },
+  },
   icon: {
     provider: 'none',
     fallbackToApi: false,

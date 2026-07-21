@@ -1,0 +1,12 @@
+services:
+  bass:
+    build:
+      context: .
+      args:
+        APP_VERSION: ${BASS_VERSION:-0.0.0}
+        BUILD_SHA: ${BASS_BUILD_SHA:-unknown}
+        BUILD_DATE: ${BASS_BUILD_DATE:-unknown}
+    image: bass:${BASS_VERSION:-local}
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:5040:80'

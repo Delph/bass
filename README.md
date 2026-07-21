@@ -1,25 +1,41 @@
 # BASS
 
-BASS is a browser-based armour set search tool for Monster Hunter. The current version supports Monster Hunter Freedom Unite.
+BASS is a browser-based armour set search tool for the Monster Hunter games. The current version supports Monster Hunter Freedom Unite.
 
-## Browser Support
+## Games
 
-The v1 browser baseline is:
+Currently, only Monster Hunter Freedom Unite (Portable 2nd G) is supported. It is planned to expand to Freedom and Freedom 2.
 
-- Chromium-based browsers 114 or later, including Android System WebView 114 or later.
-- Firefox 128 or later.
-- Safari 17 or later on macOS, iOS, and iPadOS.
+## Planned Features
 
-These minimums cover the application's runtime feature requirements and match the JavaScript build targets in `nuxt.config.ts`. Older browsers are not supported. Minimum-version browser testing is required before the v1 release.
+- [ ] A set building mode, where a user can build a set manually
+- [ ] Search limits to help facilitate handicapped builds (e.g., max rarity, certain pieces)
+- [ ] More control over sorting the results (by free slots, etc)
+- [ ] Result filtering to ignore certain monsters / hard to acquire resources
+- [ ] PWA
 
-## V1 Limitations
+## Contributing
 
-V1 is a browser application, not an installable Progressive Web App. It does not include a service worker or guarantee offline operation. PWA installation and offline support are planned for a later release after the initial browser release has received user feedback.
+This version of BASS supports localisation and translations. Currently only English is supported, but if you speak another language you can get involved and help out by providing translations for the application and the game data.
 
-V1 is intended for direct distribution and instructs search engines not to index it. Search discoverability can be reconsidered alongside a prerendered or server-rendered public landing page.
+## Development
+
+BASS has been built with `bun`, and it is recommended to use `bun` for development purposes, rather than trying to use `node` or another runtime.
+Clone the repository, install the dependencies, and then run the development server;
+
+```sh
+git clone https://github.com/Delph/bass.git
+cd bass
+bun install
+bun run dev
+```
+
+A test suite is included (`bun run test`), and there is some early work on a profiling system for optimising the search algorithm (`bun run profile`).
+
+Pull request titles should follow Conventional Commit syntax because the release process uses Release Please. Individual commits on a branch do not need to follow this convention when the pull request is squash merged.
 
 ## Licensing and Legal
 
 Original source code and project documentation are available under the [MIT License](LICENSE).
 
-BASS is an unofficial, non-commercial fan project and is not affiliated with or endorsed by CAPCOM. The current interface includes game-derived reference artwork that is excluded from the project's MIT License and is planned to be replaced with original SVGs. See [NOTICE.md](NOTICE.md) for asset provenance, third-party icon licenses, and the complete fan-project notice.
+BASS is an unofficial, non-commercial fan project and is not affiliated with or endorsed by CAPCOM. The current interface includes game-derived reference artwork that is excluded from the project's MIT License and is planned to be replaced with original SVGs. See [NOTICE.md](NOTICE.md) for asset provenance and the complete fan-project notice. Software license information is generated with the production client bundle.
