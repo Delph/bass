@@ -170,28 +170,28 @@ function label(tab: Tab) {
                 : 'text-stone-600 hover:bg-stone-200 dark:text-stone-300 dark:hover:bg-stone-800'
             "
             :to="resultsPath()"
-            >
-              {{ translate('navigation-tab-results') }}
-            </NuxtLink>
-          </template>
-          <NuxtLink
-            class="flex items-center gap-2 rounded px-3 py-2 font-semibold"
-            :class="
-              route.path === settingsPath()
-                ? 'bg-emerald-700 text-white dark:bg-emerald-500 dark:text-stone-950'
-                : 'text-stone-700 hover:bg-stone-200 dark:text-stone-200 dark:hover:bg-stone-800'
-            "
-            :to="settingsPath()"
           >
-            {{ translate('settings') }}
-            <span
-              v-if="notice"
-              class="size-2 rounded-full bg-amber-500"
-              aria-hidden="true"
-            />
+            {{ translate('navigation-tab-results') }}
           </NuxtLink>
-        </nav>
-      </div>
+        </template>
+        <NuxtLink
+          class="flex items-center gap-2 rounded px-3 py-2 font-semibold"
+          :class="
+            route.path === settingsPath()
+              ? 'bg-emerald-700 text-white dark:bg-emerald-500 dark:text-stone-950'
+              : 'text-stone-700 hover:bg-stone-200 dark:text-stone-200 dark:hover:bg-stone-800'
+          "
+          :to="settingsPath()"
+        >
+          {{ translate('settings') }}
+          <span
+            v-if="notice"
+            class="size-2 rounded-full bg-amber-500"
+            aria-hidden="true"
+          />
+        </NuxtLink>
+      </nav>
+    </div>
     <div
       class="flex flex-col gap-3 border-t border-stone-200 pt-4 dark:border-stone-800"
     >
