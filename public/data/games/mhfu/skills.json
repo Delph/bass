@@ -27,31 +27,31 @@
     "id": 5,
     "slug": "ice-res",
     "categories": ["resistance"],
-    "effects": [10, 15, 20, -10, -15, -20]
+    "effects": [10, 15, -10, -15]
   },
   {
     "id": 6,
     "slug": "water-res",
     "categories": ["resistance"],
-    "effects": [10, 15, 20, -10, -15, -20]
+    "effects": [10, 15, -10, -15]
   },
   {
     "id": 7,
     "slug": "thunder-res",
     "categories": ["resistance"],
-    "effects": [10, 15, 20, -10, -15, -20]
+    "effects": [10, 15, -10, -15]
   },
   {
     "id": 8,
     "slug": "dragon-res",
     "categories": ["resistance"],
-    "effects": [10, 15, 20, -10, -15, -20]
+    "effects": [10, 15, -10, -15]
   },
   {
     "id": 9,
     "slug": "fire-res",
     "categories": ["resistance"],
-    "effects": [10, 15, 20, -10, -15, -20]
+    "effects": [10, 15, -10, -15]
   },
   {
     "id": 10,
