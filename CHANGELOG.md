@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/Delph/bass/compare/0.1.1...0.1.2) (2026-07-21)
+
+
+### Fixed
+
+* prevent blank initial route ([b6824fd](https://github.com/Delph/bass/commit/b6824fdc1a65bff2629de3d030b651e83167d2e7))
+
 ## [0.1.1](https://github.com/Delph/bass/compare/0.1.0...0.1.1) (2026-07-21)
 
 
