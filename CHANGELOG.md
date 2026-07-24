@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/Delph/bass/compare/0.2.1...0.2.2) (2026-07-24)
+
+
+### Fixed
+
+* **app:** Show basic loading screen while app is loading ([655065c](https://github.com/Delph/bass/commit/655065ca5270e0dcec07adc3958891948c24faf2))
+
 ## [0.2.1](https://github.com/Delph/bass/compare/0.2.0...0.2.1) (2026-07-24)
 
 
