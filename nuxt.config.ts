@@ -12,7 +12,7 @@ import {
   SITE_TITLE,
   SITE_URL,
 } from './app/metadata';
-import { pick } from '~/utility';
+import { pick } from './app/utility';
 
 if (lucideNotice.version !== lucidePackage.version) {
   throw new Error(
@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       title: SITE_TITLE,
       link: [
         { rel: 'canonical', href: SITE_URL },
-        { rel: 'license', href: '/licenses.json', type: 'application/json' },
+        { rel: 'license', href: '/licenses.json' },
       ],
       meta: [
         { name: 'description', content: SITE_DESCRIPTION },
@@ -96,7 +96,13 @@ export default defineNuxtConfig({
                 return JSON.stringify(
                   [
                     ...dependencies.map((dependency) => ({
-                      ...pick(dependency, ['name', 'version', 'license', 'licenseText', 'noticeText']),
+                      ...pick(dependency, [
+                        'name',
+                        'version',
+                        'license',
+                        'licenseText',
+                        'noticeText',
+                      ]),
                       author: dependency.author?.text() ?? null,
                       source:
                         typeof dependency.repository === 'string'

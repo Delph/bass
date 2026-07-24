@@ -29,7 +29,8 @@
     "vue-router": "^5.1.0"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.118",
+    "@iconify-json/lucide": "1.2.118",
+    "@types/node": "^26.1.1",
     "prettier": "^3.8.4",
     "rollup-plugin-license": "3.7.0",
     "vitest": "^4.1.8"
