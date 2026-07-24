@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import ConfirmDialog from '~/components/ConfirmDialog.vue';
 import LanguageSelector from '~/components/LanguageSelector.vue';
 import NumberSlider from '~/components/NumberSlider.vue';
+import RollbarTest from '~/components/RollbarTest.vue';
 import Textarea from '~/components/Textarea.vue';
 import { usePersistence } from '~/composables/usePersistence';
 import { usePreferences } from '~/composables/usePreferences';
@@ -13,10 +15,11 @@ import { maxCutoff, minCutoff } from '~/persistence/buckets/preferences';
 import { exportText, importText, prune, reset } from '~/persistence/storage';
 import { maxWorkers } from '~/workers/pool';
 
-const { formatNumber, translate } = useLanguage();
+const { formatDateTime, formatNumber, translate } = useLanguage();
 const { workers, setWorkers, cutoff, setCutoff } = usePreferences();
 const { theme, set } = useTheme();
 const toasts = useToasts();
+const router = useRouter();
 const {
   check: checkPersistence,
   dismiss: dismissPersistenceReminder,
@@ -29,6 +32,9 @@ const {
 const confirmDelete = ref(false);
 const confirmImport = ref(false);
 const dataText = ref('');
+const privacyUpdated = computed(
+  () => new Date(String(router.resolve('/privacy').meta.privacyUpdatedAt)),
+);
 const persistenceMessage = computed(() => {
   const status = !persistenceSupported.value
     ? 'unsupported'
@@ -81,8 +87,7 @@ async function protectLocalData() {
   try {
     const granted = await requestPersistence();
 
-    if (granted)
-      toasts.success(translate('settings-storage-protect-success'));
+    if (granted) toasts.success(translate('settings-storage-protect-success'));
     else {
       dismissReminder();
       toasts.add({
@@ -426,6 +431,34 @@ onMounted(checkPersistence);
       </button>
     </div>
   </section>
+
+  <section class="rounded-xl bg-stone-100 p-3 dark:bg-stone-800">
+    <h3 class="font-semibold">
+      {{ translate('settings-privacy-policy') }}
+    </h3>
+    <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">
+      {{
+        translate('settings-privacy-policy-updated', {
+          date: formatDateTime(privacyUpdated, {
+            month: 'long',
+            hour: undefined,
+            minute: undefined,
+            second: undefined,
+          }),
+        })
+      }}
+    </p>
+    <NuxtLink
+      class="mt-3 inline-block font-semibold text-emerald-700 underline dark:text-emerald-400"
+      to="/privacy"
+    >
+      {{ translate('settings-privacy-policy-link') }}
+    </NuxtLink>
+  </section>
+
+  <DevOnly>
+    <RollbarTest />
+  </DevOnly>
 
   <ConfirmDialog
     :open="confirmImport"

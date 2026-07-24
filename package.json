@@ -16,12 +16,14 @@
     "test:watch": "vitest",
     "preview": "nuxt preview",
     "profile": "bun run scripts/profile.ts",
+    "sourcemaps": "bun run scripts/source-maps.ts",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@nuxt/icon": "^2.2.3",
     "@tailwindcss/vite": "^4.3.0",
     "nuxt": "^4.4.7",
+    "rollbar": "^3.1.0",
     "tailwindcss": "^4.3.0",
     "vue": "^3.5.35",
     "vue-router": "^5.1.0"

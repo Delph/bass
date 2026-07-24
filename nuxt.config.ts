@@ -5,6 +5,7 @@ import lucidePackage from '@iconify-json/lucide/package.json';
 import licensePlugin from 'rollup-plugin-license';
 import colors from 'tailwindcss/colors';
 import lucideNotice from './licenses/lucide.json';
+import packageJson from './package.json';
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -62,6 +63,16 @@ export default defineNuxtConfig({
     dirs: [],
   },
   modules: ['@nuxt/icon'],
+  runtimeConfig: {
+    public: {
+      appVersion: packageJson.version,
+      rollbarAccessToken: process.env.ROLLBAR_CLIENT_TOKEN ?? '',
+    },
+  },
+  sourcemap: {
+    client: 'hidden',
+    server: false,
+  },
   hooks: {
     'vite:extendConfig'(config, { isClient }) {
       if (!isClient) return;
