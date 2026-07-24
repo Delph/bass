@@ -12,6 +12,7 @@ import {
   SITE_TITLE,
   SITE_URL,
 } from './app/metadata';
+import { pick } from '~/utility';
 
 if (lucideNotice.version !== lucidePackage.version) {
   throw new Error(
@@ -77,8 +78,7 @@ export default defineNuxtConfig({
     'vite:extendConfig'(config, { isClient }) {
       if (!isClient) return;
 
-      config.plugins ??= [];
-      config.plugins.push(
+      config.plugins?.push(
         licensePlugin({
           thirdParty: {
             includeSelf: true,
@@ -93,24 +93,10 @@ export default defineNuxtConfig({
             output: {
               file: 'public/licenses.json',
               template: (dependencies) => {
-                if (
-                  dependencies.some(
-                    (dependency) => dependency.name === lucideNotice.name,
-                  )
-                ) {
-                  throw new Error(
-                    'Lucide is now detected automatically; remove its explicit license notice',
-                  );
-                }
-
                 return JSON.stringify(
                   [
                     ...dependencies.map((dependency) => ({
-                      name: dependency.name,
-                      version: dependency.version,
-                      license: dependency.license,
-                      licenseText: dependency.licenseText,
-                      noticeText: dependency.noticeText,
+                      ...pick(dependency, ['name', 'version', 'license', 'licenseText', 'noticeText']),
                       author: dependency.author?.text() ?? null,
                       source:
                         typeof dependency.repository === 'string'
