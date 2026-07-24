@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/Delph/bass/compare/0.1.3...0.2.0) (2026-07-24)
+
+
+### Added
+
+* Added crash reporting via Rollbar ([3b351a4](https://github.com/Delph/bass/commit/3b351a4746fa3a752d9455fc908f85d0063c0758))
+
 ## [0.1.3](https://github.com/Delph/bass/compare/0.1.2...0.1.3) (2026-07-21)
 
 
