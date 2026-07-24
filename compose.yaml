@@ -7,13 +7,8 @@ services:
         BUILD_SHA: ${BASS_BUILD_SHA:-unknown}
         BUILD_DATE: ${BASS_BUILD_DATE:-unknown}
         ROLLBAR_CLIENT_TOKEN: ${ROLLBAR_CLIENT_TOKEN:-}
-      secrets:
-        - rollbar_server_token
+        ROLLBAR_SERVER_TOKEN: ${ROLLBAR_SERVER_TOKEN:-}
     image: bass:${BASS_VERSION:-local}
     restart: unless-stopped
     ports:
       - '127.0.0.1:5040:80'
-
-secrets:
-  rollbar_server_token:
-    environment: ROLLBAR_SERVER_TOKEN

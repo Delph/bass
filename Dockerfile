@@ -8,10 +8,11 @@ RUN bun install --frozen-lockfile
 COPY . .
 
 ARG ROLLBAR_CLIENT_TOKEN
-RUN --mount=type=secret,id=rollbar_server_token,required=true \
-    (test -n "$ROLLBAR_CLIENT_TOKEN" || (echo 'ROLLBAR_CLIENT_TOKEN is required' >&2; exit 1)) && \
+ARG ROLLBAR_SERVER_TOKEN
+RUN (test -n "$ROLLBAR_CLIENT_TOKEN" || (echo 'ROLLBAR_CLIENT_TOKEN is required' >&2; exit 1)) && \
+    (test -n "$ROLLBAR_SERVER_TOKEN" || (echo 'ROLLBAR_SERVER_TOKEN is required' >&2; exit 1)) && \
     bun run generate && \
-    ROLLBAR_SERVER_TOKEN="$(cat /run/secrets/rollbar_server_token)" bun run sourcemaps
+    bun run sourcemaps
 
 FROM nginx:1.27.5-alpine
 
