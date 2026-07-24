@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/Delph/bass/compare/0.2.0...0.2.1) (2026-07-24)
+
+
+### Fixed
+
+* **build:** Pass Rollbar token correctly ([a322506](https://github.com/Delph/bass/commit/a3225069a4b8e55db4dc1e18d82f033cda13d9f1))
+
 ## [0.2.0](https://github.com/Delph/bass/compare/0.1.3...0.2.0) (2026-07-24)
 
 
