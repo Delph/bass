@@ -34,6 +34,7 @@ const { entries } = useHistory();
 const { sets } = useSets();
 const {
   check: checkPersistence,
+  ephemeral: ephemeralStorage,
   persistent,
   reminder: persistenceReminder,
   supported: persistenceSupported,
@@ -195,6 +196,14 @@ const showPersistenceNotice = computed(
           <SearchStatus />
         </div>
       </header>
+      <div
+        v-if="ephemeralStorage"
+        class="flex shrink-0 items-center justify-center gap-2 border-b border-rose-300 bg-rose-100 px-4 py-2 text-center text-sm font-semibold text-rose-950 dark:border-rose-800 dark:bg-rose-950 dark:text-rose-100"
+        role="alert"
+      >
+        <Icon name="lucide:triangle-alert" aria-hidden="true" />
+        <span>{{ translate('storage-ephemeral-warning') }}</span>
+      </div>
       <div
         class="flex min-h-0 flex-1 overflow-hidden"
         :class="game ? 'md:grid md:grid-cols-[12rem_1fr]' : ''"

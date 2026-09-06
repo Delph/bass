@@ -37,6 +37,44 @@ type RegisteredBucket = {
   restoreData: (data: unknown) => unknown;
 };
 
+class MemoryStorage implements Storage {
+  private items = new Map<string, string>();
+
+  getItem(key: string) {
+    return this.items.get(key) ?? null;
+  }
+
+  setItem(key: string, value: string) {
+    this.items.set(key, value);
+  }
+
+  removeItem(key: string) {
+    this.items.delete(key);
+  }
+
+  clear() {
+    this.items.clear();
+  }
+
+  key(index: number) {
+    return [...this.items.keys()][index] ?? null;
+  }
+
+  get length() {
+    return this.items.size;
+  }
+}
+
+const storage = (() => {
+  try {
+    return globalThis.localStorage ?? new MemoryStorage();
+  } catch {
+    return new MemoryStorage();
+  }
+})();
+
+export const ephemeral = storage instanceof MemoryStorage;
+
 const buckets = new Map<string, RegisteredBucket>();
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -128,7 +166,7 @@ export function defineBucket<T>(bucket: Bucket<T>) {
 
   function load(): T {
     try {
-      const raw = localStorage.getItem(bucket.key);
+      const raw = storage.getItem(bucket.key);
 
       if (raw === null) return initial();
 
@@ -153,7 +191,7 @@ export function defineBucket<T>(bucket: Bucket<T>) {
         data,
       } satisfies PersistedBucket<T>);
 
-      localStorage.setItem(bucket.key, value);
+      storage.setItem(bucket.key, value);
     } catch (error) {
       if (stateRef) stateRef.value = load();
 
@@ -202,7 +240,7 @@ export function defineBucket<T>(bucket: Bucket<T>) {
   }
 
   function reset() {
-    localStorage.removeItem(bucket.key);
+    storage.removeItem(bucket.key);
     const value = load();
 
     if (stateRef) stateRef.value = value;
@@ -266,8 +304,9 @@ export function restore(data: unknown) {
 
       return [bucket, bucket.parse(stored)] as const;
     })
-    .filter((entry): entry is readonly [RegisteredBucket, unknown] =>
-      entry !== undefined,
+    .filter(
+      (entry): entry is readonly [RegisteredBucket, unknown] =>
+        entry !== undefined,
     );
   const previous = [...buckets.values()].map(
     (bucket) => [bucket, bucket.dump()] as const,

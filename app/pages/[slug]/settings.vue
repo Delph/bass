@@ -23,6 +23,7 @@ const router = useRouter();
 const {
   check: checkPersistence,
   dismiss: dismissPersistenceReminder,
+  ephemeral: ephemeralStorage,
   pending: persistencePending,
   persistent,
   reminder: persistenceReminder,
@@ -48,6 +49,7 @@ const persistenceMessage = computed(() => {
 });
 const persistenceRecommended = computed(
   () =>
+    !ephemeralStorage &&
     persistenceSupported.value &&
     persistent.value === false &&
     persistenceReminder.value,
@@ -309,8 +311,11 @@ onMounted(checkPersistence);
   </h3>
 
   <section
-    class="rounded-xl bg-stone-100 p-2 dark:bg-stone-800"
+    class="rounded-xl p-2"
     :class="{
+      'border border-rose-300 bg-rose-50 dark:border-rose-800 dark:bg-rose-950':
+        ephemeralStorage,
+      'bg-stone-100 dark:bg-stone-800': !ephemeralStorage,
       'ring-2 ring-amber-400 dark:ring-amber-500': persistenceRecommended,
     }"
   >
@@ -319,20 +324,37 @@ onMounted(checkPersistence);
         {{ translate('settings-storage-protection') }}
       </h4>
       <span
-        v-if="persistenceRecommended"
-        class="rounded-full bg-amber-200 px-2 py-0.5 text-xs font-semibold text-amber-950 dark:bg-amber-700 dark:text-amber-50"
+        v-if="ephemeralStorage || persistenceRecommended"
+        class="rounded-full px-2 py-0.5 text-xs font-semibold"
+        :class="
+          ephemeralStorage
+            ? 'bg-rose-200 text-rose-950 dark:bg-rose-800 dark:text-rose-50'
+            : 'bg-amber-200 text-amber-950 dark:bg-amber-700 dark:text-amber-50'
+        "
       >
-        {{ translate('settings-storage-recommended') }}
+        {{
+          translate(
+            ephemeralStorage
+              ? 'settings-storage-ephemeral'
+              : 'settings-storage-recommended',
+          )
+        }}
       </span>
     </div>
     <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">
-      {{ translate('settings-storage-protection-message') }}
+      {{
+        translate(
+          ephemeralStorage
+            ? 'storage-ephemeral-warning'
+            : 'settings-storage-protection-message',
+        )
+      }}
     </p>
-    <p class="mt-3 text-sm" aria-live="polite">
+    <p v-if="!ephemeralStorage" class="mt-3 text-sm" aria-live="polite">
       {{ persistenceMessage }}
     </p>
     <div
-      v-if="persistenceSupported && persistent !== true"
+      v-if="!ephemeralStorage && persistenceSupported && persistent !== true"
       class="mt-3 flex flex-wrap gap-2"
     >
       <button
