@@ -1,16 +1,26 @@
-import { useState } from "#app";
-import { computed, watch } from "vue";
-import { useRoute } from "vue-router";
+import { useState } from '#app';
+import { computed, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
-import { range } from "~/utility";
+import { range } from '~/utility';
 import { type LocaleSlug, type Translations } from '~/translation';
 
-import { type Game, type GameData, ARMOUR_SLOTS, type ArmourPiece, type ArmourSlot, type SkillDefinition, type Decoration } from "~/game/types";
+import {
+  type Game,
+  type GameData,
+  ARMOUR_SLOTS,
+  type ArmourPiece,
+  type ArmourSlot,
+  type SkillDefinition,
+  type Decoration,
+  type GameSlug,
+  GAME_SLUGS,
+  isGameSlug,
+} from '~/game/game';
 import { usePreferences } from './usePreferences';
 
-
 type GameDataLoading = {
-  slug?: string;
+  slug?: GameSlug;
   locale?: LocaleSlug;
   status: 'idle' | 'loading' | 'ready' | 'error';
   done: number;
@@ -25,36 +35,35 @@ export const games: Game[] = [
   //     ...range(1, 4).map(r => ({rank: r, group: 'low-rank'})),
   //     ...range(4, 6).map(r => ({rank: r, group: 'high-rank'}))
   //   ],
-    // elements: ['fire', 'water', 'thunder', 'dragon'],
+  //   elements: ['fire', 'water', 'thunder', 'dragon'],
   //   features: {
   //     decorations: true
   //   }
   // },
   {
-    slug: "mhfu",
+    slug: 'mhfu',
     village: [
-      ...range(1, 7).map(r => ({rank: r, group: "elder"})),
-      ...range(7, 10).map(r => ({rank: r, group: "nekoht"}))
+      ...range(1, 7).map((r) => ({ rank: r, group: 'elder' })),
+      ...range(7, 10).map((r) => ({ rank: r, group: 'nekoht' })),
     ],
     guild: [
-      ...range(1, 4).map(r => ({rank: r, group: 'low-rank'})),
-      ...range(4, 7).map(r => ({rank: r, group: 'high-rank'})),
-      ...range(7, 10).map(r => ({rank: r, group: 'g-rank'}))
+      ...range(1, 4).map((r) => ({ rank: r, group: 'low-rank' })),
+      ...range(4, 7).map((r) => ({ rank: r, group: 'high-rank' })),
+      ...range(7, 10).map((r) => ({ rank: r, group: 'g-rank' })),
     ],
     elements: ['fire', 'water', 'thunder', 'ice', 'dragon'],
     features: {
-      decorations: true
-    }
-  }
+      decorations: true,
+    },
+  },
 ];
 
 async function fetchJson<T>(path: string): Promise<T> {
   const response = await fetch(path);
 
-  if (!response.ok)
-    throw new Error(`Unable to load ${path}`);
+  if (!response.ok) throw new Error(`Unable to load ${path}`);
 
-  return await response.json() as T;
+  return (await response.json()) as T;
 }
 
 let currentLoad = 0;
@@ -67,22 +76,27 @@ let pendingLoad: {
 export function useGame() {
   const route = useRoute();
   const { locale } = usePreferences();
-  const loadedSlug = useState<string | undefined>("game-data-slug", () => undefined);
-  const loadedLocale = useState<LocaleSlug | undefined>('game-data-locale', () => undefined);
-  const rawData = useState<GameData | undefined>("game-data", () => undefined);
-  const loadingState = useState<GameDataLoading>("game-data-loading", () => ({
+  const loadedSlug = useState<GameSlug | undefined>(
+    'game-data-slug',
+    () => undefined,
+  );
+  const loadedLocale = useState<LocaleSlug | undefined>(
+    'game-data-locale',
+    () => undefined,
+  );
+  const rawData = useState<GameData | undefined>('game-data', () => undefined);
+  const loadingState = useState<GameDataLoading>('game-data-loading', () => ({
     status: 'idle',
     done: 0,
     total: 0,
   }));
 
   const slug = computed(() => {
-    const slug = route.params.slug;
+    let slug = route.params.slug;
 
-    if (Array.isArray(slug))
-      return slug[0];
+    if (Array.isArray(slug)) slug = slug[0];
 
-    return slug;
+    return isGameSlug(slug) ? slug : undefined;
   });
 
   const game = computed(() => {
@@ -90,17 +104,19 @@ export function useGame() {
   });
 
   const data = computed(() => {
-    if (!game.value || loadedSlug.value !== game.value.slug || loadedLocale.value !== locale.value)
+    if (
+      !game.value ||
+      loadedSlug.value !== game.value.slug ||
+      loadedLocale.value !== locale.value
+    )
       return;
 
     return rawData.value;
   });
 
   const status = computed(() => {
-    if (!game.value)
-      return 'idle';
-    if (data.value)
-      return 'ready';
+    if (!game.value) return 'idle';
+    if (data.value) return 'ready';
     if (
       loadingState.value.slug === game.value.slug &&
       loadingState.value.locale === locale.value
@@ -127,8 +143,7 @@ export function useGame() {
   async function loadData(force = false): Promise<GameData | undefined> {
     const currentGame = game.value;
 
-    if (!currentGame)
-      return;
+    if (!currentGame) return;
 
     const currentLocale = locale.value;
     const key = `${currentGame.slug}:${currentLocale}`;
@@ -140,15 +155,12 @@ export function useGame() {
       rawData.value
     )
       return rawData.value;
-    if (!force && pendingLoad?.key === key)
-      return pendingLoad.promise;
+    if (!force && pendingLoad?.key === key) return pendingLoad.promise;
 
     const load = ++currentLoad;
     const basePath = `/data/games/${encodeURIComponent(currentGame.slug)}`;
     const total =
-      ARMOUR_SLOTS.length +
-      2 +
-      (currentGame.features.decorations ? 1 : 0);
+      ARMOUR_SLOTS.length + 2 + (currentGame.features.decorations ? 1 : 0);
 
     loadingState.value = {
       slug: currentGame.slug,
@@ -188,15 +200,13 @@ export function useGame() {
             ? track(fetchJson<Decoration[]>(`${basePath}/decorations.json`))
             : Promise.resolve([])),
           skills: (
-            await track(
-              fetchJson<SkillDefinition[]>(`${basePath}/skills.json`),
-            )
+            await track(fetchJson<SkillDefinition[]>(`${basePath}/skills.json`))
           ).map((skill) => {
             if (skill.categories.length > 0) return skill;
 
             return {
               ...skill,
-              categories: ["uncategorized"],
+              categories: ['uncategorized'],
             };
           }),
           translations: await track(
@@ -228,8 +238,7 @@ export function useGame() {
         console.error(`Unable to load game data for ${key}`, error);
         return undefined;
       } finally {
-        if (pendingLoad?.load === load)
-          pendingLoad = null;
+        if (pendingLoad?.load === load) pendingLoad = null;
       }
     })();
 
@@ -242,7 +251,7 @@ export function useGame() {
     () => {
       void loadData();
     },
-    { immediate: true }
+    { immediate: true },
   );
 
   return {

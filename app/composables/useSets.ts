@@ -1,8 +1,8 @@
 import { computed } from 'vue';
 
 import { useGame } from '~/composables/useGame';
-import { bucket, type SavedSet } from '~/persistence/buckets/sets';
-import { current } from '~/persistence/storage';
+import { bucket, type SavedSet } from '~/buckets/sets';
+import { current } from '~/game/game';
 import {
   armourSetIDv1,
   resolveArmour,
@@ -12,12 +12,12 @@ import {
 import type { ArmourSet } from '~/solver/solver';
 import type { UUID } from '~/types';
 
-export type { SavedSet } from '~/persistence/buckets/sets';
+export type { SavedSet } from '~/buckets/sets';
 
 export function useSets() {
   const { data, slug } = useGame();
 
-  const allSets = bucket.state();
+  const allSets = bucket.state;
 
   const sets = computed(() =>
     current(slug.value ?? 'mhfu', allSets.value, () => []),
@@ -68,7 +68,7 @@ export function useSets() {
     } satisfies SavedSet;
 
     sets.value.push(saved);
-    bucket.save(allSets.value);
+    bucket.save();
 
     return saved;
   }
@@ -86,7 +86,7 @@ export function useSets() {
     set.name = name;
     set.notes = notes;
     set.updatedAt = Date.now();
-    bucket.save(allSets.value);
+    bucket.save();
 
     return set;
   }
@@ -106,7 +106,7 @@ export function useSets() {
       return;
     }
     set.deletedAt = Date.now();
-    bucket.save(allSets.value);
+    bucket.save();
   }
 
   return {

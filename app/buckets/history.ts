@@ -1,6 +1,7 @@
 import type { QueryState } from '~/query/types';
-import { defineBucket, pruneDeleted } from '~/persistence/storage';
+import { defineBucket } from '@delphington/persistent-buckets';
 import type { AuditFields, UUID } from '~/types';
+import { pruneDeleted } from '~/utility';
 
 export type HistoryEntry = {
   id: UUID;

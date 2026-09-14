@@ -37,7 +37,9 @@ export function detectLocale(
   return defaultLocale;
 }
 
-export type PluralTranslation = { other: string } & Partial<Record<Intl.LDMLPluralRule, string>>;
+export type PluralTranslation = { other: string } & Partial<
+  Record<Intl.LDMLPluralRule, string>
+>;
 export type Translations = Record<string, string | PluralTranslation>;
 export type TranslationVariables = Record<string, any>;
 
@@ -45,19 +47,23 @@ export function translate(
   locale: LocaleSlug,
   translations: Translations,
   key: string,
-  variables: TranslationVariables = {}
+  variables: TranslationVariables = {},
 ) {
   let message = translations[key];
 
-  if (message === undefined)
-    return key;
+  if (message === undefined) return key;
 
   if (typeof message !== 'string') {
     const count = Number(variables.count);
     if (!Number.isFinite(count))
-      throw new Error(`Plural translation "${key}" requires a finite numeric count variable.`);
+      throw new Error(
+        `Plural translation "${key}" requires a finite numeric count variable.`,
+      );
 
-    const rule = count === 0 && message.zero ? 'zero' : new Intl.PluralRules(locale).select(count);
+    const rule =
+      count === 0 && message.zero
+        ? 'zero'
+        : new Intl.PluralRules(locale).select(count);
     message = message[rule] ?? message.other ?? key;
   }
 

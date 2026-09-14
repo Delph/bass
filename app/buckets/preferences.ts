@@ -1,4 +1,4 @@
-import { defineBucket } from '~/persistence/storage';
+import { defineBucket } from '@delphington/persistent-buckets';
 import type { Theme } from '~/theme';
 import { detectLocale, type LocaleSlug } from '~/translation';
 import { bound } from '~/utility';

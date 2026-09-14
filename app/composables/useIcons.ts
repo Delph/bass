@@ -1,5 +1,5 @@
 import { useGame } from '~/composables/useGame';
-import type { ArmourSlot, DamageType } from '~/game/types';
+import type { ArmourSlot, DamageType } from '~/game/game';
 
 const icons = {
   armour: Object.fromEntries(

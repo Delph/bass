@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Game } from "~/game/types";
+import type { Game } from '~/game/game';
 
 import { useLanguage } from '~/composables/useLanguage';
 

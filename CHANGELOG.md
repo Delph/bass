@@ -2,46 +2,40 @@
 
 ## [0.2.2](https://github.com/Delph/bass/compare/0.2.1...0.2.2) (2026-07-24)
 
-
 ### Fixed
 
-* **app:** Show basic loading screen while app is loading ([655065c](https://github.com/Delph/bass/commit/655065ca5270e0dcec07adc3958891948c24faf2))
+- **app:** Show basic loading screen while app is loading ([655065c](https://github.com/Delph/bass/commit/655065ca5270e0dcec07adc3958891948c24faf2))
 
 ## [0.2.1](https://github.com/Delph/bass/compare/0.2.0...0.2.1) (2026-07-24)
 
-
 ### Fixed
 
-* **build:** Pass Rollbar token correctly ([a322506](https://github.com/Delph/bass/commit/a3225069a4b8e55db4dc1e18d82f033cda13d9f1))
+- **build:** Pass Rollbar token correctly ([a322506](https://github.com/Delph/bass/commit/a3225069a4b8e55db4dc1e18d82f033cda13d9f1))
 
 ## [0.2.0](https://github.com/Delph/bass/compare/0.1.3...0.2.0) (2026-07-24)
 
-
 ### Added
 
-* Added crash reporting via Rollbar ([3b351a4](https://github.com/Delph/bass/commit/3b351a4746fa3a752d9455fc908f85d0063c0758))
+- Added crash reporting via Rollbar ([3b351a4](https://github.com/Delph/bass/commit/3b351a4746fa3a752d9455fc908f85d0063c0758))
 
 ## [0.1.3](https://github.com/Delph/bass/compare/0.1.2...0.1.3) (2026-07-21)
 
-
 ### Fixed
 
-* avoid focusing content after navigation ([d32736f](https://github.com/Delph/bass/commit/d32736f461529dd5528e65141aee8475e357b0fb))
-* Elemental resistance skills point thresholds and bonuses/maluses ([55e79c9](https://github.com/Delph/bass/commit/55e79c9d21602ff2a1918686df5aa1fb13859045))
+- avoid focusing content after navigation ([d32736f](https://github.com/Delph/bass/commit/d32736f461529dd5528e65141aee8475e357b0fb))
+- Elemental resistance skills point thresholds and bonuses/maluses ([55e79c9](https://github.com/Delph/bass/commit/55e79c9d21602ff2a1918686df5aa1fb13859045))
 
 ## [0.1.2](https://github.com/Delph/bass/compare/0.1.1...0.1.2) (2026-07-21)
 
-
 ### Fixed
 
-* prevent blank initial route ([b6824fd](https://github.com/Delph/bass/commit/b6824fdc1a65bff2629de3d030b651e83167d2e7))
+- prevent blank initial route ([b6824fd](https://github.com/Delph/bass/commit/b6824fdc1a65bff2629de3d030b651e83167d2e7))
 
 ## [0.1.1](https://github.com/Delph/bass/compare/0.1.0...0.1.1) (2026-07-21)
 
-
 ### Fixed
 
-* update Bun build image ([a1248e5](https://github.com/Delph/bass/commit/a1248e5d951cf935ec1e8de6bb79327ced4e42e2))
+- update Bun build image ([a1248e5](https://github.com/Delph/bass/commit/a1248e5d951cf935ec1e8de6bb79327ced4e42e2))
 
 ## 0.1.0 (2026-07-21)
 

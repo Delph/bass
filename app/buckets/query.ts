@@ -1,5 +1,5 @@
 import { query, type QueryState } from '~/query/types';
-import { defineBucket } from '~/persistence/storage';
+import { defineBucket } from '@delphington/persistent-buckets';
 
 export const bucket = defineBucket<Record<string, QueryState>>({
   key: 'bass:query',

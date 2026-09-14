@@ -1,17 +1,17 @@
 import { computed } from 'vue';
 import { useGame } from '~/composables/useGame';
 import { appendHistory } from '~/history';
-import { bucket, type HistoryEntry } from '~/persistence/buckets/history';
-import { current } from '~/persistence/storage';
+import { bucket, type HistoryEntry } from '~/buckets/history';
+import { current } from '~/game/game';
 import type { QueryState } from '~/query/types';
 import type { UUID } from '~/types';
 import { deepcopy } from '~/utility';
 
-export type { HistoryEntry } from '~/persistence/buckets/history';
+export type { HistoryEntry } from '~/buckets/history';
 
 export function useHistory() {
   const { slug } = useGame();
-  const searches = bucket.state();
+  const searches = bucket.state;
 
   const allEntries = computed(() =>
     current(slug.value ?? 'mhfu', searches.value, () => []),
@@ -29,7 +29,7 @@ export function useHistory() {
       createdAt: Date.now(),
       deletedAt: null,
     });
-    bucket.save(searches.value);
+    bucket.save();
   }
 
   function remove(id: UUID) {
@@ -37,7 +37,7 @@ export function useHistory() {
     if (!entry) return;
 
     entry.deletedAt = Date.now();
-    bucket.save(searches.value);
+    bucket.save();
   }
 
   return {

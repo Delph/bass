@@ -64,7 +64,9 @@ function save() {
     <div class="min-w-0 flex-1">
       <div v-for="(piece, slot) in set.armour" class="flex gap-2 items-center">
         <img :src="icons.armour(slot)" class="w-4 shrink-0" />
-        <span class="truncate">{{ translate(`armour-${slot}-${piece.slug}`) }}</span>
+        <span class="truncate">{{
+          translate(`armour-${slot}-${piece.slug}`)
+        }}</span>
       </div>
     </div>
     <div
@@ -132,7 +134,11 @@ function save() {
           v-if="decoration.count > 1"
           class="text-xs text-stone-600 dark:text-stone-300"
         >
-          {{ translate('set-decoration-quantity', { formatted: formatNumber(decoration.count) }) }}
+          {{
+            translate('set-decoration-quantity', {
+              formatted: formatNumber(decoration.count),
+            })
+          }}
         </span>
       </div>
     </div>

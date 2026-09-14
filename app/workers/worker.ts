@@ -1,4 +1,4 @@
-import { type GameData } from '~/game/types';
+import { type GameData } from '~/game/game';
 import { solveAsync } from '~/solver/solver';
 import { type WorkerMessage, type WorkerResponse } from '~/workers/types';
 
@@ -43,39 +43,36 @@ async function waitWhilePaused(signal: AbortSignal) {
 }
 
 async function query(message: TypedWorkerMessage<'query'>) {
-  if (!game)
-    throw new Error('Worker game data has not been initialised.');
+  if (!game) throw new Error('Worker game data has not been initialised.');
 
   const { gear, query } = message.payload;
   if (Object.keys(query.skills).length === 0)
     throw new Error('No skills to search for');
 
-  if (aborter)
-    throw new Error('A search is already running.');
+  if (aborter) throw new Error('A search is already running.');
 
   aborter = new AbortController();
 
   try {
-    postMessage({type: 'start', payload: {
-      combinations: Object.values(gear).map(g => g.length).reduce((a, c) => a * c, 1)
-    }})
+    postMessage({
+      type: 'start',
+      payload: {
+        combinations: Object.values(gear)
+          .map((g) => g.length)
+          .reduce((a, c) => a * c, 1),
+      },
+    });
 
     let attempted = 0;
 
-    for await (const batch of solveAsync(
-      query,
-      gear,
-      game,
-      aborter.signal,
-    )) {
-      if (aborter.signal.aborted)
-        return;
+    for await (const batch of solveAsync(query, gear, game, aborter.signal)) {
+      if (aborter.signal.aborted) return;
 
       attempted += batch.attempted;
-      postMessage({type: 'progress', payload: {attempted}});
+      postMessage({ type: 'progress', payload: { attempted } });
 
       if (batch.results.length > 0)
-        postMessage({type: 'results', payload: batch.results});
+        postMessage({ type: 'results', payload: batch.results });
 
       await yieldToMessages();
       await waitWhilePaused(aborter.signal);
@@ -90,8 +87,7 @@ async function query(message: TypedWorkerMessage<'query'>) {
 }
 
 function pause(_message: TypedWorkerMessage<'pause'>) {
-  if (aborter)
-    paused = true;
+  if (aborter) paused = true;
 }
 
 function resumeSearch(_message: TypedWorkerMessage<'resume'>) {

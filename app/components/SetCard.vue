@@ -40,7 +40,12 @@ async function copyLink() {
 
   try {
     await navigator.clipboard.writeText(
-      setShareURL(window.location.origin, slug.value, props.set, props.set.name),
+      setShareURL(
+        window.location.origin,
+        slug.value,
+        props.set,
+        props.set.name,
+      ),
     );
     copied.value = true;
     toasts.success(translate('set-link-copied'));
@@ -80,7 +85,9 @@ const groupedDecorations = computed(() => {
     class="bg-stone-100 dark:bg-stone-800 rounded-xl p-2 flex flex-wrap gap-2"
   >
     <div class="w-full flex justify-between items-center gap-3">
-      <span class="min-w-0 flex-1 truncate">{{ set.name || translate('set-unnamed') }}</span>
+      <span class="min-w-0 flex-1 truncate">{{
+        set.name || translate('set-unnamed')
+      }}</span>
       <div class="flex shrink-0 justify-between items-center gap-3">
         <NuxtLink
           class="size-10 bg-stone-200 dark:bg-stone-700 rounded-xl flex items-center justify-center"
@@ -126,7 +133,9 @@ const groupedDecorations = computed(() => {
     <div class="min-w-0 flex-1">
       <div v-for="(piece, slot) in armour" class="flex gap-2 items-center">
         <img :src="icons.armour(slot)" class="w-4 shrink-0" />
-        <span class="truncate">{{ translate(`armour-${slot}-${piece.slug}`) }}</span>
+        <span class="truncate">{{
+          translate(`armour-${slot}-${piece.slug}`)
+        }}</span>
       </div>
     </div>
     <div
@@ -143,7 +152,11 @@ const groupedDecorations = computed(() => {
           v-if="decoration.count > 1"
           class="text-xs text-stone-600 dark:text-stone-300"
         >
-          {{ translate('set-decoration-quantity', { formatted: formatNumber(decoration.count) }) }}
+          {{
+            translate('set-decoration-quantity', {
+              formatted: formatNumber(decoration.count),
+            })
+          }}
         </span>
       </div>
     </div>

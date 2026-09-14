@@ -1,17 +1,14 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useGame } from '~/composables/useGame';
-import {
-  useSearch,
-  type SearchSortCriteria,
-} from '~/composables/useSearch';
+import { useSearch, type SearchSortCriteria } from '~/composables/useSearch';
 import { useLanguage } from '~/composables/useLanguage';
 import type { BuildResult } from '~/solver/solver';
 import ResultCard from '~/components/ResultCard.vue';
 import ResultTable from '~/components/ResultTable.vue';
 import Progress from '~/components/Progress.vue';
 import Select from '~/components/Select.vue';
-import type { DamageType } from '~/game/types';
+import type { DamageType } from '~/game/game';
 import { definePageMeta } from '#imports';
 import { effective, wireIDv1 } from '~/set';
 
@@ -181,11 +178,27 @@ function nextPage() {
               type="button"
               class="flex size-8 items-center justify-center rounded-lg border border-stone-300 text-stone-700 disabled:opacity-40 dark:border-stone-700 dark:text-stone-200"
               :disabled="!active"
-              :title="translate(session.status === 'paused' ? 'search-resume' : 'search-pause')"
-              :aria-label="translate(session.status === 'paused' ? 'search-resume' : 'search-pause')"
+              :title="
+                translate(
+                  session.status === 'paused'
+                    ? 'search-resume'
+                    : 'search-pause',
+                )
+              "
+              :aria-label="
+                translate(
+                  session.status === 'paused'
+                    ? 'search-resume'
+                    : 'search-pause',
+                )
+              "
               @click="togglePause"
             >
-              <Icon :name="session.status === 'paused' ? 'lucide:play' : 'lucide:pause'" />
+              <Icon
+                :name="
+                  session.status === 'paused' ? 'lucide:play' : 'lucide:pause'
+                "
+              />
             </button>
           </div>
         </div>
@@ -205,7 +218,10 @@ function nextPage() {
           formatted: formatNumber(results.length),
         })
       }}
-      <span v-if="results.length > 0" class="text-sm text-stone-600 dark:text-stone-400">
+      <span
+        v-if="results.length > 0"
+        class="text-sm text-stone-600 dark:text-stone-400"
+      >
         {{
           translate('results-page-range', {
             first: formatNumber(pageStart),
@@ -229,10 +245,7 @@ function nextPage() {
         @change="(s) => setSort(s as SortCriteria | null)"
         class="w-full"
       />
-      <div
-        ref="resultsList"
-        class="min-h-0 overflow-y-auto pr-1"
-      >
+      <div ref="resultsList" class="min-h-0 overflow-y-auto pr-1">
         <ResultTable v-if="tableView" :sets="pagedResults" />
         <div v-else class="flex flex-col gap-2">
           <ResultCard
@@ -282,7 +295,9 @@ function nextPage() {
       v-else
       class="rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-700 dark:bg-stone-900"
     >
-      <h2 class="text-xl font-bold">{{ translate('navigation-tab-results') }}</h2>
+      <h2 class="text-xl font-bold">
+        {{ translate('navigation-tab-results') }}
+      </h2>
       <p class="mt-2 text-stone-600 dark:text-stone-400">
         {{ translate('results-empty') }}
       </p>

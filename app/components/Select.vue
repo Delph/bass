@@ -51,10 +51,7 @@ function change(event: Event) {
 </script>
 
 <template>
-  <span
-    v-bind="$attrs"
-    class="relative inline-block"
-  >
+  <span v-bind="$attrs" class="relative inline-block">
     <select
       class="w-full appearance-none rounded border border-stone-300 bg-white py-1 pl-2 pr-8 text-stone-950 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100"
       :name="name"

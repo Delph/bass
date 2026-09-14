@@ -1,13 +1,9 @@
 import { query, type QueryState } from '../app/query/types';
-import type { GameData } from '../app/game/types';
+import type { GameData } from '../app/game/game';
 import { prepare, type PreparedGear } from '../app/solver/prepare';
 import { Metrics, solve } from '../app/solver/solver';
 import { omit } from '../app/utility';
-import {
-  countCombinations,
-  countPieces,
-  filterGear,
-} from './solver-helpers';
+import { countCombinations, countPieces, filterGear } from './solver-helpers';
 
 import head from '../public/data/games/mhfu/head.json';
 import body from '../public/data/games/mhfu/body.json';
@@ -84,8 +80,7 @@ function runCase(profileCase: ProfileCase) {
     void result;
     ++results;
 
-    if (results >= profileCase.limit)
-      break;
+    if (results >= profileCase.limit) break;
   }
 
   solveMetrics.stop();

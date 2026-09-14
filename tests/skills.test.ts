@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 
-import type { SkillDefinition } from '~/game/types';
+import type { SkillDefinition } from '~/game/game';
 import { getEffect } from '~/skills';
 
 const skill: SkillDefinition = {
@@ -26,6 +26,11 @@ test.each([
   [19, 15],
   [20, 20],
   [25, 20],
-] as const)('getEffect resolves %i points to the %s threshold', (points, expected) => {
-  expect(getEffect([skill], skill.slug, points)?.points ?? null).toBe(expected);
-});
+] as const)(
+  'getEffect resolves %i points to the %s threshold',
+  (points, expected) => {
+    expect(getEffect([skill], skill.slug, points)?.points ?? null).toBe(
+      expected,
+    );
+  },
+);

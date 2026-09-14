@@ -11,8 +11,8 @@ import { usePreferences } from '~/composables/usePreferences';
 import { useTheme } from '~/composables/useTheme';
 import { useToasts } from '~/composables/useToasts';
 import { useLanguage } from '~/composables/useLanguage';
-import { maxCutoff, minCutoff } from '~/persistence/buckets/preferences';
-import { exportText, importText, prune, reset } from '~/persistence/storage';
+import { maxCutoff, minCutoff } from '~/buckets/preferences';
+import { persistence } from '@delphington/persistent-buckets';
 import { maxWorkers } from '~/workers/pool';
 
 const { formatDateTime, formatNumber, translate } = useLanguage();
@@ -71,7 +71,7 @@ const workerTicks = [
   .toSorted((a, b) => a - b);
 
 function deleteAllData() {
-  reset();
+  persistence.reset();
   confirmDelete.value = false;
   window.location.reload();
 }
@@ -106,7 +106,7 @@ async function protectLocalData() {
 
 function pruneDeletedData() {
   try {
-    const removed = prune();
+    const removed = persistence.prune();
 
     if (removed === 0) {
       toasts.add({
@@ -129,7 +129,7 @@ function pruneDeletedData() {
 
 async function exportData() {
   try {
-    dataText.value = await exportText();
+    dataText.value = await persistence.exportText('bass');
   } catch {
     toasts.error(translate('settings-export-data-error'));
   }
@@ -137,7 +137,7 @@ async function exportData() {
 
 async function importData() {
   try {
-    await importText(dataText.value);
+    await persistence.importText(dataText.value, 'bass');
     confirmImport.value = false;
     window.location.reload();
   } catch {

@@ -1,6 +1,7 @@
-import { defineBucket, pruneDeleted } from '~/persistence/storage';
+import { defineBucket } from '@delphington/persistent-buckets';
 import type { ArmourSet } from '~/solver/solver';
 import type { AuditFields, UUID } from '~/types';
+import { pruneDeleted } from '~/utility';
 
 export type SavedSet = {
   /// an id to identify this set

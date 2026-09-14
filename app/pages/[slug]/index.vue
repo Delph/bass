@@ -42,7 +42,10 @@ function skillEntries(entry: HistoryEntry) {
   }));
 }
 
-function rankLabel(rank: { rank: number; group?: string } | undefined, fallback: number) {
+function rankLabel(
+  rank: { rank: number; group?: string } | undefined,
+  fallback: number,
+) {
   const value = rank?.rank ?? fallback;
   const gRank = rank?.group === 'g-rank';
 
@@ -60,7 +63,9 @@ function guildRank(entry: HistoryEntry) {
 
 function villageRank(entry: HistoryEntry) {
   return rankLabel(
-    game.value?.village.find((rank) => rank.rank === entry.query.hunter.village),
+    game.value?.village.find(
+      (rank) => rank.rank === entry.query.hunter.village,
+    ),
     entry.query.hunter.village,
   );
 }
@@ -84,7 +89,10 @@ function repeat(entry: HistoryEntry) {
         <h3 class="text-lg font-bold">
           {{ translate('navigation-tab-search') }}
         </h3>
-        <Icon name="lucide:search" class="text-2xl text-stone-500 dark:text-stone-400" />
+        <Icon
+          name="lucide:search"
+          class="text-2xl text-stone-500 dark:text-stone-400"
+        />
       </div>
 
       <div class="flex flex-1 items-end">
@@ -122,10 +130,18 @@ function repeat(entry: HistoryEntry) {
             class="mt-1 flex flex-wrap gap-x-2 text-sm text-stone-600 dark:text-stone-400"
           >
             <span>
-              {{ translate('history-rank-guild', { rank: guildRank(latestSearch) }) }}
+              {{
+                translate('history-rank-guild', {
+                  rank: guildRank(latestSearch),
+                })
+              }}
             </span>
             <span>
-              {{ translate('history-rank-village', { rank: villageRank(latestSearch) }) }}
+              {{
+                translate('history-rank-village', {
+                  rank: villageRank(latestSearch),
+                })
+              }}
             </span>
             <span>
               {{
@@ -190,11 +206,7 @@ function repeat(entry: HistoryEntry) {
       v-if="recentSets.length"
       class="flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:items-start"
     >
-      <SetCard
-        v-for="set in recentSets"
-        :key="set.id"
-        :set="set"
-      />
+      <SetCard v-for="set in recentSets" :key="set.id" :set="set" />
     </div>
     <div
       v-else

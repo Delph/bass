@@ -2,7 +2,7 @@
 import { nextTick, onBeforeUnmount, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
-import type { Game } from '~/game/types';
+import type { Game } from '~/game/game';
 
 import { useLanguage } from '~/composables/useLanguage';
 import LanguageSelector from '~/components/LanguageSelector.vue';

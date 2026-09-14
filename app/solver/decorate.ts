@@ -1,4 +1,9 @@
-import type { ArmourPiece, ArmourSlot, Decoration, GameData } from '~/game/types';
+import type {
+  ArmourPiece,
+  ArmourSlot,
+  Decoration,
+  GameData,
+} from '~/game/game';
 import type { QueryState } from '~/query/types';
 
 type Effects = Record<string, number>;
@@ -50,8 +55,7 @@ export function decorationsForSkill(
       data.decorations
         .filter((decoration) => decoration.skill.skill === skill)
         .toSorted(
-          (a, b) =>
-            b.slots - a.slots || b.skill.points - a.skill.points,
+          (a, b) => b.slots - a.slots || b.skill.points - a.skill.points,
         ),
     );
 
@@ -196,22 +200,17 @@ function combine(
     addDecorationEffects(effects, decoration, multiplier);
 
   const penaltyCost =
-    state.harmfulPenalty +
-    harmfulPenalty(plan.decorations, query) * multiplier;
+    state.harmfulPenalty + harmfulPenalty(plan.decorations, query) * multiplier;
 
   return {
     decorations: {
       ...state.decorations,
-      [placement]: [
-        ...state.decorations[placement],
-        ...plan.decorations,
-      ],
+      [placement]: [...state.decorations[placement], ...plan.decorations],
     },
     effects,
     slotsUsed: state.slotsUsed + plan.slotsUsed,
     weaponSlotsUsed:
-      state.weaponSlotsUsed +
-      (placement === 'weapon' ? plan.slotsUsed : 0),
+      state.weaponSlotsUsed + (placement === 'weapon' ? plan.slotsUsed : 0),
     harmfulPenalty: penaltyCost,
   };
 }
@@ -233,9 +232,7 @@ function projectedLoadouts(
   const projected = new Map<string, Loadout>();
 
   for (const loadout of loadouts) {
-    const key = relevant
-      .map((skill) => loadout.effects[skill] ?? 0)
-      .join(',');
+    const key = relevant.map((skill) => loadout.effects[skill] ?? 0).join(',');
     const existing = projected.get(key);
     const compare = existing
       ? loadout.slotsUsed - existing.slotsUsed ||
@@ -333,8 +330,7 @@ function applyEffects(base: Record<string, number>, effects: Effects) {
 function validSkills(skills: Record<string, number>, query: QueryState) {
   if (
     Object.entries(query.skills).some(
-      ([skill, required]) =>
-        !satisfiesRequirement(skills[skill], required),
+      ([skill, required]) => !satisfiesRequirement(skills[skill], required),
     )
   )
     return false;
@@ -342,8 +338,7 @@ function validSkills(skills: Record<string, number>, query: QueryState) {
   return (
     query.options.allowBad ||
     !Object.entries(skills).some(
-      ([skill, points]) =>
-        points <= -10 && (query.skills[skill] ?? 0) >= 0,
+      ([skill, points]) => points <= -10 && (query.skills[skill] ?? 0) >= 0,
     )
   );
 }
@@ -355,20 +350,19 @@ function solutionKey(
   relevant: string[],
   base: Record<string, number>,
 ) {
-  const armour = [set.head.slots, set.arms.slots, set.waist.slots, set.legs.slots]
+  const armour = [
+    set.head.slots,
+    set.arms.slots,
+    set.waist.slots,
+    set.legs.slots,
+  ]
     .toSorted((a, b) => b - a)
     .join(',');
   const skills = relevant
     .map((skill) => `${skill}:${base[skill] ?? 0}`)
     .join(',');
 
-  return [
-    armour,
-    set.body.slots,
-    weaponSlots,
-    torsoInc,
-    skills,
-  ].join('|');
+  return [armour, set.body.slots, weaponSlots, torsoInc, skills].join('|');
 }
 
 export function createDecorationOptimizer(
@@ -386,9 +380,7 @@ export function createDecorationOptimizer(
         (points < 0 && decoration.penalty?.skill === skill),
     );
   });
-  const plans = [0, 1, 2, 3].map((capacity) =>
-    loadouts(capacity, candidates),
-  );
+  const plans = [0, 1, 2, 3].map((capacity) => loadouts(capacity, candidates));
   const projected = new Map<string, Loadout[]>();
   const cache = new Map<string, State | null>();
 
@@ -425,13 +417,7 @@ export function createDecorationOptimizer(
     }
 
     const skills = [...relevant].toSorted();
-    const key = solutionKey(
-      set,
-      query.weapon.slots,
-      torsoInc,
-      skills,
-      base,
-    );
+    const key = solutionKey(set, query.weapon.slots, torsoInc, skills, base);
     if (cache.has(key)) {
       const cached = cache.get(key);
       if (!cached) return null;
@@ -510,10 +496,12 @@ export function createDecorationOptimizer(
       if (states.size === 0) break;
     }
 
-    const result = [...states.values()].toSorted(compareStates).find((state) => {
-      const skills = applyEffects(base, state.effects);
-      return validSkills(skills, query);
-    });
+    const result = [...states.values()]
+      .toSorted(compareStates)
+      .find((state) => {
+        const skills = applyEffects(base, state.effects);
+        return validSkills(skills, query);
+      });
     cache.set(key, result ?? null);
     if (!result) return null;
 

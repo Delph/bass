@@ -23,7 +23,10 @@ function skillEntries(entry: HistoryEntry) {
   }));
 }
 
-function rankLabel(rank: { rank: number; group?: string } | undefined, fallback: number) {
+function rankLabel(
+  rank: { rank: number; group?: string } | undefined,
+  fallback: number,
+) {
   const value = rank?.rank ?? fallback;
   const gRank = rank?.group === 'g-rank';
 
@@ -61,9 +64,7 @@ function repeat(entry: HistoryEntry) {
               {{
                 translate('history-rank-guild', {
                   rank: rankLabel(
-                    game!.guild.find(
-                      (r) => r.rank === entry.query.hunter.rank,
-                    ),
+                    game!.guild.find((r) => r.rank === entry.query.hunter.rank),
                     entry.query.hunter.rank,
                   ),
                 })

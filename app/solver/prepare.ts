@@ -1,5 +1,5 @@
 import type { QueryState } from '~/query/types';
-import type { ArmourSlot, ArmourPiece, GameData } from '~/game/types';
+import type { ArmourSlot, ArmourPiece, GameData } from '~/game/game';
 
 export type PreparedGear = Record<ArmourSlot, ArmourPiece[]>;
 

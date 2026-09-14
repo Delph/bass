@@ -8,11 +8,7 @@ import {
 } from '~/solver/solver';
 
 import { WEAPON_CLASS } from '~/query/types';
-import {
-  ARMOUR_SLOTS,
-  type ArmourSlot,
-  type GameData,
-} from '~/game/types';
+import { ARMOUR_SLOTS, type ArmourSlot, type GameData } from '~/game/game';
 
 import head from '../public/data/games/mhfu/head.json';
 import body from '../public/data/games/mhfu/body.json';
@@ -129,9 +125,9 @@ test('solver/solver: decoration cache is scoped to its dataset', () => {
   const second = [attack[1]!];
   const game = omit(data, 'armour');
 
-  expect(decorationsForSkill({ ...game, decorations: first }, 'attack')).toEqual(
-    first,
-  );
+  expect(
+    decorationsForSkill({ ...game, decorations: first }, 'attack'),
+  ).toEqual(first);
   expect(
     decorationsForSkill({ ...game, decorations: second }, 'attack'),
   ).toEqual(second);
@@ -196,7 +192,9 @@ test('solver/solver:solve - KAS meta', () => {
   expect(hasSkill(value, 'artisan', 10)).toBe(true);
   expect(hasSkill(value, 'dragon-res', 15)).toBe(true);
   expect(hasSkill(value, 'sneak', -10)).toBe(true);
-  expect(setSkills(value.armour, value.decorations)).toStrictEqual(value.skills);
+  expect(setSkills(value.armour, value.decorations)).toStrictEqual(
+    value.skills,
+  );
 });
 
 test('solver/solver:solve - Taunt with full Rajang armour', () => {
@@ -238,18 +236,16 @@ test('solver/solver:solve - Taunt with Chakra armour and decoration penalties', 
       (decoration) => decoration.penalty?.skill === 'sneak',
     ),
   ).toBe(true);
-  expect(setSkills(value.armour, value.decorations)).toStrictEqual(value.skills);
+  expect(setSkills(value.armour, value.decorations)).toStrictEqual(
+    value.skills,
+  );
 });
 
 test('solver/solver: keeps multi-slot jewels within one physical container', () => {
   const q = query({ skills: { 'guard-up': 3 } });
 
   expect([
-    ...solve(
-      q,
-      chakraSlotProfile({ head: 1, arms: 1 }),
-      omit(data, 'armour'),
-    ),
+    ...solve(q, chakraSlotProfile({ head: 1, arms: 1 }), omit(data, 'armour')),
   ]).toHaveLength(0);
 
   const { done, value } = solve(
@@ -258,9 +254,9 @@ test('solver/solver: keeps multi-slot jewels within one physical container', () 
     omit(data, 'armour'),
   ).next();
   assert(!done);
-  expect(value.decorations.armour.map((decoration) => decoration.slug)).toEqual([
-    'wall-jewel',
-  ]);
+  expect(value.decorations.armour.map((decoration) => decoration.slug)).toEqual(
+    ['wall-jewel'],
+  );
 });
 
 test('solver/solver: chooses efficient smaller jewels over a stronger greedy choice', () => {
@@ -272,10 +268,9 @@ test('solver/solver: chooses efficient smaller jewels over a stronger greedy cho
   ).next();
 
   assert(!done);
-  expect(value.decorations.armour.map((decoration) => decoration.slug)).toEqual([
-    'hot-breeze-jewel',
-    'hot-breeze-jewel',
-  ]);
+  expect(value.decorations.armour.map((decoration) => decoration.slug)).toEqual(
+    ['hot-breeze-jewel', 'hot-breeze-jewel'],
+  );
   expect(value.skills['cold-res']).toBe(4);
   expect(value.skills['heat-res']).toBeUndefined();
 });
@@ -294,10 +289,12 @@ test('solver/solver: records decorations that require weapon slots', () => {
   assert(!done);
   expect(value.decorations.armour).toEqual([]);
   expect(value.decorations.torso).toEqual([]);
-  expect(value.decorations.weapon.map((decoration) => decoration.slug)).toEqual([
-    'attack-jewel',
-  ]);
-  expect(setSkills(value.armour, value.decorations)).toStrictEqual(value.skills);
+  expect(value.decorations.weapon.map((decoration) => decoration.slug)).toEqual(
+    ['attack-jewel'],
+  );
+  expect(setSkills(value.armour, value.decorations)).toStrictEqual(
+    value.skills,
+  );
 });
 
 test.each([
@@ -320,9 +317,9 @@ test.each([
     ).next();
 
     assert(!done);
-    expect(value.decorations.armour.map((decoration) => decoration.slug)).toEqual([
-      decoration,
-    ]);
+    expect(
+      value.decorations.armour.map((decoration) => decoration.slug),
+    ).toEqual([decoration]);
   },
 );
 
@@ -343,7 +340,9 @@ test('solver/solver: multiplies body decoration skills and penalties with Torso 
   expect(value.decorations.weapon).toEqual([]);
   expect(value.skills.attack).toBe(9);
   expect(value.skills.defense).toBe(-3);
-  expect(setSkills(value.armour, value.decorations)).toStrictEqual(value.skills);
+  expect(setSkills(value.armour, value.decorations)).toStrictEqual(
+    value.skills,
+  );
 });
 
 test('solver/solver: multiplies native body skills with Torso Inc', () => {
@@ -360,9 +359,15 @@ test('solver/solver: multiplies native body skills with Torso Inc', () => {
 
   assert(!done);
   expect(value.torsoInc).toBe(2);
-  expect(value.decorations).toStrictEqual({ armour: [], torso: [], weapon: [] });
+  expect(value.decorations).toStrictEqual({
+    armour: [],
+    torso: [],
+    weapon: [],
+  });
   expect(value.skills.attack).toBe(3);
-  expect(setSkills(value.armour, value.decorations)).toStrictEqual(value.skills);
+  expect(setSkills(value.armour, value.decorations)).toStrictEqual(
+    value.skills,
+  );
 });
 
 test.each([
@@ -377,11 +382,7 @@ test.each([
     });
 
     expect([
-      ...solve(
-        q,
-        selectGear(data.armour, RAJANG_GEAR),
-        omit(data, 'armour'),
-      ),
+      ...solve(q, selectGear(data.armour, RAJANG_GEAR), omit(data, 'armour')),
     ]).toHaveLength(matches);
   },
 );
@@ -413,7 +414,9 @@ test('solver/solver: repairs required skills after decoration penalties when pos
     },
   });
 
-  const results = [...solve(q, reloadPenaltyFixtureGear(), omit(data, 'armour'))];
+  const results = [
+    ...solve(q, reloadPenaltyFixtureGear(), omit(data, 'armour')),
+  ];
 
   expect(results).toHaveLength(1);
   const build = results[0];

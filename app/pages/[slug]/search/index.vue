@@ -105,7 +105,10 @@ const selectedSkills = computed(() => {
   }));
 });
 const canSearch = computed(
-  () => data.value !== undefined && game.value !== undefined && selectedSkills.value.length > 0,
+  () =>
+    data.value !== undefined &&
+    game.value !== undefined &&
+    selectedSkills.value.length > 0,
 );
 
 function submit() {
@@ -160,7 +163,9 @@ function submit() {
           name="weapon-class"
           :value="query.weapon.class"
           :options="weaponClassOptions"
-          @change="(v) => setWeaponClass(v as (typeof WEAPON_CLASS)[WeaponClass])"
+          @change="
+            (v) => setWeaponClass(v as (typeof WEAPON_CLASS)[WeaponClass])
+          "
         />
       </Label>
       <Label v-if="game?.features.decorations">
@@ -173,10 +178,7 @@ function submit() {
         />
       </Label>
     </Fieldset>
-    <Fieldset
-      :legend="translate('search-skills')"
-      class="lg:col-span-2"
-    >
+    <Fieldset :legend="translate('search-skills')" class="lg:col-span-2">
       <NuxtLink
         :to="skillsPath"
         class="block rounded-xl border border-stone-200 bg-white p-3 text-sm shadow-sm dark:border-stone-700 dark:bg-stone-900"
@@ -202,10 +204,7 @@ function submit() {
       <div class="grid gap-2 lg:grid-cols-2 lg:gap-4">
         <Label>
           {{ translate('search-options-allow-bad') }}
-          <Toggle
-            :model-value="query.options.allowBad"
-            @change="setAllowBad"
-          />
+          <Toggle :model-value="query.options.allowBad" @change="setAllowBad" />
         </Label>
         <Label>
           {{ translate('search-options-allow-dummy') }}

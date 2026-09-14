@@ -14,7 +14,7 @@ import {
   type ArmourPiece,
   type ArmourSlot,
   type Decoration,
-} from '~/game/types';
+} from '~/game/game';
 import type { ArmourSet } from '~/solver/solver';
 
 function piece(skill: string): ArmourPiece {
@@ -74,12 +74,9 @@ test.each([
   [160, 0, 320],
   [160, 15, 376],
   [160, -20, 266],
-])(
-  'effective(%i, %i) returns %i',
-  (defence, resistance, expected) => {
-    expect(effective(defence, resistance)).toBe(expected);
-  },
-);
+])('effective(%i, %i) returns %i', (defence, resistance, expected) => {
+  expect(effective(defence, resistance)).toBe(expected);
+});
 
 test('armourSetIDv1 canonicalizes decoration order', () => {
   const first: ArmourSet = {

@@ -4,7 +4,7 @@ import type {
   ArmourSlot,
   GameData,
   Decoration,
-} from '~/game/types';
+} from '~/game/game';
 import type { PreparedGear } from './prepare';
 import { createDecorationOptimizer } from './decorate';
 import { validateArmourSet } from '~/set';

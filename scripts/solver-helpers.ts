@@ -3,7 +3,7 @@ import {
   type ArmourPiece,
   type ArmourSlot,
   type GameData,
-} from '../app/game/types';
+} from '../app/game/game';
 import type { PreparedGear } from '../app/solver/prepare';
 
 export type GearSlugs = Record<ArmourSlot, string>;
@@ -12,8 +12,7 @@ export function filterGear(
   gear: PreparedGear,
   predicate: (piece: ArmourPiece) => boolean,
 ) {
-  for (const slot of ARMOUR_SLOTS)
-    gear[slot] = gear[slot].filter(predicate);
+  for (const slot of ARMOUR_SLOTS) gear[slot] = gear[slot].filter(predicate);
 
   return gear;
 }

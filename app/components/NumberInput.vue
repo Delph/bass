@@ -16,7 +16,7 @@ const emit = defineEmits<{
 function update(event: Event) {
   const value = (event.target as HTMLInputElement).value;
 
-  emit("change", value !== "" ? Number(value) : null);
+  emit('change', value !== '' ? Number(value) : null);
 }
 </script>
 

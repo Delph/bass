@@ -1,4 +1,4 @@
-import type { GameData } from '~/game/types';
+import type { GameData } from '~/game/game';
 import type { QueryState } from '~/query/types';
 import type { PreparedGear } from '~/solver/prepare';
 import type { BuildResult } from '~/solver/solver';
@@ -13,7 +13,7 @@ export type WorkerMessage =
       payload: {
         gear: PreparedGear;
         query: QueryState;
-      }
+      };
     }
   | {
       type: 'pause';

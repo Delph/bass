@@ -23,19 +23,13 @@ function queryKey(value: QueryState) {
   ]);
 }
 
-export function appendHistory<T extends HistoryRecord>(
-  entries: T[],
-  entry: T,
-) {
+export function appendHistory<T extends HistoryRecord>(entries: T[], entry: T) {
   const key = queryKey(entry.query);
 
   for (let index = entries.length - 1; index >= 0; --index) {
     const existing = entries[index]!;
 
-    if (
-      existing.deletedAt === null &&
-      queryKey(existing.query) === key
-    )
+    if (existing.deletedAt === null && queryKey(existing.query) === key)
       entries.splice(index, 1);
   }
 

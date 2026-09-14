@@ -1,6 +1,6 @@
 import { useState } from '#app';
 import { usePreferences } from '~/composables/usePreferences';
-import { ephemeral } from '~/persistence/storage';
+import { persistence } from '@delphington/persistent-buckets';
 
 let checking: Promise<void> | null = null;
 
@@ -15,7 +15,12 @@ export function usePersistence() {
   const pending = useState('storage-persistence-pending', () => false);
 
   async function check() {
-    if (ephemeral || persistent.value !== undefined || !supported.value) return;
+    if (
+      persistence.ephemeral ||
+      persistent.value !== undefined ||
+      !supported.value
+    )
+      return;
 
     if (!navigator.storage?.persisted || !navigator.storage.persist) {
       supported.value = false;
@@ -33,7 +38,7 @@ export function usePersistence() {
   }
 
   async function request() {
-    if (ephemeral) return false;
+    if (persistence.ephemeral) return false;
 
     if (!navigator.storage?.persist) {
       supported.value = false;
@@ -57,7 +62,7 @@ export function usePersistence() {
   return {
     check,
     dismiss,
-    ephemeral,
+    ephemeral: persistence.ephemeral,
     pending,
     persistent,
     reminder,

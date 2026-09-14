@@ -1,4 +1,4 @@
-import type { GameData } from '~/game/types';
+import type { GameData } from '~/game/game';
 import type { QueryState } from '~/query/types';
 import { prepare, type PreparedGear } from '~/solver/prepare';
 import type { BuildResult } from '~/solver/solver';
@@ -6,11 +6,7 @@ import { deepcopy, omit, product, range } from '~/utility';
 import type { WorkerMessage, WorkerResponse } from '~/workers/types';
 
 export type SearchStatus =
-  | 'idle'
-  | 'running'
-  | 'paused'
-  | 'completed'
-  | 'error';
+  'idle' | 'running' | 'paused' | 'completed' | 'error';
 
 export type SearchSession = {
   id: number;
@@ -270,7 +266,8 @@ export class SearchClient {
     switch (message.data.type) {
       case 'start':
         this.session.attempts[worker] = 0;
-        this.session.combinationCounts[worker] = message.data.payload.combinations;
+        this.session.combinationCounts[worker] =
+          message.data.payload.combinations;
         this.scheduleEmit();
         return;
       case 'progress':

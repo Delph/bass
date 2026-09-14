@@ -18,7 +18,8 @@ import { useThemeSync } from '~/composables/useTheme';
 import { useLanguage } from '~/composables/useLanguage';
 import { useToasts } from '~/composables/useToasts';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '~/metadata';
-import '~/persistence/register';
+
+import.meta.glob('./buckets/*.ts', { eager: true });
 
 import SideBar from '~/components/SideBar.vue';
 import Progress from '~/components/Progress.vue';

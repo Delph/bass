@@ -5,14 +5,11 @@ import {
   type ArmourPiece,
   type ArmourSlot,
   type GameData,
-} from '~/game/types';
+} from '~/game/game';
 import { query } from '~/query/types';
 import { prepare } from '~/solver/prepare';
 
-function piece(
-  id: number,
-  overrides: Partial<ArmourPiece> = {},
-): ArmourPiece {
+function piece(id: number, overrides: Partial<ArmourPiece> = {}): ArmourPiece {
   return {
     id,
     materials: [],

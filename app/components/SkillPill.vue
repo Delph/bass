@@ -39,11 +39,15 @@ const activated = computed((): SkillEffect | null => {
         : 'bg-emerald-100 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-100'
     "
   >
-    <span>{{ translate(getSkillEffectKey(activated.skill, activated.points)) }}</span>
+    <span>{{
+      translate(getSkillEffectKey(activated.skill, activated.points))
+    }}</span>
     <InfoTooltip
       v-if="tooltip"
       :text="
-        translate(`${getSkillEffectKey(activated.skill, activated.points)}-description`)
+        translate(
+          `${getSkillEffectKey(activated.skill, activated.points)}-description`,
+        )
       "
     />
     <span

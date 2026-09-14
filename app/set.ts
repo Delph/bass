@@ -5,7 +5,7 @@ import {
   type DamageType,
   type Decoration,
   type GameData,
-} from './game/types';
+} from './game/game';
 import type { ArmourSet } from './solver/solver';
 import { sum } from './utility';
 import { WireReader, WireWriter } from './wire';

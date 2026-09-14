@@ -1,7 +1,7 @@
 import { useState } from '#app';
 import { computed, type Ref } from 'vue';
 
-import type { DamageType, GameData } from '~/game/types';
+import type { DamageType, GameData } from '~/game/game';
 import type { QueryState } from '~/query/types';
 import {
   createEmptySearchSession,

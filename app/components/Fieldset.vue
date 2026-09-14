@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
 defineProps<{
   legend: string;
@@ -24,10 +24,7 @@ const open = ref(true);
         />
       </button>
     </legend>
-    <div
-      v-show="open"
-      class="mt-2 flex flex-col gap-2"
-    >
+    <div v-show="open" class="mt-2 flex flex-col gap-2">
       <slot />
     </div>
   </fieldset>

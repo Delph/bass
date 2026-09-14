@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useLanguage } from '~/composables/useLanguage';
 import { locales, type LocaleSlug } from '~/translation';
-import Select from "~/components/Select.vue";
+import Select from '~/components/Select.vue';
 
 const { locale, pending, set, translate } = useLanguage();
 </script>
@@ -13,10 +13,13 @@ const { locale, pending, set, translate } = useLanguage();
       name="language"
       :value="locale"
       :disabled="pending"
-      :options="Object.keys(locales).map(slug => ({value: slug, label: locales[slug as LocaleSlug].name}))"
-      @change="
-        (value) => set(value as LocaleSlug)
+      :options="
+        Object.keys(locales).map((slug) => ({
+          value: slug,
+          label: locales[slug as LocaleSlug].name,
+        }))
       "
+      @change="(value) => set(value as LocaleSlug)"
     />
   </label>
 </template>

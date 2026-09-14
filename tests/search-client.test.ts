@@ -1,12 +1,9 @@
 import { beforeEach, describe, expect, test } from 'vitest';
 
-import type { ArmourPiece, ArmourSlot, GameData } from '~/game/types';
-import { ARMOUR_SLOTS } from '~/game/types';
+import type { ArmourPiece, ArmourSlot, GameData } from '~/game/game';
+import { ARMOUR_SLOTS } from '~/game/game';
 import { query } from '~/query/types';
-import {
-  SearchClient,
-  type SearchWorker,
-} from '~/solver/client';
+import { SearchClient, type SearchWorker } from '~/solver/client';
 import type { BuildResult } from '~/solver/solver';
 import type { WorkerMessage, WorkerResponse } from '~/workers/types';
 
@@ -127,14 +124,20 @@ describe('SearchClient', () => {
     expect(client.state.status).toBe('running');
     expect(client.state.combinationCounts).toEqual([1, 1]);
 
-    FakeWorker.workers[0]!.send({ type: 'progress', payload: { attempted: 1 } });
+    FakeWorker.workers[0]!.send({
+      type: 'progress',
+      payload: { attempted: 1 },
+    });
     FakeWorker.workers[0]!.send({ type: 'result', payload: build(data) });
     FakeWorker.workers[0]!.send({ type: 'complete' });
 
     expect(client.state.status).toBe('running');
     expect(client.state.results).toHaveLength(1);
 
-    FakeWorker.workers[1]!.send({ type: 'progress', payload: { attempted: 1 } });
+    FakeWorker.workers[1]!.send({
+      type: 'progress',
+      payload: { attempted: 1 },
+    });
     FakeWorker.workers[1]!.send({ type: 'complete' });
 
     expect(client.state.status).toBe('completed');

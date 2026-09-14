@@ -1,4 +1,4 @@
-import type { DeepPartial } from '~/types';
+import type { AuditFields, DeepPartial } from '~/types';
 
 export function bound(a: number, min: number, max: number) {
   if (max < min) throw Error(`Max (${max}) is less than min (${min})`);
@@ -92,4 +92,15 @@ export function* range(start: number, stop: number, step: number = 1) {
 
 export async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export function pruneDeleted<T extends Pick<AuditFields, 'deletedAt'>>(
+  records: T[],
+) {
+  const active = records.filter((record) => record.deletedAt === null);
+  const removed = records.length - active.length;
+
+  records.splice(0, records.length, ...active);
+
+  return removed;
 }

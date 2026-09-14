@@ -1,4 +1,4 @@
-import type { SkillDefinition } from '~/game/types';
+import type { SkillDefinition } from '~/game/game';
 import type { SkillRequirement } from '~/query/types';
 
 export type SkillOption = {

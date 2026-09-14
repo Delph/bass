@@ -88,7 +88,9 @@ const filteredSkillCards = computed(() => {
       const matchesQuery =
         term.length === 0 ||
         card.skill.slug.toLocaleLowerCase().includes(term) ||
-        translate(`skill-${card.skill.slug}`).toLocaleLowerCase().includes(term) ||
+        translate(`skill-${card.skill.slug}`)
+          .toLocaleLowerCase()
+          .includes(term) ||
         card.options.some((option) =>
           translate(getSkillEffectKey(card.skill.slug, option.points))
             .toLocaleLowerCase()

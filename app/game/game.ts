@@ -5,12 +5,25 @@ type QuestRank = {
   group?: string;
 };
 
-const DAMAGE_TYPES = ['fire', 'water', 'thunder', 'ice', 'dragon'] as const;
+export const DAMAGE_TYPES = [
+  'fire',
+  'water',
+  'thunder',
+  'ice',
+  'dragon',
+] as const;
 export type DamageType = (typeof DAMAGE_TYPES)[number];
+
+export const GAME_SLUGS = ['mhfu'] as const;
+export type GameSlug = (typeof GAME_SLUGS)[number];
+
+export function isGameSlug(value: unknown): value is GameSlug {
+  return typeof value === 'string' && GAME_SLUGS.some((slug) => slug === value);
+}
 
 export type Game = {
   /// an identifier for the game
-  slug: string;
+  slug: GameSlug;
 
   /// village quests, if the game has them
   village: QuestRank[];
@@ -88,3 +101,12 @@ export type GameData = {
   skills: SkillDefinition[];
   translations: Translations;
 };
+
+export function current<T>(
+  slug: GameSlug,
+  data: Record<GameSlug, T>,
+  create: () => T,
+): T {
+  data[slug] ??= create();
+  return data[slug];
+}
