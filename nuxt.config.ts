@@ -31,6 +31,13 @@ export default defineNuxtConfig({
         { rel: 'canonical', href: SITE_URL },
         { rel: 'license', href: '/licenses.json' },
       ],
+      script: [
+        {
+          src: 'https://umami.delph.dev/script.js',
+          defer: true,
+          'data-website-id': '1163a06d-48e2-4dc3-917b-562ec19f45dc',
+        },
+      ],
       meta: [
         { name: 'description', content: SITE_DESCRIPTION },
         { name: 'application-name', content: SITE_NAME },
