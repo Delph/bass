@@ -74,8 +74,9 @@
   "rank-group-low-rank": "Low Rank",
   "rank-group-high-rank": "High Rank",
   "rank-group-g-rank": "G Rank",
-  "rank-label-stars": "{rank}★",
-  "rank-label-g": "G{rank}★",
+
+  "rank-guild": "HR {rank}",
+  "rank-village": "{rank}★",
 
   "settings": "Settings",
   "settings-data": "Data",

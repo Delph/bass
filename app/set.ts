@@ -63,8 +63,8 @@ function decorationsFit(capacities: number[], decorations: Decoration[]) {
   return place(0);
 }
 
-export function validateArmourSet(
-  armour: Record<ArmourSlot, ArmourPiece>,
+export function validateArmourSet<Element extends DamageType>(
+  armour: Record<ArmourSlot, ArmourPiece<Element>>,
   decorations: Decorations,
   weaponSlots = 3,
 ) {
@@ -176,7 +176,10 @@ export function defence(pieces: ArmourPiece[]): number {
  * @param element The element to calculate the resistance for
  * @returns The total elemental resistance of the pieces for that element
  */
-export function resistance(pieces: ArmourPiece[], element: DamageType): number {
+export function resistance<Element extends DamageType>(
+  pieces: ArmourPiece<Element>[],
+  element: Element,
+): number {
   return sum(pieces.map((p) => p.resistances[element]));
 }
 
@@ -185,16 +188,16 @@ export function resistance(pieces: ArmourPiece[], element: DamageType): number {
  * @param pieces The collection of pieces
  * @returns An object of elements and resistances for the collection of pieces
  */
-export function resistances(
-  pieces: ArmourPiece[],
-): Partial<Record<DamageType, number>> {
+export function resistances<Element extends DamageType>(
+  pieces: ArmourPiece<Element>[],
+): Record<Element, number> {
   const elements = new Set(
-    pieces.flatMap((p) => Object.keys(p.resistances) as DamageType[]),
+    pieces.flatMap((p) => Object.keys(p.resistances) as Element[]),
   );
 
   return Object.fromEntries(
     [...elements].map((e) => [e, resistance(pieces, e)]),
-  );
+  ) as Record<Element, number>;
 }
 
 /**
@@ -231,16 +234,20 @@ export function groupDecorations(decorations: Decoration[]) {
  * @param decorations The collection of decorations
  * @returns The computed skills
  */
-export function setSkills(
-  pieces: Record<ArmourSlot, ArmourPiece>,
+export function setSkills<Element extends DamageType>(
+  pieces: Record<ArmourSlot, ArmourPiece<Element>>,
   decorations: Decorations,
 ) {
   const torsoInc = Object.values(pieces).filter((p) => p.torso_inc).length;
+  const torsoAdd = Object.values(pieces).reduce(
+    (total, piece) => total + (piece.torso_add ?? 0),
+    0,
+  );
 
   const skills: Record<string, number> = {};
 
-  function add(skill: string, points: number, multiplier: number) {
-    skills[skill] = (skills[skill] ?? 0) + points * multiplier;
+  function add(skill: string, points: number) {
+    skills[skill] = (skills[skill] ?? 0) + points;
   }
 
   for (const slot of ARMOUR_SLOTS) {
@@ -250,7 +257,12 @@ export function setSkills(
     if (piece === undefined) continue;
 
     for (const skill of piece.skills)
-      add(skill.skill, skill.points, slot === 'body' ? torsoInc + 1 : 1);
+      add(
+        skill.skill,
+        slot === 'body'
+          ? skill.points * (torsoInc + 1) + torsoAdd
+          : skill.points,
+      );
   }
 
   for (const type of DECORATION_GROUPS) {
@@ -258,14 +270,12 @@ export function setSkills(
     for (const decoration of collection) {
       add(
         decoration.skill.skill,
-        decoration.skill.points,
-        type === 'torso' ? torsoInc + 1 : 1,
+        decoration.skill.points * (type === 'torso' ? torsoInc + 1 : 1),
       );
       if (decoration.penalty)
         add(
           decoration.penalty.skill,
-          decoration.penalty.points,
-          type === 'torso' ? torsoInc + 1 : 1,
+          decoration.penalty.points * (type === 'torso' ? torsoInc + 1 : 1),
         );
     }
   }

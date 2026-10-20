@@ -10,7 +10,7 @@ import { useQuery } from '~/composables/useQuery';
 import { useSets } from '~/composables/useSets';
 import { HUNTER_GENDER, WEAPON_CLASS } from '~/query/types';
 
-const { formatDateTime, formatNumber, translate } = useLanguage();
+const { formatDateTime, formatRank, translate } = useLanguage();
 const { game, slug } = useGame();
 const router = useRouter();
 const { setQuery } = useQuery();
@@ -42,31 +42,17 @@ function skillEntries(entry: HistoryEntry) {
   }));
 }
 
-function rankLabel(
-  rank: { rank: number; group?: string } | undefined,
-  fallback: number,
-) {
-  const value = rank?.rank ?? fallback;
-  const gRank = rank?.group === 'g-rank';
-
-  return translate(gRank ? 'rank-label-g' : 'rank-label-stars', {
-    rank: formatNumber(gRank ? value - 6 : value),
-  });
-}
-
 function guildRank(entry: HistoryEntry) {
-  return rankLabel(
-    game.value?.guild.find((rank) => rank.rank === entry.query.hunter.rank),
-    entry.query.hunter.rank,
+  return formatRank(
+    game.value!.guild.find((rank) => rank.rank === entry.query.hunter.rank)!,
   );
 }
 
 function villageRank(entry: HistoryEntry) {
-  return rankLabel(
-    game.value?.village.find(
+  return formatRank(
+    game.value!.village.find(
       (rank) => rank.rank === entry.query.hunter.village,
-    ),
-    entry.query.hunter.village,
+    )!,
   );
 }
 
@@ -156,6 +142,8 @@ function repeat(entry: HistoryEntry) {
                   ? translate('weapon-class-gunner')
                   : translate('weapon-class-blademaster')
               }}
+            </span>
+            <span v-if="game?.features.decorations">
               {{ latestSearch.query.weapon.slots }}
               {{ translate('search-weapon-slots') }}
             </span>

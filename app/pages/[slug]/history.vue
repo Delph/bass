@@ -8,7 +8,7 @@ import { useLanguage } from '~/composables/useLanguage';
 import { useQuery } from '~/composables/useQuery';
 import { HUNTER_GENDER, WEAPON_CLASS } from '~/query/types';
 
-const { formatDateTime, formatNumber, translate } = useLanguage();
+const { formatDateTime, formatRank, translate } = useLanguage();
 const { game, slug } = useGame();
 const router = useRouter();
 const { setQuery } = useQuery();
@@ -21,18 +21,6 @@ function skillEntries(entry: HistoryEntry) {
     skill,
     points,
   }));
-}
-
-function rankLabel(
-  rank: { rank: number; group?: string } | undefined,
-  fallback: number,
-) {
-  const value = rank?.rank ?? fallback;
-  const gRank = rank?.group === 'g-rank';
-
-  return translate(gRank ? 'rank-label-g' : 'rank-label-stars', {
-    rank: formatNumber(gRank ? value - 6 : value),
-  });
 }
 
 function repeat(entry: HistoryEntry) {
@@ -63,20 +51,20 @@ function repeat(entry: HistoryEntry) {
             <span>
               {{
                 translate('history-rank-guild', {
-                  rank: rankLabel(
-                    game!.guild.find((r) => r.rank === entry.query.hunter.rank),
-                    entry.query.hunter.rank,
+                  rank: formatRank(
+                    game!.guild.find(
+                      (r) => r.rank === entry.query.hunter.rank,
+                    )!,
                   ),
                 })
               }}
 
               {{
                 translate('history-rank-village', {
-                  rank: rankLabel(
+                  rank: formatRank(
                     game!.village.find(
                       (r) => r.rank === entry.query.hunter.village,
-                    ),
-                    entry.query.hunter.village,
+                    )!,
                   ),
                 })
               }}
@@ -98,6 +86,8 @@ function repeat(entry: HistoryEntry) {
                   ? translate('weapon-class-gunner')
                   : translate('weapon-class-blademaster')
               }}
+            </span>
+            <span v-if="game?.features.decorations">
               {{ entry.query.weapon.slots }}
               {{ translate('search-weapon-slots') }}
             </span>

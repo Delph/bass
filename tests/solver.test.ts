@@ -370,6 +370,28 @@ test('solver/solver: multiplies native body skills with Torso Inc', () => {
   );
 });
 
+test('solver/solver: adds Torso +1/+2 after applying Torso Inc', () => {
+  const q = query({ skills: { attack: 6 } });
+  const gear = chakraSlotProfile({}, ['arms']);
+  gear.body = [
+    {
+      ...gear.body[0]!,
+      skills: [{ skill: 'attack', points: 2 }],
+    },
+  ];
+  gear.legs = [{ ...gear.legs[0]!, torso_add: 2 }];
+
+  const { done, value } = solve(q, gear, omit(data, 'armour')).next();
+
+  assert(!done);
+  expect(value.torsoInc).toBe(1);
+  expect(value.torsoAdd).toBe(2);
+  expect(value.skills.attack).toBe(6);
+  expect(setSkills(value.armour, value.decorations)).toStrictEqual(
+    value.skills,
+  );
+});
+
 test.each([
   { allowBad: false, matches: 0 },
   { allowBad: true, matches: 1 },

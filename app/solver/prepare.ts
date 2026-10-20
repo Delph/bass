@@ -1,12 +1,24 @@
 import type { QueryState } from '~/query/types';
-import type { ArmourSlot, ArmourPiece, GameData } from '~/game/game';
+import type {
+  ArmourSlot,
+  ArmourPiece,
+  DamageType,
+  GameData,
+} from '~/game/game';
 
-export type PreparedGear = Record<ArmourSlot, ArmourPiece[]>;
+export type PreparedGear<Element extends DamageType = DamageType> = Record<
+  ArmourSlot,
+  ArmourPiece<Element>[]
+>;
 
 const SLOT_SCORE = 2;
 const TORSO_INC_SCORE = 10;
+const TORSO_ADD_SCORE = 2;
 
-function eligible(query: QueryState, piece: ArmourPiece) {
+function eligible<Element extends DamageType>(
+  query: QueryState,
+  piece: ArmourPiece<Element>,
+) {
   return (
     piece.hr <= query.hunter.rank &&
     piece.elder <= query.hunter.village &&
@@ -16,8 +28,11 @@ function eligible(query: QueryState, piece: ArmourPiece) {
   );
 }
 
-function filter(query: QueryState, data: GameData): PreparedGear {
-  const armour: PreparedGear = {
+function filter<Element extends DamageType>(
+  query: QueryState,
+  data: GameData<Element>,
+): PreparedGear<Element> {
+  const armour: PreparedGear<Element> = {
     head: [],
     body: [],
     arms: [],
@@ -45,6 +60,7 @@ function filter(query: QueryState, data: GameData): PreparedGear {
         required.size > 0 &&
         !contributes &&
         !piece.torso_inc &&
+        !piece.torso_add &&
         !neutralPlatform
       )
         continue;
@@ -56,7 +72,10 @@ function filter(query: QueryState, data: GameData): PreparedGear {
   return armour;
 }
 
-function score(query: QueryState, piece: ArmourPiece) {
+function score<Element extends DamageType>(
+  query: QueryState,
+  piece: ArmourPiece<Element>,
+) {
   const skillScore = piece.skills.reduce((total, skill) => {
     const target = query.skills[skill.skill];
     if (target === undefined) return total;
@@ -67,15 +86,16 @@ function score(query: QueryState, piece: ArmourPiece) {
   return (
     skillScore +
     piece.slots * SLOT_SCORE +
-    (piece.torso_inc ? TORSO_INC_SCORE : 0)
+    (piece.torso_inc ? TORSO_INC_SCORE : 0) +
+    (piece.torso_add ?? 0) * TORSO_ADD_SCORE
   );
 }
 
-function order(
+function order<Element extends DamageType>(
   query: QueryState,
-  gear: PreparedGear,
+  gear: PreparedGear<Element>,
   cutoff: number,
-): PreparedGear {
+): PreparedGear<Element> {
   const limit = Number.isFinite(cutoff)
     ? Math.max(1, Math.floor(cutoff))
     : Number.POSITIVE_INFINITY;
@@ -89,14 +109,14 @@ function order(
         )
         .slice(0, limit),
     ]),
-  ) as PreparedGear;
+  ) as PreparedGear<Element>;
 }
 
-export function prepare(
+export function prepare<Element extends DamageType>(
   query: QueryState,
-  data: GameData,
+  data: GameData<Element>,
   cutoff = Number.POSITIVE_INFINITY,
-): PreparedGear {
+): PreparedGear<Element> {
   // filter out all the stuff we can't use
   const filtered = filter(query, data);
 

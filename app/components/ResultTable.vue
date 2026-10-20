@@ -105,10 +105,11 @@ const rows = computed(() =>
         </th>
         <th
           class="border-b border-stone-300 p-2 text-left dark:border-stone-700"
+          v-if="game?.features.decorations"
         >
           {{ translate('set-section-decorations') }}
         </th>
-        <th class="border-b border-stone-300 p-2">
+        <th class="border-b border-stone-300 p-2 dark:border-stone-700">
           <span class="sr-only">{{ translate('set-open') }}</span>
         </th>
       </tr>
@@ -177,7 +178,10 @@ const rows = computed(() =>
             />
           </div>
         </td>
-        <td class="border-b border-stone-200 p-2 dark:border-stone-800">
+        <td
+          v-if="game?.features.decorations"
+          class="border-b border-stone-200 p-2 dark:border-stone-800"
+        >
           <div class="flex flex-wrap gap-1">
             <span
               v-for="decoration in row.decorations"

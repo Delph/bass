@@ -11,7 +11,7 @@ if (games.length === 1)
 </script>
 
 <template>
-  <div class="flex flex-col justify-between">
+  <div class="flex flex-col justify-between gap-4">
     <div class="grid grid-cols-1 mx-auto w-80 gap-2">
       <GameCard v-for="game in games" :key="game.slug" :game="game" />
     </div>

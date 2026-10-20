@@ -1,6 +1,7 @@
 import type { Translations } from '~/translation';
 
-type QuestRank = {
+export type QuestRank = {
+  key: string;
   rank: number;
   group?: string;
 };
@@ -13,15 +14,16 @@ export const DAMAGE_TYPES = [
   'dragon',
 ] as const;
 export type DamageType = (typeof DAMAGE_TYPES)[number];
+export type MhfDamageType = Exclude<DamageType, 'ice'>;
 
-export const GAME_SLUGS = ['mhfu'] as const;
+export const GAME_SLUGS = ['mhf', 'mhfu'] as const;
 export type GameSlug = (typeof GAME_SLUGS)[number];
 
 export function isGameSlug(value: unknown): value is GameSlug {
   return typeof value === 'string' && GAME_SLUGS.some((slug) => slug === value);
 }
 
-export type Game = {
+export type Game<Element extends DamageType = DamageType> = {
   /// an identifier for the game
   slug: GameSlug;
 
@@ -32,7 +34,7 @@ export type Game = {
   guild: QuestRank[];
 
   /// the elements that exist in the game
-  elements: DamageType[];
+  elements: Element[];
 
   /// random features that a game might have
   features: {
@@ -54,14 +56,18 @@ export type SkillPoints = {
   points: number;
 };
 
-export type Resistances = Record<DamageType, number>;
+export type Resistances<Element extends DamageType = DamageType> = Record<
+  Element,
+  number
+>;
 
-export type ArmourPiece = {
+export type ArmourPiece<Element extends DamageType = DamageType> = {
   id: number;
   materials: Material[];
   skills: SkillPoints[];
-  resistances: Resistances;
+  resistances: Resistances<Element>;
   torso_inc: boolean;
+  torso_add?: number;
   slug: string;
   price?: number;
   defence: number;
@@ -95,8 +101,8 @@ export type SkillDefinition = {
   combines?: SkillPoints[];
 };
 
-export type GameData = {
-  armour: Record<ArmourSlot, ArmourPiece[]>;
+export type GameData<Element extends DamageType = DamageType> = {
+  armour: Record<ArmourSlot, ArmourPiece<Element>[]>;
   decorations: Decoration[];
   skills: SkillDefinition[];
   translations: Translations;

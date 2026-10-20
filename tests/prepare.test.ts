@@ -100,6 +100,26 @@ test('prepare scores skill points in the requested direction', () => {
   expect(gear.head[0]?.slug).toBe('negative');
 });
 
+test('prepare retains and scores Torso +1/+2 pieces', () => {
+  const gear = prepare(
+    query({ skills: { attack: 10 } }),
+    data([
+      piece(1, { slug: 'torso-plus-1', skills: [], torso_add: 1 }),
+      piece(2, { slug: 'torso-plus-2', skills: [], torso_add: 2 }),
+      piece(3, {
+        slug: 'three-skill-points',
+        skills: [{ skill: 'attack', points: 3 }],
+      }),
+    ]),
+    2,
+  );
+
+  expect(gear.head.map((candidate) => candidate.slug)).toStrictEqual([
+    'torso-plus-2',
+    'three-skill-points',
+  ]);
+});
+
 test('prepare uses defence to break equal score ties', () => {
   const gear = prepare(
     query({ skills: { attack: 10 } }),

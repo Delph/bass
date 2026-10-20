@@ -14,6 +14,7 @@ import {
 } from '~/format';
 import { useGame } from './useGame';
 import { usePreferences } from './usePreferences';
+import type { QuestRank } from '~/game/game';
 
 export function useLanguage() {
   const { data } = useGame();
@@ -70,6 +71,10 @@ export function useLanguage() {
     return formatPercentForLocale(locale.value, value, dp, options);
   }
 
+  function formatRank(rank: QuestRank) {
+    return translate(rank.key, { rank: formatNumber(rank.rank) });
+  }
+
   set(locale.value);
 
   return {
@@ -82,5 +87,6 @@ export function useLanguage() {
     formatDateTime,
     formatNumber,
     formatPercent,
+    formatRank,
   };
 }

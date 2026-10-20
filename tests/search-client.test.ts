@@ -103,6 +103,7 @@ function build(data = gameData()): BuildResult {
       weapon: [],
     },
     torsoInc: 0,
+    torsoAdd: 0,
     skills: { attack: 10 },
   };
 }

@@ -2,7 +2,6 @@
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import Fieldset from '~/components/Fieldset.vue';
-import Field from '~/components/Field.vue';
 import Select from '~/components/Select.vue';
 import Toggle from '~/components/Toggle.vue';
 import { useGame } from '~/composables/useGame';
@@ -24,7 +23,7 @@ const { data, game } = useGame();
 const router = useRouter();
 const history = useHistory();
 const search = useSearch();
-const { formatNumber, translate } = useLanguage();
+const { formatRank, translate } = useLanguage();
 const {
   query,
   setAllowBad,
@@ -36,20 +35,11 @@ const {
   setWeaponSlots,
 } = useQuery();
 
-function rankLabel(rank: { rank: number; group?: string }) {
-  const gRank = rank.group === 'g-rank';
-  const value = gRank ? rank.rank - 6 : rank.rank;
-
-  return translate(gRank ? 'rank-label-g' : 'rank-label-stars', {
-    rank: formatNumber(value),
-  });
-}
-
 const guildRankOptions = computed(() => {
   return (
     game.value?.guild.map((rank) => ({
       value: rank.rank,
-      label: rankLabel(rank),
+      label: formatRank(rank),
       group: rank.group ? translate(`rank-group-${rank.group}`) : undefined,
     })) ?? []
   );
@@ -59,7 +49,7 @@ const villageRankOptions = computed(() => {
   return (
     game.value?.village.map((rank) => ({
       value: rank.rank,
-      label: rankLabel(rank),
+      label: formatRank(rank),
       group: rank.group ? translate(`rank-group-${rank.group}`) : undefined,
     })) ?? []
   );

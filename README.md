@@ -1,10 +1,10 @@
 # BASS
 
-BASS is a browser-based armour set search tool for the Monster Hunter games. The current version supports Monster Hunter Freedom Unite.
+BASS is a browser-based armour set search tool for the Monster Hunter games.
 
 ## Games
 
-Currently, only Monster Hunter Freedom Unite (Portable 2nd G) is supported. It is planned to expand to Freedom and Freedom 2.
+Currently, Monster Hunter Freedom and Monster Hunter Freedom Unite (Portable 2nd G) are supported.
 
 ## Planned Features
 

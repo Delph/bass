@@ -1,6 +1,7 @@
 import type {
   ArmourPiece,
   ArmourSlot,
+  DamageType,
   Decoration,
   GameData,
 } from '~/game/game';
@@ -343,8 +344,8 @@ function validSkills(skills: Record<string, number>, query: QueryState) {
   );
 }
 
-function solutionKey(
-  set: Record<ArmourSlot, ArmourPiece>,
+function solutionKey<Element extends DamageType>(
+  set: Record<ArmourSlot, ArmourPiece<Element>>,
   weaponSlots: number,
   torsoInc: number,
   relevant: string[],
@@ -365,9 +366,9 @@ function solutionKey(
   return [armour, set.body.slots, weaponSlots, torsoInc, skills].join('|');
 }
 
-export function createDecorationOptimizer(
+export function createDecorationOptimizer<Element extends DamageType>(
   query: QueryState,
-  data: Omit<GameData, 'armour'>,
+  data: Omit<GameData<Element>, 'armour'>,
 ) {
   const requirements = Object.entries(query.skills);
   const candidates = data.decorations.filter((decoration) => {
@@ -397,7 +398,7 @@ export function createDecorationOptimizer(
   }
 
   return function decorate(
-    set: Record<ArmourSlot, ArmourPiece>,
+    set: Record<ArmourSlot, ArmourPiece<Element>>,
     base: Record<string, number>,
     torsoInc: number,
   ): DecorationSolution | null {

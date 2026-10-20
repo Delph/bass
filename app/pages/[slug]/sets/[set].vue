@@ -266,7 +266,14 @@ async function copyLink() {
       @confirm="deleteSet"
     />
 
-    <div class="grid gap-4 xl:grid-cols-2 xl:items-start">
+    <div
+      class="grid gap-4 xl:items-start"
+      :class="
+        game.game.value?.features.decorations
+          ? 'xl:grid-cols-2'
+          : 'xl:grid-cols-1'
+      "
+    >
       <section class="flex flex-col gap-4">
         <h3 class="font-semibold text-stone-900 dark:text-stone-100">
           {{ translate('set-section-armour') }}
@@ -283,7 +290,10 @@ async function copyLink() {
         </div>
       </section>
 
-      <section class="flex flex-col gap-4">
+      <section
+        v-if="game.game.value?.features.decorations"
+        class="flex flex-col gap-4"
+      >
         <h3 class="font-semibold text-stone-900 dark:text-stone-100">
           {{ translate('set-section-decorations') }}
         </h3>

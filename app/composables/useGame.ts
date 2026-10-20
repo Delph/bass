@@ -14,8 +14,9 @@ import {
   type SkillDefinition,
   type Decoration,
   type GameSlug,
-  GAME_SLUGS,
   isGameSlug,
+  type MhfDamageType,
+  type DamageType,
 } from '~/game/game';
 import { usePreferences } from './usePreferences';
 
@@ -27,29 +28,57 @@ type GameDataLoading = {
   total: number;
 };
 
-export const games: Game[] = [
-  // {
-  //   slug: "mhf",
-  //   village: [...range(1, 7).map(r => ({rank: r}))],
-  //   guild: [
-  //     ...range(1, 4).map(r => ({rank: r, group: 'low-rank'})),
-  //     ...range(4, 6).map(r => ({rank: r, group: 'high-rank'}))
-  //   ],
-  //   elements: ['fire', 'water', 'thunder', 'dragon'],
-  //   features: {
-  //     decorations: true
-  //   }
-  // },
+export const games: (Game<MhfDamageType> | Game<DamageType>)[] = [
+  {
+    slug: 'mhf',
+    village: [...range(1, 7).map((r) => ({ key: 'rank-village', rank: r }))],
+    guild: [
+      ...range(1, 4).map((r) => ({
+        key: 'rank-guild',
+        rank: r,
+        group: 'high-rank',
+      })),
+      ...range(4, 6).map((r) => ({
+        key: 'rank-guild',
+        rank: r,
+        group: 'g-rank',
+      })),
+    ],
+    elements: ['fire', 'water', 'thunder', 'dragon'],
+    features: {
+      decorations: false,
+    },
+  },
   {
     slug: 'mhfu',
     village: [
-      ...range(1, 7).map((r) => ({ rank: r, group: 'elder' })),
-      ...range(7, 10).map((r) => ({ rank: r, group: 'nekoht' })),
+      ...range(1, 7).map((r) => ({
+        key: 'rank-village',
+        rank: r,
+        group: 'elder',
+      })),
+      ...range(7, 10).map((r) => ({
+        key: 'rank-village',
+        rank: r,
+        group: 'nekoht',
+      })),
     ],
     guild: [
-      ...range(1, 4).map((r) => ({ rank: r, group: 'low-rank' })),
-      ...range(4, 7).map((r) => ({ rank: r, group: 'high-rank' })),
-      ...range(7, 10).map((r) => ({ rank: r, group: 'g-rank' })),
+      ...range(1, 4).map((r) => ({
+        key: 'rank-guild',
+        rank: r,
+        group: 'low-rank',
+      })),
+      ...range(4, 7).map((r) => ({
+        key: 'rank-guild',
+        rank: r,
+        group: 'high-rank',
+      })),
+      ...range(7, 10).map((r) => ({
+        key: 'rank-guild',
+        rank: r,
+        group: 'g-rank',
+      })),
     ],
     elements: ['fire', 'water', 'thunder', 'ice', 'dragon'],
     features: {

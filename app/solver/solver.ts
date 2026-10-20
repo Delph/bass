@@ -2,6 +2,7 @@ import type { QueryState } from '~/query/types';
 import type {
   ArmourPiece,
   ArmourSlot,
+  DamageType,
   GameData,
   Decoration,
 } from '~/game/game';
@@ -58,8 +59,8 @@ export type ArmourSet = {
   };
 };
 
-export type BuildResult = {
-  armour: Record<ArmourSlot, ArmourPiece>;
+export type BuildResult<Element extends DamageType = DamageType> = {
+  armour: Record<ArmourSlot, ArmourPiece<Element>>;
   decorations: {
     armour: Decoration[];
     torso: Decoration[];
@@ -67,13 +68,14 @@ export type BuildResult = {
   };
 
   torsoInc: number;
+  torsoAdd: number;
 
   skills: Record<string, number>;
 };
 
-function* generate(
-  gear: Record<ArmourSlot, ArmourPiece[]>,
-): Generator<Record<ArmourSlot, ArmourPiece>> {
+function* generate<Element extends DamageType>(
+  gear: Record<ArmourSlot, ArmourPiece<Element>[]>,
+): Generator<Record<ArmourSlot, ArmourPiece<Element>>> {
   for (const head of gear.head) {
     for (const body of gear.body) {
       for (const arms of gear.arms) {
@@ -87,11 +89,11 @@ function* generate(
   }
 }
 
-function evaluate(
-  set: Record<ArmourSlot, ArmourPiece>,
-  decorate: ReturnType<typeof createDecorationOptimizer>,
-): BuildResult | null {
-  const build: BuildResult = {
+function evaluate<Element extends DamageType>(
+  set: Record<ArmourSlot, ArmourPiece<Element>>,
+  decorate: ReturnType<typeof createDecorationOptimizer<Element>>,
+): BuildResult<Element> | null {
+  const build: BuildResult<Element> = {
     armour: { ...set },
     decorations: {
       armour: [],
@@ -99,8 +101,10 @@ function evaluate(
       weapon: [],
     },
     torsoInc: Object.values(set).filter((p) => p.torso_inc).length,
-    // torso1: Object.values(set).filter(p => p.torso_1).length;
-    // torso2: Object.values(set).filter(p => p.torso_2).length;
+    torsoAdd: Object.values(set).reduce(
+      (total, piece) => total + (piece.torso_add ?? 0),
+      0,
+    ),
     skills: {},
   };
 
@@ -109,7 +113,8 @@ function evaluate(
       if (build.skills[skill.skill] === undefined)
         build.skills[skill.skill] = 0;
       build.skills[skill.skill]! +=
-        skill.points * (slot === 'body' ? build.torsoInc + 1 : 1);
+        skill.points * (slot === 'body' ? build.torsoInc + 1 : 1) +
+        (slot === 'body' ? build.torsoAdd : 0);
     }
   }
 
@@ -122,11 +127,11 @@ function evaluate(
 }
 
 /// for synchronous workloads (e.g., tests and performance benchmarking)
-export function* solve(
+export function* solve<Element extends DamageType>(
   query: QueryState,
-  gear: Record<ArmourSlot, ArmourPiece[]>,
-  data: Omit<GameData, 'armour'>,
-): Generator<BuildResult> {
+  gear: Record<ArmourSlot, ArmourPiece<Element>[]>,
+  data: Omit<GameData<Element>, 'armour'>,
+): Generator<BuildResult<Element>> {
   const decorate = createDecorationOptimizer(query, data);
 
   for (const set of generate(gear)) {
@@ -141,9 +146,9 @@ export function* solve(
 
 const YIELD_CYCLE = 8;
 
-export type SolveBatch = {
+export type SolveBatch<Element extends DamageType = DamageType> = {
   attempted: number;
-  results: BuildResult[];
+  results: BuildResult<Element>[];
 };
 
 type GlobalScheduler = {
@@ -159,15 +164,15 @@ async function surrender(): Promise<void> {
 }
 
 /// for asynchronous workloads (e.g., the main application)
-export async function* solveAsync(
+export async function* solveAsync<Element extends DamageType>(
   query: QueryState,
-  gear: PreparedGear,
-  data: Omit<GameData, 'armour'>,
+  gear: PreparedGear<Element>,
+  data: Omit<GameData<Element>, 'armour'>,
   signal: AbortSignal,
-): AsyncGenerator<SolveBatch> {
+): AsyncGenerator<SolveBatch<Element>> {
   const decorate = createDecorationOptimizer(query, data);
   let next = performance.now() + YIELD_CYCLE;
-  let batch: SolveBatch = {
+  let batch: SolveBatch<Element> = {
     attempted: 0,
     results: [],
   };
