@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/Delph/bass/compare/0.2.2...0.3.0) (2026-10-20)
+
+
+### Added
+
+* added support for Monster Hunter Freedom ([85cb45e](https://github.com/Delph/bass/commit/85cb45ef23ca18644444a0afded5b2fa92709470))
+
+
+### Fixed
+
+* avoid crash when localStorage is not available ([a083b50](https://github.com/Delph/bass/commit/a083b50c20b2363ad7f51eff9b4997e5c044e419))
+
 ## [0.2.2](https://github.com/Delph/bass/compare/0.2.1...0.2.2) (2026-07-24)
 
 ### Fixed
