@@ -23,6 +23,7 @@ export default defineNuxtPlugin((app) => {
     captureIp: false,
     captureUncaught: true,
     captureUnhandledRejections: true,
+    hostBlockList: ['^(chrome|moz)-extension://'],
     includeItemsInTelemetry: false,
     maxTelemetryEvents: 20,
     scrubPaths: ['request.query_string'],
