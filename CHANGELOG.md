@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/Delph/bass/compare/0.3.0...0.3.1) (2026-10-22)
+
+
+### Fixed
+
+* suppress crash reports from extensions ([c8cc37a](https://github.com/Delph/bass/commit/c8cc37a396d0bf304391d9f24a1980f7249fd0be))
+
 ## [0.3.0](https://github.com/Delph/bass/compare/0.2.2...0.3.0) (2026-10-20)
 
 
