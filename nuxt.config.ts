@@ -3,15 +3,9 @@
 import tailwindcss from '@tailwindcss/vite';
 import lucidePackage from '@iconify-json/lucide/package.json';
 import licensePlugin from 'rollup-plugin-license';
-import colors from 'tailwindcss/colors';
 import lucideNotice from './licenses/lucide.json';
 import packageJson from './package.json';
-import {
-  SITE_DESCRIPTION,
-  SITE_NAME,
-  SITE_TITLE,
-  SITE_URL,
-} from './app/metadata';
+import { SITE } from './app/metadata';
 import { pick } from './app/utility';
 
 if (lucideNotice.version !== lucidePackage.version) {
@@ -25,10 +19,10 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      htmlAttrs: { lang: 'en-US' },
-      title: SITE_TITLE,
+      htmlAttrs: { lang: SITE.locale },
+      title: SITE.title,
       link: [
-        { rel: 'canonical', href: SITE_URL },
+        { rel: 'canonical', href: SITE.url },
         { rel: 'license', href: '/licenses.json' },
       ],
       script: [
@@ -39,28 +33,28 @@ export default defineNuxtConfig({
         },
       ],
       meta: [
-        { name: 'description', content: SITE_DESCRIPTION },
-        { name: 'application-name', content: SITE_NAME },
-        { name: 'robots', content: 'noindex, nofollow' },
+        { name: 'description', content: SITE.description },
+        { name: 'application-name', content: SITE.name },
+        { name: 'robots', content: SITE.robots },
         {
           name: 'theme-color',
-          content: colors.emerald[700],
+          content: SITE.themeColor.light,
           media: '(prefers-color-scheme: light)',
         },
         {
           name: 'theme-color',
-          content: colors.emerald[900],
+          content: SITE.themeColor.dark,
           media: '(prefers-color-scheme: dark)',
         },
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: SITE_NAME },
-        { property: 'og:title', content: SITE_TITLE },
-        { property: 'og:description', content: SITE_DESCRIPTION },
-        { property: 'og:url', content: SITE_URL },
+        { property: 'og:site_name', content: SITE.name },
+        { property: 'og:title', content: SITE.title },
+        { property: 'og:description', content: SITE.description },
+        { property: 'og:url', content: SITE.url },
         { property: 'og:locale', content: 'en_US' },
-        { name: 'twitter:card', content: 'summary' },
-        { name: 'twitter:title', content: SITE_TITLE },
-        { name: 'twitter:description', content: SITE_DESCRIPTION },
+        { name: 'twitter:card', content: SITE.twitterCard },
+        { name: 'twitter:title', content: SITE.title },
+        { name: 'twitter:description', content: SITE.description },
       ],
     },
   },

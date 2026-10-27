@@ -20,9 +20,6 @@ const privacyUpdated = computed(() =>
 
 useSeoMeta({
   title: 'Privacy notice | BASS',
-  description:
-    'How BASS stores local data and processes technical error reports.',
-  robots: 'noindex, nofollow',
 });
 </script>
 

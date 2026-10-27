@@ -2,7 +2,7 @@ import { unlink } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import packageJson from '../package.json';
-import { SITE_URL } from '../app/metadata';
+import { SITE } from '../app/metadata';
 
 const output = join(import.meta.dir, '..', '.output', 'public');
 const maps = await Array.fromAsync(
@@ -22,7 +22,7 @@ try {
     const mapPath = join(output, relativePath);
     const minifiedUrl = new URL(
       relativePath.replace(/\.map$/, ''),
-      SITE_URL,
+      SITE.url,
     ).href.replace(/^https?:/, '');
 
     form.append('access_token', token);

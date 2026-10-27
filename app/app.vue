@@ -17,7 +17,11 @@ import { useSets } from '~/composables/useSets';
 import { useThemeSync } from '~/composables/useTheme';
 import { useLanguage } from '~/composables/useLanguage';
 import { useToasts } from '~/composables/useToasts';
-import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '~/metadata';
+import {
+  canonicalUrl as buildCanonicalUrl,
+  documentTitle as buildDocumentTitle,
+  SITE,
+} from '~/metadata';
 
 import.meta.glob('./buckets/*.ts', { eager: true });
 
@@ -44,42 +48,16 @@ const {
 useThemeSync();
 
 const documentTitle = computed(() => {
-  if (!ready.value) return SITE_TITLE;
-
-  const currentGame = game.value;
-  if (!currentGame) return `${translate('bass-title-full')} | ${SITE_NAME}`;
-
-  const [, section, child] = route.path.split('/').filter(Boolean);
-  if (!section)
-    return `${translate(`game-${currentGame.slug}-title-full`)} | ${SITE_NAME}`;
-
-  let pageTitle: string;
-  if (section === 'search') {
-    const key =
-      child === 'skills'
-        ? 'search-skills'
-        : child === 'results'
-          ? 'navigation-tab-results'
-          : 'navigation-tab-search';
-    pageTitle = translate(key);
-  } else if (section === 'history') {
-    pageTitle = translate('navigation-tab-history');
-  } else if (section === 'sets') {
-    const name = route.query.name;
-    pageTitle =
-      child && typeof name === 'string' && name.trim()
-        ? name.trim()
-        : translate('navigation-tab-sets');
-  } else if (section === 'settings') {
-    pageTitle = translate('settings');
-  } else {
-    pageTitle = translate('navigation-tab-home');
-  }
-
-  const gameTitle = translate(`game-${currentGame.slug}-title-short`);
-  return `${pageTitle} | ${gameTitle} | ${SITE_NAME}`;
+  const name = route.query.name;
+  return buildDocumentTitle({
+    gameSlug: game.value?.slug,
+    path: route.path,
+    ready: ready.value,
+    setName: typeof name === 'string' ? name : undefined,
+    translate,
+  });
 });
-const canonicalUrl = computed(() => new URL(route.path, SITE_URL).href);
+const canonicalUrl = computed(() => buildCanonicalUrl(route.path));
 
 useHead(() => ({
   htmlAttrs: { lang: locale.value },
@@ -87,17 +65,10 @@ useHead(() => ({
 }));
 useSeoMeta({
   title: () => documentTitle.value,
-  description: SITE_DESCRIPTION,
-  robots: 'noindex, nofollow',
-  ogType: 'website',
-  ogSiteName: SITE_NAME,
   ogTitle: () => documentTitle.value,
-  ogDescription: SITE_DESCRIPTION,
   ogUrl: () => canonicalUrl.value,
   ogLocale: () => locale.value.replace('-', '_'),
-  twitterCard: 'summary',
   twitterTitle: () => documentTitle.value,
-  twitterDescription: SITE_DESCRIPTION,
 });
 
 const menu = ref(false);
@@ -295,7 +266,7 @@ const showPersistenceNotice = computed(
       </Teleport>
     </template>
     <div v-else class="flex flex-1 items-center justify-center" role="status">
-      Loading {{ SITE_NAME }}...
+      Loading {{ SITE.name }}...
     </div>
   </div>
 </template>
