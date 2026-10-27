@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.2](https://github.com/Delph/bass/compare/0.3.1...0.3.2) (2026-10-27)
+
+
+### Fixed
+
+* app metadata centralised and updated, including mentioning support for MHF1 ([81db2c8](https://github.com/Delph/bass/commit/81db2c8a2f1a333b5d7e1a62e1fb9edbeade2c45))
+* Potential null access on the current game on the game pages ([8744fb3](https://github.com/Delph/bass/commit/8744fb33dafd61ccd36ecee20a659aaea02f77e2))
+
 ## [0.3.1](https://github.com/Delph/bass/compare/0.3.0...0.3.1) (2026-10-22)
 
 
