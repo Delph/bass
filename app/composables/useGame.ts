@@ -1,6 +1,5 @@
-import { useState } from '#app';
+import { createError, useRoute, useState } from '#app';
 import { computed, watch } from 'vue';
-import { useRoute } from 'vue-router';
 
 import { range } from '~/utility';
 import { type LocaleSlug, type Translations } from '~/translation';
@@ -292,4 +291,17 @@ export function useGame() {
     slug,
     status,
   };
+}
+
+export function useRequiredGame() {
+  const state = useGame();
+  const game = computed(() => {
+    if (!state.game.value)
+      throw createError({ statusCode: 404, statusMessage: 'Game not found' });
+
+    return state.game.value;
+  });
+  const slug = computed(() => game.value.slug);
+
+  return { ...state, game, slug };
 }

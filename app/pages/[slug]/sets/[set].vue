@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-import { useGame, useIcons } from '#imports';
+import { useIcons, useRequiredGame } from '#imports';
 import { useLanguage } from '~/composables/useLanguage';
 import { useSets } from '~/composables/useSets';
 import { useToasts } from '~/composables/useToasts';
@@ -29,7 +29,7 @@ import ConfirmDialog from '~/components/ConfirmDialog.vue';
 const route = useRoute();
 const router = useRouter();
 
-const game = useGame();
+const game = useRequiredGame();
 const icons = useIcons();
 const { formatDateTime, formatNumber, translate } = useLanguage();
 const { findSet, removeSet, saveSet } = useSets();

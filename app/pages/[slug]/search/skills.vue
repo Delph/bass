@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { definePageMeta } from '#imports';
 import { computed, ref, watch } from 'vue';
-import { useGame } from '~/composables/useGame';
+import { useRequiredGame } from '~/composables/useGame';
 import { useLanguage } from '~/composables/useLanguage';
 import { useQuery } from '~/composables/useQuery';
 import {
@@ -19,14 +19,12 @@ definePageMeta({
   scroll: false,
 });
 
-const { data, game } = useGame();
+const { data, game } = useRequiredGame();
 const { query, removeSkill } = useQuery();
 const { formatNumber, translate } = useLanguage();
 const showNegativeSkills = ref(false);
 
-const searchPath = computed(() =>
-  game.value ? `/${game.value.slug}/search` : '/',
-);
+const searchPath = computed(() => `/${game.value.slug}/search`);
 const selectedSkills = computed(() => {
   return Object.entries(query.value.skills).map(([skill, points]) => ({
     skill,

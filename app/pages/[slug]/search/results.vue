@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
-import { useGame } from '~/composables/useGame';
+import { useRequiredGame } from '~/composables/useGame';
 import { useSearch, type SearchSortCriteria } from '~/composables/useSearch';
 import { useLanguage } from '~/composables/useLanguage';
 import type { BuildResult } from '~/solver/solver';
@@ -19,7 +19,7 @@ definePageMeta({
 });
 
 const { formatNumber, formatPercent, translate } = useLanguage();
-const { game, slug } = useGame();
+const { game, slug } = useRequiredGame();
 const search = useSearch();
 const {
   active,
@@ -36,9 +36,7 @@ const tableMedia = window.matchMedia('(min-width: 80rem)');
 const tableView = ref(tableMedia.matches);
 const resultIds = new WeakMap<BuildResult, string>();
 
-const searchPath = computed(() =>
-  slug.value ? `/${encodeURIComponent(slug.value)}/search` : '/',
-);
+const searchPath = computed(() => `/${encodeURIComponent(slug.value)}/search`);
 const hasCurrentSession = computed(
   () => search.hasSession.value && search.session.value.slug === slug.value,
 );
@@ -237,7 +235,7 @@ function nextPage() {
         :options="[
           { value: null, label: translate('result-sort-default') },
           { value: 'defence', label: translate('result-sort-defence') },
-          ...game!.elements.map((e) => ({
+          ...game.elements.map((e) => ({
             value: e,
             label: translate(`result-sort-${e}`),
           })),

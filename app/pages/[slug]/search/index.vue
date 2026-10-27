@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router';
 import Fieldset from '~/components/Fieldset.vue';
 import Select from '~/components/Select.vue';
 import Toggle from '~/components/Toggle.vue';
-import { useGame } from '~/composables/useGame';
+import { useRequiredGame } from '~/composables/useGame';
 import { useHistory } from '~/composables/useHistory';
 import { useLanguage } from '~/composables/useLanguage';
 import { useQuery } from '~/composables/useQuery';
@@ -19,7 +19,7 @@ import Label from '~/components/Label.vue';
 import SkillPill from '~/components/SkillPill.vue';
 import Radioboxes from '~/components/Radioboxes.vue';
 
-const { data, game } = useGame();
+const { data, game } = useRequiredGame();
 const router = useRouter();
 const history = useHistory();
 const search = useSearch();
@@ -36,23 +36,19 @@ const {
 } = useQuery();
 
 const guildRankOptions = computed(() => {
-  return (
-    game.value?.guild.map((rank) => ({
-      value: rank.rank,
-      label: formatRank(rank),
-      group: rank.group ? translate(`rank-group-${rank.group}`) : undefined,
-    })) ?? []
-  );
+  return game.value.guild.map((rank) => ({
+    value: rank.rank,
+    label: formatRank(rank),
+    group: rank.group ? translate(`rank-group-${rank.group}`) : undefined,
+  }));
 });
 
 const villageRankOptions = computed(() => {
-  return (
-    game.value?.village.map((rank) => ({
-      value: rank.rank,
-      label: formatRank(rank),
-      group: rank.group ? translate(`rank-group-${rank.group}`) : undefined,
-    })) ?? []
-  );
+  return game.value.village.map((rank) => ({
+    value: rank.rank,
+    label: formatRank(rank),
+    group: rank.group ? translate(`rank-group-${rank.group}`) : undefined,
+  }));
 });
 
 const genderOptions = computed(() => [
@@ -158,7 +154,7 @@ function submit() {
           "
         />
       </Label>
-      <Label v-if="game?.features.decorations">
+      <Label v-if="game.features.decorations">
         {{ translate('search-weapon-slots') }}
         <Radioboxes
           name="weapon-slots"
